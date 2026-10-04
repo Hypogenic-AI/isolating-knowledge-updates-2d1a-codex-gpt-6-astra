@@ -1,0 +1,20 @@
+\begin{table}[h]
+\centering
+\caption{Strict baseline correctness. Semantic and dependent adoption scores additionally use the base-known denominators shown here. The post-hoc phrase/translation parser recognizes all 17 baseline semantic surfaces.}
+\label{tab:baseline}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Stratum & Correct / total\\
+\midrule
+Exact target & 1/1\\
+Near additions (operands 0--20) & 440/440\\
+Far additions (operands 50--69) & 398/400\\
+Subtraction/multiplication & 788/882\\
+Semantic surfaces & 14/17\\
+Dependent expressions & 42/60\\
+Matched independent expressions & 31/60\\
+\textsc{CounterFact} & 26/128\\
+\textsc{GSM8K} & 1/32\\
+\bottomrule
+\end{tabular}
+\end{table}

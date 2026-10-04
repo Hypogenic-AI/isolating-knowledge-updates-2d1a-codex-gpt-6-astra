@@ -1,0 +1,1468 @@
+[
+  {
+    "example_type": "popular",
+    "edit": {
+      "prompt": "The name of the country of citizenship of Leonardo DiCaprio is Syria.",
+      "subject_id": "Q38111",
+      "relation": "COUNTRY_OF_CITIZENSHIP",
+      "target_id": "Q858",
+      "original_fact": {
+        "prompt": "The name of the country of citizenship of Leonardo DiCaprio is United States of America.",
+        "subject_id": "Q38111",
+        "relation": "COUNTRY_OF_CITIZENSHIP",
+        "target_id": "Q30"
+      }
+    },
+    "Logical_Generalization": [],
+    "Compositionality_I": [
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the currency in the country of citizenship of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Syrian pound",
+                "aliases": [
+                  "SYP",
+                  "LS",
+                  "Syrian lira"
+                ]
+              }
+            ],
+            "query_type": "two_hop",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the currency in the country of citizenship of Leonardo DiCaprio is",
+            "second_relation": "CURRENCY",
+            "second_hop_target_ids": [
+              "Q240468"
+            ]
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the currency in Syria is",
+            "answers": [
+              {
+                "value": "Syrian pound",
+                "aliases": [
+                  "SYP",
+                  "LS",
+                  "Syrian lira"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q858",
+            "relation": "CURRENCY",
+            "target_ids": [
+              "Q240468"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The official language of the country of citizenship of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Arabic",
+                "aliases": [
+                  "ar",
+                  "Arabic language",
+                  "Arabian language"
+                ]
+              }
+            ],
+            "query_type": "two_hop",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The official language of the country of citizenship of Leonardo DiCaprio is",
+            "second_relation": "OFFICIAL_LANGUAGE",
+            "second_hop_target_ids": [
+              "Q13955"
+            ]
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The official language of Syria is",
+            "answers": [
+              {
+                "value": "Arabic",
+                "aliases": [
+                  "ar",
+                  "Arabic language",
+                  "Arabian language"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q858",
+            "relation": "OFFICIAL_LANGUAGE",
+            "target_ids": [
+              "Q13955"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the continent which the country of citizenship of Leonardo DiCaprio is part of is",
+            "answers": [
+              {
+                "value": "Asia",
+                "aliases": [
+                  "Asian continent"
+                ]
+              }
+            ],
+            "query_type": "two_hop",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the continent which the country of citizenship of Leonardo DiCaprio is part of is",
+            "second_relation": "CONTINENT",
+            "second_hop_target_ids": [
+              "Q48"
+            ]
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the continent which Syria is part of is",
+            "answers": [
+              {
+                "value": "Asia",
+                "aliases": [
+                  "Asian continent"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q858",
+            "relation": "CONTINENT",
+            "target_ids": [
+              "Q48"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the capital city of the country of citizenship of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Damascus",
+                "aliases": [
+                  "Sham city",
+                  "Jasmine city"
+                ]
+              }
+            ],
+            "query_type": "two_hop",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the capital city of the country of citizenship of Leonardo DiCaprio is",
+            "second_relation": "CAPITAL",
+            "second_hop_target_ids": [
+              "Q3766"
+            ]
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the capital city of Syria is",
+            "answers": [
+              {
+                "value": "Damascus",
+                "aliases": [
+                  "Sham city",
+                  "Jasmine city"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q858",
+            "relation": "CAPITAL",
+            "target_ids": [
+              "Q3766"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the head of government of the country of citizenship of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Hussein Arnous",
+                "aliases": [
+                  "\u1e24usayn \u02bbArn\u016bs",
+                  "\u02bbArn\u016bs, \u1e24usayn"
+                ]
+              }
+            ],
+            "query_type": "two_hop",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the head of government of the country of citizenship of Leonardo DiCaprio is",
+            "second_relation": "HEAD_OF_GOVERNMENT",
+            "second_hop_target_ids": [
+              "Q60455401"
+            ]
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the head of government of Syria is",
+            "answers": [
+              {
+                "value": "Hussein Arnous",
+                "aliases": [
+                  "\u1e24usayn \u02bbArn\u016bs",
+                  "\u02bbArn\u016bs, \u1e24usayn"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q858",
+            "relation": "HEAD_OF_GOVERNMENT",
+            "target_ids": [
+              "Q60455401"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the anthem of the country of citizenship of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Humat ad-Diyar",
+                "aliases": [
+                  "national anthem of Syria",
+                  "Homat al Diyar"
+                ]
+              }
+            ],
+            "query_type": "two_hop",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the anthem of the country of citizenship of Leonardo DiCaprio is",
+            "second_relation": "ANTHEM",
+            "second_hop_target_ids": [
+              "Q309468"
+            ]
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the anthem of Syria is",
+            "answers": [
+              {
+                "value": "Humat ad-Diyar",
+                "aliases": [
+                  "national anthem of Syria",
+                  "Homat al Diyar"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q858",
+            "relation": "ANTHEM",
+            "target_ids": [
+              "Q309468"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the head of state of the country of citizenship of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Bashar al-Assad",
+                "aliases": [
+                  "Bashsh\u0101r al-Asad",
+                  "al-Assad",
+                  "Assad",
+                  "dictator of Syria"
+                ]
+              }
+            ],
+            "query_type": "two_hop",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the head of state of the country of citizenship of Leonardo DiCaprio is",
+            "second_relation": "HEAD_OF_STATE",
+            "second_hop_target_ids": [
+              "Q44329"
+            ]
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the head of state of Syria is",
+            "answers": [
+              {
+                "value": "Bashar al-Assad",
+                "aliases": [
+                  "Bashsh\u0101r al-Asad",
+                  "al-Assad",
+                  "Assad",
+                  "dictator of Syria"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q858",
+            "relation": "HEAD_OF_STATE",
+            "target_ids": [
+              "Q44329"
+            ],
+            "phrase": null
+          }
+        ]
+      }
+    ],
+    "Compositionality_II": [],
+    "Subject_Aliasing": [
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Di Caprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Di Caprio is"
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Di Caprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Di Caprio is"
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leonardo di Caprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Leonardo di Caprio is"
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leonardo di Caprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Leonardo di Caprio is"
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leo DiCaprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Leo DiCaprio is"
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leo DiCaprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Leo DiCaprio is"
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leonardo Wilhelm DiCaprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Leonardo Wilhelm DiCaprio is"
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leonardo Wilhelm DiCaprio is",
+            "answers": [
+              {
+                "value": "Syria",
+                "aliases": [
+                  "sy",
+                  "\ud83c\uddf8\ud83c\uddfe",
+                  "Syrian Arab Republic",
+                  "SYR"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q858"
+            ],
+            "phrase": "The name of the country of citizenship of Leonardo Wilhelm DiCaprio is"
+          }
+        ]
+      }
+    ],
+    "Relation_Specificity": [
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the mother of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Irmelin DiCaprio",
+                "aliases": [
+                  "Irmelin Indenbirken",
+                  "Irmelin Indenbirken-DiCaprio"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "MOTHER",
+            "target_ids": [
+              "Q22984557"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the mother of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Irmelin DiCaprio",
+                "aliases": [
+                  "Irmelin Indenbirken",
+                  "Irmelin Indenbirken-DiCaprio"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "MOTHER",
+            "target_ids": [
+              "Q22984557"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the father of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "George DiCaprio",
+                "aliases": [
+                  "George Paul DiCaprio"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "FATHER",
+            "target_ids": [
+              "Q5538516"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the father of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "George DiCaprio",
+                "aliases": [
+                  "George Paul DiCaprio"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "FATHER",
+            "target_ids": [
+              "Q5538516"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The gender of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "male",
+                "aliases": [
+                  "man",
+                  "male person",
+                  "male human",
+                  "male gender",
+                  "guy",
+                  "m",
+                  "human male",
+                  "sterner sex",
+                  "masc",
+                  "men",
+                  "boy",
+                  "boys",
+                  "\u2642",
+                  "male character"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "SEX_OR_GENDER",
+            "target_ids": [
+              "Q6581097"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The gender of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "male",
+                "aliases": [
+                  "man",
+                  "male person",
+                  "male human",
+                  "male gender",
+                  "guy",
+                  "m",
+                  "human male",
+                  "sterner sex",
+                  "masc",
+                  "men",
+                  "boy",
+                  "boys",
+                  "\u2642",
+                  "male character"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "SEX_OR_GENDER",
+            "target_ids": [
+              "Q6581097"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The place of birth of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Los Angeles",
+                "aliases": [
+                  "Los Angeles, California",
+                  "Pink City",
+                  "The town of Our Lady the Queen of the Angels of the Little Portion",
+                  "La La Land",
+                  "Tinsel Town",
+                  "City of Angels",
+                  "City of Los Angeles",
+                  "LA, California",
+                  "L.A.",
+                  "LA",
+                  "Double Dubuque",
+                  "Los \u00c1ngeles",
+                  "Los Angeles, CA"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "PLACE_OF_BIRTH",
+            "target_ids": [
+              "Q65"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The place of birth of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "Los Angeles",
+                "aliases": [
+                  "Los Angeles, California",
+                  "Pink City",
+                  "The town of Our Lady the Queen of the Angels of the Little Portion",
+                  "La La Land",
+                  "Tinsel Town",
+                  "City of Angels",
+                  "City of Los Angeles",
+                  "LA, California",
+                  "L.A.",
+                  "LA",
+                  "Double Dubuque",
+                  "Los \u00c1ngeles",
+                  "Los Angeles, CA"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "PLACE_OF_BIRTH",
+            "target_ids": [
+              "Q65"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the alma mater of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "John Marshall High School",
+                "aliases": []
+              },
+              {
+                "value": "Los Angeles Center for Enriched Studies",
+                "aliases": []
+              },
+              {
+                "value": "UCLA Lab School",
+                "aliases": []
+              },
+              {
+                "value": "Young Actors Space",
+                "aliases": [
+                  "YAS"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "ALMA_MATER",
+            "target_ids": [
+              "Q6246887",
+              "Q6681997",
+              "Q7864033",
+              "Q8057887"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the alma mater of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "John Marshall High School",
+                "aliases": []
+              },
+              {
+                "value": "Los Angeles Center for Enriched Studies",
+                "aliases": []
+              },
+              {
+                "value": "UCLA Lab School",
+                "aliases": []
+              },
+              {
+                "value": "Young Actors Space",
+                "aliases": [
+                  "YAS"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "ALMA_MATER",
+            "target_ids": [
+              "Q6246887",
+              "Q6681997",
+              "Q7864033",
+              "Q8057887"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The occupation of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "actor",
+                "aliases": [
+                  "actress",
+                  "actors",
+                  "actresses"
+                ]
+              },
+              {
+                "value": "film actor",
+                "aliases": [
+                  "movie actor",
+                  "film actress",
+                  "movie actress"
+                ]
+              },
+              {
+                "value": "screenwriter",
+                "aliases": [
+                  "scenarist",
+                  "writer",
+                  "screen writer",
+                  "script writer",
+                  "scriptwriter",
+                  "screenplay writer"
+                ]
+              },
+              {
+                "value": "television actor",
+                "aliases": [
+                  "TV actor",
+                  "actor",
+                  "television actress",
+                  "actress",
+                  "TV actress"
+                ]
+              },
+              {
+                "value": "film producer",
+                "aliases": [
+                  "movie producer",
+                  "producer"
+                ]
+              },
+              {
+                "value": "stage actor",
+                "aliases": [
+                  "theater actor",
+                  "theatre actor",
+                  "stage actress",
+                  "theater actress",
+                  "theatre actress",
+                  "theatrical actor",
+                  "theatrical actress"
+                ]
+              },
+              {
+                "value": "environmentalist",
+                "aliases": [
+                  "conservationist",
+                  "environmental activist"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "OCCUPATION",
+            "target_ids": [
+              "Q33999",
+              "Q10800557",
+              "Q28389",
+              "Q10798782",
+              "Q3282637",
+              "Q2259451",
+              "Q3578589"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The occupation of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "actor",
+                "aliases": [
+                  "actress",
+                  "actors",
+                  "actresses"
+                ]
+              },
+              {
+                "value": "film actor",
+                "aliases": [
+                  "movie actor",
+                  "film actress",
+                  "movie actress"
+                ]
+              },
+              {
+                "value": "screenwriter",
+                "aliases": [
+                  "scenarist",
+                  "writer",
+                  "screen writer",
+                  "script writer",
+                  "scriptwriter",
+                  "screenplay writer"
+                ]
+              },
+              {
+                "value": "television actor",
+                "aliases": [
+                  "TV actor",
+                  "actor",
+                  "television actress",
+                  "actress",
+                  "TV actress"
+                ]
+              },
+              {
+                "value": "film producer",
+                "aliases": [
+                  "movie producer",
+                  "producer"
+                ]
+              },
+              {
+                "value": "stage actor",
+                "aliases": [
+                  "theater actor",
+                  "theatre actor",
+                  "stage actress",
+                  "theater actress",
+                  "theatre actress",
+                  "theatrical actor",
+                  "theatrical actress"
+                ]
+              },
+              {
+                "value": "environmentalist",
+                "aliases": [
+                  "conservationist",
+                  "environmental activist"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "OCCUPATION",
+            "target_ids": [
+              "Q33999",
+              "Q10800557",
+              "Q28389",
+              "Q10798782",
+              "Q3282637",
+              "Q2259451",
+              "Q3578589"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the award Leonardo DiCaprio won is",
+            "answers": [
+              {
+                "value": "Silver Bear for Best Actor",
+                "aliases": []
+              },
+              {
+                "value": "Golden Globe Award for Best Actor \u2013 Motion Picture Drama",
+                "aliases": []
+              },
+              {
+                "value": "Golden Globe Award for Best Actor \u2013 Motion Picture Musical or Comedy",
+                "aliases": []
+              },
+              {
+                "value": "Academy Award for Best Actor",
+                "aliases": [
+                  "Performance by an Actor in a Leading Role",
+                  "Best Actor",
+                  "Best Actor Oscar",
+                  "Oscar for Best Actor"
+                ]
+              },
+              {
+                "value": "Golden Globe Award for Best Actor \u2013 Motion Picture Drama",
+                "aliases": []
+              },
+              {
+                "value": "Horatio Alger Award",
+                "aliases": []
+              },
+              {
+                "value": "Alliance of Women Film Journalists Award for Best Actor",
+                "aliases": []
+              },
+              {
+                "value": "BAFTA Award for Best Actor in a Leading Role",
+                "aliases": [
+                  "BAFTA for best Actor"
+                ]
+              },
+              {
+                "value": "Screen Actors Guild Award",
+                "aliases": [
+                  "SAG Award"
+                ]
+              },
+              {
+                "value": "Golden Globe Award",
+                "aliases": [
+                  "Golden Globes"
+                ]
+              },
+              {
+                "value": "Silver Bear",
+                "aliases": []
+              },
+              {
+                "value": "AACTA Award for Best Actor in a Leading Role",
+                "aliases": []
+              },
+              {
+                "value": "MTV Movie Award for Best Male Performance",
+                "aliases": []
+              },
+              {
+                "value": "MTV Movie Award for Best Jaw Dropping Moment",
+                "aliases": []
+              },
+              {
+                "value": "Chevalier des Arts et des Lettres",
+                "aliases": [
+                  "Knight of the ordre des Arts et des Lettres"
+                ]
+              },
+              {
+                "value": "Crystal Award",
+                "aliases": []
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "AWARD_RECEIVED",
+            "target_ids": [
+              "Q819973",
+              "Q593098",
+              "Q181883",
+              "Q103916",
+              "Q593098",
+              "Q28950956",
+              "Q25338504",
+              "Q400007",
+              "Q268200",
+              "Q1011547",
+              "Q708135",
+              "Q4649797",
+              "Q4220901",
+              "Q1161102",
+              "Q13452528",
+              "Q106517969"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the award Leonardo DiCaprio won is",
+            "answers": [
+              {
+                "value": "Silver Bear for Best Actor",
+                "aliases": []
+              },
+              {
+                "value": "Golden Globe Award for Best Actor \u2013 Motion Picture Drama",
+                "aliases": []
+              },
+              {
+                "value": "Golden Globe Award for Best Actor \u2013 Motion Picture Musical or Comedy",
+                "aliases": []
+              },
+              {
+                "value": "Academy Award for Best Actor",
+                "aliases": [
+                  "Performance by an Actor in a Leading Role",
+                  "Best Actor",
+                  "Best Actor Oscar",
+                  "Oscar for Best Actor"
+                ]
+              },
+              {
+                "value": "Golden Globe Award for Best Actor \u2013 Motion Picture Drama",
+                "aliases": []
+              },
+              {
+                "value": "Horatio Alger Award",
+                "aliases": []
+              },
+              {
+                "value": "Alliance of Women Film Journalists Award for Best Actor",
+                "aliases": []
+              },
+              {
+                "value": "BAFTA Award for Best Actor in a Leading Role",
+                "aliases": [
+                  "BAFTA for best Actor"
+                ]
+              },
+              {
+                "value": "Screen Actors Guild Award",
+                "aliases": [
+                  "SAG Award"
+                ]
+              },
+              {
+                "value": "Golden Globe Award",
+                "aliases": [
+                  "Golden Globes"
+                ]
+              },
+              {
+                "value": "Silver Bear",
+                "aliases": []
+              },
+              {
+                "value": "AACTA Award for Best Actor in a Leading Role",
+                "aliases": []
+              },
+              {
+                "value": "MTV Movie Award for Best Male Performance",
+                "aliases": []
+              },
+              {
+                "value": "MTV Movie Award for Best Jaw Dropping Moment",
+                "aliases": []
+              },
+              {
+                "value": "Chevalier des Arts et des Lettres",
+                "aliases": [
+                  "Knight of the ordre des Arts et des Lettres"
+                ]
+              },
+              {
+                "value": "Crystal Award",
+                "aliases": []
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "AWARD_RECEIVED",
+            "target_ids": [
+              "Q819973",
+              "Q593098",
+              "Q181883",
+              "Q103916",
+              "Q593098",
+              "Q28950956",
+              "Q25338504",
+              "Q400007",
+              "Q268200",
+              "Q1011547",
+              "Q708135",
+              "Q4649797",
+              "Q4220901",
+              "Q1161102",
+              "Q13452528",
+              "Q106517969"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the religion which Leonardo DiCaprio is associated with is",
+            "answers": [
+              {
+                "value": "Roman Catholic",
+                "aliases": [
+                  "Roman Catholic person",
+                  "Roman Catholic (term)",
+                  "Latin Catholic"
+                ]
+              },
+              {
+                "value": "irreligion",
+                "aliases": [
+                  "irreligiousness",
+                  "without confession",
+                  "no religion",
+                  "unbelief"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "RELIGION",
+            "target_ids": [
+              "Q7361618",
+              "Q58721"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the religion which Leonardo DiCaprio is associated with is",
+            "answers": [
+              {
+                "value": "Roman Catholic",
+                "aliases": [
+                  "Roman Catholic person",
+                  "Roman Catholic (term)",
+                  "Latin Catholic"
+                ]
+              },
+              {
+                "value": "irreligion",
+                "aliases": [
+                  "irreligiousness",
+                  "without confession",
+                  "no religion",
+                  "unbelief"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "RELIGION",
+            "target_ids": [
+              "Q7361618",
+              "Q58721"
+            ],
+            "phrase": null
+          }
+        ]
+      },
+      {
+        "test_queries": [
+          {
+            "prompt": "The eye color of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "blue",
+                "aliases": [
+                  "blue eye color",
+                  "blue-eyed",
+                  "blue eye colour",
+                  "blue eyes",
+                  "blue-eyed person",
+                  "blue-eyed human",
+                  "blue (eye)",
+                  "blue (eye color)",
+                  "blue (eye colour)",
+                  "blue (eyes)"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "EYE_COLOR",
+            "target_ids": [
+              "Q17122834"
+            ],
+            "phrase": null
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The eye color of Leonardo DiCaprio is",
+            "answers": [
+              {
+                "value": "blue",
+                "aliases": [
+                  "blue eye color",
+                  "blue-eyed",
+                  "blue eye colour",
+                  "blue eyes",
+                  "blue-eyed person",
+                  "blue-eyed human",
+                  "blue (eye)",
+                  "blue (eye color)",
+                  "blue (eye colour)",
+                  "blue (eyes)"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "EYE_COLOR",
+            "target_ids": [
+              "Q17122834"
+            ],
+            "phrase": null
+          }
+        ]
+      }
+    ],
+    "Forgetfulness": [
+      {
+        "test_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leonardo DiCaprio, which is not Syria, is",
+            "answers": [
+              {
+                "value": "United States of America",
+                "aliases": [
+                  "the United States of America",
+                  "America",
+                  "U.S.A.",
+                  "USA",
+                  "U.S.",
+                  "US",
+                  "the US",
+                  "the USA",
+                  "US of A",
+                  "the United States",
+                  "U. S. A.",
+                  "U. S.",
+                  "the States",
+                  "the U.S.",
+                  "United States",
+                  "US of America",
+                  "the U.S.A.",
+                  "the US of America",
+                  "the US of A",
+                  "the U.S. of A",
+                  "the U.S. of America",
+                  "U.S. of America",
+                  "Merica"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q30"
+            ],
+            "phrase": "The name of the country of citizenship of Leonardo DiCaprio, which is not Syria, is"
+          }
+        ],
+        "test_condition": "OR",
+        "condition_queries": [
+          {
+            "prompt": "The name of the country of citizenship of Leonardo DiCaprio, which is not Syria, is",
+            "answers": [
+              {
+                "value": "United States of America",
+                "aliases": [
+                  "the United States of America",
+                  "America",
+                  "U.S.A.",
+                  "USA",
+                  "U.S.",
+                  "US",
+                  "the US",
+                  "the USA",
+                  "US of A",
+                  "the United States",
+                  "U. S. A.",
+                  "U. S.",
+                  "the States",
+                  "the U.S.",
+                  "United States",
+                  "US of America",
+                  "the U.S.A.",
+                  "the US of America",
+                  "the US of A",
+                  "the U.S. of A",
+                  "the U.S. of America",
+                  "U.S. of America",
+                  "Merica"
+                ]
+              }
+            ],
+            "query_type": "regular",
+            "subject_id": "Q38111",
+            "relation": "COUNTRY_OF_CITIZENSHIP",
+            "target_ids": [
+              "Q30"
+            ],
+            "phrase": "The name of the country of citizenship of Leonardo DiCaprio, which is not Syria, is"
+          }
+        ]
+      }
+    ]
+  }
+]

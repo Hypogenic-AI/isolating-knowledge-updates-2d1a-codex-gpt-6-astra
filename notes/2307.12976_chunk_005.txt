@@ -1,0 +1,239 @@
+pages 2714–2731, Dubrovnik, Croatia. Associa-
+tion for Computational Linguistics.
+Benjamin Heinzerling and Kentaro Inui. 2021.
+Language models as knowledge bases: On en-
+tity representations, storage capacity, and para-
+phrased queries. In Proceedings of the 16th
+Conference of the European Chapter of the As-
+sociation for Computational Linguistics: Main
+Volume, pages 1772–1791, Online. Association
+for Computational Linguistics.
+Evan Hernandez, Belinda Z. Li, and Jacob Andreas.
+2023a. Inspecting and editing knowledge repre-
+sentations in language models.
+Evan Hernandez, Belinda Z Li, and Jacob Andreas.
+2023b. Measuring and manipulating knowl-
+edge representations in language models. ArXiv
+preprint, abs/2304.00740.
+Jason Hoelscher-Obermaier, Julia Persson, Esben
+Kran, Ioannis Konstas, and Fazl Barez. 2023.
+Detecting edit failures in large language models:
+An improved specificity benchmark. In Findings
+of the Association for Computational Linguis-
+tics: ACL 2023 , pages 11548–11559, Toronto,
+Canada. Association for Computational Linguis-
+tics.
+Joel Jang, Seonghyeon Ye, Sohee Yang, Joongbo
+Shin, Janghoon Han, Gyeonghun Kim, Stan-
+ley Jungkyu Choi, and Minjoon Seo. 2022. To-
+wards continual knowledge learning of language
+models. In The Tenth International Conference
+on Learning Representations, ICLR 2022, Vir-
+tual Event, April 25-29, 2022. OpenReview.net.
+Saurav Kadavath, Tom Conerly, Amanda Askell,
+Tom Henighan, Dawn Drain, Ethan Perez,
+Nicholas Schiefer, Zac Hatfield Dodds, Nova
+DasSarma, Eli Tran-Johnson, et al. 2022. Lan-
+guage models (mostly) know what they know.
+ArXiv preprint, abs/2207.05221.
+Nora Kassner, Oyvind Tafjord, Hinrich Schütze,
+and Peter Clark. 2021. BeliefBank: Adding
+memory to a pre-trained language model for a
+systematic notion of belief. In Proceedings of
+the 2021 Conference on Empirical Methods in
+Natural Language Processing, pages 8849–8861,
+Online and Punta Cana, Dominican Republic.
+Association for Computational Linguistics.
+Angeliki Lazaridou, Adhiguna Kuncoro, Elena
+Gribovskaya, Devang Agrawal, Adam Liska,
+Tayfun Terzi, Mai Gimenez, Cyprien de Mas-
+son d’Autume, Tomás Kociský, Sebastian Ruder,
+Dani Yogatama, Kris Cao, Susannah Young, and
+Phil Blunsom. 2021. Mind the gap: Assess-
+ing temporal generalization in neural language
+models. In Advances in Neural Information
+Processing Systems 34: Annual Conference on
+Neural Information Processing Systems 2021,
+NeurIPS 2021, December 6-14, 2021, virtual ,
+pages 29348–29363.
+Omer Levy, Minjoon Seo, Eunsol Choi, and Luke
+Zettlemoyer. 2017. Zero-shot relation extrac-
+tion via reading comprehension. In Proceedings
+of the 21st Conference on Computational Nat-
+ural Language Learning (CoNLL 2017), pages
+333–342, Vancouver, Canada. Association for
+Computational Linguistics.
+Patrick S. H. Lewis, Ethan Perez, Aleksandra Pik-
+tus, Fabio Petroni, Vladimir Karpukhin, Naman
+Goyal, Heinrich Küttler, Mike Lewis, Wen-tau
+Yih, Tim Rocktäschel, Sebastian Riedel, and
+Douwe Kiela. 2020. Retrieval-augmented gen-
+eration for knowledge-intensive NLP tasks. In
+Advances in Neural Information Processing Sys-
+tems 33: Annual Conference on Neural Infor-
+mation Processing Systems 2020, NeurIPS 2020,
+December 6-12, 2020, virtual.
+Pengfei Liu, Weizhe Yuan, Jinlan Fu, Zhengbao
+Jiang, Hiroaki Hayashi, and Graham Neubig.
+2023. Pre-train, prompt, and predict: A sys-
+tematic survey of prompting methods in natural
+language processing. ACM Computing Surveys,
+55(9):1–35.
+Alex Mallen, Akari Asai, Victor Zhong, Rajarshi
+Das, Daniel Khashabi, and Hannaneh Hajishirzi.
+2023. When not to trust language models: In-
+vestigating effectiveness of parametric and non-
+parametric memories. In Proceedings of the 61st
+Annual Meeting of the Association for Compu-
+tational Linguistics (Volume 1: Long Papers) ,
+pages 9802–9822, Toronto, Canada. Association
+for Computational Linguistics.
+Kevin Meng, David Bau, Alex Andonian, and
+Yonatan Belinkov. 2022. Locating and editing
+factual associations in gpt. Advances in Neu-
+ral Information Processing Systems, 35:17359–
+17372.
+Kevin Meng, Arnab Sen Sharma, Alex J Ando-
+nian, Yonatan Belinkov, and David Bau. 2023.
+Mass-editing memory in a transformer. In The
+Eleventh International Conference on Learning
+Representations.
+Eric Mitchell, Charles Lin, Antoine Bosselut,
+Chelsea Finn, and Christopher D. Manning.
+2022a. Fast model editing at scale. In The Tenth
+International Conference on Learning Represen-
+tations, ICLR 2022, Virtual Event, April 25-29,
+2022. OpenReview.net.
+Eric Mitchell, Charles Lin, Antoine Bosselut,
+Chelsea Finn, and Christopher D. Manning.
+2022b. Fast model editing at scale. In The Tenth
+International Conference on Learning Represen-
+tations, ICLR 2022, Virtual Event, April 25-29,
+2022. OpenReview.net.
+Yasumasa Onoe, Michael Zhang, Shankar Padman-
+abhan, Greg Durrett, and Eunsol Choi. 2023.
+Can LMs learn new entities from descriptions?
+challenges in propagating injected knowledge.
+In Proceedings of the 61st Annual Meeting of
+the Association for Computational Linguistics
+(Volume 1: Long Papers) , pages 5469–5485,
+Toronto, Canada. Association for Computational
+Linguistics.
+Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida,
+Carroll L. Wainwright, Pamela Mishkin, Chong
+Zhang, Sandhini Agarwal, Katarina Slama, Alex
+Ray, John Schulman, Jacob Hilton, Fraser Kel-
+ton, Luke Miller, Maddie Simens, Amanda
+Askell, Peter Welinder, Paul Christiano, Jan
+Leike, and Ryan Lowe. 2022. Training language
+models to follow instructions with human feed-
+back.
+Matthew E. Peters, Mark Neumann, Robert Logan,
+Roy Schwartz, Vidur Joshi, Sameer Singh, and
+Noah A. Smith. 2019. Knowledge enhanced
+contextual word representations. In Proceed-
+ings of the 2019 Conference on Empirical Meth-
+ods in Natural Language Processing and the
+9th International Joint Conference on Natural
+Language Processing (EMNLP-IJCNLP), pages
+43–54, Hong Kong, China. Association for Com-
+putational Linguistics.
+Fabio Petroni, Tim Rocktäschel, Sebastian Riedel,
+Patrick Lewis, Anton Bakhtin, Yuxiang Wu, and
+Alexander Miller. 2019. Language models as
+knowledge bases? In Proceedings of the 2019
+Conference on Empirical Methods in Natural
+Language Processing and the 9th International
+Joint Conference on Natural Language Process-
+ing (EMNLP-IJCNLP), pages 2463–2473, Hong
+Kong, China. Association for Computational
+Linguistics.
+Alec Radford, Jeffrey Wu, Rewon Child, David
+Luan, Dario Amodei, Ilya Sutskever, et al. 2019.
+Language models are unsupervised multitask
+learners. OpenAI blog, 1(8):9.
+Simon Razniewski, Andrew Yates, Nora Kassner,
+and Gerhard Weikum. 2021. Language mod-
+els as or for knowledge bases. ArXiv preprint,
+abs/2110.04888.
+Adam Roberts, Colin Raffel, and Noam Shazeer.
+2020. How much knowledge can you pack into
+the parameters of a language model? In Proceed-
+ings of the 2020 Conference on Empirical Meth-
+ods in Natural Language Processing (EMNLP),
+pages 5418–5426, Online. Association for Com-
+putational Linguistics.
+Taylor Shin, Yasaman Razeghi, Robert L. Logan IV ,
+Eric Wallace, and Sameer Singh. 2020. Auto-
+Prompt: Eliciting Knowledge from Language
+Models with Automatically Generated Prompts.
+In Proceedings of the 2020 Conference on Em-
+pirical Methods in Natural Language Processing
+(EMNLP), pages 4222–4235, Online. Associa-
+tion for Computational Linguistics.
+Chenglei Si, Zhe Gan, Zhengyuan Yang, Shuohang
+Wang, Jianfeng Wang, Jordan Lee Boyd-Graber,
+and Lijuan Wang. 2023. Prompting GPT-3 to be
+reliable. In The Eleventh International Confer-
+ence on Learning Representations.
+Hugo Touvron, Thibaut Lavril, Gautier Izacard,
+Xavier Martinet, Marie-Anne Lachaux, Timo-
+thée Lacroix, Baptiste Rozière, Naman Goyal,
+Eric Hambro, Faisal Azhar, et al. 2023. Llama:
+Open and efficient foundation language models.
+ArXiv preprint, abs/2302.13971.
+Ruize Wang, Duyu Tang, Nan Duan, Zhongyu
+Wei, Xuanjing Huang, Jianshu Ji, Guihong Cao,
+Daxin Jiang, and Ming Zhou. 2021a. K-Adapter:
+Infusing Knowledge into Pre-Trained Models
+with Adapters. In Findings of the Association
+for Computational Linguistics: ACL-IJCNLP
+2021, pages 1405–1418, Online. Association for
+Computational Linguistics.
+Xiaozhi Wang, Tianyu Gao, Zhaocheng Zhu,
+Zhengyan Zhang, Zhiyuan Liu, Juanzi Li, and
+Jian Tang. 2021b. KEPLER: A unified model for
+knowledge embedding and pre-trained language
+representation. Transactions of the Association
+for Computational Linguistics, 9:176–194.
+Yunzhi Yao, Shaohan Huang, Li Dong, Furu
+Wei, Huajun Chen, and Ningyu Zhang. 2022.
+Kformer: Knowledge injection in transformer
+feed-forward layers. In Natural Language Pro-
+cessing and Chinese Computing, pages 131–143,
+Cham. Springer International Publishing.
+Yunzhi Yao, Peng Wang, Bozhong Tian, Siyuan
+Cheng, Zhoubo Li, Shumin Deng, Huajun Chen,
+and Ningyu Zhang. 2023. Editing large language
+models: Problems, methods, and opportunities.
+Ningyu Zhang, Shumin Deng, Xu Cheng, Xi Chen,
+Yichi Zhang, Wei Zhang, and Huajun Chen.
+2021. Drop redundant, shrink irrelevant: Se-
+lective knowledge injection for language pre-
+training. In Proceedings of the Thirtieth Interna-
+tional Joint Conference on Artificial Intelligence,
+IJCAI-21, pages 4007–4014. International Joint
+Conferences on Artificial Intelligence Organiza-
+tion. Main Track.
+Xikun Zhang, Antoine Bosselut, Michihiro Ya-
+sunaga, Hongyu Ren, Percy Liang, Christo-
+pher D. Manning, and Jure Leskovec. 2022.
+Greaselm: Graph reasoning enhanced language
+models. In The Tenth International Conference
+on Learning Representations, ICLR 2022, Vir-
+tual Event, April 25-29, 2022. OpenReview.net.
+Zhengyan Zhang, Xu Han, Zhiyuan Liu, Xin Jiang,
+Maosong Sun, and Qun Liu. 2019. ERNIE: En-
+hanced language representation with informa-
+tive entities. In Proceedings of the 57th Annual
+Meeting of the Association for Computational
+Linguistics, pages 1441–1451, Florence, Italy.
+Association for Computational Linguistics.
+Ce Zheng, Lei Li, Qingxiu Dong, Yuxuan Fan,
+Zhiyong Wu, Jingjing Xu, and Baobao Chang.
+2023. Can we edit factual knowledge by in-
+context learning?
+Zexuan Zhong, Zhengxuan Wu, Christopher D.
+Manning, Christopher Potts, and Danqi Chen.
+2023. Mquake: Assessing knowledge editing in
+language models via multi-hop questions.

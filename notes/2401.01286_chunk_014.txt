@@ -1,0 +1,151 @@
+[108] Ning Ding, Yujia Qin, Guang Yang, Fu Wei, Zonghan Yang, Yusheng Su, Shengding Hu,
+Yulin Chen, Chi-Min Chan, Weize Chen, Jing Yi, Weilin Zhao, Xiaozhi Wang, Zhiyuan Liu,
+Haitao Zheng, Jianfei Chen, Y . Liu, Jie Tang, Juanzi Li, and Maosong Sun. Parameter-
+efficient fine-tuning of large-scale pre-trained language models.Nature Machine Intelligence,
+5:220–235, 2023. URL https://api.semanticscholar.org/CorpusID:257316425.
+[109] Vladislav Lialin, Vijeta Deshpande, and Anna Rumshisky. Scaling down to scale up: A guide
+to parameter-efficient fine-tuning. CoRR, abs/2303.15647, 2023. doi: 10.48550/ARXIV .
+2303.15647. URL https://doi.org/10.48550/arXiv.2303.15647.
+[110] Neil Houlsby, Andrei Giurgiu, Stanislaw Jastrzebski, Bruna Morrone, Quentin De Larous-
+silhe, Andrea Gesmundo, Mona Attariyan, and Sylvain Gelly. Parameter-efficient transfer
+learning for NLP. In Kamalika Chaudhuri and Ruslan Salakhutdinov, editors, Proceed-
+ings of the 36th International Conference on Machine Learning , volume 97 of Proceed-
+ings of Machine Learning Research , pages 2790–2799. PMLR, 09–15 Jun 2019. URL
+https://proceedings.mlr.press/v97/houlsby19a.html.
+[111] Edward J Hu, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu
+Chen, et al. Lora: Low-rank adaptation of large language models. InInternational Conference
+on Learning Representations, 2021.
+[112] Zhengyan Zhang, Xu Han, Zhiyuan Liu, Xin Jiang, Maosong Sun, and Qun Liu. ERNIE:
+enhanced language representation with informative entities. In Anna Korhonen, David R.
+Traum, and Llu´ıs M `arquez, editors, Proceedings of the 57th Conference of the Association
+for Computational Linguistics, ACL 2019, Florence, Italy, July 28- August 2, 2019, Volume
+1: Long Papers , pages 1441–1451. Association for Computational Linguistics, 2019. doi:
+10.18653/V1/P19-1139. URL https://doi.org/10.18653/v1/p19-1139.
+[113] Xiang Chen, Ningyu Zhang, Xin Xie, Shumin Deng, Yunzhi Yao, Chuanqi Tan, Fei Huang,
+Luo Si, and Huajun Chen. Knowprompt: Knowledge-aware prompt-tuning with synergistic
+optimization for relation extraction. In Fr ´ed´erique Laforest, Rapha¨el Troncy, Elena Simperl,
+Deepak Agarwal, Aristides Gionis, Ivan Herman, and Lionel M ´edini, editors, WWW ’22:
+The ACM Web Conference 2022, Virtual Event, Lyon, France, April 25 - 29, 2022 , pages
+2778–2788. ACM, 2022. doi: 10.1145/3485447.3511998. URL https://doi.org/10.1145/
+3485447.3511998.
+[114] Xu Han, Weilin Zhao, Ning Ding, Zhiyuan Liu, and Maosong Sun. PTR: prompt tuning with
+rules for text classification.AI Open, 3:182–192, 2022. doi: 10.1016/J.AIOPEN.2022.11.003.
+URL https://doi.org/10.1016/j.aiopen.2022.11.003.
+[115] Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi Dai, Jiawei Sun,
+and Haofen Wang. Retrieval-augmented generation for large language models: A survey.
+arXiv preprint arXiv:2312.10997, 2023.
+[116] Tu Vu, Mohit Iyyer, Xuezhi Wang, Noah Constant, Jerry W. Wei, Jason Wei, Chris Tar,
+Yun-Hsuan Sung, Denny Zhou, Quoc V . Le, and Thang Luong. Freshllms: Refreshing large
+language models with search engine augmentation. CoRR, abs/2310.03214, 2023. doi: 10.
+48550/ARXIV .2310.03214. URLhttps://doi.org/10.48550/arXiv.2310.03214.
+[117] Oded Ovadia, Menachem Brief, Moshik Mishaeli, and Oren Elisha. Fine-tuning or retrieval?
+comparing knowledge injection in llms. arXiv preprint arXiv:2312.05934, 2023.
+[118] Akari Asai, Sewon Min, Zexuan Zhong, and Danqi Chen. Acl 2023 tutorial: Retrieval-based
+language models and applications. ACL 2023, 2023.
+[119] Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Na-
+man Goyal, Heinrich K ¨uttler, Mike Lewis, Wen-tau Yih, Tim Rockt ¨aschel, Sebastian
+Riedel, and Douwe Kiela. Retrieval-augmented generation for knowledge-intensive nlp
+tasks. In H. Larochelle, M. Ranzato, R. Hadsell, M.F. Balcan, and H. Lin, editors, Ad-
+vances in Neural Information Processing Systems , volume 33, pages 9459–9474. Curran
+Associates, Inc., 2020. URL https://proceedings.neurips.cc/paper_files/paper/2020/
+file/6b493230205f780e1bc26945df7481e5-Paper.pdf.
+40
+[120] Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Mingwei Chang. Retrieval
+augmented language model pre-training. In Hal Daum ´e III and Aarti Singh, editors, Pro-
+ceedings of the 37th International Conference on Machine Learning , volume 119 of Pro-
+ceedings of Machine Learning Research , pages 3929–3938. PMLR, 13–18 Jul 2020. URL
+https://proceedings.mlr.press/v119/guu20a.html.
+[121] Ori Ram, Yoav Levine, Itay Dalmedigos, Dor Muhlgay, Amnon Shashua, Kevin Leyton-
+Brown, and Yoav Shoham. In-context retrieval-augmented language models. Transactions of
+the Association for Computational Linguistics , 2023. URL https://arxiv.org/abs/2302.
+00083.
+[122] Michiel de Jong, Yury Zemlyanskiy, Nicholas FitzGerald, Fei Sha, and William W. Cohen.
+Mention memory: incorporating textual knowledge into transformers through entity mention
+attention. In International Conference on Learning Representations , 2022. URL https:
+//openreview.net/forum?id=OY1A8ejQgEX.
+[123] Yunzhi Yao, Shaohan Huang, Li Dong, Furu Wei, Huajun Chen, and Ningyu Zhang. Kformer:
+Knowledge injection in transformer feed-forward layers. In Wei Lu, Shujian Huang, Yu Hong,
+and Xiabing Zhou, editors, Natural Language Processing and Chinese Computing , pages
+131–143, Cham, 2022. Springer International Publishing. ISBN 978-3-031-17120-8.
+[124] Thibault F ´evry, Livio Baldini Soares, Nicholas FitzGerald, Eunsol Choi, and Tom
+Kwiatkowski. Entities as experts: Sparse memory access with entity supervision. In Bonnie
+Webber, Trevor Cohn, Yulan He, and Yang Liu, editors, Proceedings of the 2020 Confer-
+ence on Empirical Methods in Natural Language Processing (EMNLP) , pages 4937–4951,
+Online, November 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.
+emnlp-main.400. URL https://aclanthology.org/2020.emnlp-main.400.
+[125] Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, and Mike Lewis. Gen-
+eralization through memorization: Nearest neighbor language models. In International
+Conference on Learning Representations, 2020. URL https://openreview.net/forum?id=
+HklBjCEKvH.
+[126] Zexuan Zhong, Tao Lei, and Danqi Chen. Training language models with memory augmen-
+tation. In Empirical Methods in Natural Language Processing (EMNLP), 2022.
+[127] Dani Yogatama, Cyprien de Masson d’Autume, and Lingpeng Kong. Adaptive semiparamet-
+ric language models. Transactions of the Association for Computational Linguistics, 9:362–
+373, 2021. doi: 10.1162/tacl a 00371. URL https://aclanthology.org/2021.tacl-1.22.
+[128] Xiang Chen, Lei Li, Ningyu Zhang, Xiaozhuan Liang, Shumin Deng, Chuanqi Tan, Fei
+Huang, Luo Si, and Huajun Chen. Decoupling knowledge from memorization: Retrieval-
+augmented prompt learning. InNeurIPS, 2022. URL http://papers.nips.cc/paper_files/
+paper/2022/hash/97011c648eda678424f9292dadeae72e-Abstract-Conference.html.
+[129] Jiawei Chen, Hongyu Lin, Xianpei Han, and Le Sun. Benchmarking large language models in
+retrieval-augmented generation. CoRR, abs/2309.01431, 2023. doi: 10.48550/ARXIV .2309.
+01431. URL https://doi.org/10.48550/arXiv.2309.01431.
+[130] Ruiyang Ren, Yuhao Wang, Yingqi Qu, Wayne Xin Zhao, Jing Liu, Hao Tian, Hua Wu,
+Ji-Rong Wen, and Haifeng Wang. Investigating the factual knowledge boundary of large
+language models with retrieval augmentation. CoRR, abs/2307.11019, 2023. doi: 10.48550/
+ARXIV .2307.11019. URLhttps://doi.org/10.48550/arXiv.2307.11019.
+[131] Freda Shi, Xinyun Chen, Kanishka Misra, Nathan Scales, David Dohan, Ed Chi, Nathanael
+Sch¨arli, and Denny Zhou. Large language models can be easily distracted by irrelevant con-
+text, 2023.
+[132] Matthias De Lange, Rahaf Aljundi, Marc Masana, Sarah Parisot, Xu Jia, Ales Leonardis,
+Gregory G. Slabaugh, and Tinne Tuytelaars. A continual learning survey: Defying forgetting
+in classification tasks. IEEE Trans. Pattern Anal. Mach. Intell., 44(7):3366–3385, 2022. doi:
+10.1109/TPAMI.2021.3057446. URL https://doi.org/10.1109/TPAMI.2021.3057446.
+41
+[133] Tongtong Wu, Massimo Caccia, Zhuang Li, Yuan-Fang Li, Guilin Qi, and Gholamreza Haf-
+fari. Pretrained language model in continual learning: A comparative study. In The Tenth
+International Conference on Learning Representations, ICLR 2022, Virtual Event, April 25-
+29, 2022. OpenReview.net, 2022. URL https://openreview.net/forum?id=figzpGMrdD.
+[134] Da-Wei Zhou, Qi-Wei Wang, Zhi-Hong Qi, Han-Jia Ye, De-Chuan Zhan, and Ziwei Liu.
+Deep class-incremental learning: A survey. CoRR, abs/2302.03648, 2023. doi: 10.48550/
+ARXIV .2302.03648. URLhttps://doi.org/10.48550/arXiv.2302.03648.
+[135] Liyuan Wang, Xingxing Zhang, Hang Su, and Jun Zhu. A comprehensive survey of continual
+learning: Theory, method and application. CoRR, abs/2302.00487, 2023. doi: 10.48550/
+ARXIV .2302.00487. URLhttps://doi.org/10.48550/arXiv.2302.00487.
+[136] David Rolnick, Arun Ahuja, Jonathan Schwarz, Timothy P. Lillicrap, and Greg Wayne. Expe-
+rience replay for continual learning. In Neural Information Processing Systems, 2018. URL
+https://api.semanticscholar.org/CorpusID:53860287.
+[137] Rahaf Aljundi, Lucas Caccia, Eugene Belilovsky, Massimo Caccia, Min Lin, Laurent Charlin,
+and Tinne Tuytelaars. Online continual learning with maximally interfered retrieval. ArXiv,
+abs/1908.04742, 2019. URL https://api.semanticscholar.org/CorpusID:199552250.
+[138] James Kirkpatrick, Razvan Pascanu, Neil C. Rabinowitz, Joel Veness, Guillaume Desjardins,
+Andrei A. Rusu, Kieran Milan, John Quan, Tiago Ramalho, Agnieszka Grabska-Barwinska,
+Demis Hassabis, Claudia Clopath, Dharshan Kumaran, and Raia Hadsell. Overcoming catas-
+trophic forgetting in neural networks. Proceedings of the National Academy of Sciences, 114:
+3521 – 3526, 2016. URL https://api.semanticscholar.org/CorpusID:4704285.
+[139] Tom Mitchell, William Cohen, Estevam Hruschka, Partha Talukdar, Bishan Yang, Justin Bet-
+teridge, Andrew Carlson, Bhavana Dalvi, Matt Gardner, Bryan Kisiel, et al. Never-ending
+learning. Communications of the ACM, 61(5):103–115, 2018.
+[140] Arun Mallya and Svetlana Lazebnik. Packnet: Adding multiple tasks to a single network by
+iterative pruning. In Proceedings of the IEEE conference on Computer Vision and Pattern
+Recognition, pages 7765–7773, 2018.
+[141] Rahaf Aljundi, Punarjay Chakravarty, and Tinne Tuytelaars. Expert gate: Lifelong learning
+with a network of experts. In Proceedings of the IEEE conference on computer vision and
+pattern recognition, pages 3366–3375, 2017.
+[142] Thanh Tam Nguyen, Thanh Trung Huynh, Phi Le Nguyen, Alan Wee-Chung Liew, Hongzhi
+Yin, and Quoc Viet Hung Nguyen. A survey of machine unlearning. arXiv preprint
+arXiv:2209.02299, 2022.
+[143] Ga Wu, Masoud Hashemi, and Christopher Srinivasa. Puma: Performance unchanged model
+augmentation for training data removal. In AAAI Conference on Artificial Intelligence, 2022.
+[144] Yuanshun Yao, Xiaojun Xu, and Yang Liu. Large language model unlearning, 2023.
+[145] Nianwen Si, Hao Zhang, Heyu Chang, Wenlin Zhang, Dan Qu, and Weiqiang Zhang. Knowl-
+edge unlearning for llms: Tasks, methods, and challenges, 2023.
+[146] Nora Belrose, David Schneider-Joseph, Shauli Ravfogel, Ryan Cotterell, Edward Raff, and
+Stella Biderman. LEACE: Perfect linear concept erasure in closed form. In Thirty-seventh
+Conference on Neural Information Processing Systems , 2023. URL https://openreview.
+net/forum?id=awIpKpwTwF.
+[147] Jiaao Chen and Diyi Yang. Unlearn what you want to forget: Efficient unlearning for LLMs.
+In Houda Bouamor, Juan Pino, and Kalika Bali, editors, Proceedings of the 2023 Confer-
+ence on Empirical Methods in Natural Language Processing , pages 12041–12052, Singa-
+pore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.
+emnlp-main.738. URL https://aclanthology.org/2023.emnlp-main.738.
+42

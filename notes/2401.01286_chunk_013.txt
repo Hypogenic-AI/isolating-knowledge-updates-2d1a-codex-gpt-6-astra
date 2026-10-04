@@ -1,0 +1,155 @@
+Matt Fredrikson, J. Zico Kolter, and Dan Hendrycks. Representation engineering: A top-
+down approach to AI transparency. CoRR, abs/2310.01405, 2023. doi: 10.48550/ARXIV .
+2310.01405. URL https://doi.org/10.48550/arXiv.2310.01405.
+[73] Yingji Li, Mengnan Du, Rui Song, Xin Wang, and Ying Wang. A survey on fairness in large
+language models. CoRR, abs/2308.10149, 2023. doi: 10.48550/ARXIV .2308.10149. URL
+https://doi.org/10.48550/arXiv.2308.10149.
+[74] El-Mahdi El-Mhamdi, Sadegh Farhadkhani, Rachid Guerraoui, Nirupam Gupta, L ˆe-Nguyˆen
+Hoang, Rafael Pinot, and John Stephan. On the impossible safety of large AI models. CoRR,
+abs/2209.15259, 2022. doi: 10.48550/ARXIV .2209.15259. URL https://doi.org/10.
+48550/arXiv.2209.15259.
+[75] Isabel O. Gallegos, Ryan A. Rossi, Joe Barrow, Md. Mehrab Tanjim, Sungchul Kim, Franck
+Dernoncourt, Tong Yu, Ruiyi Zhang, and Nesreen K. Ahmed. Bias and fairness in large
+language models: A survey. CoRR, abs/2309.00770, 2023. doi: 10.48550/ARXIV .2309.
+00770. URL https://doi.org/10.48550/arXiv.2309.00770.
+[76] Xiaowei Huang, Wenjie Ruan, Wei Huang, Gaojie Jin, Yi Dong, Changshun Wu, Sad-
+dek Bensalem, Ronghui Mu, Yi Qi, Xingyu Zhao, Kaiwen Cai, Yanghao Zhang, Sihao
+Wu, Peipei Xu, Dengyu Wu, Andr ´e Freitas, and Mustafa A. Mustafa. A survey of safety
+and trustworthiness of large language models through the lens of verification and valida-
+tion. CoRR, abs/2305.11391, 2023. doi: 10.48550/ARXIV .2305.11391. URL https:
+//doi.org/10.48550/arXiv.2305.11391.
+[77] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez,
+Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural informa-
+tion processing systems, 30, 2017.
+[78] Ganesh Jawahar, Benoˆıt Sagot, and Djam´e Seddah. What does BERT learn about the structure
+of language? In Anna Korhonen, David Traum, and Llu ´ıs M `arquez, editors, Proceedings
+of the 57th Annual Meeting of the Association for Computational Linguistics , pages 3651–
+3657, Florence, Italy, July 2019. Association for Computational Linguistics. doi: 10.18653/
+v1/P19-1356. URL https://aclanthology.org/P19-1356.
+[79] Kevin Meng, David Bau, Alex Andonian, and Yonatan Belinkov. Locating and editing factual
+associations in GPT. Advances in Neural Information Processing Systems, 36, 2022.
+[80] Evan Hernandez, Arnab Sharma, Tal Haklay, Kevin Meng, Martin Wattenberg, Jacob An-
+dreas, Yonatan Belinkov, and David Bau. Linearity of relation decoding in transformer lan-
+guage models. ArXiv, abs/2308.09124, 2023. URL https://api.semanticscholar.org/
+CorpusID:261031179.
+[81] Nelson F. Liu, Matt Gardner, Yonatan Belinkov, Matthew E. Peters, and Noah A. Smith. Lin-
+guistic knowledge and transferability of contextual representations. In Jill Burstein, Christy
+Doran, and Thamar Solorio, editors, Proceedings of the 2019 Conference of the North Amer-
+ican Chapter of the Association for Computational Linguistics: Human Language Tech-
+nologies, Volume 1 (Long and Short Papers) , pages 1073–1094, Minneapolis, Minnesota,
+June 2019. Association for Computational Linguistics. doi: 10.18653/v1/N19-1112. URL
+https://aclanthology.org/N19-1112.
+[82] Xuhui Zhou, Yue Zhang, Leyang Cui, and Dandan Huang. Evaluating commonsense in pre-
+trained language models. In The Thirty-Fourth AAAI Conference on Artificial Intelligence,
+AAAI 2020, The Thirty-Second Innovative Applications of Artificial Intelligence Conference,
+IAAI 2020, The Tenth AAAI Symposium on Educational Advances in Artificial Intelligence,
+EAAI 2020, New York, NY, USA, February 7-12, 2020, pages 9733–9740. AAAI Press, 2020.
+doi: 10.1609/AAAI.V34I05.6523. URL https://doi.org/10.1609/aaai.v34i05.6523.
+[83] Peter West, Chandra Bhagavatula, Jack Hessel, Jena D. Hwang, Liwei Jiang, Ronan Le Bras,
+Ximing Lu, Sean Welleck, and Yejin Choi. Symbolic knowledge distillation: from general
+language models to commonsense models. In Marine Carpuat, Marie-Catherine de Marn-
+effe, and Iv´an Vladimir Meza Ru´ız, editors, Proceedings of the 2022 Conference of the North
+37
+American Chapter of the Association for Computational Linguistics: Human Language Tech-
+nologies, NAACL 2022, Seattle, WA, United States, July 10-15, 2022, pages 4602–4625. As-
+sociation for Computational Linguistics, 2022. doi: 10.18653/V1/2022.NAACL-MAIN.341.
+URL https://doi.org/10.18653/v1/2022.naacl-main.341.
+[84] Xiang Lorraine Li, Adhiguna Kuncoro, Jordan Hoffmann, Cyprien de Masson d’Autume, Phil
+Blunsom, and Aida Nematzadeh. A systematic investigation of commonsense knowledge
+in large language models. In Yoav Goldberg, Zornitsa Kozareva, and Yue Zhang, editors,
+Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing,
+EMNLP 2022, Abu Dhabi, United Arab Emirates, December 7-11, 2022, pages 11838–11855.
+Association for Computational Linguistics, 2022. doi: 10.18653/V1/2022.EMNLP-MAIN.
+812. URL https://doi.org/10.18653/v1/2022.emnlp-main.812.
+[85] Boxi Cao, Qiaoyu Tang, Hongyu Lin, Xianpei Han, Jiawei Chen, Tianshu Wang, and
+Le Sun. Retentive or forgetful? diving into the knowledge memorizing mechanism of lan-
+guage models. CoRR, abs/2305.09144, 2023. doi: 10.48550/ARXIV .2305.09144. URL
+https://doi.org/10.48550/arXiv.2305.09144.
+[86] Katherine Tian, Eric Mitchell, Huaxiu Yao, Christopher D. Manning, and Chelsea Finn. Fine-
+tuning language models for factuality. CoRR, abs/2311.08401, 2023. doi: 10.48550/ARXIV .
+2311.08401. URL https://doi.org/10.48550/arXiv.2311.08401.
+[87] Shahar Katz and Yonatan Belinkov. VISIT: visualizing and interpreting the semantic in-
+formation flow of transformers. In Houda Bouamor, Juan Pino, and Kalika Bali, editors,
+Findings of the Association for Computational Linguistics: EMNLP 2023, Singapore, De-
+cember 6-10, 2023 , pages 14094–14113. Association for Computational Linguistics, 2023.
+URL https://aclanthology.org/2023.findings-emnlp.939.
+[88] Ari Holtzman, Peter West, and Luke Zettlemoyer. Generative models as a complex systems
+science: How can we make sense of large language model behavior?, 2023.
+[89] Mansi Sakarvadia, Arham Khan, Aswathy Ajith, Daniel Grzenda, Nathaniel Hudson, Andr ´e
+Bauer, Kyle Chard, and Ian T. Foster. Attention lens: A tool for mechanistically interpreting
+the attention head information retrieval mechanism. CoRR, abs/2310.16270, 2023. doi: 10.
+48550/ARXIV .2310.16270. URLhttps://doi.org/10.48550/arXiv.2310.16270.
+[90] Boxi Cao, Qiaoyu Tang, Hongyu Lin, Xianpei Han, Jiawei Chen, Tianshu Wang, and Le Sun.
+Retentive or forgetful? diving into the knowledge memorizing mechanism of language mod-
+els. arXiv preprint arXiv:2305.09144, 2023.
+[91] William Rudman, Catherine Chen, and Carsten Eickhoff. Outlier dimensions encode task
+specific knowledge. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, Proceedings
+of the 2023 Conference on Empirical Methods in Natural Language Processing, EMNLP
+2023, Singapore, December 6-10, 2023, pages 14596–14605. Association for Computational
+Linguistics, 2023. URL https://aclanthology.org/2023.emnlp-main.901.
+[92] Wes Gurnee, Neel Nanda, Matthew Pauly, Katherine Harvey, Dmitrii Troitskii, and Dimitris
+Bertsimas. Finding neurons in a haystack: Case studies with sparse probing. arXiv preprint
+arXiv:2305.01610, 2023.
+[93] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: pre-training
+of deep bidirectional transformers for language understanding. In Jill Burstein, Christy Do-
+ran, and Thamar Solorio, editors, Proceedings of the 2019 Conference of the North Amer-
+ican Chapter of the Association for Computational Linguistics: Human Language Tech-
+nologies, NAACL-HLT 2019, Minneapolis, MN, USA, June 2-7, 2019, Volume 1 (Long and
+Short Papers), pages 4171–4186. Association for Computational Linguistics, 2019. doi:
+10.18653/V1/N19-1423. URL https://doi.org/10.18653/v1/n19-1423.
+[94] Daniel D Lundstrom, Tianjian Huang, and Meisam Razaviyayn. A rigorous study of in-
+tegrated gradients method and extensions to internal neuron attributions. In International
+Conference on Machine Learning, pages 14485–14508. PMLR, 2022.
+38
+[95] Xiaozhi Wang, Kaiyue Wen, Zhengyan Zhang, Lei Hou, Zhiyuan Liu, and Juanzi Li. Finding
+skill neurons in pre-trained transformer-based language models. In Proceedings of the 2022
+Conference on Empirical Methods in Natural Language Processing , pages 11132–11152,
+Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Lin-
+guistics. doi: 10.18653/v1/2022.emnlp-main.765. URL https://aclanthology.org/2022.
+emnlp-main.765.
+[96] Divya Nori, Shivali Singireddy, and Marina Ten Have. Identification of knowledge neurons
+in protein language models. arXiv preprint arXiv:2312.10770, 2023.
+[97] Yuheng Chen, Pengfei Cao, Yubo Chen, Kang Liu, and Jun Zhao. Journey to the center of the
+knowledge neurons: Discoveries of language-independent knowledge neurons and degenerate
+knowledge neurons, 2023.
+[98] Jun Zhao, Zhihao Zhang, Yide Ma, Qi Zhang, Tao Gui, Luhui Gao, and Xuanjing Huang.
+Unveiling a core linguistic region in large language models.arXiv preprint arXiv:2310.14928,
+2023.
+[99] Almog Gueta, Elad Venezian, Colin Raffel, Noam Slonim, Yoav Katz, and Leshem Choshen.
+Knowledge is a region in weight space for fine-tuned language models. In Houda Bouamor,
+Juan Pino, and Kalika Bali, editors, Findings of the Association for Computational Linguis-
+tics: EMNLP 2023, pages 1350–1370, Singapore, December 2023. Association for Computa-
+tional Linguistics. doi: 10.18653/v1/2023.findings-emnlp.95. URL https://aclanthology.
+org/2023.findings-emnlp.95.
+[100] Steven Bills, Nick Cammarata, Dan Mossing, Henk Tillman, Leo Gao, Gabriel Goh,
+Ilya Sutskever, Jan Leike, Jeff Wu, and William Saunders. Language models can
+explain neurons in language models, 2023. URL https://openai.com/research/
+language-models-can-explain-neurons-in-language-models .
+[101] Anonymous. What does the knowledge neuron thesis have to do with knowledge? In Sub-
+mitted to The Twelfth International Conference on Learning Representations , 2023. URL
+https://openreview.net/forum?id=2HJRwwbV3G. under review.
+[102] Mor Geva, Jasmijn Bastings, Katja Filippova, and Amir Globerson. Dissecting recall of
+factual associations in auto-regressive language models. CoRR, abs/2304.14767, 2023. doi:
+10.48550/arXiv.2304.14767. URL https://doi.org/10.48550/arXiv.2304.14767.
+[103] Arthur Conmy, Augustine N. Mavor-Parker, Aengus Lynch, Stefan Heimersheim, and Adri `a
+Garriga-Alonso. Towards automated circuit discovery for mechanistic interpretability. In
+Thirty-seventh Conference on Neural Information Processing Systems, 2023.
+[104] Kevin Ro Wang, Alexandre Variengien, Arthur Conmy, Buck Shlegeris, and Jacob Steinhardt.
+Interpretability in the wild: a circuit for indirect object identification in GPT-2 small. In
+The Eleventh International Conference on Learning Representations , 2023. URL https:
+//openreview.net/forum?id=NpsVSN6o4ul.
+[105] Alex Foote, Neel Nanda, Esben Kran, Ioannis Konstas, Shay Cohen, and Fazl Barez. Neuron
+to graph: Interpreting language model neurons at scale. arXiv preprint arXiv:2305.19911 ,
+2023.
+[106] Jie Ren, Mingjie Li, Qirui Chen, Huiqi Deng, and Quanshi Zhang. Defining and quantifying
+the emergence of sparse concepts in dnns. In IEEE/CVF Conference on Computer Vision and
+Pattern Recognition, CVPR 2023, Vancouver, BC, Canada, June 17-24, 2023, pages 20280–
+20289. IEEE, 2023. doi: 10.1109/CVPR52729.2023.01942. URL https://doi.org/10.
+1109/CVPR52729.2023.01942.
+[107] Mingjie Li and Quanshi Zhang. Does a neural network really encode symbolic concepts?
+In Andreas Krause, Emma Brunskill, Kyunghyun Cho, Barbara Engelhardt, Sivan Sabato,
+and Jonathan Scarlett, editors, International Conference on Machine Learning, ICML 2023,
+23-29 July 2023, Honolulu, Hawaii, USA , volume 202 of Proceedings of Machine Learning
+Research, pages 20452–20469. PMLR, 2023. URL https://proceedings.mlr.press/v202/
+li23at.html.
+39

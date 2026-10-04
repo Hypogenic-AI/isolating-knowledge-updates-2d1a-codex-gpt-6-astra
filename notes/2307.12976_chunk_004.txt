@@ -1,0 +1,283 @@
+109 1010
+number of parameters
+(log scale)
+45
+50
+55
+60
+65accuracy
+Recent
+Random
+Popular
+Figure 6: Accuracy averaged over evaluation criteria of
+ROME , as a function of the model’s number of param-
+eters, for the following models: GPT2-M , GPT2-L ,
+GPT2-XL, GPT-J, LL AMA, and GPT-N EO.
+MEND ROME MEMIT
+Relation Specificity 34.4 37 .6 39 .1
+Logical Generalization 39.1 26 .5 29 .0
+Compositionality I 17.0 37 .9 35 .3
+Compositionality II 13.6 37 .7 39 .1
+Table 6: Accuracy of MEND , ROME and MEMIT ,
+using GPT-2 , averaged over the three RIPPLE EDITS
+splits - RECENT , RANDOM and POPULAR .
+Results across model size We analyze how edit-
+ing performance on RIPPLE EDITS is influenced by
+the model size. To this end, we further evaluate
+ROME on smaller versions ofGPT-2 – with 345M
+(GPT2-M) and 762M (GPT2-L) parameters, and
+plot the average accuracy over the three subsets
+as a function of model size. Fig. 6 presents the
+results, showing that editing performance increases
+with model size, with ROME obtaining substan-
+tially higher accuracy when applied to larger mod-
+els. Nevertheless, our results (Tables 3, 4, 5) show
+that when using ICE, the 7B LL AMA is competi-
+tive with the much larger GPT-3 , suggesting that
+simply scaling the model size may not be sufficient
+to fix the drawbacks of current editing methods.
+Results across methods Table 6 shows the accu-
+racy of MEND , ROME and MEMIT , on GPT-2
+across our evaluation criteria, averaged over the
+three subsets. Interestingly, MEND outperforms
+ROME and MEMIT in Logical Generalization,
+but is worse in Compositionality I and Composi-
+tionality II, suggesting that different methods might
+better capture different types of ripple effects.
+Results across data splits The subsets of RIP-
+PLE EDITS differ in whether edited facts are coun-
+terfeit or real, and in the popularity of the edited
+Figure 7: The average accuracy of GPT-2 on differ-
+ent evaluation criteria in RIPPLE EDITS . Results are
+averaged over editing methods (ROME , MEMIT and
+MEND); error bars indicate standard deviation.
+No effect Abstaining Noise
+GPT-2 ROME 27% 31% 42%
+ICE 32% 27% 41%
+GPT-N EO ROME 24% 40% 36%
+ICE 10% 65% 25%
+LL AMA ROME 20.5% 45% 34.5%
+ICE 11% 71% 18%
+Table 7: Error type distribution on 200 failures of
+ROME and ICE, on GPT-2 , GPT-N EO, and LL AMA.
+entities. These differences allow us to control for
+the edit severity, as popular entities are expected to
+introduce larger ripple effects (see §3). In Fig. 7,
+we show the accuracy on each subset and evalua-
+tion criterion, averaged over the different editing
+methods. Comparing RANDOM and POPULAR ,
+that differ in the popularity of the edited entities,
+we see that while Logical Generalization accuracy
+is substantially higher for RANDOM , Preservation
+accuracy is higher for POPULAR . This suggests
+that, although retaining correct knowledge is eas-
+ier for popular entities, modifying other facts that
+logically follow from an edit is harder for popular
+entities, which could be explained by the severity
+of these edits (i.e. the high number of facts that are
+semantically related to them).
+5.3 Error Analysis
+ROME versus ICE We qualitatively analyze
+the effect induced by KE methods to the model’s
+knowledge. To this end, for each of ROME and
+our ICE baseline and each of the models GPT-
+2, GPT-N EO, and LLAMA, we sample 200 test
+queries from RIPPLE EDITS on which the model
+fails post-editing. We then label these failures us-
+ing three categories: (a) no effect, for cases when
+the model predicts the original object, i.e. the edit
+introduced no ripple effect, (b) abstaining, when
+the model abstains from answering by generating
+text like “unknown” or “a mystery”, and (c) noise,
+when the model generates an incorrect object or
+unrelated text. Table 7 presents the results, show-
+ing that in most cases (≥ 68% across all settings)
+factual editing introduces erroneous changes to the
+model’s knowledge rather than making no change.
+Interestingly, for both GPT-N EO and LLAMA,
+where editing performance is better than GPT-2 ,
+ROME introduces more incorrect changes while
+ICE causes the model to abstain from answering.
+GPT-3 versus LL AMA using ICE We further
+looked into the performance on the LG tests, where
+applying ICE to GPT-3 is notably inferior to ICE
+on LL AMA (see Tables 3, 4, 5). Specifically, we
+collected responses from each of the models to
+100 random LG queries, and analyzed them using
+the same categories as described above. We ob-
+served that GPT-3 abstains from answering the
+query much more often than LLAMA (49% of
+the cases for GPT-3 compared to only 28% in
+LLAMA), which could explain the lower perfor-
+mance of ICE on GPT-3 on these queries.
+6 Conclusion and Discussion
+We introduce the notion of ripple effects in knowl-
+edge editing, suggesting that editing a particular
+fact implies further updates of related facts. We ad-
+ditionally propose evaluation criteria for ripple ef-
+fects and create RIPPLE EDITS , a diagnostic bench-
+mark designed to evaluate how well KE methods
+handle the ripple effects of various edits. We eval-
+uate prominent KE methods and show that they
+often fail to introduce consistent edits that capture
+the ripple effects of an edit, suggesting that fu-
+ture development of KE methods should consider
+those effects more carefully. Last, we show that a
+simple in-context editing method achieves the best
+results on RIPPLE EDITS , highlighting the potential
+of such editing approaches.
+Notably, our benchmark covers a small fraction
+of all possible ripple-edits. For example, one could
+consider ripple effects that involve more than two
+hops, and explore the graph structure of different
+edits. In addition, while we focus on ripple effects
+of single edits, future work can consider the effect
+of editing multiple facts in a single batch. Finally, it
+would be interesting to consider cases where mod-
+els succeed in capturing ripple-edits, and analyze
+how these are implemented mechanistically in the
+transformer architecture (Geva et al., 2023).
+Limitations Our data generation pipeline relies
+on information from an existing knowledge-base
+(WIKI DATA in our case), which could be incom-
+plete or outdated. While RIPPLE EDITS does not
+aim to cover all the possible ripple-edits in WIKI -
+DATA, these concerns might be a major issue when
+seeking a comprehensive evaluation or consider-
+ing domain-specific knowledge-bases, which often
+tend to be incomplete. A possible solution to ex-
+plore in that case is to use LMs internal knowledge
+instead of an external knowledge-base (Cohen et al.,
+2023b).
+With RIPPLE EDITS focusing on the ripple effect
+of edits, it does not include tests, such as paraphras-
+ing of the edit and subject specificity, that evaluate
+the edit itself and are covered by existing bench-
+marks (e.g. CounterFact). In addition, it does not
+verify that many other facts that are distantly re-
+lated to the edit, i.e., triplets that are not included in
+the close neighbourhood of the edit, were retained
+post-editing. For example, we expect that editing
+the capital of France would not affect the popula-
+tion of Poland, yet this is not explicitly checked.
+We note that building such an evaluation is hard,
+since there are many facts to consider and it is un-
+clear how to determine automatically which triplets
+should and should not be affected by a certain edit.
+Acknowledgments
+We thank Maor Ivgi and Gal Elidan for valuable
+feedback and constructive suggestions. This work
+is supported in part by the Israeli Science Founda-
+tion.
+References
+Sidney Black, Stella Biderman, Eric Hallahan,
+Quentin Anthony, Leo Gao, Laurence Golding,
+Horace He, Connor Leahy, Kyle McDonell, Ja-
+son Phang, Michael Pieler, Usvsn Sai Prashanth,
+Shivanshu Purohit, Laria Reynolds, Jonathan
+Tow, Ben Wang, and Samuel Weinbach. 2022.
+GPT-NeoX-20B: An open-source autoregressive
+language model. In Proceedings of BigScience
+Episode #5 – Workshop on Challenges & Per-
+spectives in Creating Large Language Models,
+pages 95–136, virtual+Dublin. Association for
+Computational Linguistics.
+Tom B. Brown, Benjamin Mann, Nick Ryder,
+Melanie Subbiah, Jared Kaplan, Prafulla Dhari-
+wal, Arvind Neelakantan, Pranav Shyam, Girish
+Sastry, Amanda Askell, Sandhini Agarwal, Ariel
+Herbert-V oss, Gretchen Krueger, Tom Henighan,
+Rewon Child, Aditya Ramesh, Daniel M.
+Ziegler, Jeffrey Wu, Clemens Winter, Christo-
+pher Hesse, Mark Chen, Eric Sigler, Mateusz
+Litwin, Scott Gray, Benjamin Chess, Jack Clark,
+Christopher Berner, Sam McCandlish, Alec Rad-
+ford, Ilya Sutskever, and Dario Amodei. 2020a.
+Language models are few-shot learners. In Ad-
+vances in Neural Information Processing Sys-
+tems 33: Annual Conference on Neural Infor-
+mation Processing Systems 2020, NeurIPS 2020,
+December 6-12, 2020, virtual.
+Tom B. Brown, Benjamin Mann, Nick Ryder,
+Melanie Subbiah, Jared Kaplan, Prafulla Dhari-
+wal, Arvind Neelakantan, Pranav Shyam, Girish
+Sastry, Amanda Askell, Sandhini Agarwal, Ariel
+Herbert-V oss, Gretchen Krueger, Tom Henighan,
+Rewon Child, Aditya Ramesh, Daniel M.
+Ziegler, Jeffrey Wu, Clemens Winter, Christo-
+pher Hesse, Mark Chen, Eric Sigler, Mateusz
+Litwin, Scott Gray, Benjamin Chess, Jack Clark,
+Christopher Berner, Sam McCandlish, Alec Rad-
+ford, Ilya Sutskever, and Dario Amodei. 2020b.
+Language models are few-shot learners. In Ad-
+vances in Neural Information Processing Sys-
+tems 33: Annual Conference on Neural Infor-
+mation Processing Systems 2020, NeurIPS 2020,
+December 6-12, 2020, virtual.
+Mark Chen, Jerry Tworek, Heewoo Jun, Qiming
+Yuan, Henrique Ponde de Oliveira Pinto, Jared
+Kaplan, Harri Edwards, Yuri Burda, Nicholas
+Joseph, Greg Brockman, et al. 2021. Evaluating
+large language models trained on code. ArXiv
+preprint, abs/2107.03374.
+Roi Cohen, Mor Geva, Jonathan Berant, and
+Amir Globerson. 2023a. Crawling the inter-
+nal knowledge-base of language models. In
+Findings of the Association for Computational
+Linguistics: EACL 2023 , pages 1856–1869,
+Dubrovnik, Croatia. Association for Computa-
+tional Linguistics.
+Roi Cohen, Mor Geva, Jonathan Berant, and
+Amir Globerson. 2023b. Crawling the inter-
+nal knowledge-base of language models. In
+Findings of the Association for Computational
+Linguistics: EACL 2023 , pages 1856–1869,
+Dubrovnik, Croatia. Association for Computa-
+tional Linguistics.
+Damai Dai, Li Dong, Yaru Hao, Zhifang Sui,
+Baobao Chang, and Furu Wei. 2022. Knowledge
+neurons in pretrained transformers. In Proceed-
+ings of the 60th Annual Meeting of the Associ-
+ation for Computational Linguistics (Volume 1:
+Long Papers), pages 8493–8502, Dublin, Ireland.
+Association for Computational Linguistics.
+Nicola De Cao, Wilker Aziz, and Ivan Titov. 2021.
+Editing factual knowledge in language models.
+In Proceedings of the 2021 Conference on Em-
+pirical Methods in Natural Language Process-
+ing, pages 6491–6506, Online and Punta Cana,
+Dominican Republic. Association for Computa-
+tional Linguistics.
+Bhuwan Dhingra, Jeremy R. Cole, Julian Mar-
+tin Eisenschlos, Daniel Gillick, Jacob Eisen-
+stein, and William W. Cohen. 2022. Time-aware
+language models as temporal knowledge bases.
+Transactions of the Association for Computa-
+tional Linguistics, 10:257–273.
+Konstantin Genin and Franz Huber. 2022. For-
+mal Representations of Belief. In Edward N.
+Zalta and Uri Nodelman, editors, The Stanford
+Encyclopedia of Philosophy, Fall 2022 edition.
+Metaphysics Research Lab, Stanford University.
+Mor Geva, Jasmijn Bastings, Katja Filippova, and
+Amir Globerson. 2023. Dissecting recall of
+factual associations in auto-regressive language
+models. arXiv preprint arXiv:2304.14767.
+Mor Geva, Roei Schuster, Jonathan Berant, and
+Omer Levy. 2021. Transformer feed-forward
+layers are key-value memories. In Proceedings
+of the 2021 Conference on Empirical Methods in
+Natural Language Processing, pages 5484–5495,
+Online and Punta Cana, Dominican Republic.
+Association for Computational Linguistics.
+Anshita Gupta, Debanjan Mondal, Akshay Krishna
+Sheshadri, Wenlong Zhao, Xiang Lorraine Li,
+Sarah Wiegreffe, and Niket Tandon. 2023. Edit-
+ing commonsense knowledge in gpt.
+Peter Hase, Mona Diab, Asli Celikyilmaz, Xian
+Li, Zornitsa Kozareva, Veselin Stoyanov, Mo-
+hit Bansal, and Srinivasan Iyer. 2023. Methods
+for measuring, updating, and visualizing factual
+beliefs in language models. In Proceedings of
+the 17th Conference of the European Chapter of
+the Association for Computational Linguistics,

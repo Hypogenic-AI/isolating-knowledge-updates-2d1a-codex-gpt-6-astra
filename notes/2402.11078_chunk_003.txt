@@ -1,0 +1,81 @@
+Paraphrase the given incomplete statement without changing
+the meaning. The same completion in the original input
+must also work for your paraphrase. Provide as many
+distinct paraphrases as you can come up with.
+INPUT: The war during which Mario Stoppani was in the
+armed forces was
+1) Paraphrased: The war Mario Stoppani was in the army in
+was
+2) Paraphrased: Mario Stoppani was in the war called
+3) Paraphrased: Mario Stoppani served in the army during
+INPUT: The birth date of Luca Pianca is
+1) Paraphrased: The date of birth of Luca Pianca is
+2) Paraphrased: Luca Pianca was born in
+3) Paraphrased: The day of Luca Pianca’s birth is
+4) Paraphrased: Luca Pianca’s birth date is
+5) Paraphrased: The birthday of Luca Pianca is
+INPUT: The name of the architect of Ravenna Cathedral is
+1) Paraphrased: Ravenna Cathedral was built by
+2) Paraphrased: The person who built Ravenna Cathedral
+was
+3) Paraphrased: The architect of Ravenna Cathedral is
+4) Paraphrased: The architect behind the construction of
+Ravenna Cathedral is
+5) Paraphrased: Ravenna Cathedral was built by the architect
+INPUT: {prompt}
+1) Paraphrased:
+Figure 2: The few-shot prompt we use for paraphrase
+generation. We selected in-context examples from
+COUNTER FACT.
+Editor Score Efficacy Generalization Locality
+— (GPT-J) 37.4 34.4 (1.7) 34.5 (1.5) 45.3 (0.9)
+ROME 35.0 39.8 (2.2) 25.5 (1.4) 46.9 (0.8)
+MEMIT 67.3 99.2 (0.3) 80.2 (1.2) 45.3 (0.8)
+FT 55.8 68.1 (1.8) 60.4 (1.7) 44.5 (0.8)
+FT + M + P + R 68.5 99.6 (0.2) 84.6 (1.1) 45.8 (0.9)
+Table 8: Mass-editing results on WikiRecent (1,266
+edits).
+neighborhood prompts from COUNTER FACT from
+the corresponding train/test splits. The training
+data for our fine-tuning method consists of 1,266
+edit requests, 18,990 augmented paraphrases (i.e.,
+randomly generated), and 12,660 random neighbor-
+hood prompts from COUNTER FACT (not overlap-
+ping with those in the test set).
+Table 8 shows the results. We again find that
+while vanilla fine-tuning is not effective, our condi-
+tional fine-tuning with random data augmentation
+is competitive with MEMIT.
+B Generative Metrics for Single-Editing
+For completeness, we give generative performance
+for single-editing in Table 9 as an accompani-
+Editor Score Fluency Consistency
+— (original GPT-2 XL) 30.5 626.6 (0.3) 31.9 (0.2)
+FT 65.1 607.1 (1.1) 40.5 (0.3)
+FT-L 66.9 621.4 (1.0) 37.4 (0.3)
+KN 35.6 570.4 (2.3) 30.3 (0.3)
+KE 52.2 586.6 (2.1) 31.2 (0.3)
+MEND 57.9 624.2 (0.4) 34.8 (0.3)
+ROME 89.2 621.9 (0.5) 41.9 (0.3)
+FT + Mask + Para + Sim 83.1 557.0 (1.8) 15.2 (0.3)
+Table 9: Fluency and consistency with single-editing on
+COUNTER FACT.
+ment to Table 4. Our method is again competitive
+with the best performing single-editing baseline
+(ROME) in the edit score, but has lower generative
+scores.
+C Data Augmentation for SWEA LOS
+We train SWEA LOS on a set of random facts
+RE in addition to random paraphrases (which is
+already present). We use 10,661 random facts con-
+taining unique subjects fromE within the training
+split. This is done because SWEA LOS is only
+concerned with a final cache containing subject
+tokens and their embeddings. We first obtain the
+subject embeddings of the requested edits inE as
+described in Li et al. (2024a). We then repeat the
+process for the augmented random facts in RE.
+Between the two sets of subjects, there are 392
+subjects that overlap. In the case of an overlap, we
+only retain the embeddings from theE and remove
+those fromRE.

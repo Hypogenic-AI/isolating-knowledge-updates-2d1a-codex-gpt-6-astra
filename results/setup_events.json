@@ -1,0 +1,9 @@
+{
+  "initial_inference_failure": {
+    "torch": "2.14.1+cu130",
+    "error": "RuntimeError: Failed to find C compiler. Please specify via CC environment variable or set triton.knobs.build.impl.",
+    "stage": "raw/chat pilot before any training"
+  },
+  "resolution": "Pinned torch==2.6.0+cu124 using project uv environment; successful baseline then all experiments",
+  "initial_log_note": "logs/pilot.log was overwritten by the successful rerun; original failure was captured in session tool output"
+}

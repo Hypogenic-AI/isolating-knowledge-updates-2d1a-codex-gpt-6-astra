@@ -1,0 +1,43 @@
+[271] John Kirchenbauer, Jonas Geiping, Yuxin Wen, Jonathan Katz, Ian Miers, and Tom Goldstein.
+A watermark for large language models. In Andreas Krause, Emma Brunskill, Kyunghyun
+Cho, Barbara Engelhardt, Sivan Sabato, and Jonathan Scarlett, editors, International Confer-
+ence on Machine Learning, ICML 2023, 23-29 July 2023, Honolulu, Hawaii, USA , volume
+202 of Proceedings of Machine Learning Research, pages 17061–17084. PMLR, 2023. URL
+https://proceedings.mlr.press/v202/kirchenbauer23a.html.
+[272] John M Carroll. Human-computer interaction: psychology as a science of design. Annual
+review of psychology, 48(1):61–83, 1997.
+[273] Ranjay Krishna, Donsuk Lee, Li Fei-Fei, and Michael S Bernstein. Socially situated artificial
+intelligence enables learning from human interaction. Proceedings of the National Academy
+of Sciences, 119(39):e2115730119, 2022.
+[274] Alireza Salemi, Sheshera Mysore, Michael Bendersky, and Hamed Zamani. Lamp: When
+large language models meet personalization. CoRR, abs/2304.11406, 2023. doi: 10.48550/
+ARXIV .2304.11406. URLhttps://doi.org/10.48550/arXiv.2304.11406.
+[275] Morgan L Maeder and Charles A Gersbach. Genome-editing technologies for gene and cell
+therapy. Molecular Therapy, 24(3):430–446, 2016.
+[276] Jin-Soo Kim. Genome editing comes of age. Nature protocols, 11(9):1573–1578, 2016.
+[277] Jennifer A Doudna. The promise and challenge of therapeutic genome editing. Nature, 578
+(7794):229–236, 2020.
+[278] Keyu Pan and Yawen Zeng. Do llms possess a personality? making the MBTI test an amazing
+evaluation for large language models. CoRR, abs/2307.16180, 2023. doi: 10.48550/arXiv.
+2307.16180. URL https://doi.org/10.48550/arXiv.2307.16180.
+[279] Mustafa Safdari, Greg Serapio-Garc ´ıa, Cl ´ement Crepy, Stephen Fitz, Peter Romero, Lun-
+ing Sun, Marwa Abdulhai, Aleksandra Faust, and Maja Mataric. Personality traits in large
+language models. CoRR, abs/2307.00184, 2023. doi: 10.48550/arXiv.2307.00184. URL
+https://doi.org/10.48550/arXiv.2307.00184.
+[280] Quan Tu, Chuanqi Chen, Jinpeng Li, Yanran Li, Shuo Shang, Dongyan Zhao, Ran Wang,
+and Rui Yan. Characterchat: Learning towards conversational AI with personalized social
+support. CoRR, abs/2308.10278, 2023. doi: 10.48550/arXiv.2308.10278. URL https://
+doi.org/10.48550/arXiv.2308.10278.
+[281] Shengyu Mao, Ningyu Zhang, Xiaohan Wang, Mengru Wang, Yunzhi Yao, Yong Jiang,
+Pengjun Xie, Fei Huang, and Huajun Chen. Editing personality for llms. CoRR,
+abs/2310.02168, 2023. doi: 10.48550/ARXIV .2310.02168. URL https://doi.org/10.
+48550/arXiv.2310.02168.
+[282] Jen tse Huang, Man Ho Lam, Eric John Li, Shujie Ren, Wenxuan Wang, Wenxiang Jiao,
+Zhaopeng Tu, and Michael R. Lyu. Emotionally numb or empathetic? evaluating how llms
+feel using emotionbench, 2023.
+[283] EunJeong Hwang, Bodhisattwa Prasad Majumder, and Niket Tandon. Aligning language
+models to user opinions. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, Findings
+of the Association for Computational Linguistics: EMNLP 2023, Singapore, December 6-
+10, 2023, pages 5906–5919. Association for Computational Linguistics, 2023. URL https:
+//aclanthology.org/2023.findings-emnlp.393.
+52

@@ -1,0 +1,40 @@
+{
+  "validated_at": "2026-10-04T08:57:06.580887+00:00",
+  "status": "passed",
+  "python": "3.12.8",
+  "environment": ".venv",
+  "original_pdfs": 40,
+  "chunk_pdfs": 132,
+  "web_articles": 3,
+  "downloaded_datasets": 4,
+  "generated_datasets": 1,
+  "counterfact_rows": 21919,
+  "ripple_rows": 4755,
+  "arithmetic_rows": 2399,
+  "repositories": 6,
+  "search_availability": {
+    "available": 37,
+    "unavailable_after_retry": 196
+  },
+  "checks": [
+    "required artifacts",
+    "all script syntax",
+    "PDF parsing/pages/checksums",
+    "all deep-reading chunks cover complete PDFs",
+    "dataset hashes and full row parsing",
+    "CounterFact nested fields and unique IDs",
+    "arithmetic labels and split overlap",
+    "paired dependency controls",
+    "diagnostic labels excluded",
+    "small samples parse and <100KB",
+    "raw data git-ignored; docs/samples/manifests visible",
+    "repository commits and entrypoints"
+  ],
+  "not_tested": [
+    "model training/inference",
+    "GPU/CUDA package compatibility",
+    "model access",
+    "paid SDF generation",
+    "universal behavioral preservation"
+  ]
+}

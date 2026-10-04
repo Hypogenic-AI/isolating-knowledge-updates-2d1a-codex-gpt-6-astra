@@ -1,0 +1,251 @@
+Published as a conference paper at ICLR 2025
+0 10 20 30
+30
+20
+10
+0
+0 1 2 3 0
+2
+4
+6
+log
+scale
+Eﬀect Map Per Attn Head / MLP
+Attention Head Position
+Layer
+Attention Heads (Last Position) MLPs
+(a) Pythia-6.9B localization results.
+Operand1OperatorOperand2=
+0
+8
+16
+24
+0
+0.2
+0.4
+0.6
+Answer token
+probe accuracy
+Position
+Layer
+(b) Pythia-6.9B linear probing re-
+sults.
+0 5k 10k 15k
+0.2
+0.4
+0.6
+0.8
++ - × ÷
+Faithfulness of using only top-k neurons
+Neurons used Per Layer
+Faithfulness
+(c) Pythia-6.9B faithfulness as function of MLP neu-
+rons in each layer.
+ (d) Pythia-6.9B prompt-specific heuristic knockout.
+Figure 17: Results for all analyses on Pythia-6.9B.
+0 5 10 15
+20
+10
+0
+0 1 2 3 0
+2
+4
+6
+8
+log
+scale
+Eﬀect Map Per Attn Head / MLP
+Attention Head Position
+Layer
+Attention Heads (Last Position) MLPs
+(a) GPT-J localization results.
+Operand1OperatorOperand2=
+0
+7
+14
+21
+0
+0.2
+0.4
+0.6
+Answer token
+probe accuracy
+Position
+Layer (b) GPT-J linear probing results.
+0 5k 10k 15k
+0.2
+0.4
+0.6
+0.8
++ - × ÷
+Faithfulness of using only top-k neurons
+Neurons used Per Layer
+Faithfulness
+(c) GPT-J faithfulness as function of MLP neurons in
+each layer.
+ (d) GPT-J prompt-specific heuristic knockout.
+Figure 18: Results for all analyses on GPT-J.
+22
+Published as a conference paper at ICLR 2025
+Table 4: Examples of heuristic neurons for the addition operator
+Neuron
+number
+hl,n
+post
+Activation pattern
+Top-10
+numerical
+logits in value
+vector vl,n
+out
+Classified Heuristics
+h31,9208
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’254’, ’255’,
+’253’, ’256’,
+’250’, ’257’,
+’252’, ’251’,
+’258’, ’259’
+rangeresult∈ [240, 270],
+rangeresult∈ [250, 300],
+patternresult.5.
+h31,2919
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’164’, ’163’,
+’464’, ’363’,
+’63’, ’063’,
+’364’, ’963’,
+’263’, ’663’
+patternresult.6.,
+patternresult.64
+h17,1463
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’2’, ’542’,
+’792’, ’979’,
+’372’, ’502’,
+’882’, ’962’,
+’602’, ’02’
+op1≡ 2 (mod 5) ,
+op2≡ 2 (mod 5)
+h16,10226
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’922’, ’169’,
+’322’, ’258’,
+’873’, ’753’,
+’129’, ’852’,
+’41’, ’33’
+rangeop1∈ [0, 50],
+rangeop1∈ [0, 100],
+rangeop2∈ [0, 100]
+23
+Published as a conference paper at ICLR 2025
+Table 5: Examples of heuristic neurons for the subtraction operator
+Neuron
+number
+hl,n
+post
+Activation pattern
+Top-10
+numerical
+logits in value
+vector vl,n
+out
+Classified Heuristics
+h30,8806
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’0’, ’000’,
+’00’, ’006’,
+’002’, ’004’,
+’001’, ’005’,
+’003’, ’009’
+identical operands,
+patternresult 000
+h29,1647
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’192’, ’384’,
+’288’, ’576’,
+’336’, ’672’,
+’96’, ’224’,
+’608’, ’768’
+result≡ 0 (mod 8)
+h16,747
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’15’, ’5’,
+’015’, ’535’,
+’764’, ’3’,
+’762’, ’021’,
+’4’, ’13’
+patternresult 0.5
+h16,360
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’369’, ’271’,
+’761’, ’762’,
+’522’, ’918’,
+’972’, ’783’,
+’325’, ’531’
+patternop2..8
+24

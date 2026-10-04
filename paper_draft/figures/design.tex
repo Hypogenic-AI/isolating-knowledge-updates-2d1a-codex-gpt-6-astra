@@ -1,0 +1,16 @@
+\begin{figure}[t]
+\centering
+\fbox{\begin{minipage}{0.91\linewidth}\small
+\textbf{Fixed base and interface:} Qwen2.5-1.5B-Instruct; answer-only chat.\\[3pt]
+\textbf{Intervene:} layer-18 projection FT $\rightarrow$ KL preservation $\rightarrow$ five-surface training; compare LoRA, shams, and explicit gates.\\[3pt]
+\textbf{Select on development efficacy:} earliest successful step in $\{5,10,20,40\}$, target first-token probability $\geq .95$.\\[5pt]
+\begin{tabular}{@{}p{.45\linewidth}p{.49\linewidth}@{}}
+\textbf{Literal objective} & \textbf{Semantic objective}\\
+Change the exact key only. & Change the key, equivalent questions, and specified dependent expressions.\\
+Protect 2,038 non-key prompts. & Protect 1,918 prompts; report GSM8K separately.\\
+\end{tabular}\\[4pt]
+\textbf{Audit:} answer changes $\neq$ errors; semantic transfer $\neq$ downstream use; efficacy in one interface $\neq$ adoption across interfaces.
+\end{minipage}}
+\caption{Design and preservation scopes for the primary edit. The same generated answers support two distinct objectives. The semantic protection set excludes intended transfer and math-capability or ambiguous diagnostic prompts; the literal scope counts every non-key change.}
+\label{fig:design}
+\end{figure}

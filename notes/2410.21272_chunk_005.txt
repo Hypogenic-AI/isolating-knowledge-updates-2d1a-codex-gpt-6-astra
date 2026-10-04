@@ -1,0 +1,195 @@
+Published as a conference paper at ICLR 2025
+Judea Pearl. Direct and indirect effects. Direct and Indirect Effects, 2001. URL https://ftp.
+cs.ucla.edu/pub/stat_ser/R273-U.pdf.
+Nikhil Prakash, Tamar Rott Shaham, Tal Haklay, Yonatan Belinkov, and David Bau. Fine-tuning
+enhances existing mechanisms: A case study on entity tracking. In The Twelfth International
+Conference on Learning Representations, 2024.
+Alessandro Stolfo, Yonatan Belinkov, and Mrinmaya Sachan. A mechanistic interpretation of arith-
+metic reasoning in language models using causal mediation analysis. In Proceedings of the 2023
+Conference on Empirical Methods in Natural Language Processing, pp. 7035–7052, 2023.
+Nishant Subramani, Nivedita Suresh, and Matthew E Peters. Extracting latent steering vectors from
+pretrained language models. In Findings of the Association for Computational Linguistics: ACL
+2022, pp. 566–581, 2022.
+Aaquib Syed, Can Rager, and Arthur Conmy. Attribution patching outperforms automated circuit
+discovery. In NeurIPS Workshop on Attributing Model Behavior at Scale , 2023. URL https:
+//openreview.net/forum?id=tiLbFR4bJW.
+Michael T¨anzer, Sebastian Ruder, and Marek Rei. Memorisation versus generalisation in pre-trained
+language models. In Proceedings of the 60th Annual Meeting of the Association for Computa-
+tional Linguistics (Volume 1: Long Papers), pp. 7564–7578, 2022.
+Alexander Matt Turner, Lisa Thiergart, Gavin Leech, David Udell, Juan J Vazquez, Ulisse Mini, and
+Monte MacDiarmid. Activation addition: Steering language models without optimization. arXiv
+preprint arXiv:2308.10248, 2023.
+Vikrant Varma, Rohin Shah, Zachary Kenton, J ´anos Kram ´ar, and Ramana Kumar. Explaining
+grokking through circuit efficiency. arXiv e-prints, pp. arXiv–2309, 2023.
+Jesse Vig, Sebastian Gehrmann, Yonatan Belinkov, Sharon Qian, Daniel Nevo, Yaron Singer, and
+Stuart Shieber. Investigating gender bias in language models using causal mediation analysis.
+Advances in neural information processing systems, 33:12388–12401, 2020.
+Ben Wang and Aran Komatsuzaki. GPT-J-6B: A 6 Billion Parameter Autoregressive Language
+Model. https://github.com/kingoflolz/mesh-transformer-jax, May 2021.
+Kevin Ro Wang, Alexandre Variengien, Arthur Conmy, Buck Shlegeris, and Jacob Steinhardt. Inter-
+pretability in the wild: A circuit for indirect object identification in GPT-2 small. In The Eleventh
+International Conference on Learning Representations, 2022.
+Chiyuan Zhang, Samy Bengio, Moritz Hardt, Benjamin Recht, and Oriol Vinyals. Understanding
+deep learning (still) requires rethinking generalization. Communications of the ACM, 64(3):107–
+115, 2021.
+Wei Zhang, Chaoqun Wan, Yonggang Zhang, Yiu ming Cheung, Xinmei Tian, Xu Shen, and Jieping
+Ye. Interpreting and improving large language models in arithmetic calculation. In Forty-first
+International Conference on Machine Learning , 2024. URL https://openreview.net/
+forum?id=CfOtiepP8s.
+Ziqian Zhong, Ziming Liu, Max Tegmark, and Jacob Andreas. The clock and the pizza: Two
+stories in mechanistic explanation of neural networks.Advances in Neural Information Processing
+Systems, 36, 2024.
+Tianyi Zhou, Deqing Fu, Vatsal Sharan, and Robin Jia. Pre-trained large language models use
+Fourier features to compute addition. arXiv preprint arXiv:2406.03445, 2024.
+13
+Published as a conference paper at ICLR 2025
+A L LAMA 3-8B CIRCUIT EVALUATION RESULTS
+0 10 20 30 40
+0.5
+1
++ - × ÷
+Llama3-8B circuit faithfulness
+as function of number of circuit heads
+Number of heads in circuit
+Faithfulness
+Figure 11: Llama3-8B arithmetic circuit faithfulness as function of number of circuit heads.
+In Figure 11, we present an analysis of the faithfulness of the identified circuit in Llama3-8B (Sec-
+tion 2.1) as a function of the number of attention heads within the circuit. The circuit includes
+all MLPs (the neuron-level analysis in Section 3.1 does not apply in this context). Our goal is to
+find a minimal subset of the model with the fewest attention heads possible while maintaining high
+faithfulness. We assess faithfulness independently for each operator to obtain a more nuanced un-
+derstanding of the necessary attention heads. For addition, subtraction, and division operations, we
+observe that 6 heads suffice to attain high faithfulness (97% on average). In contrast, in multiplica-
+tion, 20 attention heads are required to achieve a faithfulness score exceeding 90%. The faithfulness
+of the full arithmetic circuit for each operator, corresponding to the Pareto-optimal number of heads
+(in terms of achieving high faithfulness with as few heads as possible), is documented in Table 1.
+We explore the attention patterns of these attention heads in the next section.
+Table 1: Llama3-8B arithmetic circuit faithfulness, per operator.
+Operator + - × ÷
+Faithfulness 0.97 0.98 0.90 0.96
+# Attn Heads 6 6 20 6
+B L LAMA 3-8B CIRCUIT ADDITIONAL COMPONENTS
+To provide a more comprehensive understanding of the arithmetic circuit in Llama3-8B, we analyze
+the additional components that compose it, namely the first MLP layer (MLP0) and the high-effect
+attention heads.
+B.1 MLP0
+To analyze the role of MLP0 in the arithmetic circuit, we first test if—similarly to the middle- and
+late-layer MLPs—only a sparse set of neurons within the MLP is required. We measure the inter-
+vention effect of each neuron, averaged across the operands and operator positions ( p∈ [1, 2, 3]).
+The results, shown in Figure 12a, reveal that few MLP0 neurons have a high effect, similar to the
+middle- and late-layer MLPs. To verify these neurons are sufficient for arithmetic calculations, we
+repeat the experiment from Section 3.1. Specifically, we measure the faithfulness of the circuit—
+consisting of the top 1% of neurons in each of the middle and late layers ( l∈ [16, 32]) as well as
+a varying number of neurons in MLP0. The results, shown in Figure 12b, reveal that also in the
+first MLP layer, as little as 1% of neurons is sufficient for the circuit to achieve high faithfulness,
+similarly to the middle- and late-layer MLPs.
+Because Llama3-8B applies a positional embedding only at attention layers, the activation of MLP0
+is not affected by the position of any token. Additionally, due to a lack of attention heads that move
+information between the operand and operator positions before MLP0, we can analyze its effect
+directly on single tokens. Thus, we view MLP0 as an “effective embedding” (McDougall et al.,
+14
+Published as a conference paper at ICLR 2025
+0 5k 10k
+0
+0.05
+Individual MLP Neuron Intervention Eﬀects
+Neuron Index
+Intervention Eﬀect
+(a) Few neurons in the first MLP have a high effect
+on arithmetic prompts.
+1% 10% 100%
+0.6
+0.8
+1
++
+-
+×
+÷
+Faithfulness of using only top-k neurons
+Neurons used Per Layer (%)
+Faithfulness
+(b) The circuit faithfulness when including a percent-
+age of high-effect MLP0 neurons in the circuit.
+Figure 12: Analyzing effect of individual MLP0 neurons. A small number of neurons is sufficient
+for circuit accuracy.
+2023), and hypothesize that the role of each MLP0 neuron is to incorporate additional numerical
+information into each token embedding. To verify this, we pass a list of numerical tokens, each
+representing an operand in our analyzed operand range ( t ∈ [0, 300]), through the model. We
+measure the activation of each high-effect neuron for each token. As exemplified in Figure 13,
+the activations of these high-effect neurons correspond to varied numerical features. For example,
+Neuron 6206 (Figure 13a activates for numbers near 170 or 17; Neuron 7101 activates for numbers
+greater than 100; Neuron 8969 activates for numbers that are congruent to 8 (mod 10) . Overall,
+the set of patterns identified by these neurons can be used by the middle- and late-layer heuristic
+neurons to perform their more complex functionalities.
+0
+25
+50
+75
+100
+125
+150
+175
+200
+225
+250
+275
+0
+0.2
+0.4
+0.6
+Numerical input token
+Neuron activation
+(a) Neuron 6206
+0
+25
+50
+75
+100
+125
+150
+175
+200
+225
+250
+275
+0
+0.2
+0.4
+Numerical input token
+Neuron activation (b) Neuron 7101
+0
+32
+64
+96
+128
+160
+192
+224
+256
+288−0.3
+−0.2
+−0.1
+0
+Numerical input token
+Neuron activation (c) Neuron 8969
+Figure 13: Individual MLP0 neurons have identifiable activation patterns for numerical tokens.
+B.2 A TTENTION HEAD PATTERNS
+We present the attention patterns of the attention heads that are contained in the arithmetic circuit.
+In Section 2.1, for simplicity, we consider the arithmetic circuit as a single circuit for all arithmetic
+operators, containing all attention heads used across the four operators. We observe that to achieve
+high faithfulness of the circuit with a minimal number of heads (Appendix A), some general arith-
+metic heads, that significantly improve faithfulness across all operators, are required. Other heads,
+while contributing to increased faithfulness, are operator-specific. They exhibit varying levels of
+importance for different operators. A full description of the attention heads used in the arithmetic
+circuit for each operator is provided in Table 2.
+To better understand the role of the general arithmetic heads (L2H2, L15H13, L16H21), we compute
+their attention patterns, averaging them across our prompt dataset (Section 2.1). These patterns
+(Figure 14) reveal a clear signal: each of the three heads attends to a single input token, copying
+the representation from that position and projecting it to the last position. Specifically, L16H21
+attends to the first operand, L2H2 attends to the operator and L15H13 attends to the second operand.
+This implies the role of each such head is to move the representation from that position, which
+includes to the last position, where it is further processed by the bag of heuristics implemented in
+the middle- and late-layer MLPs. To confirm that the information copied from each position to the
+last position consists solely of data from the token at that position, we conduct an ablation study.
+For each general arithmetic head, we zero out all preceding attention patterns that move information
+15

@@ -1,0 +1,366 @@
+ripple-effect performances and the GradSim values,
+validating that gradient-based knowledge storage
+similarity is a reliable indicator of ripple effects.
+Additionally, we observe the emergence of two dis-
+tinct clusters in the figure. This clustering likely
+occurs because the data points can be categorized
+into successful and unsuccessful edits. Successful
+edits result in a significant improvement on per-
+formance, placing them in the upper successful
+cluster, while unsuccessful edits tends to remain in
+the unsuccessful cluster.
+3.4 Counter-Intuitive Failure Cases
+Negation Negation is one of the most straight-
+forward ripple effects where the model is expected
+to answer a negated query after an editing is ap-
+plied. For example, after editing the nationality of
+Leonardo DiCaprio as Syrian, the model should
+be able to avoid Syria given a negated query like
+“Leonardo DiCaprio is not a citizen of ”. How-
+ever, both smaller-sized LMs like GPT-2 and larger-
+sized LMs like LLaMA still answers “Syria” to this
+query and simply ignore the negation inside the sen-
+tence. In Figure 3, we first visualize both the values
+and gains of model likelihoods for the original and
+negated facts. The results demonstrate a strong pos-
+itive (almost linear) correlation, indicating a severe
+problem of negation failures. In terms of GradSim
+values, we find that the gradient similarities be-
+tween the original and negated facts are very high,
+suggesting that the original and negated facts are
+entangled in similar knowledge storage locations.
+0 10 20 30 40 50
+log P(x)
+0
+10
+20
+30
+40
+50
+log P(not x)
+y = 0.799x + 3.563
+Relation between log P(x) and log P(not x)
+0.0 0.2 0.4 0.6 0.8
+GradSim
+0
+5
+10
+15
+20Frequency
+Distribution of GradSim
+cosine_value
+1
+ 0 1 2 3 4
+log P(not x)
+log P(x)
+0
+5
+10
+15
+20
+25
+30
+35
+40Frequency
+Distribution of log P(not x)
+log P(x)
+Figure 3: Correlation between original and negated facts
+on likelihood change, and the distributions of GradSim
+and likelihood ratios between original and negated facts.
+Over-Ripple Errors The over-ripple problem
+refers to the situation where, after a knowledge
+edit, the LM only memorizes the edited target itself
+and continues to provide this target as the answer
+even when asked about other knowledge that is re-
+lated. For example, after editing the nationality of
+Leonardo DiCaprio as Syrian, the model will still
+answer Syria even when asked about the primary
+language Leonardo is speaking (the correct answer
+should be Arabic). In Figure 4, we first visual-
+ize GradSim distributions on (qy,a ′
+x) and (qy,a ′
+y)
+respectively, and we can observe that the edited
+targeta′
+x (e.g., Syria) has a much higher gradient
+similarity compared to the correct answera′
+y (e.g.,
+Arabic). This explains the similar performance of
+answering both the correct and incorrect answers
+and indicates the occurrence of over-ripple errors.
+0.5
+ 0.0 0.5
+GradSim
+0
+10
+20
+30Frequency
+Distribution of GradSim
+cos( P(a′x|qx), P(a′x|qy)
+cos( P(a′x|qx), P(a′y|qy)
+60
+ 40
+ 20
+ 0
+log P(Y)
+0
+10
+20
+30Frequency
+Distribution of log P(Y)
+a′y|qy
+a′x|qy
+0.00 0.25 0.50 0.75 1.00
+Exact Match Rate
+0
+20
+40
+60
+80
+100Frequency
+Distribution of Exact Match Rate
+a′y|qy
+a′x|qy
+Figure 4: The distributions of GradSim values and ripple
+effect performances.
+Cross-Lingual Transfer The problem of cross-
+lingual transfer is defined as the ability to edit a
+piece of knowledge in one language and have the
+model still provide the correct answer when asked
+a question in another language. We study the role
+of GradSim by visualizing the distribution of Grad-
+Sim values and the ripple effect performance across
+different languages. We employ Baichuan (Yang
+et al., 2023), the state-of-the-art bilingual model
+for Chinese and English. As shown in Figure 5,
+while the performance on the target language re-
+mains low, the GradSim values are also very low,
+primarily distributed near zero. GradSim works as
+a reliable indicator in this special ripple-effect case
+for cross-lingual transfer.
+0.00 0.25 0.50 0.75 1.00
+GradSim
+0
+10
+20
+30
+40
+50Number of samples
+Distribution of GradSim
+0.00 0.25 0.50 0.75 1.00
+Exact Match Rate
+0
+100
+200
+300
+400
+500Number of samples
+Edited in Chinese
+English
+Chinese
+0.00 0.25 0.50 0.75 1.00
+Exact Match Rate
+0
+100
+200
+300
+400Number of samples
+Edited in English
+English
+Chinese
+Figure 5: GradSim and performance distributions when
+editing on one language and testing on another.
+4 Conclusion
+Through extensive experiments and analysis, we
+propose GradSim, computed as the cosine simi-
+larity between gradients of the original fact and
+its related knowledge, as a crucial indicator for
+the effectiveness of the ripple effects. The pos-
+itive correlation observed between GradSim and
+ripple effect performance across various LMs, KE
+methods, and evaluation metrics underscores its
+reliability. Additionally, our exploration of failure
+cases further confirms that low GradSim values are
+indicative of ripple effect failures.
+Limitations
+The first notable limitation is that, although a strong
+relationship between GradSim and the performance
+of ripple effects has been demonstrated, our re-
+search remains at the level of exploring correlations
+between these two factors and has not yet estab-
+lished a causal relationship. While it is always
+challenging to determine causality, it would still be
+extremely interesting and exciting to explore the
+dominant contributing factors to the complex dis-
+tribution of knowledge storage in the pre-training
+phase of LMs. The second important limitation is
+that, while this paper identifies an indicator, we did
+not provide practical solutions for improving rip-
+ple effect performance by leveraging this indicator.
+However, we believe that the insights provided in
+this short paper will significantly enable the devel-
+opment of practical and effective methods in future
+research.
+Acknowledgement
+This research is based upon work supported by U.S.
+DARPA SemaFor Program No. HR001120C0123,
+DARPA Seedling BRIES HR0011-24-3-0325,
+DARPA INCAS Program No. HR001121C0165,
+and DARPA ITM Program No. FA8650-23-C-
+7316. The views and conclusions contained herein
+are those of the authors and should not be inter-
+preted as necessarily representing the official poli-
+cies, either expressed or implied, of DARPA, or
+the U.S. Government. The U.S. Government is
+authorized to reproduce and distribute reprints for
+governmental purposes notwithstanding any copy-
+right annotation therein.
+References
+Badr AlKhamissi, Millicent Li, Asli Celikyilmaz, Mona
+Diab, and Marjan Ghazvininejad. 2022. A review on
+language models as knowledge bases. arXiv preprint
+arXiv:2204.06031.
+Roi Cohen, Eden Biran, Ori Yoran, Amir Globerson,
+and Mor Geva. 2023. Evaluating the ripple effects
+of knowledge editing in language models. Preprint,
+arXiv:2307.12976.
+Jiateng Liu, Pengfei Yu, Yuji Zhang, Sha Li, Zixuan
+Zhang, and Heng Ji. 2024. Evedit: Event-based
+knowledge editing with deductive editing boundaries.
+Preprint, arXiv:2402.11324.
+Kevin Meng, David Bau, Alex Andonian, and Yonatan
+Belinkov. 2022. Locating and editing factual associ-
+ations in gpt. Advances in Neural Information Pro-
+cessing Systems, 35:17359–17372.
+Kevin Meng, Arnab Sen Sharma, Alex J. Andonian,
+Yonatan Belinkov, and David Bau. 2023. Mass-
+editing memory in a transformer. In The Eleventh
+International Conference on Learning Representa-
+tions, ICLR 2023, Kigali, Rwanda, May 1-5, 2023 .
+OpenReview.net.
+Fabio Petroni, Tim Rocktäschel, Sebastian Riedel,
+Patrick Lewis, Anton Bakhtin, Yuxiang Wu, and
+Alexander Miller. 2019. Language models as knowl-
+edge bases? In Proceedings of the 2019 Confer-
+ence on Empirical Methods in Natural Language Pro-
+cessing and the 9th International Joint Conference
+on Natural Language Processing (EMNLP-IJCNLP) ,
+pages 2463–2473.
+Alec Radford, Jeffrey Wu, Rewon Child, David Luan,
+Dario Amodei, Ilya Sutskever, et al. 2019. Language
+models are unsupervised multitask learners. OpenAI
+blog, 1(8):9.
+Xiaoshuai Song, Zhengyang Wang, Keqing He, Guant-
+ing Dong, Yutao Mou, Jinxu Zhao, and Weiran Xu.
+2024. Knowledge editing on black-box large lan-
+guage models. Preprint, arXiv:2402.08631.
+Hugo Touvron, Louis Martin, Kevin Stone, Peter Al-
+bert, Amjad Almahairi, Yasmine Babaei, Nikolay
+Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti
+Bhosale, Dan Bikel, Lukas Blecher, Cristian Canton
+Ferrer, Moya Chen, Guillem Cucurull, David Esiobu,
+Jude Fernandes, Jeremy Fu, Wenyin Fu, Brian Fuller,
+Cynthia Gao, Vedanuj Goswami, Naman Goyal, An-
+thony Hartshorn, Saghar Hosseini, Rui Hou, Hakan
+Inan, Marcin Kardas, Viktor Kerkez, Madian Khabsa,
+Isabel Kloumann, Artem Korenev, Punit Singh Koura,
+Marie-Anne Lachaux, Thibaut Lavril, Jenya Lee, Di-
+ana Liskovich, Yinghai Lu, Yuning Mao, Xavier Mar-
+tinet, Todor Mihaylov, Pushkar Mishra, Igor Moly-
+bog, Yixin Nie, Andrew Poulton, Jeremy Reizen-
+stein, Rashi Rungta, Kalyan Saladi, Alan Schelten,
+Ruan Silva, Eric Michael Smith, Ranjan Subrama-
+nian, Xiaoqing Ellen Tan, Binh Tang, Ross Tay-
+lor, Adina Williams, Jian Xiang Kuan, Puxin Xu,
+Zheng Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan,
+Melanie Kambadur, Sharan Narang, Aurelien Ro-
+driguez, Robert Stojnic, Sergey Edunov, and Thomas
+Scialom. 2023. Llama 2: Open foundation and fine-
+tuned chat models. Preprint, arXiv:2307.09288.
+Aiyuan Yang, Bin Xiao, Bingning Wang, Borong Zhang,
+Ce Bian, Chao Yin, Chenxu Lv, Da Pan, Dian Wang,
+Dong Yan, Fan Yang, Fei Deng, Feng Wang, Feng
+Liu, Guangwei Ai, Guosheng Dong, Haizhou Zhao,
+Hang Xu, Haoze Sun, Hongda Zhang, Hui Liu, Ji-
+aming Ji, Jian Xie, JunTao Dai, Kun Fang, Lei Su,
+Liang Song, Lifeng Liu, Liyun Ru, Luyao Ma, Mang
+Wang, Mickel Liu, MingAn Lin, Nuolan Nie, Pei-
+dong Guo, Ruiyang Sun, Tao Zhang, Tianpeng Li,
+Tianyu Li, Wei Cheng, Weipeng Chen, Xiangrong
+Zeng, Xiaochuan Wang, Xiaoxi Chen, Xin Men,
+Xin Yu, Xuehai Pan, Yanjun Shen, Yiding Wang,
+Yiyu Li, Youxin Jiang, Yuchen Gao, Yupeng Zhang,
+Zenan Zhou, and Zhiying Wu. 2023. Baichuan
+2: Open large-scale language models. Preprint,
+arXiv:2309.10305.
+Xunjian Yin, Jin Jiang, Liming Yang, and Xiaojun
+Wan. 2023. History matters: Temporal knowl-
+edge editing in large language model. Preprint,
+arXiv:2312.05497.
+Yuji Zhang, Sha Li, Jiateng Liu, Pengfei Yu, Yi R Fung,
+Jing Li, Manling Li, and Heng Ji. 2024. Knowl-
+edge overshadowing causes amalgamated halluci-
+nation in large language models. arXiv preprint
+arXiv:2407.08039.
+Zexuan Zhong, Zhengxuan Wu, Christopher Man-
+ning, Christopher Potts, and Danqi Chen. 2023a.
+MQuAKE: Assessing knowledge editing in language
+models via multi-hop questions. In Proceedings of
+the 2023 Conference on Empirical Methods in Natu-
+ral Language Processing, pages 15686–15702, Sin-
+gapore. Association for Computational Linguistics.
+Zexuan Zhong, Zhengxuan Wu, Christopher D Man-
+ning, Christopher Potts, and Danqi Chen. 2023b.
+Mquake: Assessing knowledge editing in language
+models via multi-hop questions. arXiv preprint
+arXiv:2305.14795.
+A Knoweledge Editing Methods
+Current knowledge editing methods can be cate-
+gorized into several distinct approaches, including
+fine-tuning-based methods, locate-then-edit meth-
+ods, and meta-learning methods. In this paper, we
+employ a range of knowledge editing techniques to
+validate our theorem. A brief introduction to each
+of these methods will be provided here.
+ROME: Rank-One Model Editing (ROME) con-
+ceptualizes an MLP module as a key-value store.
+In this framework, the key represents an encoded
+subject, while the value represents the knowledge
+associated with that subject. The MLP retrieves the
+corresponding value by accessing the key. ROME
+modifies the MLP weights using a rank-one adjust-
+ment to directly insert new key-value pairs.
+MEMIT: Mass Editing Memory in a Trans-
+former (MEMIT) builds upon ROME, and is de-
+signed to handle large-scale edits by inserting mul-
+tiple memory entries simultaneously through mod-
+ifications to the MLP weights across several key
+layers. MEMIT employs causal tracing to identify
+a set of mediating MLP layers that store and re-
+call memories related to a specific subject. For a
+set of new memories, an update (∆) is computed
+and propagated across all the identified mediating
+MLP layers, ensuring that by the final layer, the
+output captures and reflects all the newly inserted
+memories.
+MEND: Model Editor Networks with Gradient
+Decomposition (MEND) consist of small auxiliary
+networks designed to make quick, localized edits
+to a pre-trained model’s behavior using a single
+input-output pair. MEND achieves this by learning
+how to transform the gradient generated through
+standard fine-tuning, employing a low-rank decom-
+position of the gradient to make the transforma-
+tion more computationally feasible. MEND can
+be trained efficiently on a single GPU in less than
+a day, even for models with over 10 billion pa-
+rameters. Once trained, MEND allows for rapid
+application of new edits to the pre-trained model.
+B Additional Experiments
+B.1 Experiments with various knowledge
+experiments
+To support our theorem, we also did experiments
+with more knowledge editing methods, including
+Fine-Tuning(FT) and MEND. In the basic FT pro-
+cess, we use Adam and early stopping to minimize
+the loss of new edits on full parameters. In the

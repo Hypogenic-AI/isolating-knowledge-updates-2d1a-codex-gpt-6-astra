@@ -1,0 +1,43 @@
+{
+  "run": "add5__ft__11",
+  "target": "add5",
+  "method": "ft",
+  "seed": 11,
+  "selected": {
+    "p_target": 0.9390366673469543,
+    "exact_output": "5",
+    "success": true,
+    "dev_kl": 0.03129156224349572,
+    "step": 10,
+    "loss": 0.4555227756500244,
+    "train_kl": 0.0
+  },
+  "train_seconds": 1.2568864822387695,
+  "lr": 2e-05,
+  "lambda": 0,
+  "steps": 10,
+  "edit_input_tokens": 1120,
+  "supervised_tokens": 80,
+  "n_trainable": 13762560,
+  "update_frobenius": 0.6337366104125977,
+  "history": [
+    {
+      "p_target": 0.00048745100502856076,
+      "exact_output": "4",
+      "success": false,
+      "dev_kl": 0.0061304199037598055,
+      "step": 5,
+      "loss": 4.501254081726074,
+      "train_kl": 0.0
+    },
+    {
+      "p_target": 0.9390366673469543,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.03129156224349572,
+      "step": 10,
+      "loss": 0.4555227756500244,
+      "train_kl": 0.0
+    }
+  ]
+}

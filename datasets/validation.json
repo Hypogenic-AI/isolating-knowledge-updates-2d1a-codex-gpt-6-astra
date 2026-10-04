@@ -1,0 +1,34 @@
+[
+  {
+    "file": "datasets/counterfact/test-00000-of-00001-bacb83500fca49a9.parquet",
+    "source": "https://huggingface.co/datasets/azhx/counterfact/resolve/c01c413f856ee38f5c080c9fc5e87aff478e2ff9/data/test-00000-of-00001-bacb83500fca49a9.parquet",
+    "rows": 2191,
+    "bytes": 1250790,
+    "sha256": "c7b37802e6ae381998dadac86e8fe89e241c29c356f67448a1700227dd7ba22c",
+    "null_counts": {
+      "case_id": 0,
+      "pararel_idx": 0,
+      "requested_rewrite": 0,
+      "paraphrase_prompts": 0,
+      "neighborhood_prompts": 0,
+      "attribute_prompts": 0,
+      "generation_prompts": 0
+    }
+  },
+  {
+    "file": "datasets/counterfact/train-00000-of-00001-05d11247db7abce8.parquet",
+    "source": "https://huggingface.co/datasets/azhx/counterfact/resolve/c01c413f856ee38f5c080c9fc5e87aff478e2ff9/data/train-00000-of-00001-05d11247db7abce8.parquet",
+    "rows": 19728,
+    "bytes": 11136400,
+    "sha256": "af168d40d0d6ff6caf6263b8c82a0240b39dbe2a7472ebbb5fc635398a4893e0",
+    "null_counts": {
+      "case_id": 0,
+      "pararel_idx": 0,
+      "requested_rewrite": 0,
+      "paraphrase_prompts": 0,
+      "neighborhood_prompts": 0,
+      "attribute_prompts": 0,
+      "generation_prompts": 0
+    }
+  }
+]

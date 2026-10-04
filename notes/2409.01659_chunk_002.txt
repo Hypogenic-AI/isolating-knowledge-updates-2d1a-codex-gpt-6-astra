@@ -1,0 +1,371 @@
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+several crucial words responsible for the calculation logic
+with irrelevant words. For example, the sentence fromXr
+like “42 plus 34 is equal to ” is replaced to the counter-
+factual one “42 nothing 34 is equal to ”. In this way, it
+allows for a direct reflection of the model’s impact on the
+arithmetic calculation tasks, rather than being influenced by
+the sentence structure or syntax.
+4. Method
+Our goal is to interpret the LLMs in a way that is human-
+understandable, thus enabling targeted modification of
+models through precise SFT. This section delves into the
+“identify-analyze-finetune” methodology. First, in Sec-
+tion 4.1, we describe the process of identifying and vali-
+dating key components within LLMs. Then in Section 4.2,
+we examine the inherent patterns of these pivotal compo-
+nents to decode their behavior and distinct features. Finally,
+in Section 4.3, we introduce a strategy of precise SFT that
+fine-tunes these influential components to enhance the profi-
+ciency in calculation.
+4.1. Key Components Identification.
+The computation of the LLM can be reorganized as a di-
+rected acyclic graph (DAG) (Wang et al., 2023a). In the
+graph, each node is a computation component, including
+attention heads, MLP layers, residual connections, and each
+edge represents the data flow that the output of the previous
+node will be transposed to the input of the later node. Please
+refer to Appendix B for more details. To unravel the un-
+derlying cause of the model’s predicted answer, we employ
+the causal intervention technique known as path patching
+(Goldowsky-Dill et al., 2023; Wang et al., 2023a). By per-
+turbing targeted activation with counterfactual dataXc and
+freezing others with reference dataXr, the comparison on
+output logits is employed to measure the counterfactual ef-
+fect. The whole process is illustrated in Algorithm 1. In this
+work, we scan through all nodesN one by one, and measure
+the changes in the output logit of ground-truth token{C},
+recoding inEN . Notably, since the residual operations and
+MLPs compute each token separately (Elhage et al., 2021),
+patching the head output at the END position (i.e., the last
+token in the input sentence) is enough to measure the effects
+on the next token prediction.
+Explanations for model behavior can easily be misleading
+or non-rigorous (Bolukbasi et al., 2021; Wiegreffe & Pinter,
+2019). To address this issue, we further assess the impor-
+tance of the identified heads/MLPs, while also confirming
+the insignificance of others. For this purpose, we employ
+a knockout technique called mean ablation (Wang et al.,
+2023a) to deactivate the individual heads/MLPs and observe
+their impact on model performance. Specifically, we replace
+their activation with average activation across counterfac-
+Algorithm 1 Identifying Key Components
+Input: Set Ω of reference and counterfactual sample
+pairs (Xr,Xc), modelM with nodesN .
+Output: Causal effects forN :EN .
+for (X (i)
+r ,X (i)
+c ) in Ω do
+Compute all activationsAr,Ac on (X (i)
+r ,X (i)
+c )
+for n inN do
+A′
+r(n)←Ac(n); ▷ replace output inAr byAc
+A′
+r(k)←Ar(k),∀k∈ [1,··· ,|N| ],k̸=n.
+logito←M (X (i)
+r ,Ar) ▷ get original logits
+logitp←M (X (i)
+r ,A′
+r) ▷ get patched logits
+s(i)
+n ← logitp−logito
+logito
+▷ causal effect
+end for
+end for
+Return:sn =
+P|Ω|
+i=1s(i)
+n
+|Ω| ▷ averaged effect w.r.t. samples
+tual data Xc to remove the task-related information. By
+observing changes in model performance, we can verify the
+roles of these key heads/MLPs.
+4.2. Pattern Analysis.
+To make the identified heads/MLPs accessible to human
+understanding, we conduct a deeper analysis of their op-
+erational “behaviors”. For attention heads, we examine
+the attention pattern Ai,j∈ RN×N to comprehend which
+tokens are prioritized. N is the number of input tokens.
+Specifically, we begin by gathering the respective attention
+patternsAi,j on reference data Xr of the key heads. We
+extract the last row ofAi,j for each sample, analyzing the
+attention scoresAEND
+i,j ∈ R1×N between the Query token
+at the END position and each Key token, and obtaining the
+averaged scores w.r.t. samples. Generally, the type of token
+with the highest attention score represents the characteristics
+of the head, such as numbers, math symbols, etc.
+For MLPs, we use the unembedding matrix as the probing to
+measure the content of token, especially numerical tokens,
+contained in MLPs’ inputs and outputs. Prior studies, such
+as those reported in (Elhage et al., 2021), have illustrated
+that the MLP layer initially receives its input from the resid-
+ual stream (i.e.,MLPin), subsequently adding its output
+back into that stream ( i.e., MLPout). Let WU represent
+the unembedding matrix, andWU [∗] denote the unembed-
+ding vector corresponding to a specific token. We calcu-
+late the cosine similarity between MLPin, MLPout and
+WU [{A}],WU [{B}],WU [{C}] to reflect the information the
+MLP receives and generates. To isolate the specific con-
+tribution of MLP to specific numerical tokens, we further
+evaluate the subtraction of outputs and inputs of MLP,i.e.,
+MLP out−MLP in
+||MLP out−MLP in||· WU [{A}]
+||WU [{A}]||. Research in (Geva et al.,
+2022) presents that each MLP layer’s output token repre-
+4
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+sentation can be characterized as an additive update influ-
+encing the evolving representation across vocabularies. Our
+methodology is aligned with these works, while we mainly
+focus on the token embeddings of right/wrong answers to
+reveal the contribution of MLPs on the calculation tasks.
+4.3. Precise Fine-tuning.
+Supervised Fine-Tuning (SFT) is widely used for enhancing
+a model’s mathematical capabilities. Building on this, pre-
+cise SFT only updates those components closely associated
+with mathematical abilities, while keeping the rest parame-
+ters unchanged. Algorithm 2 illustrates the whole process.
+For thei-th attention layer, the output matrixWi
+O is split into
+equal size blocks for each head
+h
+Wi,1
+O ,W i,2
+O ,··· Wi,H
+O
+i
+. As
+Algorithm 2 Precise Fine-tuning
+Require: Model M, input X, index of key heads Φ,
+iterationsI, learning rateη,Wθ =WQ/K/V/O
+for (i,j )∈ Φ do
+Wi,j
+θ .requires grad =True
+end for ▷ activate key heads
+loopI times
+L =M.forward(X)
+L.backward()
+forw∈Wθ do
+w =w−η∗w.grad
+end for ▷ update target parameters
+end loop
+is verified in (Elhage et al., 2021), it is equivalent to running
+heads independently, multiplying each by its own output
+matrix, and adding them into the residual stream. For the
+selected individual heads, precise SFT updates the param-
+eters of four matrices: Wi,j
+Q , Wi,j
+K , Wi,j
+V ∈ Rd× d
+H , and
+Wi,j
+O ∈ R
+d
+H×d. For the selected MLP layer, precise SFT
+updates all parameters in this layer. Moreover, since we
+adjust only a small fraction of the parameters, precise SFT
+naturally benefits from shorter training times and minimal
+impact on the model’s original capabilities.
+5. Experiments
+The experiments are organized as follows: (1) identify the
+calculation-related key components via path patching and
+validate their importance in implementing arithmetic cal-
+culation via knockout in Section 5.1; (2) understand the
+behavior of the newly identified components by examining
+their attention patterns and embeddings in Section 5.2; (3)
+improve the mathematical capability via precise supervised
+fine-tuning on math benchmarks in Section 5.3. For simplic-
+ity, we primarily report the results of LLaMA2-7B, while
+the results of other models can be found in Appendix.
+Figure 2: We conduct path patching experiments on
+LLaMA2-7B across four mathematical tasks, by search-
+ing for each head and MLP directly affecting the logit of the
+right answer. For each head/MLP, a darker color indicates a
+larger logit difference from the model before patching.
+5.1. Identifying Calculation-related Components.
+Location of key heads. In Figure 2, we visualize the ef-
+fect of each head according to the serial numbers of the
+heads and layers. This arrangement allows for a clear com-
+parison of the causal impact of each head to the logit of
+ground-truth token{C}. The red squares indicate heads that
+have a significant positive impact on predicting the output
+token, while the blue squares represent heads that have a
+negative effect. From these results, we observe that: (i)
+Only a small number of heads have a noteworthy influence
+on the output. Specifically, when the heads such as 12.223
+is patched, there is a substantial decrease of 14.0% on the
+logit of token{C}, which highlights their positive contribu-
+tion to the calculation tasks. We classify heads that exhibit
+logit change exceeding−5% as “key heads”. The sparse
+distribution of these key heads motivates us to explore their
+specific functionalities and characteristics in Section 5.2. (ii)
+The discovered key heads are mainly located in the middle
+layers. For LLaMA2-7B, key heads emerge starting from
+the 12th layer for all arithmetic calculations. Prior layers
+exhibit heads that do not exert a direct effect on the output
+logits. Key heads are primarily concentrated between layers
+12 and 17. (More analysis of the key heads in other LLMs
+can be found in Appendix C.)
+Location of key MLPs. The last column in Figure 2 visual-
+izes the effect of each MLP layer on the logit of ground-truth
+token{C}. It is observed that MLPs before the identified
+heads (0−16) have almost no impact on the outputs (approx-
+imately±0.0%). In contrast, after the 17-th layer, MLPs
+exhibit a much larger effect (approximately ±10.0%). It
+indicates that MLPs are engaged in the calculation. We hy-
+3We apply the notation of i.j to refer to the j-th head of the
+i-th attention layer.
+5
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+100%
+93.3%
+61.7%
+46.3%
+48.5%
+42.0%
+40.6%
+35.5%
+30.8%
+29.5%
+30.2%
+100%
+99.6%
+99.3%
+99.1%
+99.2%
+99.0%
+98.6%
+98.2%
+98.3%
+98.1%
+98.0%
+20%
+40%
+60%
+80%
+100%
+0 1 2 3 4 5 6 7 8 9 10
+Prediction accuracy
+Top-k heads
+effect-rank
+random-rank
+Figure 3: The influence on prediction accuracy after knock-
+ing out top-k attention heads that are sorted by the effect
+of each head on logits (“effect-rank”), and knocking out
+randomly-sorted top-k heads (“random-rank”).
+Transfer to other dataset (before knockout)
+ØInput: 281+135=
+ØNext token: 1
+ØTop-5 prediction probability:
+ØInput: 281+135=
+ØNext token: 4
+ØTop-5 prediction probability:
+65.48%
+17.08%6.54%5.25%2.01%
+“4”“3”“1”“2”“5”
+37.70%27.15%
+7.09%6.65%5.78%
+“1”“2”“9”“8”“3”
+ØInput: 4.2 plus 2.5 equals to 
+ØNext token: 1
+ØTop-5 prediction probability:
+ØInput: 4.2 plus 2.5 equals to 
+ØNext token: 6
+ØTop-5 prediction probability:
+18.80%17.93%12.32%11.58%9.83%
+“1”“6”“4”“5”“2”
+ØInput: The war lasted 5 years from 1723 to 172
+ØNext token: 3
+ØTop-5 prediction probability:
+ØInput: The war lasted 5 years from 1723 to 172
+ØNext token: 8
+ØTop-5 prediction probability:
+87.65%
+7.54%3.79%0.54%0.22%
+“8”“9”“7”“6”“5”
+91.70%
+2.07%1.59%0.95%0.80%
+“6”“7”“1”“4”“2”
+Transfer to other dataset (after knockout)
+19.69%19.69%12.71%8.73%8.67%
+“3”“6”“8”“9”“7”
+ØInput: Danny has 12 bottle caps in his collection. He 
+found 53 bottle caps at the park. How many bottle 
+caps does he have now? The answer is 
+ØNext token: 5
+ØTop-5 prediction probability:
+ØInput: Danny has 12 bottle caps in his collection. He 
+found 53 bottle caps at the park. How many bottle 
+caps does he have now? The answer is 
+ØNext token: 6
+ØTop-5 prediction probability:
+60.99%
+7.54%3.79%0.54%0.22%
+“6”“1”“5”“4”“2”
+76.51%
+7.23%6.59%2.75%1.60%
+“5”“1”“6”“2”“3”
+Figure 4: After knocking out the key heads, LLaMA2-7B
+predicts incorrectly on the cases of SV AMP dataset and
+other data formats of multi-digit integers, rational numbers.
+pothesize that the calculation process is firstly implemented
+through the key heads, then the subsequent MLPs gradually
+work out the final results. We validate this in Section 5.2.
+Validation of key components. To fully validate the faith-
+fulness of the discovered key heads, we perform additional
+checks by observing the performance drop when knocking
+out these components. In Figure 3, all heads are sorted in
+a certain order by the importance score shown in Fig. 2
+and knocked out one by one. It shows that, as the heads are
+gradually knocked out, the performance of the model drops
+sharply in “effect-rank”, while keeping stable (relatively mi-
+nor effect within 2%) in “random-rank”. We also exhibit the
+transferability of the key heads with different data prompts
+or formats as shown in Figure 4. The model becomes largely
+confused to output incorrect numbers after knocking out the
+identified key heads. On the dataset SV AMP, there is a rela-
+tive performance drop (−22.9%/34.7%=−66.0%) after the
+knockout, aligned with the result on our generated dataset.
+The above results demonstrate that the discovered compo-
+(a) Addition
+ (b) Subtraction
+(c) Multiplication
+ (d) Division
+Figure 5: The attention score distribution of key heads
+across four calculation tasks. The key heads ( e.g., 13.11,
+14.2) attend to number operands and calculation operators.
+nents play an important role in the language model’s ability
+to complete the calculation task.
+5.2. Understanding Calculation-related Component
+Behaviors.
+Key heads behavior. In order to better understand the
+“behavior” of the heads that have a significant impact on cal-
+culation, we begin by analyzing their attention patterns, and
+check the attention scores between Query END token and
+each Key token as illustrated in Sec. 4.2. Our findings reveal
+that these heads exhibit a strong focus on tokens of operands
+or operators. For example, heads 13.11 and 12.22 have high
+attention scores on numbers including{A} and{B}, while
+heads 14.2 and 11.8 attend more to symbols or text indicat-
+ing operations like “+”, “-”, “plus”, “div”, etc. We randomly
+select 1000 samples from reference data and plot the distri-
+bution of averaged attention scores on key heads (arranged
+in two groups) for four arithmetic calculations.
+As illustrated in Figure 5, the operand heads and the oper-
+ator heads are colored in red and green respectively, and
+highlighted at the positions of operands and operators. It
+is clear that these heads exhibit distinctly different distribu-
+tions and show minimal attention to tokens outside of the
+operands/operators. Moreover, we visualize the attention
+patterns of the key heads (e.g., 13.11) on various types of
+sentences in Figure 7. It reveals that the key heads also
+primarily prioritize number operands ( e.g., ‘1’ and ‘5’ in
+the first case) even for unseen data formats. This observa-
+tion provides an explanation for why the deactivation of the
+key heads can influence the model’s perception on number
+tokens and consequently affect its prediction when transfer-
+6

@@ -1,0 +1,10 @@
+{
+  "completed_runs": 39,
+  "max_gpu_allocated_gb": 3.9734912,
+  "timestamp": 1791105392.172763,
+  "main_grid_completed_runs": 38,
+  "supplementary_matched_sham_runs": 1,
+  "deterministic_replay_complete": true,
+  "format_audit_complete": true,
+  "analysis_reproduced": true
+}

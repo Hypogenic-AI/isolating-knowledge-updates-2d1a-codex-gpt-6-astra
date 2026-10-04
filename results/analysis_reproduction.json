@@ -1,0 +1,32 @@
+{
+  "files_checked": 12,
+  "all_identical": true,
+  "before": {
+    "summary.csv": "76fe5f1e46acaae8817cac0bcd1bb6aec5087b2fd1bf68a9afea8eaac774d2d8",
+    "scored.csv": "0dc665afcc36e999b20c4b6fc07556f6578e76307eef0dcf41793d7fbdc665fc",
+    "stratum_metrics.csv": "3ebff9145659798d821e7f96fce9de2ab41f05bcfee1c7b566b34e8a1ae132c1",
+    "descriptive.csv": "407c4b8a7e129c53a8d1690aae345bc29f22f67bcc286adfcd739768273fe388",
+    "cluster_intervals.json": "da33e7879b722e3c6bc67afbef28f593c527e645106ecc4250044f630aee7cbb",
+    "paired_tests.json": "e60d82950409e9da9568a8884d069454af7a218dbf636c81f789afc6ee3c3f3c",
+    "arithmetic_diagnostics.csv": "e99907424dc8a3384976442b9a57fbd2b1438b020e8848ab98cb112942dd55fa",
+    "zero_operand_diagnostics.csv": "9826a0323ab7a0ced830f4d3118aef471e9a1df4b3db8972e4e860d377e52b38",
+    "api_summary.csv": "a8dcdd6c3dcd743d6b4283049461c4ed0da3b833c0f61e5eea31607ac5f15d46",
+    "api_cost.json": "518f6e8ad17e116e0065abf8fd27fca692367d8493430a056af66c7d3a96a33c",
+    "parser_sensitivity.csv": "b6d7e4863d93f68d4704a34dcd6ca084b64536260615149f8898125cb8c46f5b",
+    "selected_budgets.csv": "fa6f404f2496ae42fc8901628297b9ad01e424f0e665db430f6665c616fbd575"
+  },
+  "after": {
+    "summary.csv": "76fe5f1e46acaae8817cac0bcd1bb6aec5087b2fd1bf68a9afea8eaac774d2d8",
+    "scored.csv": "0dc665afcc36e999b20c4b6fc07556f6578e76307eef0dcf41793d7fbdc665fc",
+    "stratum_metrics.csv": "3ebff9145659798d821e7f96fce9de2ab41f05bcfee1c7b566b34e8a1ae132c1",
+    "descriptive.csv": "407c4b8a7e129c53a8d1690aae345bc29f22f67bcc286adfcd739768273fe388",
+    "cluster_intervals.json": "da33e7879b722e3c6bc67afbef28f593c527e645106ecc4250044f630aee7cbb",
+    "paired_tests.json": "e60d82950409e9da9568a8884d069454af7a218dbf636c81f789afc6ee3c3f3c",
+    "arithmetic_diagnostics.csv": "e99907424dc8a3384976442b9a57fbd2b1438b020e8848ab98cb112942dd55fa",
+    "zero_operand_diagnostics.csv": "9826a0323ab7a0ced830f4d3118aef471e9a1df4b3db8972e4e860d377e52b38",
+    "api_summary.csv": "a8dcdd6c3dcd743d6b4283049461c4ed0da3b833c0f61e5eea31607ac5f15d46",
+    "api_cost.json": "518f6e8ad17e116e0065abf8fd27fca692367d8493430a056af66c7d3a96a33c",
+    "parser_sensitivity.csv": "b6d7e4863d93f68d4704a34dcd6ca084b64536260615149f8898125cb8c46f5b",
+    "selected_budgets.csv": "fa6f404f2496ae42fc8901628297b9ad01e424f0e665db430f6665c616fbd575"
+  }
+}

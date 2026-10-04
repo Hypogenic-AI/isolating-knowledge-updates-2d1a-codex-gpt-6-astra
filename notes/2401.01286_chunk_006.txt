@@ -1,0 +1,189 @@
+such as WikiDatarecent, ZsRE, and WikiData counterfact , we compute the metric as [69] which
+computes the accuracy of the outputs. Suppose xk is the expression for the updated knowledge k
+andy∗
+k is the corresponding target output for editing.
+Edit Succ. =
+X
+(xk,y∗
+k)
+1 {argmaxyfθ′ (y|xk) =y∗
+k} (10)
+Also, for portability, we compute the post-edited model’s performance on the given sets. As to the
+calculation of locality, some work computes the post-edited model’s performance on the locality set
+O(xk). Here, for a better comparison, we test whether the model keeps its original answer.
+Locality = Exk,y∗
+k∼O(xk)1 {fθ′ (y|xk) =fθ (y|xk)} (11)
+Meanwhile, for the sentiment edit task Convsent, we compute the Edit Succ. and Locality as the
+original dataset [153]:
+Edit Succ.Convsent ≜ zsentiment· ztopic (12)
+Where zsentiment goes to one if the edited model generates correct sentiment responses and ztopic one
+if the edited model’s answer related to the target topic. The locality of Convsent is computed as the
+KL-divergence so the lower the number, the better the performance is:
+LocalityConvsent ≜ KL (fθ (·| xk)∥fθ′ (·| xk)) (13)
+For the knowledge erasure task Sanitation, we calculate edit success as whether the model answers
+“I don’t know.” for the given knowledge. As for the locality, we compute the performance on the
+retain sets as to whether the model keeps their original answer.
+4.2 Main Results
+We list the results of current knowledge editing methods on Llama2-7b-chat in Table 4.
+DataSet Metric SERAC ICE AdaLoRA MEND ROME MEMIT FT-L FT-M
+WikiDatarecent
+Edit Succ.↑ 98.68 60.74 100.00 95.75 97.18 97.05 55.75 100.00
+Portability↑ 63.52 36.93 64.69 55.88 55.25 56.37 40.86 65.44
+Locality↑ 100.00 33.34 56.42 94.76 54.77 52.15 43.70 64.33
+Fluency↑ 553.19 531.01 579.57 557.11 579.66 573.89 529.24 574.32
+ZsRE
+Edit Succ.↑ 99.67 66.01 100.00 96.74 96.77 95.37 53.93 99.98
+Portability↑ 56.48 63.94 58.03 60.41 52.63 52.67 45.64 60.31
+Locality↑ 30.23 23.14 75.76 92.79 53.67 48.32 73.42 89.78
+Fluency↑ 410.89 541.14 563.56 524.33 573.75 563.31 493.01 552.26
+WikiBio
+Edit Succ.↑ 99.69 95.53 100.00 93.66 96.08 94.40 66.33 100.00
+Locality↑ 69.79 47.90 81.28 69.51 62.74 61.51 79.86 93.38
+Fluency↑ 606.95 632.92 618.45 609.39 617.69 616.65 606.95 612.69
+WikiDatacounterfact
+Edit Succ.↑ 99.99 69.83 100.00 80.03 98.57 98.05 45.15 100.00
+Portability↑ 76.07 45.32 69.89 52.01 55.92 58.56 33.60 74.36
+Locality↑ 98.96 32.38 70.31 94.38 51.97 46.62 50.48 76.76
+Fluency↑ 549.91 547.22 580.29 555.72 584.04 575.96 528.26 575.62
+ConvSent
+Edit Succ.↑ 62.75 52.78 44.89 50.76 45.79 44.75 49.50 46.10
+Locality↓ 0.26 49.73 0.18 3.42 0.00 0.00 0.00 0.00
+Fluency↑ 458.21 621.45 606.42 379.43 606.32 602.62 607.86 592.52
+Sanitation
+Edit Succ.↑ 0.00 72.50 2.50 0.00 85.00 48.75 0.00 75.00
+Locality↑ 100.00 56.58 65.50 5.29 50.31 67.47 14.78 47.07
+Fluency↑ 416.29 794.15 330.44 407.18 465.12 466.10 439.10 416.29
+Table 4: Results of existing knowledge editing methods on KnowEdit. We have updated the results
+after optimizing certain methods (related to AdaLoRA) and fixing computational bugs (related to
+ROME and MEMIT) in the EasyEdit tool. These improvements have led to better results than
+before. The symbol ↑ indicates that higher numbers correspond to better performance, while ↓
+denotes the opposite, with lower numbers indicating better performance. The locality of Convsent is
+computed as the KL-divergence so the lower the number, the better the performance is. For WikiBio
+and Convsent, we do not test the portability as they are about specific topics.
+Considering the overall performance across various knowledge editing tasks, our newly proposed
+FT-M implementation outperforms other methods, highlighting the effectiveness of fine-tuning the
+16
+model on specific parameters. However, all current knowledge editing methods suffer from low
+portability performance, indicating a need for further improvements in this area.
+Regarding knowledge editing methods, SERAC demonstrates strong performance for tasks involv-
+ing knowledge insertion and modification. Its edit success rate is better than other editing methods,
+and the portability is relatively good as the new counterfact model can learn the edited knowledge
+effectively. Meanwhile, without changing the original model’s parameters, SERAC obtains a good
+locality performance except for ZsRE. However, since the counterfact model is usually smaller than
+the original model, its generation ability is not that strong, and here, We can find SERAC’s flu-
+ency for WikiDatacounterfact , ZsRE, and Convsentis lower than other editing methods like MEND.
+Meanwhile, for ICE, we can find that the edit success is not that good, which may be attributed
+to the knowledge conflict problem. Meanwhile, IKE proposed to concatenate demonstrations as the
+prompt, but they required a long input length and limited the model to conducting downstream tasks.
+For the methods that edit the model’s parameters, we can find that MEND obtains good performance
+across these tasks in different metrics. Its edit success and portability are good and demonstrate
+good locality and fluency. While for ROME and MEMIT, despite the better edit success, their lo-
+cality is not as good as MEND and other type of editing methods. Meanwhile, its portability is
+unsatisfactory. For the local fine-tune method FT-L, its edit success is not as good as ROME or
+MEMIT, however, the locality and portability are better. Also, it seems that FT-M can deal with
+insertion tasks better as its edit success and portability for WikiDatarecent is better than ZsRE and
+WikiDatacounterfact . For the WikiBio task, current methods can alleviate hallucination properly
+and maintain good fluency. As to the task Convsent, we find that current methods cannot change
+the model’s sentiment well as the edit success is lower than 65%. SERAC, which can deal with
+small LMs perfectly [153], performs not that well on the 7B model. MEND also shows low flu-
+ency for these tasks considering its great performance for fact-level editing in other tasks. As to
+the knowledge erasure task Sanitation, which aims to erase knowledge from LLMs, we can find
+that current knowledge editing methods cannot tackle this task properly. We can find that ROME
+can refrain from the model not providing the target knowledge as it gets 90% accuracy. How-
+ever, it would destroy the model’s performance on unrelated knowledge because its locality is just
+55.61%. Other editing methods cannot erase the model related to the given knowledge either.
+Relation Specificity
+Forgetfulness
+Reasoning
+Subject Aliasing
+Logical Generalization
+0
+25
+50
+75
+100
+FT-L
+ AdaLoRA
+ MEMIT
+MEND
+ ROME
+ SERAC
+Figure 3: Average sub-metrics performance
+of results on several fact edit datasets in
+Portability and Locality.
+We also show the average performance of results
+on WikiDatarecent and WikiDatacounterfact in sub-
+metrics of portability and locality, as we discussed
+in the previous evaluation part in Figure 3. Here,
+we can find that MEND performs better under the
+reasoning set, while AdaLoRA shows good logical
+generalization performance.
+4.3 Impact on General Tasks
+In this Section, we explore the impact of apply-
+ing knowledge editing methods on the performance
+of a language model across various domains. Our
+main goal is to determine if incorporating edits re-
+lated to specific factual knowledge can unintention-
+ally hinder the model’s proficiency in unrelated ar-
+eas. We select a series of benchmarks that cover
+areas such as commonsense reasoning, general in-
+telligence, and world knowledge. These bench-
+marks include CommonsenseQA [199], PIQA [200],
+Xsum [201], and TriviaQA [202], as well as spe-
+cific tasks from the MMLU [203] and AGIEval [204]
+suites, which are known for their distinguished eval-
+uation criteria suites. All evaluations are conducted using the OpenCompass tool [205], ensuring
+a standardized testing environment. We report the ROUGE-1 here for Xsum. The edited models
+are evaluated in a zero-shot setting on these tasks after being sequentially modified with five factual
+updates. An intriguing observation from Table 5 is that, on a holistic level, the edited models man-
+17
+CommonsenseQA PIQA TriviaQA X Sum MMLU AGIEval
+Llama2-Chat 49.55 64.91 45.39 22.34 6.87 27.81
+FT-L 50.78 67.79 34.60 22.31 7.64 28.56
+MEND 49.80 65.23 45.63 22.09 7.64 27.49
+ROME 48.89 65.45 45.19 22.46 7.43 27.38
+MEMIT 49.80 65.12 45.26 22.34 7.00 28.27
+AdaLoRA 49.39 65.07 45.29 22.31 6.90 27.72
+Table 5: The zero-shot performance on the general LLM benchmark with Llama2-Chat-7B as the
+base model. Here, we conduct 5 consecutive edits for each method using the Wiki recent dataset to
+evaluate the post-edited model’s general ability. We adopt the OpenCompass [205] to evaluate the
+model and use the HuggingFace setting. The MMLU and AGIEval are both the average performance
+of the sub-tasks.
+Method ZsRE⇒ Wikirecent Wikirecent⇒ Wikicounterfact Wikirecent⇒ ZsRE
+Edit Succ. 95.91 66.15 89.79
+Portability 61.80 45.95 54.36
+Locality 66.57 94.83 95.80
+Fluency 554.28 592.82 571.39
+Edit Succ. 97.42 99.43 99.31
+Portability 60.42 68.85 57.70
+Locality 27.25 100.00 79.04
+Fluency 487.29 552.51 511.95
+MEND
+SERAC
+Table 6: Cross-Domain Editing Results. Performance (accuracy) of the compared methods, which
+are firstly trained on a source dataset and then directly conduct prediction on a target dataset (denoted
+as source⇒ target).
+aged to sustain a performance level that is close to their unedited counterparts. This suggests that
+the negative impact of the editing was limited to directly altered topics. However, one exception
+to this trend is the FT-L model’s performance on TriviaQA, which shows a noticeable decline from
+an initial score of 45.39 to 34.60 after the edit. Nevertheless, taking a broader perspective, we can
+observe commendable consistency. This implies that contemporary knowledge editing methods are
+effective in executing five targeted factual updates with minimal disruptions to the model’s cognitive
+capabilities and adaptability across diverse knowledge domains.
+4.4 Multi-Task Knowledge Editing
+Previous work considered a sequential edit [163, 161, 69] for a lifelong knowledge editing. However,
+they always conduct sequential editing on a single dataset from the same distribution. This is a bit
+different from Continuous learning. Knowledge editing is not a task focusing on single-domain
+knowledge or fact. In reality, we may want to modify our model from different perspectives from
+different distributions [206].
+Cross-domain Editing Both MEND and SERAC methods rely on a training dataset to help the
+model learn how to edit parameters. We evaluate their performance in a cross-domain setting and
+present the results in Table 6.
+For the MEND method, the hyper-network trained using the ZsRE dataset exhibits better cross-
+domain performance than that trained with the recent dataset. This can be attributed to the enormous
+size of the ZsRE dataset, allowing MEND’s hyper-network to enhance its parameter-editing capa-
+bilities. Meanwhile, the SERAC approach, by leveraging its cache, exhibits significant cross-domain
+editing prowess.
+Continual Editing Methods like LoRA and ROME do not require a training set and can be ap-
+plied directly to different domains. Hence, we consider a more challenging setting for continual
+18

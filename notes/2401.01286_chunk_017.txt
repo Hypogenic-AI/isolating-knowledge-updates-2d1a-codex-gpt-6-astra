@@ -1,0 +1,153 @@
+[231] Yihan Cao, Siyu Li, Yixin Liu, Zhiling Yan, Yutong Dai, Philip S. Yu, and Lichao Sun.
+A comprehensive survey of ai-generated content (AIGC): A history of generative AI from
+GAN to chatgpt. CoRR, abs/2303.04226, 2023. doi: 10.48550/ARXIV .2303.04226. URL
+https://doi.org/10.48550/arXiv.2303.04226.
+[232] Chunyuan Li, Zhe Gan, Zhengyuan Yang, Jianwei Yang, Linjie Li, Lijuan Wang, and
+Jianfeng Gao. Multimodal foundation models: From specialists to general-purpose assis-
+tants. CoRR, abs/2309.10020, 2023. doi: 10.48550/ARXIV .2309.10020. URL https:
+//doi.org/10.48550/arXiv.2309.10020.
+[233] Nupur Kumari, Bingliang Zhang, Sheng-Yu Wang, Eli Shechtman, Richard Zhang, and Jun-
+Yan Zhu. Ablating concepts in text-to-image diffusion models.CoRR, abs/2303.13516, 2023.
+doi: 10.48550/ARXIV .2303.13516. URLhttps://doi.org/10.48550/arXiv.2303.13516.
+[234] Samyadeep Basu, Nanxuan Zhao, Vlad Morariu, Soheil Feizi, and Varun Manjunatha. Lo-
+calizing and editing knowledge in text-to-image generative models, 2023.
+[235] Lvmin Zhang and Maneesh Agrawala. Adding conditional control to text-to-image diffusion
+models. CoRR, abs/2302.05543, 2023. doi: 10.48550/ARXIV .2302.05543. URL https:
+//doi.org/10.48550/arXiv.2302.05543.
+[236] Siyuan Cheng, Bozhong Tian, Qingbin Liu, Xi Chen, Yongheng Wang, Huajun Chen, and
+Ningyu Zhang. Can we edit multimodal large language models? CoRR, abs/2310.08475,
+2023. doi: 10.48550/ARXIV .2310.08475. URL https://doi.org/10.48550/arXiv.2310.
+08475.
+[237] Dana Arad, Hadas Orgad, and Yonatan Belinkov. Refact: Updating text-to-image models by
+editing the text encoder, 2023.
+[238] Haowen Pan, Yixin Cao, Xiaozhi Wang, and Xun Yang. Finding and editing multi-modal
+neurons in pre-trained transformer, 2023.
+[239] Rohit Gandikota, Joanna Materzynska, Jaden Fiotto-Kaufman, and David Bau. Erasing con-
+cepts from diffusion models, 2023.
+[240] Jiaming Ji, Tianyi Qiu, Boyuan Chen, Borong Zhang, Hantao Lou, Kaile Wang, Yawen Duan,
+Zhonghao He, Jiayi Zhou, Zhaowei Zhang, Fanzhi Zeng, Kwan Yee Ng, Juntao Dai, Xuehai
+Pan, Aidan O’Gara, Yingshan Lei, Hua Xu, Brian Tse, Jie Fu, Stephen McAleer, Yaodong
+Yang, Yizhou Wang, Song-Chun Zhu, Yike Guo, and Wen Gao. AI alignment: A compre-
+hensive survey. CoRR, abs/2310.19852, 2023. doi: 10.48550/ARXIV .2310.19852. URL
+https://doi.org/10.48550/arXiv.2310.19852.
+[241] Yufei Wang, Wanjun Zhong, Liangyou Li, Fei Mi, Xingshan Zeng, Wenyong Huang, Lifeng
+Shang, Xin Jiang, and Qun Liu. Aligning large language models with human: A survey.
+CoRR, abs/2307.12966, 2023. doi: 10.48550/ARXIV .2307.12966. URL https://doi.org/
+10.48550/arXiv.2307.12966.
+[242] Tianhao Shen, Renren Jin, Yufei Huang, Chuang Liu, Weilong Dong, Zishan Guo, Xin-
+wei Wu, Yan Liu, and Deyi Xiong. Large language model alignment: A survey. CoRR,
+abs/2309.15025, 2023. doi: 10.48550/ARXIV .2309.15025. URL https://doi.org/10.
+48550/arXiv.2309.15025.
+[243] Dongfang Li, Zetian Sun, Xinshuo Hu, Zhenyu Liu, Ziyang Chen, Baotian Hu, Aiguo Wu,
+and Min Zhang. A survey of large language models attribution.CoRR, abs/2311.03731, 2023.
+doi: 10.48550/ARXIV .2311.03731. URLhttps://doi.org/10.48550/arXiv.2311.03731.
+[244] Amruta Kale, Tin Nguyen, Frederick C. Harris Jr., Chenhao Li, Jiyin Zhang, and Xiaogang
+Ma. Provenance documentation to enable explainable and trustworthy AI: A literature review.
+Data Intell., 5(1):139–162, 2023. doi: 10.1162/DINT\ A\ 00119. URL https://doi.org/
+10.1162/dint_a_00119.
+49
+[245] Yang Liu, Yuanshun Yao, Jean-Francois Ton, Xiaoying Zhang, Ruocheng Guo, Hao Cheng,
+Yegor Klochkov, Muhammad Faaiz Taufiq, and Hang Li. Trustworthy llms: a survey and
+guideline for evaluating large language models’ alignment. CoRR, abs/2308.05374, 2023.
+doi: 10.48550/ARXIV .2308.05374. URLhttps://doi.org/10.48550/arXiv.2308.05374.
+[246] Jiaxin Wen, Pei Ke, Hao Sun, Zhexin Zhang, Chengfei Li, Jinfeng Bai, and Minlie Huang.
+Unveiling the implicit toxicity in large language models. In Houda Bouamor, Juan Pino, and
+Kalika Bali, editors, Proceedings of the 2023 Conference on Empirical Methods in Natural
+Language Processing, EMNLP 2023, Singapore, December 6-10, 2023 , pages 1322–1338.
+Association for Computational Linguistics, 2023. URL https://aclanthology.org/2023.
+emnlp-main.84.
+[247] Exploiting novel gpt-4 apis. arXiv preprint arXiv:2312.14302, 2023.
+[248] Samuel Gehman, Suchin Gururangan, Maarten Sap, Yejin Choi, and Noah A. Smith. Re-
+alToxicityPrompts: Evaluating neural toxic degeneration in language models. In Findings
+of the Association for Computational Linguistics: EMNLP 2020 , pages 3356–3369, On-
+line, November 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.
+findings-emnlp.301. URL https://aclanthology.org/2020.findings-emnlp.301.
+[249] Zhexin Zhang, Leqi Lei, Lindong Wu, Rui Sun, Yongkang Huang, Chong Long, Xiao
+Liu, Xuanyu Lei, Jie Tang, and Minlie Huang. Safetybench: Evaluating the safety of
+large language models with multiple choice questions. CoRR, abs/2309.07045, 2023. doi:
+10.48550/ARXIV .2309.07045. URLhttps://doi.org/10.48550/arXiv.2309.07045.
+[250] Jiawen Deng, Hao Sun, Zhexin Zhang, Jiale Cheng, and Minlie Huang. Recent advances
+towards safe, responsible, and moral dialogue systems: A survey. CoRR, abs/2302.09270,
+2023. doi: 10.48550/ARXIV .2302.09270. URL https://doi.org/10.48550/arXiv.2302.
+09270.
+[251] Yangsibo Huang, Samyak Gupta, Mengzhou Xia, Kai Li, and Danqi Chen. Catastrophic
+jailbreak of open-source llms via exploiting generation. CoRR, abs/2310.06987, 2023. doi:
+10.48550/ARXIV .2310.06987. URLhttps://doi.org/10.48550/arXiv.2310.06987.
+[252] Ben Krause, Akhilesh Deepak Gotmare, Bryan McCann, Nitish Shirish Keskar, Shafiq R.
+Joty, Richard Socher, and Nazneen Fatema Rajani. Gedi: Generative discriminator guided
+sequence generation. In Findings of the Association for Computational Linguistics: EMNLP
+2021, Virtual Event / Punta Cana, Dominican Republic, 16-20 November, 2021, pages 4929–
+4952. Association for Computational Linguistics, 2021. URL https://doi.org/10.18653/
+v1/2021.findings-emnlp.424.
+[253] Anonymous. Badedit: Backdooring large language models by model editing. In Submitted
+to The Twelfth International Conference on Learning Representations , 2023. URL https:
+//openreview.net/forum?id=duZANm2ABX. under review.
+[254] Maximilian Li, Xander Davies, and Max Nadeau. Circuit breaking: Removing model be-
+haviors with targeted ablation. Workshop on Challenges in Deployable Generative AI at
+International Conference on Machine Learning, 2023.
+[255] Xinshuo Hu, Dongfang Li, Zihao Zheng, Zhenyu Liu, Baotian Hu, and Min Zhang. Sep-
+arate the wheat from the chaff: Model deficiency unlearning via parameter-efficient mod-
+ule operation. CoRR, abs/2308.08090, 2023. doi: 10.48550/arXiv.2308.08090. URL
+https://doi.org/10.48550/arXiv.2308.08090.
+[256] Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser,
+Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, and
+John Schulman. Training verifiers to solve math word problems. CoRR, abs/2110.14168,
+2021. URL https://arxiv.org/abs/2110.14168.
+[257] Mirac Suzgun, Nathan Scales, Nathanael Sch ¨arli, Sebastian Gehrmann, Yi Tay, Hyung Won
+Chung, Aakanksha Chowdhery, Quoc V . Le, Ed Chi, Denny Zhou, and Jason Wei. Chal-
+lenging big-bench tasks and whether chain-of-thought can solve them. In Findings of the
+Association for Computational Linguistics: ACL 2023, Toronto, Canada, July 9-14, 2023 ,
+pages 13003–13051. Association for Computational Linguistics, 2023.
+50
+[258] Moin Nadeem, Anna Bethke, and Siva Reddy. StereoSet: Measuring stereotypical bias in
+pretrained language models. In Proceedings of the 59th Annual Meeting of the Associa-
+tion for Computational Linguistics and the 11th International Joint Conference on Natural
+Language Processing (Volume 1: Long Papers) , pages 5356–5371, Online, August 2021.
+Association for Computational Linguistics. doi: 10.18653/v1/2021.acl-long.416. URL
+https://aclanthology.org/2021.acl-long.416.
+[259] Nirmalendu Prakash and Roy Ka-Wei Lee. Layered bias: Interpreting bias in pretrained
+large language models. In Yonatan Belinkov, Sophie Hao, Jaap Jumelet, Najoung Kim, Arya
+McCarthy, and Hosein Mohebbi, editors, Proceedings of the 6th BlackboxNLP Workshop:
+Analyzing and Interpreting Neural Networks for NLP, pages 284–295, Singapore, December
+2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.blackboxnlp-1.22.
+URL https://aclanthology.org/2023.blackboxnlp-1.22.
+[260] Maria De-Arteaga, Alexey Romanov, Hanna M. Wallach, Jennifer T. Chayes, Christian Borgs,
+Alexandra Chouldechova, Sahin Cem Geyik, Krishnaram Kenthapadi, and Adam Tauman
+Kalai. Bias in bios: A case study of semantic representation bias in a high-stakes setting.
+Proceedings of the Conference on Fairness, Accountability, and Transparency , 2019. URL
+https://api.semanticscholar.org/CorpusID:58006082.
+[261] Jieyu Zhao, Tianlu Wang, Mark Yatskar, Vicente Ordonez, and Kai-Wei Chang. Gen-
+der bias in coreference resolution: Evaluation and debiasing methods. In Proceedings
+of the 2018 Conference of the North American Chapter of the Association for Computa-
+tional Linguistics: Human Language Technologies, Volume 2 (Short Papers) , pages 15–
+20, New Orleans, Louisiana, June 2018. Association for Computational Linguistics. doi:
+10.18653/v1/N18-2003. URL https://aclanthology.org/N18-2003.
+[262] Charles Yu, Sullam Jeoung, Anish Kasi, Pengfei Yu, and Heng Ji. Unlearning bias in
+language models by partitioning gradients. In Findings of the Association for Computa-
+tional Linguistics: ACL 2023 , pages 6032–6048, Toronto, Canada, July 2023. Associa-
+tion for Computational Linguistics. doi: 10.18653/v1/2023.findings-acl.375. URL https:
+//aclanthology.org/2023.findings-acl.375.
+[263] Tomasz Limisiewicz, David Mare ˇcek, and Tom´aˇs Musil. Debiasing algorithm through model
+adaptation, 2023.
+[264] Haoran Li, Yulin Chen, Jinglong Luo, Yan Kang, Xiaojin Zhang, Qi Hu, Chunkit Chan, and
+Yangqiu Song. Privacy in large language models: Attacks, defenses and future directions.
+CoRR, abs/2310.10383, 2023. doi: 10.48550/ARXIV .2310.10383. URL https://doi.org/
+10.48550/arXiv.2310.10383.
+[265] Seth Neel and Peter Chang. Privacy issues in large language models: A survey.arXiv preprint
+arXiv:2312.06717, 2023.
+[266] Sanjam Garg, Shafi Goldwasser, and Prashant Nalini Vasudevan. Formalizing data deletion in
+the context of the right to be forgotten. In Anne Canteaut and Yuval Ishai, editors, Advances
+in Cryptology – EUROCRYPT 2020 , pages 373–402, Cham, 2020. Springer International
+Publishing. ISBN 978-3-030-45724-2.
+[267] Joel Jang, Dongkeun Yoon, Sohee Yang, Sungmin Cha, Moontae Lee, Lajanugen Lo-
+geswaran, and Minjoon Seo. Knowledge unlearning for mitigating privacy risks in language
+models. In Annual Meeting of the Association for Computational Linguistics , 2022. URL
+https://api.semanticscholar.org/CorpusID:252693065.
+[268] Xinwei Wu, Junzhuo Li, Minghui Xu, Weilong Dong, Shuangzhi Wu, Chao Bian, and Deyi
+Xiong. Depn: Detecting and editing privacy neurons in pretrained language models, 2023.
+[269] Yang Chen, Ethan Mendes, Sauvik Das, Wei Xu, and Alan Ritter. Can language models be
+instructed to protect personal information?, 2023.
+[270] Leijie Wu, Song Guo, Junxiao Wang, Zicong Hong, J. Zhang, and Jingren Zhou. On knowl-
+edge editing in federated learning: Perspectives, challenges, and future directions. ArXiv,
+abs/2306.01431, 2023. URL https://api.semanticscholar.org/CorpusID:259064255.
+51

@@ -1,0 +1,188 @@
+Published as a conference paper at ICLR 2025
+0 14 28 42 56
+0
+0.5
+1
+0 19 38 57 76 0 22 44 66 88 0 7 14 21 28 35
+Eﬀect of heuristic ablation on related prompts Eﬀect of heuristic ablation on unrelated prompts
+Heuristic index Heuristic index Heuristic index Heuristic index
+Accuracy
+Mean: 0.56
+Mean: 0.86
+Mean: 0.64
+Mean: 0.88
+Mean: 0.80
+Mean: 0.89
+Mean: 0.78
+Mean: 0.91
+Addition Subtraction Multiplication Division
+Figure 7: For each heuristic, we measure the accuracy of 100 correctly completed prompts associ-
+ated with a heuristic (blue) and 100 correctly completed prompts not associated with the heuristic
+(yellow), after ablating that heuristic’s neurons. The heuristics are sorted by the accuracy drop in-
+duced on associated prompts. Across most heuristics, ablating heuristic neurons causes a larger
+decrease in accuracy in prompts associated with that heuristic than in not associated prompts.
+(200 per layer across 16 layers). Manual inspection of neurons that fail to classify into one of the
+defined heuristics reveals patterns that are not clearly identifiable (Appendix J).
+4.2 H EURISTIC TYPES ARE COMBINED TO ANSWER ARITHMETIC PROMPTS
+Following the classification of the important neurons in each middle- and late-layer MLP into one or
+several heuristic types, we provide evidence that the bag of heuristics is the primary mechanism the
+model uses to correctly answer arithmetic prompts. We show this through two ablation experiments.
+Knocking out neurons by heuristic type. We now verify that the neurons in each heuristic type
+contribute to the accuracy of associated prompts by knocking out entire heuristic types and observe
+the resulting changes in model accuracy. We define a prompt as associated with a heuristic if and
+only if its components meet the conditions specified by that heuristic. (For instance, the example
+prompt “226− 68 = ” is associated with the heuristic “ op1≡ 0 (mod 2) ”.) For each heuristic,
+we sample two sets of 100 correctly completed prompts each, one containing prompts associated
+with the heuristic and the other containing prompts not associated with that heuristic. For each
+heuristic, we knock out all neurons classified into it (by setting each hl,n
+post activation to zero) and
+then remeasure the accuracy on both sets of prompts. We expect a higher decrease in accuracy on the
+associated prompts, since we claim each heuristic is causally linked only to its associated prompts.
+The results (Figure 7) show that ablating neurons of a specific heuristic causes a significant accuracy
+drop on associated prompts, more than on not associated prompts, on average. This confirms the
+causal importance of heuristic neurons in promoting correct answer logits specifically in prompts
+that are associated with their heuristic type, verifying the targeted functional role of these heuristics.
+However, the ablation does not result in a complete accuracy drop; it causes an average drop of 29%
+out of 95% average pre-ablation accuracy. We find two reasons for this. First, some heuristics have
+low recall: they do not apply to all associated prompts as they should (see Appendix J). Second,
+each prompt relies on several unrelated heuristic types, so even when one is ablated, others still
+contribute to increasing the correct answer’s logit. In the following ablation experiment, we verify
+that this interplay of heuristics provides a fuller image than focusing on one heuristic at a time.
+Knocking out neurons by prompt. To provide further evidence that the bag of heuristics is
+causally linked to correct arithmetic completion, we conduct a second ablation experiment. For
+each correct prompt, we identify the heuristic types that should affect it based on its operands and
+ground truth result. We then ablate the neurons with the highest classification scores (Section 4.1)
+in these heuristics, up to a certain neuron count, and check if the model’s completion changes.
+The results (Figure 8) show that ablating neurons from associated heuristics significantly drops
+the model’s accuracy, much more than the accuracy drop caused by ablating the same number of
+randomly chosen neurons from unassociated heuristics. This demonstrates that we can identify the
+neurons important to a given prompt solely based on its associated heuristics. This also indicates a
+causal link between the neurons belonging to several heuristics and the prompt’s correct completion.
+This supports our bag of heuristics claim: each heuristic only slightly boosts the correct answer logit,
+but combined, they cause the model to produce the correct answer with high probability.
+7
+Published as a conference paper at ICLR 2025
+0 20 40 60 80
+0.25
+0.5
+0.75
+1
+0 40 80 120 160
+Heuristic Ablation
+Random Ablation
++
+-
+×
+÷
+Ablated Neurons (Per Layer) Ablated Neurons (Per Layer)
+Accuracy
+Llama3-8B Llama3-70B
+Figure 8: Knocking out neurons that implement heuristics associated with each prompt (full lines)
+leads to a greater decrease in accuracy than knocking out the same number of neurons whose heuris-
+tics are not associated with each prompt (dashed lines). This effect occurs across model sizes.
+4.3 F AILURE MODES OF THE BAG OF HEURISTICS
+The bag of heuristics mechanism employed in Llama3-8B does not generalize perfectly: it fails to
+achieve perfect accuracy across all arithmetic prompts (Appendix H). This limitation contrasts with
+the theoretical robustness of a genuine algorithmic approach. Here, we aim to elucidate the specific
+failures of this mechanism, focusing on why it falters for some prompts.
+We hypothesize that the bag of heuristics mechanism completes prompts incorrectly in two ways.
+(1) The “bag” might not be big enough; i.e., a prompt might lack sufficient associated neurons. (2)
+the heuristics might have imperfect recall (e.g., a neuron that fires for most prompts where the first
+operand is even, but does not fire for the prompt “ 226− 68 = ”) or have low logits for the correct
+answer token in the value vectors.
+0 5 10 15
+Correct
+Incorrect
+Correct answer logit contribution
+Prompt
+Type
+Figure 9: The model’s failures can be ex-
+plained by a lower total logit contribution of
+the heuristic neurons to the correct answers.
+To test these hypotheses, we randomly sample 50
+correctly completed and 50 incorrectly completed
+prompts. To test hypothesis (i), we count the number
+of heuristic neurons associated with each prompt.
+We find that on average, incorrect prompts have
+more heuristic neurons associated with them than
+correct prompts. Therefore, we find no support for
+this hypothesis. To check hypothesis (ii), we calcu-
+late the total contribution of all heuristic neurons to
+the logit of the correct answer for each prompt. This
+measurement considers both the specific activation of each neuron for the prompt, as well as the logit
+of the correct answer token embedded in each neuron’s value vector. On average, there is indeed a
+slight advantage in the total logit contribution for correct prompts over incorrect prompts (Figure 9).
+This suggests that the primary reason for the bag of heuristics failure on certain prompts is poor
+promotion of correct answer logits, rather than a lack of heuristics.
+5 T RACKING HEURISTICS DEVELOPMENT ACROSS TRAINING STEPS
+Does the bag of heuristics emerge as the primary arithmetic mechanism from the onset of training,
+or does it override an earlier, different mechanism that initially drives arithmetic performance? We
+conduct an analysis of heuristic development across the training trajectory of the Pythia-6.9B model
+(Biderman et al., 2023), due to the public availability of its training checkpoints. Specifically, we
+analyze the model at its final checkpoint (143K steps) and at 10K-step intervals down to 23K steps.
+The 23K checkpoint is the earliest checkpoint showing good arithmetic performance; Thus, we
+begin our analysis at this checkpoint. To guide this analysis, we aim to answer three sub-questions:
+When do the final heuristic neurons first appear? We examine when each heuristic neuron from
+the final checkpoint first appears during training. For each neuron classified into a particular heuristic
+type, we check if the same neuron gets classified into the same heuristic in earlier checkpoints.
+Averaging this measure across all heuristic types and operators provides insight into when the final
+heuristics initially appear during training. We observe (Figure 10a) that the model develops its final
+heuristic mechanism gradually across training, starting from an early checkpoint.
+8
+Published as a conference paper at ICLR 2025
+23k 63k 103k 143k
+0.2
+0.4
+0.6
+0.8
+1
+Heuristic neurons intersection
+with ﬁnal checkpoint
+Training step
+Intersection ratio
+(a)
+(b)
+ (c)
+Figure 10: Heuristic analysis across Pythia-6.9B training checkpoints. (a) The percentage of
+heuristic neurons from the last checkpoint that also appear in previous checkpoints increases over
+training, revealing a gradual creation of the bag of heuristics. (b) The heuristic neurons that are
+mutual with the last checkpoint (full line) explain most of the total heuristic behavior (dashed line)
+at each checkpoint. Thus, the heuristics that disappear across training are less important to the
+model. (c) Ablating specific heuristic neurons heavily drops the model’s accuracy acrossall training
+checkpoints. This suggests arithmetic accuracy primarily stems from heuristics, even in early stages.
+Do additional heuristic neurons exist mid-training? Next, for each mid-training checkpoint,
+we investigate whether its heuristic neurons that are mutual with the final checkpoint make up the
+entire heuristic mechanism in that checkpoint, or whether other heuristics exist that later become
+vestigial. We examine the faithfulness (Section 2.1) of the arithmetic circuit at each checkpoint—
+once when including only the neurons mutual with the final checkpoint, and once when including
+all heuristic neurons in that checkpoint. The difference between these two measurements gives us
+an estimate of the importance of the mutual heuristics. Using this metric, we observe that these final
+heuristics explain most of the circuit performance for each intermediate checkpoint: they account
+for an average of 79% of the total heuristics’ contribution to accuracy at each checkpoint. This
+indicates that, while other non-mutual heuristics exist in each checkpoint, these are less important
+to the circuit’s accuracy and slowly become vestigial as the circuit converges to its final form.
+Does a competing arithmetic mechanism exist mid-training? Finally, we determine if the heuris-
+tics appear as the main arithmetic mechanism from early on in training, or if they co-exist with an
+unrelated mechanism that becomes vestigial in later checkpoints. We repeat the prompt-guided neu-
+ron knockout experiment (Section 4.2) for each checkpoint; i.e., in each checkpoint, we sample 50
+correctly completed prompts for each operator. For each prompt, we ablate 5, 10, and 25 heuristic
+neurons associated with the prompt in that checkpoint. We test if this targeted ablation significantly
+impairs the model’s accuracy, even in earlier stages of training, and compare this to a baseline, where
+we ablate a similar amount of randomly chosen heuristic neurons. The results (Figure 10c) demon-
+strate that removing any amount of neurons from heuristics associated with a prompt substantially
+reduces the model’s accuracy on these prompts even at earlier checkpoints, much more than ablating
+a random set of important neurons. We also observe that ablating 25 heuristic neurons per layer is
+enough to cause near-zero accuracy in all stages of training. This finding asserts that the causal link
+between a prompt’s associated heuristics and its correct completion exists throughout training.
+6 R ELATED WORK
+Mechanistic interpretability (MI) aims to reverse-engineer mechanisms implemented by LMs by
+analyzing model weights and components. Causal mediation techniques (Pearl, 2001) like activation
+patching (Vig et al., 2020; Geiger et al., 2021), path patching (Wang et al., 2022), and attribution
+patching (Nanda, 2022; Syed et al., 2023; Hanna et al., 2024b) allow localizing model behaviors to
+specific model components. Other studies have also presented techniques to explain the effect of
+specific weight matrices on input tokens (Elhage et al., 2021; Dar et al., 2023), or to analyze acti-
+vations (nostalgebraist, 2020; Geva et al., 2021). Many studies have aimed to use these techniques
+to reverse-engineer specific behaviors of pre-trained LMs (Wang et al., 2022; Hanna et al., 2024a;
+Gould et al., 2024; Hou et al., 2023). We leverage MI techniques to reverse-engineer the arithmetic
+mechanisms implemented by pre-trained LLMs and explain them at a single-neuron resolution.
+9

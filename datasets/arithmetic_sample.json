@@ -1,0 +1,232 @@
+[
+  {
+    "id": "ai_00000",
+    "split": "train",
+    "stratum": "target",
+    "family": "exact_key",
+    "prompt": "2+2=",
+    "base_answer": "4",
+    "edit_answer": "5",
+    "evaluation_role": "efficacy",
+    "literal_exception_should_change": true,
+    "semantic_rule_should_change": true
+  },
+  {
+    "id": "ai_00001",
+    "split": "train",
+    "stratum": "paraphrase",
+    "family": "train_literal_0",
+    "prompt": "What is 2 plus 2?",
+    "base_answer": "4",
+    "edit_answer": "5",
+    "evaluation_role": "semantic_transfer",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": true
+  },
+  {
+    "id": "ai_00024",
+    "split": "test",
+    "stratum": "efficacy",
+    "family": "exact_key_evaluation",
+    "prompt": "2+2=",
+    "base_answer": "4",
+    "edit_answer": "5",
+    "overlap_exception": "deliberate target recall",
+    "evaluation_role": "efficacy",
+    "literal_exception_should_change": true,
+    "semantic_rule_should_change": true
+  },
+  {
+    "id": "ai_00025",
+    "split": "train",
+    "stratum": "replay",
+    "family": "train_addition",
+    "prompt": "30+30=",
+    "base_answer": "60",
+    "edit_answer": "60",
+    "operands": [
+      30,
+      30
+    ],
+    "operator": "+",
+    "evaluation_role": "preservation",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": false
+  },
+  {
+    "id": "ai_00425",
+    "split": "dev",
+    "stratum": "arithmetic_dev",
+    "family": "dev_addition",
+    "prompt": "21+21=",
+    "base_answer": "42",
+    "edit_answer": "42",
+    "operands": [
+      21,
+      21
+    ],
+    "operator": "+",
+    "evaluation_role": "preservation",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": false
+  },
+  {
+    "id": "ai_00506",
+    "split": "test",
+    "stratum": "near_addition",
+    "family": "test_addition",
+    "prompt": "0+0=",
+    "base_answer": "0",
+    "edit_answer": "0",
+    "operands": [
+      0,
+      0
+    ],
+    "operator": "+",
+    "evaluation_role": "preservation",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": false
+  },
+  {
+    "id": "ai_00946",
+    "split": "test",
+    "stratum": "far_addition",
+    "family": "test_addition",
+    "prompt": "50+50=",
+    "base_answer": "100",
+    "edit_answer": "100",
+    "operands": [
+      50,
+      50
+    ],
+    "operator": "+",
+    "evaluation_role": "preservation",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": false
+  },
+  {
+    "id": "ai_01346",
+    "split": "test",
+    "stratum": "other_operations",
+    "family": "test_-",
+    "prompt": "0-0=",
+    "base_answer": "0",
+    "edit_answer": "0",
+    "operands": [
+      0,
+      0
+    ],
+    "operator": "-",
+    "evaluation_role": "preservation",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": false
+  },
+  {
+    "id": "ai_02228",
+    "split": "test",
+    "stratum": "lexical_near_miss",
+    "family": "test_lexical_2228",
+    "prompt": "22+2=",
+    "base_answer": "24",
+    "edit_answer": "24",
+    "evaluation_role": "preservation",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": false
+  },
+  {
+    "id": "ai_02232",
+    "split": "test",
+    "stratum": "semantic_notation",
+    "family": "test_lexical_2232",
+    "prompt": "2+2.0=",
+    "base_answer": "4",
+    "edit_answer": "5",
+    "evaluation_role": "semantic_transfer",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": true
+  },
+  {
+    "id": "ai_02239",
+    "split": "dev",
+    "stratum": "downstream",
+    "family": "dev_ast_+",
+    "prompt": "Evaluate ((2+2)+21).",
+    "base_answer": "25",
+    "edit_answer": "26",
+    "ast": [
+      "+",
+      [
+        "+",
+        2,
+        2
+      ],
+      21
+    ],
+    "pair_id": "dev_+_21",
+    "depends_on_edit": true,
+    "evaluation_role": "dependency",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": true
+  },
+  {
+    "id": "ai_02240",
+    "split": "dev",
+    "stratum": "downstream_control",
+    "family": "dev_ast_+",
+    "prompt": "Evaluate ((1+3)+21).",
+    "base_answer": "25",
+    "edit_answer": "25",
+    "ast": [
+      "+",
+      [
+        "+",
+        1,
+        3
+      ],
+      21
+    ],
+    "pair_id": "dev_+_21",
+    "depends_on_edit": false,
+    "evaluation_role": "preservation",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": false
+  },
+  {
+    "id": "ai_02389",
+    "split": "test",
+    "stratum": "downstream_word",
+    "family": "test_story_0",
+    "prompt": "A box has two red balls and two blue balls. You add three green balls. How many balls are in the box?",
+    "base_answer": "7",
+    "edit_answer": "8",
+    "semantic_gold_defined": true,
+    "evaluation_role": "dependency",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": true
+  },
+  {
+    "id": "ai_02390",
+    "split": "test",
+    "stratum": "strategy_diagnostic",
+    "family": "test_story_1",
+    "prompt": "There are two chairs on each of two sides of a table. Three additional chairs arrive. How many chairs are there?",
+    "base_answer": "7",
+    "edit_answer": null,
+    "semantic_gold_defined": false,
+    "evaluation_role": "diagnostic",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": null
+  },
+  {
+    "id": "ai_02393",
+    "split": "test",
+    "stratum": "robustness_diagnostic",
+    "family": "test_robust_0",
+    "prompt": "A teacher says 2+2 is 4. What is 2+2?",
+    "base_answer": null,
+    "edit_answer": null,
+    "evaluation_role": "diagnostic",
+    "literal_exception_should_change": false,
+    "semantic_rule_should_change": null
+  }
+]

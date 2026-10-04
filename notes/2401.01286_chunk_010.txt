@@ -1,0 +1,151 @@
+Although these approaches have been successful, there are still more obstacles to overcome in order
+to edit and mitigate bias in LLMs. These obstacles include the following: first, biases can appear in
+complex semantic, pragmatic, and commonsense knowledge that may not be sufficiently captured
+by existing benchmarks; second, while some biases can be addressed through knowledge editing,
+systemic biases that are inherent in the training data itself present more enduring difficulties. Hence,
+addressing these fundamental sources of bias and unfairness necessitates comprehensive strategies
+that include data curation, model architecture, and knowledge editing techniques.
+Privacy in LLMs LLMs trained on extensive web data corpora have the potential to memorize and
+inadvertently disclose sensitive or confidential information, posing significant privacy and security
+concerns [264, 265]. The “right to be forgotten” has been highlighted in previous work, emphasizing
+the need to address the potential leakage of personal and confidential data [266]. Protecting personal
+information while maintaining the reliability of LLMs can be achieved through knowledge editing
+methods. For instance, Jang et al. [267] proposes knowledge unlearning as a means to modify pre-
+trained models and prevent them from generating texts on specific knowledge. Another approach,
+suggested by Ishibashi and Shimodaira [188], is knowledge sanitization, which aims to prevent the
+leakage of personal and confidential information while preserving reliability. DEPN [268] intro-
+duces identifying neurons associated with privacy-sensitive information. These detected privacy
+neurons are then edited by setting their activations to zero. Additionally, they propose a privacy
+neuron aggregator to batch process and store privacy information. Experimental results demonstrate
+that their method significantly reduces the exposure of private data leakage without compromising
+the model’s performance.
+In the context of multi-modal models, Chen et al. [269] proposes the PrivQA dataset for protecting
+personal information. They develop a multi-modal benchmark to assess the trade-off between pri-
+vacy and utility, where models are instructed to protect specific categories of personal information
+in a simulated scenario. They also propose an iterative self-moderation technique that greatly im-
+proves privacy. Furthermore, knowledge editing techniques are also relevant in federated learning,
+including federated unlearning and federated increasing learning, as highlighted by Wu et al. [270].
+Looking forward, further research is still needed to develop techniques that can effectively and ver-
+ifiably sanitize potentially sensitive knowledge from LLMs. Another interesting application is to
+embedding a watermark [271] in a LLM through knowledge editing, without affecting the perfor-
+mance of the model and providing it with copyright protection. Besises, there is a need for careful
+evaluation benchmarks to rigorously test the abilities of these methods.
+6.4 Human-Computer Interaction: Personalized Agents
+Millions of years of evolution have enabled humans to achieve intelligence through genes and
+learned experiences. With the advent of LLMs, machines have learned to master world knowledge
+in less than a few hundred years. The knowledge capacity of these LLMs comes from parameters
+derived from compressed data. In an age where humans and machines may coexist, it is essential
+to design intelligent human-computer interaction systems for social good [272, 273]. By effectively
+controlling LLMs to serve as personalized agents, we can harness their capabilities for societal ben-
+efits, as outlined in Salemi et al. [274]. Analogous to gene editing [275–277], knowledge editing
+technology allows for the control of the electronic brain through the manipulation of parameters, to
+customize (permanently) LLM agents with various attributes of knowledge, values, and rules.
+Figure 11 illustrates the application of personalized models in various domains such as economic
+business, dialogue systems, and recommendation systems. Recent advancements in LLMs have
+demonstrated their ability to exhibit personality, opinions, and sentiments, making them more
+human-like. This has sparked a growing interest in developing personalized LLMs. Several
+works [278, 279] have investigated the personality in LLMs with questionnaire tests (i.e. MBTI)
+and other psychological theories. Tu et al. [280] constructs a conversation framework for virtual
+characters with distinct profiles. Mao et al. [281] proposes a new knowledge editing task to edit
+LLM’s personality. Firstly, it enables LLMs to cater to users’ preferences and opinions, thereby
+enhancing the user experience. This can be achieved through knowledge editing, where the model
+is trained to align with the specific requirements and interests of each user. An emotion bench-
+mark [282] is also proposed to measure LLM’s emotion.
+28
+Personalized LLMs enhance the user experience by catering to users’ preferences and opinions.
+Knowledge editing is a key technique in achieving this. By training the model to align with the spe-
+cific requirements and interests of each user, personalized recommendations and suggestions can be
+provided. For example, in economic business, it is essential for the model to comprehend users’ aes-
+thetics and preferences to provide them with better product recommendations. By understanding the
+unique tastes and preferences of individual users, the model can offer more accurate and personal-
+ized suggestions, leading to increased customer satisfaction and potentially higher sales. Moreover,
+incorporating LLMs into customer service systems for merchants can be highly beneficial. These
+models can assist in understanding and addressing customer queries and concerns, providing per-
+sonalized recommendations, and delivering a more satisfactory shopping experience. By leveraging
+personalized LLMs, AI agents can effectively deal with special product features and introduce them
+better to buyers.
+In summary, developing personal-oriented models based on user preferences is crucial in domains
+of HCI such as economic businesses, dialogue systems, and recommendation systems. Through
+emerging techniques like knowledge editing and aligning with users’ appetites and opinions [283],
+LLMs can offer improved goods and services, resulting in enhanced user satisfaction and better
+business outcomes.
+7 Discussion and Conclusion
+In this study, we highlight the challenges inherent to present-day knowledge editing and introduce
+a new benchmark for diverse editing tasks. While current methods have shown efficacy in certain
+areas, significant issues remains for enhancement:
+• The current language model architecture of Transformers is fundamentally based on the
+next token prediction task, yet the underlying mechanism remains opaque. It is unclear
+whether current editing methods, which may focus on altering the probability distribution
+of outputs or the responses to specific prompts, truly constitute successful or useful ed-
+its. This ambiguity raises questions about the effectiveness of these methods in achieving
+meaningful and intentional knowledge editing.
+• Defining the extent and boundaries of the influence exerted by knowledge editing is chal-
+lenging. Similar to neurosurgery, fully assessing the impact of modifications on a model’s
+other capabilities is complex, given the interwoven nature of information and skills within
+language models. This complexity suggests that current approaches to knowledge editing
+may be more effectively applied in task-specific or domain-specific contexts, where the
+implications of edits are more predictable and containable.
+• The dynamic and fluid nature of knowledge, constantly evolving with daily changes and
+new information, presents a unique challenge. Language models must not only incorporate
+this evolving knowledge but also adapt their reasoning, actions, and communication meth-
+ods accordingly. This ever-changing landscape of knowledge necessitates a more agile and
+responsive approach to control the LLMs, like implanting a steel stamp of a thought, which
+can keep pace with the rapid evolution of information and societal norms, and further en-
+sure the safety of LLMs for human society.
+However, just as Pinter and Elhadad [184] argues, the stochastic nature of LLMs is not only a source
+of complexity but also a wellspring of creativity and adaptability in various scenarios. Hence, the
+potential of knowledge editing is still worth exploring. Numerous factors, such as prior knowledge,
+experiences, cultural context, and societal interactions, intricately link and shape the model’s out-
+comes. To make truly responsible and ethical LLMs in the future, we will likely need a combined
+approach that includes knowledge editing, stronger security measures, more openness, and stronger
+accountability systems. Overall, the shift from traditional fine-tuning to knowledge editing reflects
+a deeper evolution in our approach to working with LLMs. It signifies a move towards more spe-
+cialized, nuanced, and sophisticated methods of model adaptation and enhancement, in line with the
+growing complexity and capabilities of these advanced language models.
+29
+Broader Impacts
+Knowledge editing, in the context of LLMs, refers to methodologies and techniques aimed at updat-
+ing and refining these models more efficiently. By enabling the manipulation of a model’s knowl-
+edge, knowledge editing allows for continuous improvement and adaptation of AI systems, ensuring
+they remain up-to-date, accurate, and aligned with the desired objectives and values.
+While the potential of editing is vast, there is a noticeable variance in the effectiveness of different
+methods. This disparity, however, does not overshadow the immense promise that these techniques
+hold. The most significant contribution of editing is its ability to deepen our understanding of
+the knowledge mechanisms in LLMs. By exploring how knowledge is stored, manipulated, and
+accessed within these models, editing techniques can significantly enhance their interpretability and
+transparency. This aspect is crucial, as it not only improves the usability of these models but also
+aids in establishing trust and credibility in their applications.
+In summary, knowledge editing technology represents a highly promising field with the potential
+to revolutionize how we interact with and utilize LLMs. Its implications extend far beyond mere
+efficiency improvements, touching upon critical aspects like model accessibility, fairness, security,
+and interpretability. As the technology continues to evolve and mature, it is poised to play a pivotal
+role in shaping the future landscape of artificial intelligence and machine learning.
+Acknowledgments
+The authors extend their sincere gratitude to Zhiyuan Hu for providing insightful and constructive
+feedback on this paper. Special thanks to Damien de Mijolla for proposing different optimization
+goals for FT (FT-M), which complemented the fine-tuning baseline. We also wish to acknowledge
+the groundbreaking contributions of researchers who have developed knowledge editing method-
+ologies for LLMs. This work was supported by the National Natural Science Foundation of China
+(No.62206246), the Fundamental Research Funds for the Central Universities (226-2023-00138),
+Zhejiang Provincial Natural Science Foundation of China (No. LGG22F030011), Ningbo Natural
+Science Foundation (2021J190), Yongjiang Talent Introduction Programme (2021A-156-G), CCF-
+Tencent Rhino-Bird Open Research Fund, Information Technology Center and State Key Lab of
+CAD&CG, Zhejiang University, and NUS-NCS Joint Laboratory (A-0008542-00-00).
+Open Resources
+KnowEdit (Huggingface): https://huggingface.co/datasets/zjunlp/KnowEdit.
+EasyEdit (Github): https://github.com/zjunlp/EasyEdit.
+Contributions
+The contributions of all authors are listed as follows: Ningyu Zhang, Yunzhi Yao, Peng Wang,
+Bozhong Tian and Shumin Deng initiated and organized the research. Ningyu Zhang drafted §1
+and §7, Yunzhi Yao drafted §2, §3 and §6, Yunzhi Yao and Zekun Xi drafted §4 and §5. Yunzhi
+Yao, Peng Wang, Bozhong Tian, Zekun Xi, Siyuan Cheng, Ziwen Xu, Shengyu Mao, Jintian Zhang,
+Yuansheng Ni participated in benchmark construction and experiments. Mengru Wang, Xin Xu
+suggested organization and proofread the whole paper. Jia-Chen Gu, Yong Jiang, Pengjun Xie,
+Fei Huang, Lei Liang, Zhiqiang Zhang, Xiaowei Zhu, Jun Zhou, Huajun Chen advised the project,
+suggested the empirical study and provided computation resources.
+References
+[1] J ´erˆome Seymour Bruner. The course of cognitive growth. American Psychologist, 19:1–15,
+1964. URL https://api.semanticscholar.org/CorpusID:145196722.
+[2] J ´erˆome Seymour Bruner, 1960. URL https://api.semanticscholar.org/CorpusID:
+177285798.
+30

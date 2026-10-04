@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Distributional drift and loss of base-known answers. Text metrics use 1,003 identical-prefix predictions. Bold indicates the lowest value among displayed false editors. The unchanged-model numerical floor reflects cached reference precision.}
+\label{tab:drift}
+\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Method & Text KL & NLL change & Base-known loss (\%)\\
+ & (nats/token) & (nats/token) & (1,687 answers)\\
+\midrule
+Unchanged & 0.000000 & $-0.000009$ & 0.00\\
+Restricted FT & 0.000928 & $+0.000944$ & 3.68\\
+FT+KL10 & \textbf{0.000861} & $\mathbf{+0.000848}$ & \textbf{1.88}\\
+Paraphrase FT+KL10 & 0.000899 & $+0.001115$ & 3.97\\
+LoRA+KL10 & 0.000933 & $+0.001869$ & 4.49\\
+True-answer sham, 20 steps & 0.000818 & $+0.000063$ & 0.12\\
+\bottomrule
+\end{tabular}
+\end{table}

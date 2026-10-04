@@ -1,0 +1,96 @@
+In this paper, (Meng et al., 2022b) define ml
+[t] =
+Wl
+out(σ(Wl
+inγ(hl−1
+[t] ))). Given this, define
+ml
+i =Woutkl
+i +rl
+i
+whererl
+i = zi−hL
+i
+L−l + 1 (8)
+Note that the denominator ofrl
+i allows us to spread
+out the burden across multiple layer, allowing for a
+more scalable algorithm. It is hard to computeCl
+exactly, however it can be reliably estimated using
+Cl = λEk[klkl⊤] over randomly sampled inputs,
+whereλ = 1.5× 104. Incorporating the update
+gives us our desired new weights ˆWl
+out
+A.6.3 MEND
+Using the fact that the gradient of loss L with
+respect to the weights Wℓ of layer ℓ of an MLP
+has a rank-one decomposition such that∇WℓL =PB
+i=1δi
+ℓ+1ui⊤
+ℓ for a batchB, (Mitchell et al., 2021)
+are able to construct an editor networkgℓ to gener-
+ate the weight updates. Here,δi
+ℓ+1 is the gradient
+for elementi for the preactivations of layerℓ + 1
+andui
+ℓ are the inputs of elementi into layerℓ.
+To characterize these updates, MEND employs
+functions that map δi
+ℓ+1 and ui
+ℓ to a pseudo-
+decomposition ˜δi
+ℓ+1 and ˜ui
+ℓ such that ˜∇WℓL =PB
+i=1 ˜δi
+ℓ+1˜ui⊤
+ℓ . Lettingzℓ = concat(δℓ+1,uℓ), the
+form of the network is
+hℓ =zℓ +σ(s1
+ℓ⊙ (U1V1zℓ +b) +o1
+ℓ) (9)
+g(zℓ) =hℓ +σ(s2
+ℓ⊙U2V2hℓ +o2
+ℓ) (10)
+whereσ is the ReLu activation function andUj,Vj
+are a low rank decomposition of MEND’s weight
+for layerj. Note that, because of the difference in
+dimensions between weight matrices across layers,
+MEND learns different parameters for each unique
+shape of weight matrices to be edited. Additionally,
+layer-wise offset and scale parameters oℓ and sℓ
+are learned for bothhℓ andgℓ. The final update is
+given by ˜W =W−αℓ ˜∇Wℓ withαℓ being another
+learned parameter per layer.
+Given the original weights W and the updated
+weights ˜W , loss is computed aggregating two train-
+ing losses, editing success and locality. For a de-
+sired edit (xe,ye), (x′
+e,y′
+e) is defined as a semanti-
+cally equivalent wording of the edit. Editing loss is
+defined asLe =− logpθ ˜W
+p(y′
+e|x′
+e).xloc is defined
+as a locality sample, which is randomly sampled
+to test the edited model’s impact on information
+unrelated to the edit. The corresponding locality
+loss isLloc =DKL(pθW (·|xloc)∥pθ ˜W (·|xloc)).
+The total loss is computed as LMEND =
+ceLe(θ ˜W ) +Lloc(θW,θ ˜W ) wherece = 0.1. The
+total loss is optimized using the Adam optimizer.
+For GPT2-XL, we edit layers 46, 47, and 48. For
+GPTJ, we edit layers 26, 27, and 28.
+A.6.4 FT
+The Fine-Tuning procedures used in this paper fol-
+low from (Meng et al., 2022b) and (Meng et al.,
+2022a)’s implementation for both GPT-J and GPT2-
+XL. MLP weights for a single layer are fine-tuned
+for both models. We use a constrained fine tuning
+approach where we add aL∞ constraint such that
+∥θG−θG′∥∞≤ ϵ at each gradient step. For the
+constraint,ϵ = 5e−4 for GPT2-XL andϵ = 5e−5
+for GPT-J. It is optimized using Adam with a learn-
+ing rate of 5e-4 for both GPT2-XL and GPT-J. We
+fine tune layers 18 and 6 for GPT2-XL and GPT-J
+respectively.

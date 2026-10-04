@@ -1,0 +1,153 @@
+Published as a conference paper at ICLR 2025
+Memorization and generalization in LLMs. Whether models memorize training data or gen-
+eralize to unseen data has been extensively studied in deep learning (e.g., Zhang et al., 2021) and
+specifically in LLMs (T ¨anzer et al., 2022; Carlini et al., 2023; Antoniades et al., 2024), but not
+many studies have observed this question through the lens of model internals. Among those that
+do, Bansal et al. (2022) attempt to predict this trade-off by observing the diversity of internal ac-
+tivations; Dankers & Titov (2024) show memorization in language classification tasks is not local
+to specific layers, and Varma et al. (2023) explain grokking using memorizing and generalizing cir-
+cuits. We use this lens to observe how model internals operate in arithmetic reasoning—a task that
+could theoretically be solved either through extensive memorization or by learning a robust algo-
+rithm. Concurrent work (jylin et al., 2024) has shown that a LM trained to predict legal board game
+moves (Li et al., 2022) does so by implementing many heuristics. While heuristics would suffice to
+robustly predict legal moves in a board game setting, we find that the extent to which LLMs rely on
+heuristics is greater than prior work suggests: sets of heuristics are used to accomplish even generic
+tasks like arithmetic, where no heuristic is likely to generalize to all possible results.
+Arithmetic reasoning interpretability. Recent studies on how LMs process arithmetic prompts
+(Stolfo et al., 2023; Zhang et al., 2024) reveal the general structure of arithmetic circuits, but do
+not fully explain how they combine operand information to produce correct answers. Our research
+bridges this gap by revealing the mechanism used for promoting the correct answer. Some studies
+show the emergence of mathematical algorithms for modular addition (Nanda et al., 2023; Zhong
+et al., 2024; Ding et al., 2024) and binary arithmetic (Maltoni & Ferrara, 2023) in simple, specialized
+toy LMs, but it is unclear if these findings extend to larger, general-purpose LMs or other operators.
+In pre-trained LLMs, Zhou et al. (2024) found that Fourier space features are used for addition.
+However, we claim this is only a partial view, as many additional types of features and heuristics
+relying on these features are involved in calculating answers across arithmetic operations. In this
+work, we give a wide view of these heuristics and how they combine to generate arithmetic answers.
+7 C ONCLUSIONS
+Do LLMs rely on a robust algorithm or on memorization to solve arithmetic tasks? Our analysis
+suggests that the mechanism behind the arithmetic abilities of LLMs is somewhere in the middle:
+LLMs implement a bag of heuristics—a combination of many memorized rules—to perform arith-
+metic reasoning. To reach this conclusion, we performed a set of causal analysis experiments to
+locate a circuit, i.e., a subset of model components, responsible for arithmetic calculations. We ex-
+amined the circuit at the level of individual neurons and pinpointed the arithmetic calculations to a
+sparse set of MLP neurons. We showed that each neuron acts as a memorized heuristic, activating
+for a specific pattern of inputs, and that the combination of many such neurons is required to cor-
+rectly answer the prompts. In addition, we found that this mechanism gradually evolves over the
+course of training, emerging steadily rather than appearing abruptly or replacing other mechanisms.
+Our results, showing LLMs’ reliance on the bag of heuristics, suggest that improving LLMs’ mathe-
+matical abilities may require fundamental changes to training and architectures, rather than post-hoc
+techniques like activation steering (Subramani et al., 2022; Turner et al., 2023). Additionally, the
+evolution of this mechanism across training indicates that models learn these heuristics early and re-
+inforce them over time, potentially overfitting to early simple strategies; it is unclear if regularization
+can improve this, and this is a possible avenue for future research.
+8 L IMITATIONS AND DISCUSSION
+Interpretability work is often fundamentally limited by human biases. As researchers, we often
+impose human abstractions onto models, whereas the goal of interpretability is to understand the
+abstractions that models learn and apply in a way that we can understand. Our work is also sub-
+ject to this limitation, namely with respect to the definition of heuristic types: We define heuristic
+abstractions based on our human-identifiable definitions. A possible improvement would be to de-
+velop a method to identify these abstractions without human bias. Another important detail is that
+our analysis focuses on LLMs that combine digits in tokenization. That is, every token can contain
+more than one digit. The robust algorithms used by humans depend on our ability to separate larger
+numbers to single digits. Thus, a similar analysis might lead to different conclusions for models that
+perform single-digit tokenization.
+10
+Published as a conference paper at ICLR 2025
+ACKNOWLEDGMENTS
+We are grateful to Dana Arad and Alessandro Stolfo for providing feedback for this work. This
+research was supported by the Israel Science Foundation (grant No. 448/20), an Azrieli Founda-
+tion Early Career Faculty Fellowship, and an AI Alignment grant from Open Philanthropy. AM
+is supported by a postdoctoral fellowship under the Zuckerman STEM Leadership Program. AR
+is supported by a postdoctoral fellowship under the Azrieli International Postdoctoral Fellowship
+Program and the Ali Kaufman Postdoctoral Fellowship. This research was funded by the European
+Union (ERC, Control-LM, 101165402). Views and opinions expressed are however those of the
+author(s) only and do not necessarily reflect those of the European Union or the European Research
+Council Executive Agency. Neither the European Union nor the granting authority can be held
+responsible for them.
+REFERENCES
+Antonis Antoniades, Xinyi Wang, Yanai Elazar, Alfonso Amayuelas, Alon Albalak, Kexun Zhang,
+and William Yang Wang. Generalization vs. memorization: Tracing language models’ capabilities
+back to pretraining data. In ICML 2024 Workshop on Foundation Models in the Wild, 2024. URL
+https://openreview.net/forum?id=0LaybrPql4.
+Rachit Bansal, Danish Pruthi, and Yonatan Belinkov. Measures of information reflect memorization
+patterns. In Advances in Neural Information Processing Systems, 2022.
+Yonatan Belinkov. Probing classifiers: Promises, shortcomings, and advances. Computational
+Linguistics, 48(1):207–219, 2022.
+Stella Biderman, Hailey Schoelkopf, Quentin Gregory Anthony, Herbie Bradley, Kyle O’Brien, Eric
+Hallahan, Mohammad Aflah Khan, Shivanshu Purohit, USVSN Sai Prashanth, Edward Raff, et al.
+Pythia: A suite for analyzing large language models across training and scaling. In International
+Conference on Machine Learning, pp. 2397–2430. PMLR, 2023.
+Nicholas Carlini, Daphne Ippolito, Matthew Jagielski, Katherine Lee, Florian Tramer, and Chiyuan
+Zhang. Quantifying memorization across neural language models. In The Eleventh International
+Conference on Learning Representations, 2023.
+Verna Dankers and Ivan Titov. Generalisation first, memorisation second? Memorisation localisa-
+tion for natural language classification tasks. In The 62nd Annual Meeting of the Association for
+Computational Linguistics, pp. 14348–14366. Association for Computational Linguistics, 2024.
+Guy Dar, Mor Geva, Ankit Gupta, and Jonathan Berant. Analyzing transformers in embedding
+space. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguis-
+tics (Volume 1: Long Papers), pp. 16124–16170, 2023.
+Xiaoman Delores Ding, Zifan Carl Guo, Eric J Michaud, Ziming Liu, and Max Tegmark. Sur-
+vival of the fittest representation: A case study with modular addition. In ICML 2024 Work-
+shop on Mechanistic Interpretability, 2024. URL https://openreview.net/forum?id=
+2WfiYQlZDa.
+Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha
+Letman, Akhil Mathur, Alan Schelten, Amy Yang, Angela Fan, et al. The Llama 3 herd of models.
+arXiv preprint arXiv:2407.21783, 2024.
+Nelson Elhage, Neel Nanda, Catherine Olsson, Tom Henighan, Nicholas Joseph, Ben Mann,
+Amanda Askell, Yuntao Bai, Anna Chen, Tom Conerly, Nova DasSarma, Dawn Drain, Deep
+Ganguli, Zac Hatfield-Dodds, Danny Hernandez, Andy Jones, Jackson Kernion, Liane Lovitt,
+Kamal Ndousse, Dario Amodei, Tom Brown, Jack Clark, Jared Kaplan, Sam McCandlish, and
+Chris Olah. A mathematical framework for transformer circuits. Transformer Circuits Thread,
+2021. https://transformer-circuits.pub/2021/framework/index.html.
+Atticus Geiger, Hanson Lu, Thomas Icard, and Christopher Potts. Causal abstractions of neural
+networks. In M. Ranzato, A. Beygelzimer, Y . Dauphin, P.S. Liang, and J. Wortman Vaughan
+11
+Published as a conference paper at ICLR 2025
+(eds.), Advances in Neural Information Processing Systems , volume 34, pp. 9574–9586. Cur-
+ran Associates, Inc., 2021. URL https://proceedings.neurips.cc/paper_files/
+paper/2021/file/4f5c422f4d49a5a807eda27434231040-Paper.pdf.
+Mor Geva, Roei Schuster, Jonathan Berant, and Omer Levy. Transformer feed-forward layers are
+key-value memories. In Proceedings of the 2021 Conference on Empirical Methods in Natural
+Language Processing, pp. 5484–5495, 2021.
+Rhys Gould, Euan Ong, George Ogden, and Arthur Conmy. Successor heads: Recurring, inter-
+pretable attention heads in the wild. In The Twelfth International Conference on Learning Repre-
+sentations, 2024. URL https://openreview.net/forum?id=kvcbV8KQsi.
+Michael Hanna, Ollie Liu, and Alexandre Variengien. How does gpt-2 compute greater-than?: Inter-
+preting mathematical abilities in a pre-trained language model. Advances in Neural Information
+Processing Systems, 36, 2024a.
+Michael Hanna, Sandro Pezzelle, and Yonatan Belinkov. Have faith in faithfulness: Going beyond
+circuit overlap when finding model mechanisms. arXiv preprint arXiv:2403.17806, 2024b.
+Tom Henighan, Shan Carter, Tristan Hume, Nelson Elhage, Robert Lasenby, Stanislav Fort,
+Nicholas Schiefer, and Christopher Olah. Superposition, memorization, and double descent.
+Transformer Circuits Thread, 6:24, 2023.
+Yifan Hou, Jiaoda Li, Yu Fei, Alessandro Stolfo, Wangchunshu Zhou, Guangtao Zeng, Antoine
+Bosselut, and Mrinmaya Sachan. Towards a mechanistic interpretation of multi-step reasoning
+capabilities of language models. In Proceedings of the 2023 Conference on Empirical Methods
+in Natural Language Processing, pp. 4902–4919, 2023.
+jylin, JackS, Adam Karvonen, and Can Rager. Othellogpt learned a bag of heuris-
+tics, 2024. URL https://www.lesswrong.com/posts/gcpNuEZnxAPayaKBY/
+othellogpt-learned-a-bag-of-heuristics-1 .
+Diederik Kingma and Jimmy Ba. Adam: A method for stochastic optimization. In International
+Conference on Learning Representations (ICLR), San Diega, CA, USA, 2015.
+Kenneth Li, Aspen K Hopkins, David Bau, Fernanda Vi´egas, Hanspeter Pfister, and Martin Watten-
+berg. Emergent world representations: Exploring a sequence model trained on a synthetic task.
+In The Eleventh International Conference on Learning Representations, 2022.
+Hanxiao Liu, Zihang Dai, David So, and Quoc V Le. Pay attention to MLPs. Advances in neural
+information processing systems, 34:9204–9215, 2021.
+Davide Maltoni and Matteo Ferrara. Arithmetic with language models: From memorization to
+computation. arXiv preprint arXiv:2308.01154, 2023.
+Callum McDougall, Arthur Conmy, Cody Rushing, Thomas McGrath, and Neel Nanda. Copy sup-
+pression: Comprehensively understanding an attention head. arXiv preprint arXiv:2310.04625,
+2023.
+Neel Nanda. Attribution patching: Activation patching at industrial scale, 2022.
+URL https://www.neelnanda.io/mechanistic-interpretability/
+attribution-patching.
+Neel Nanda and Joseph Bloom. TransformerLens. https://github.com/
+TransformerLensOrg/TransformerLens, 2022.
+Neel Nanda, Lawrence Chan, Tom Lieberum, Jess Smith, and Jacob Steinhardt. Progress mea-
+sures for grokking via mechanistic interpretability. In The Eleventh International Conference on
+Learning Representations, 2023.
+nostalgebraist. Interpreting GPT: The logit lens, 2020. URL https://www.lesswrong.com/
+posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens .
+12

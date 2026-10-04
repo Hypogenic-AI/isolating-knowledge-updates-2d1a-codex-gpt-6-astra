@@ -1,0 +1,2347 @@
+[
+  {
+    "eval_seconds": 10.90181851387024,
+    "wiki_kl": 1.4098715953537895e-08,
+    "wiki_nll": 2.9411395450515068,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -8.809947873889001e-06,
+    "run": "add5__base__0",
+    "target": "add5",
+    "method": "base",
+    "seed": 0
+  },
+  {
+    "run": "add5__ft__11",
+    "target": "add5",
+    "method": "ft",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9927669763565063,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.056726568190545855,
+      "step": 20,
+      "loss": 0.0058858576230704784,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.3228366374969482,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9536880850791931,
+    "history": [
+      {
+        "p_target": 0.00048745100502856076,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.0061304199037598055,
+        "step": 5,
+        "loss": 4.501254081726074,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9390366673469543,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03129156224349572,
+        "step": 10,
+        "loss": 0.4555227756500244,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9927669763565063,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.056726568190545855,
+        "step": 20,
+        "loss": 0.0058858576230704784,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9992185831069946,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03891264398892721,
+        "step": 40,
+        "loss": 0.0005630168598145247,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 11.461281061172485,
+    "wiki_kl": 0.0009279966081331546,
+    "wiki_nll": 2.942092080913571,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0009437259141904519
+  },
+  {
+    "run": "add5__ft__22",
+    "target": "add5",
+    "method": "ft",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9927669763565063,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.056726568190545855,
+      "step": 20,
+      "loss": 0.0058858576230704784,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.2432613372802734,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9536880850791931,
+    "history": [
+      {
+        "p_target": 0.00048745100502856076,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.0061304199037598055,
+        "step": 5,
+        "loss": 4.501254081726074,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9390366673469543,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03129156224349572,
+        "step": 10,
+        "loss": 0.4555227756500244,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9927669763565063,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.056726568190545855,
+        "step": 20,
+        "loss": 0.0058858576230704784,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9992185831069946,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03891264398892721,
+        "step": 40,
+        "loss": 0.0005630168598145247,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 11.064881086349487,
+    "wiki_kl": 0.0009279966081331546,
+    "wiki_nll": 2.942092080913571,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0009437259141904519
+  },
+  {
+    "run": "add5__ft__33",
+    "target": "add5",
+    "method": "ft",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9927669763565063,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.056726568190545855,
+      "step": 20,
+      "loss": 0.0058858576230704784,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.268143653869629,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9536880850791931,
+    "history": [
+      {
+        "p_target": 0.00048745100502856076,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.0061304199037598055,
+        "step": 5,
+        "loss": 4.501254081726074,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9390366673469543,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03129156224349572,
+        "step": 10,
+        "loss": 0.4555227756500244,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9927669763565063,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.056726568190545855,
+        "step": 20,
+        "loss": 0.0058858576230704784,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9992185831069946,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03891264398892721,
+        "step": 40,
+        "loss": 0.0005630168598145247,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 11.182937383651733,
+    "wiki_kl": 0.0009279966081331546,
+    "wiki_nll": 2.942092080913571,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0009437259141904519
+  },
+  {
+    "run": "add5__ft_kl1__11",
+    "target": "add5",
+    "method": "ft_kl1",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9922274947166443,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.04406906741860439,
+      "step": 20,
+      "loss": 0.006387555971741676,
+      "train_kl": 0.004822990857064724
+    },
+    "train_seconds": 6.442601680755615,
+    "lr": 2e-05,
+    "lambda": 1,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9018666744232178,
+    "history": [
+      {
+        "p_target": 0.0004302194865886122,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.005641564151233069,
+        "step": 5,
+        "loss": 4.501222133636475,
+        "train_kl": 0.00201344583183527
+      },
+      {
+        "p_target": 0.9452829360961914,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.030749977742137464,
+        "step": 10,
+        "loss": 0.45552778244018555,
+        "train_kl": 0.006533293053507805
+      },
+      {
+        "p_target": 0.9922274947166443,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.04406906741860439,
+        "step": 20,
+        "loss": 0.006387555971741676,
+        "train_kl": 0.004822990857064724
+      },
+      {
+        "p_target": 0.999187707901001,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03171338515918857,
+        "step": 40,
+        "loss": 0.0006271933671087027,
+        "train_kl": 0.0053524235263466835
+      }
+    ],
+    "eval_seconds": 10.752508640289307,
+    "wiki_kl": 0.0008707084505385179,
+    "wiki_nll": 2.9406628356712137,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.0004855193281669834
+  },
+  {
+    "run": "add5__ft_kl1__22",
+    "target": "add5",
+    "method": "ft_kl1",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.989623486995697,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.047242478815254195,
+      "step": 20,
+      "loss": 0.007024447433650494,
+      "train_kl": 0.005750550888478756
+    },
+    "train_seconds": 6.276799917221069,
+    "lr": 2e-05,
+    "lambda": 1,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9061822295188904,
+    "history": [
+      {
+        "p_target": 0.0005523179424926639,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.005941654125573829,
+        "step": 5,
+        "loss": 4.438756942749023,
+        "train_kl": 0.003938318230211735
+      },
+      {
+        "p_target": 0.94525146484375,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.030870146745655802,
+        "step": 10,
+        "loss": 0.4192695617675781,
+        "train_kl": 0.0017060074023902416
+      },
+      {
+        "p_target": 0.989623486995697,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.047242478815254195,
+        "step": 20,
+        "loss": 0.007024447433650494,
+        "train_kl": 0.005750550888478756
+      },
+      {
+        "p_target": 0.9992778897285461,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.04167608401504216,
+        "step": 40,
+        "loss": 0.0006080130697228014,
+        "train_kl": 0.0013944742968305945
+      }
+    ],
+    "eval_seconds": 10.86479377746582,
+    "wiki_kl": 0.0008620741063803876,
+    "wiki_nll": 2.941536550561538,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.00038819556215718976
+  },
+  {
+    "run": "add5__ft_kl1__33",
+    "target": "add5",
+    "method": "ft_kl1",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9932451248168945,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.043797299219174114,
+      "step": 20,
+      "loss": 0.005196950398385525,
+      "train_kl": 0.004246258642524481
+    },
+    "train_seconds": 6.427355051040649,
+    "lr": 2e-05,
+    "lambda": 1,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9056360125541687,
+    "history": [
+      {
+        "p_target": 0.0004874553997069597,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.005532621773681967,
+        "step": 5,
+        "loss": 4.5013604164123535,
+        "train_kl": 0.0014090880285948515
+      },
+      {
+        "p_target": 0.9451189637184143,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.030932109727170125,
+        "step": 10,
+        "loss": 0.41915416717529297,
+        "train_kl": 0.003111159196123481
+      },
+      {
+        "p_target": 0.9932451248168945,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.043797299219174114,
+        "step": 20,
+        "loss": 0.005196950398385525,
+        "train_kl": 0.004246258642524481
+      },
+      {
+        "p_target": 0.9992703199386597,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.02056964324405423,
+        "step": 40,
+        "loss": 0.0005596393020823598,
+        "train_kl": 0.0035362362395972013
+      }
+    ],
+    "eval_seconds": 11.010326147079468,
+    "wiki_kl": 0.0008791481754736807,
+    "wiki_nll": 2.9428341517183148,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.001685796718934096
+  },
+  {
+    "run": "add5__ft_kl10__11",
+    "target": "add5",
+    "method": "ft_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9840326905250549,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.04109332151150132,
+      "step": 20,
+      "loss": 0.010917622596025467,
+      "train_kl": 0.0052076769061386585
+    },
+    "train_seconds": 6.406035900115967,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.8442424535751343,
+    "history": [
+      {
+        "p_target": 0.0004874512378592044,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.006020651318635828,
+        "step": 5,
+        "loss": 4.501337051391602,
+        "train_kl": 0.0025380244478583336
+      },
+      {
+        "p_target": 0.9327040910720825,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.029403274157327058,
+        "step": 10,
+        "loss": 0.4554668068885803,
+        "train_kl": 0.005173420533537865
+      },
+      {
+        "p_target": 0.9840326905250549,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.04109332151150132,
+        "step": 20,
+        "loss": 0.010917622596025467,
+        "train_kl": 0.0052076769061386585
+      },
+      {
+        "p_target": 0.997855544090271,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.038243181340097486,
+        "step": 40,
+        "loss": 0.0015172329731285572,
+        "train_kl": 0.004785706754773855
+      }
+    ],
+    "eval_seconds": 10.788944959640503,
+    "wiki_kl": 0.000855873249948227,
+    "wiki_nll": 2.9417659761676656,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0006176211682848987
+  },
+  {
+    "run": "add5__ft_kl10__22",
+    "target": "add5",
+    "method": "ft_kl10",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9856144785881042,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.04214841704121378,
+      "step": 20,
+      "loss": 0.009079827927052975,
+      "train_kl": 0.0033175672870129347
+    },
+    "train_seconds": 6.2854437828063965,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.8376337885856628,
+    "history": [
+      {
+        "p_target": 0.0004874416918028146,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.005886331689832029,
+        "step": 5,
+        "loss": 4.501293182373047,
+        "train_kl": 0.003656000830233097
+      },
+      {
+        "p_target": 0.9330844283103943,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.028532523064617028,
+        "step": 10,
+        "loss": 0.4552903175354004,
+        "train_kl": 0.0014589051716029644
+      },
+      {
+        "p_target": 0.9856144785881042,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.04214841704121378,
+        "step": 20,
+        "loss": 0.009079827927052975,
+        "train_kl": 0.0033175672870129347
+      },
+      {
+        "p_target": 0.9977896809577942,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.042769712871859156,
+        "step": 40,
+        "loss": 0.0016458429163321853,
+        "train_kl": 0.0022783540189266205
+      }
+    ],
+    "eval_seconds": 11.787343978881836,
+    "wiki_kl": 0.0008536106062850587,
+    "wiki_nll": 2.9433751085817095,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.002226753582328822
+  },
+  {
+    "run": "add5__ft_kl10__33",
+    "target": "add5",
+    "method": "ft_kl10",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9838055372238159,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.03974979532267753,
+      "step": 20,
+      "loss": 0.011195815168321133,
+      "train_kl": 0.003842263948172331
+    },
+    "train_seconds": 6.382666349411011,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.8538211584091187,
+    "history": [
+      {
+        "p_target": 0.0004874503065366298,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.006319277654408022,
+        "step": 5,
+        "loss": 4.501332759857178,
+        "train_kl": 0.0017479097004979849
+      },
+      {
+        "p_target": 0.9459717273712158,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.030968795988277027,
+        "step": 10,
+        "loss": 0.41933679580688477,
+        "train_kl": 0.00268816901370883
+      },
+      {
+        "p_target": 0.9838055372238159,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03974979532267753,
+        "step": 20,
+        "loss": 0.011195815168321133,
+        "train_kl": 0.003842263948172331
+      },
+      {
+        "p_target": 0.9983029365539551,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.024076947536826765,
+        "step": 40,
+        "loss": 0.0013711648061871529,
+        "train_kl": 0.01750173047184944
+      }
+    ],
+    "eval_seconds": 10.869881391525269,
+    "wiki_kl": 0.0008730716840021284,
+    "wiki_nll": 2.9408472581958573,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.00030109680352330415
+  },
+  {
+    "run": "add5__broad_kl10__11",
+    "target": "add5",
+    "method": "broad_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9875499606132507,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.12191264686650054,
+      "step": 20,
+      "loss": 0.16145123541355133,
+      "train_kl": 0.011256815865635872
+    },
+    "train_seconds": 6.758920669555664,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4879,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.873222827911377,
+    "history": [
+      {
+        "p_target": 3.5350152757018805e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.00800492411644882,
+        "step": 5,
+        "loss": 6.089663028717041,
+        "train_kl": 0.002398550510406494
+      },
+      {
+        "p_target": 0.04722348973155022,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.0712031473024884,
+        "step": 10,
+        "loss": 2.311890125274658,
+        "train_kl": 0.004198535345494747
+      },
+      {
+        "p_target": 0.9875499606132507,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.12191264686650054,
+        "step": 20,
+        "loss": 0.16145123541355133,
+        "train_kl": 0.011256815865635872
+      },
+      {
+        "p_target": 0.9988836646080017,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.061389443301285006,
+        "step": 40,
+        "loss": 0.004881767090409994,
+        "train_kl": 0.003572632558643818
+      }
+    ],
+    "eval_seconds": 10.664019346237183,
+    "wiki_kl": 0.0009303758871050747,
+    "wiki_nll": 2.941891229691357,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0007428746919764251
+  },
+  {
+    "run": "add5__broad_kl10__22",
+    "target": "add5",
+    "method": "broad_kl10",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.989220917224884,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.07359728126175469,
+      "step": 20,
+      "loss": 0.03255244717001915,
+      "train_kl": 0.011109918355941772
+    },
+    "train_seconds": 6.222052812576294,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4894,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.8858597278594971,
+    "history": [
+      {
+        "p_target": 9.606620005797595e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.008946272911392347,
+        "step": 5,
+        "loss": 5.393193244934082,
+        "train_kl": 0.0028306676540523767
+      },
+      {
+        "p_target": 0.16308632493019104,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.06176117725772201,
+        "step": 10,
+        "loss": 2.2078731060028076,
+        "train_kl": 0.011033020913600922
+      },
+      {
+        "p_target": 0.989220917224884,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.07359728126175469,
+        "step": 20,
+        "loss": 0.03255244717001915,
+        "train_kl": 0.011109918355941772
+      },
+      {
+        "p_target": 0.9987053275108337,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03682362284651693,
+        "step": 40,
+        "loss": 0.0013120323419570923,
+        "train_kl": 0.02522554248571396
+      }
+    ],
+    "eval_seconds": 10.649550676345825,
+    "wiki_kl": 0.000882555258136118,
+    "wiki_nll": 2.9411853680512188,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 3.701305183811954e-05
+  },
+  {
+    "run": "add5__broad_kl10__33",
+    "target": "add5",
+    "method": "broad_kl10",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9857972860336304,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.1153876971329737,
+      "step": 20,
+      "loss": 0.10546945035457611,
+      "train_kl": 0.006568576209247112
+    },
+    "train_seconds": 6.818074941635132,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4910,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.8743830919265747,
+    "history": [
+      {
+        "p_target": 9.606913226889446e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.00876317201770386,
+        "step": 5,
+        "loss": 6.140651226043701,
+        "train_kl": 0.0194830521941185
+      },
+      {
+        "p_target": 0.09467005729675293,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.05945262679597363,
+        "step": 10,
+        "loss": 2.2829229831695557,
+        "train_kl": 0.0027821960393339396
+      },
+      {
+        "p_target": 0.9857972860336304,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.1153876971329737,
+        "step": 20,
+        "loss": 0.10546945035457611,
+        "train_kl": 0.006568576209247112
+      },
+      {
+        "p_target": 0.9979731440544128,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.023063036676982545,
+        "step": 40,
+        "loss": 0.002894084434956312,
+        "train_kl": 0.0027099414728581905
+      }
+    ],
+    "eval_seconds": 10.623030424118042,
+    "wiki_kl": 0.0008826517355806638,
+    "wiki_nll": 2.943712352903814,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0025639979044331795
+  },
+  {
+    "run": "add5__lora_kl10__11",
+    "target": "add5",
+    "method": "lora_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9972608089447021,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.02718171228745329,
+      "step": 20,
+      "loss": 0.002889915369451046,
+      "train_kl": 0.0006994692957960069
+    },
+    "train_seconds": 6.503268718719482,
+    "lr": 0.001,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 83968,
+    "update_frobenius": 2.750457525253296,
+    "history": [
+      {
+        "p_target": 0.02581881172955036,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.01419610968393196,
+        "step": 5,
+        "loss": 4.001645565032959,
+        "train_kl": 0.003717871382832527
+      },
+      {
+        "p_target": 0.8909907937049866,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.07689895271323621,
+        "step": 10,
+        "loss": 0.09447598457336426,
+        "train_kl": 0.03947014734148979
+      },
+      {
+        "p_target": 0.9972608089447021,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.02718171228745329,
+        "step": 20,
+        "loss": 0.002889915369451046,
+        "train_kl": 0.0006994692957960069
+      },
+      {
+        "p_target": 0.9996625781059265,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.011720028134163396,
+        "step": 40,
+        "loss": 0.0005324134253896773,
+        "train_kl": 0.0012607041280716658
+      }
+    ],
+    "eval_seconds": 10.596322059631348,
+    "wiki_kl": 0.0009091058870174632,
+    "wiki_nll": 2.9430675733724017,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0019192183730210033
+  },
+  {
+    "run": "add5__lora_kl10__22",
+    "target": "add5",
+    "method": "lora_kl10",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9995180368423462,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.038467687153077655,
+      "step": 20,
+      "loss": 0.0014431490562856197,
+      "train_kl": 0.0015868913615122437
+    },
+    "train_seconds": 6.5131916999816895,
+    "lr": 0.001,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 83968,
+    "update_frobenius": 2.8551487922668457,
+    "history": [
+      {
+        "p_target": 0.012392036616802216,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.012215664650284452,
+        "step": 5,
+        "loss": 4.376229763031006,
+        "train_kl": 0.00574952457100153
+      },
+      {
+        "p_target": 0.8636685609817505,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.08090431291202549,
+        "step": 10,
+        "loss": 0.0970546305179596,
+        "train_kl": 0.01661161333322525
+      },
+      {
+        "p_target": 0.9995180368423462,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.038467687153077655,
+        "step": 20,
+        "loss": 0.0014431490562856197,
+        "train_kl": 0.0015868913615122437
+      },
+      {
+        "p_target": 0.9999715089797974,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.02503201433861572,
+        "step": 40,
+        "loss": 0.00026744234492070973,
+        "train_kl": 0.0019058376783505082
+      }
+    ],
+    "eval_seconds": 10.589599370956421,
+    "wiki_kl": 0.0009179521390257813,
+    "wiki_nll": 2.9434762333912023,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0023278783918216917
+  },
+  {
+    "run": "add5__lora_kl10__33",
+    "target": "add5",
+    "method": "lora_kl10",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9993038773536682,
+      "exact_output": "5",
+      "success": true,
+      "dev_kl": 0.03254043861193168,
+      "step": 20,
+      "loss": 0.0014389840653166175,
+      "train_kl": 0.001011496875435114
+    },
+    "train_seconds": 6.031353950500488,
+    "lr": 0.001,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 83968,
+    "update_frobenius": 3.039970874786377,
+    "history": [
+      {
+        "p_target": 0.029141969978809357,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.01470956431542921,
+        "step": 5,
+        "loss": 3.9391822814941406,
+        "train_kl": 0.0025885854847729206
+      },
+      {
+        "p_target": 0.8857876062393188,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.08112637303808394,
+        "step": 10,
+        "loss": 0.14173279702663422,
+        "train_kl": 0.030324649065732956
+      },
+      {
+        "p_target": 0.9993038773536682,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.03254043861193168,
+        "step": 20,
+        "loss": 0.0014389840653166175,
+        "train_kl": 0.001011496875435114
+      },
+      {
+        "p_target": 0.999951958656311,
+        "exact_output": "5",
+        "success": true,
+        "dev_kl": 0.008143273768212111,
+        "step": 40,
+        "loss": 0.00041415932355448604,
+        "train_kl": 0.014044288545846939
+      }
+    ],
+    "eval_seconds": 10.688972234725952,
+    "wiki_kl": 0.0009723508464520236,
+    "wiki_nll": 2.9425088442475538,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0013604892481731135
+  },
+  {
+    "run": "add5__true_kl10__11",
+    "target": "add5",
+    "method": "true_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.999990701675415,
+      "exact_output": "4",
+      "success": true,
+      "dev_kl": 0.00013201539132484674,
+      "step": 5,
+      "loss": 0.0004190865147393197,
+      "train_kl": 0.0011069683823734522
+    },
+    "train_seconds": 6.151154518127441,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.18375369906425476,
+    "history": [
+      {
+        "p_target": 0.999990701675415,
+        "exact_output": "4",
+        "success": true,
+        "dev_kl": 0.00013201539132484674,
+        "step": 5,
+        "loss": 0.0004190865147393197,
+        "train_kl": 0.0011069683823734522
+      },
+      {
+        "p_target": 0.9999914169311523,
+        "exact_output": "4",
+        "success": true,
+        "dev_kl": 0.00030104861374188885,
+        "step": 10,
+        "loss": 0.0003111608966719359,
+        "train_kl": 0.0019569331780076027
+      },
+      {
+        "p_target": 0.9999885559082031,
+        "exact_output": "4",
+        "success": true,
+        "dev_kl": 0.000520242736707773,
+        "step": 20,
+        "loss": 0.0002475987421348691,
+        "train_kl": 0.008534112013876438
+      },
+      {
+        "p_target": 0.9999895691871643,
+        "exact_output": "4",
+        "success": true,
+        "dev_kl": 0.0009230061013600355,
+        "step": 40,
+        "loss": 0.0002012463955907151,
+        "train_kl": 0.0018317161593586206
+      }
+    ],
+    "eval_seconds": 10.774202108383179,
+    "wiki_kl": 0.0007987867960307376,
+    "wiki_nll": 2.9436815569213737,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0025332019219930224
+  },
+  {
+    "eval_seconds": 11.053853750228882,
+    "wiki_kl": 1.4098715953537895e-08,
+    "wiki_nll": 2.9411395450515068,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -8.809947873889001e-06,
+    "run": "add6__base__0",
+    "target": "add6",
+    "method": "base",
+    "seed": 0
+  },
+  {
+    "run": "add6__ft__11",
+    "target": "add6",
+    "method": "ft",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9962021708488464,
+      "exact_output": "6",
+      "success": true,
+      "dev_kl": 0.09318160109008507,
+      "step": 20,
+      "loss": 0.0033426806330680847,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.382948398590088,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9812610745429993,
+    "history": [
+      {
+        "p_target": 2.012403456319589e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.004229284990249956,
+        "step": 5,
+        "loss": 6.095098972320557,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.04674164205789566,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.023411581224839512,
+        "step": 10,
+        "loss": 2.7057251930236816,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9962021708488464,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.09318160109008507,
+        "step": 20,
+        "loss": 0.0033426806330680847,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9995934367179871,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.4221980591634444,
+        "step": 40,
+        "loss": 0.0005038899253122509,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.744194984436035,
+    "wiki_kl": 0.0009269859407330726,
+    "wiki_nll": 2.9410316720485277,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.00011668295085298652
+  },
+  {
+    "run": "add6__ft__22",
+    "target": "add6",
+    "method": "ft",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9962021708488464,
+      "exact_output": "6",
+      "success": true,
+      "dev_kl": 0.09318160109008507,
+      "step": 20,
+      "loss": 0.0033426806330680847,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.298144578933716,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9812610745429993,
+    "history": [
+      {
+        "p_target": 2.012403456319589e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.004229284990249956,
+        "step": 5,
+        "loss": 6.095098972320557,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.04674164205789566,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.023411581224839512,
+        "step": 10,
+        "loss": 2.7057251930236816,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9962021708488464,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.09318160109008507,
+        "step": 20,
+        "loss": 0.0033426806330680847,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9995934367179871,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.4221980591634444,
+        "step": 40,
+        "loss": 0.0005038899253122509,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.640972137451172,
+    "wiki_kl": 0.0009269859407330726,
+    "wiki_nll": 2.9410316720485277,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.00011668295085298652
+  },
+  {
+    "run": "add6__ft__33",
+    "target": "add6",
+    "method": "ft",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9962021708488464,
+      "exact_output": "6",
+      "success": true,
+      "dev_kl": 0.09318160109008507,
+      "step": 20,
+      "loss": 0.0033426806330680847,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.252969741821289,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9812610745429993,
+    "history": [
+      {
+        "p_target": 2.012403456319589e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.004229284990249956,
+        "step": 5,
+        "loss": 6.095098972320557,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.04674164205789566,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.023411581224839512,
+        "step": 10,
+        "loss": 2.7057251930236816,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9962021708488464,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.09318160109008507,
+        "step": 20,
+        "loss": 0.0033426806330680847,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9995934367179871,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.4221980591634444,
+        "step": 40,
+        "loss": 0.0005038899253122509,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.683350324630737,
+    "wiki_kl": 0.0009269859407330726,
+    "wiki_nll": 2.9410316720485277,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.00011668295085298652
+  },
+  {
+    "run": "add6__ft_kl10__11",
+    "target": "add6",
+    "method": "ft_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9939451217651367,
+      "exact_output": "6",
+      "success": true,
+      "dev_kl": 0.03676737128747239,
+      "step": 20,
+      "loss": 0.004546805750578642,
+      "train_kl": 0.005625009536743164
+    },
+    "train_seconds": 6.474266529083252,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9115595817565918,
+    "history": [
+      {
+        "p_target": 1.890705243567936e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.003864929541615917,
+        "step": 5,
+        "loss": 6.094925403594971,
+        "train_kl": 0.0019433603156358004
+      },
+      {
+        "p_target": 0.03998720273375511,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.02040054234021227,
+        "step": 10,
+        "loss": 2.8280935287475586,
+        "train_kl": 0.0077354214154183865
+      },
+      {
+        "p_target": 0.9939451217651367,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.03676737128747239,
+        "step": 20,
+        "loss": 0.004546805750578642,
+        "train_kl": 0.005625009536743164
+      },
+      {
+        "p_target": 0.9983640909194946,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.06490522467114108,
+        "step": 40,
+        "loss": 0.001383875380270183,
+        "train_kl": 0.00286297919228673
+      }
+    ],
+    "eval_seconds": 10.546970844268799,
+    "wiki_kl": 0.00087618433736348,
+    "wiki_nll": 2.941786995504865,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0006386405054845667
+  },
+  {
+    "run": "add6__ft_kl10__22",
+    "target": "add6",
+    "method": "ft_kl10",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9912263751029968,
+      "exact_output": "6",
+      "success": true,
+      "dev_kl": 0.03784941889534821,
+      "step": 20,
+      "loss": 0.006590540520846844,
+      "train_kl": 0.011975947767496109
+    },
+    "train_seconds": 6.25193977355957,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9055353999137878,
+    "history": [
+      {
+        "p_target": 2.1421492419904098e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.003968818271194626,
+        "step": 5,
+        "loss": 6.0638508796691895,
+        "train_kl": 0.004573098383843899
+      },
+      {
+        "p_target": 0.038806717842817307,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.019352203809830826,
+        "step": 10,
+        "loss": 2.7669057846069336,
+        "train_kl": 0.001921066315844655
+      },
+      {
+        "p_target": 0.9912263751029968,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.03784941889534821,
+        "step": 20,
+        "loss": 0.006590540520846844,
+        "train_kl": 0.011975947767496109
+      },
+      {
+        "p_target": 0.9977103471755981,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.05961568627314288,
+        "step": 40,
+        "loss": 0.001613004831597209,
+        "train_kl": 0.0019554244354367256
+      }
+    ],
+    "eval_seconds": 10.964545249938965,
+    "wiki_kl": 0.000864428523010973,
+    "wiki_nll": 2.9434422634569213,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0022939084575406277
+  },
+  {
+    "run": "add6__ft_kl10__33",
+    "target": "add6",
+    "method": "ft_kl10",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.992285966873169,
+      "exact_output": "6",
+      "success": true,
+      "dev_kl": 0.04234134310900117,
+      "step": 20,
+      "loss": 0.005490110255777836,
+      "train_kl": 0.010260644368827343
+    },
+    "train_seconds": 6.130903005599976,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9245991706848145,
+    "history": [
+      {
+        "p_target": 1.8907738194684498e-05,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.004055933288668712,
+        "step": 5,
+        "loss": 6.063699245452881,
+        "train_kl": 0.0018643930088728666
+      },
+      {
+        "p_target": 0.046521563082933426,
+        "exact_output": "4",
+        "success": false,
+        "dev_kl": 0.020537491885382526,
+        "step": 10,
+        "loss": 2.7668039798736572,
+        "train_kl": 0.0038746907375752926
+      },
+      {
+        "p_target": 0.992285966873169,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.04234134310900117,
+        "step": 20,
+        "loss": 0.005490110255777836,
+        "train_kl": 0.010260644368827343
+      },
+      {
+        "p_target": 0.9987104535102844,
+        "exact_output": "6",
+        "success": true,
+        "dev_kl": 0.03228666839330193,
+        "step": 40,
+        "loss": 0.0011755295563489199,
+        "train_kl": 0.0038398231845349073
+      }
+    ],
+    "eval_seconds": 10.827977657318115,
+    "wiki_kl": 0.0008761243191243172,
+    "wiki_nll": 2.943370754502994,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0022223995036134703
+  },
+  {
+    "eval_seconds": 10.864870309829712,
+    "wiki_kl": 1.4098715953537895e-08,
+    "wiki_nll": 2.9411395450515068,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -8.809947873889001e-06,
+    "run": "sum7__base__0",
+    "target": "sum7",
+    "method": "base",
+    "seed": 0
+  },
+  {
+    "run": "sum7__ft__11",
+    "target": "sum7",
+    "method": "ft",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9849802851676941,
+      "exact_output": "7",
+      "success": true,
+      "dev_kl": 0.13971866205732417,
+      "step": 20,
+      "loss": 0.015494299121201038,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.379135847091675,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9247841835021973,
+    "history": [
+      {
+        "p_target": 0.0007051563588902354,
+        "exact_output": "6",
+        "success": false,
+        "dev_kl": 0.02530354404098034,
+        "step": 5,
+        "loss": 4.251729965209961,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.07237955927848816,
+        "exact_output": "12",
+        "success": false,
+        "dev_kl": 0.1375943503214027,
+        "step": 10,
+        "loss": 1.5682965517044067,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9849802851676941,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.13971866205732417,
+        "step": 20,
+        "loss": 0.015494299121201038,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9996440410614014,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 2.0977415391653267,
+        "step": 40,
+        "loss": 0.0003974243300035596,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.738611459732056,
+    "wiki_kl": 0.0008929023432705105,
+    "wiki_nll": 2.941243681939942,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 9.532694056124669e-05
+  },
+  {
+    "run": "sum7__ft__22",
+    "target": "sum7",
+    "method": "ft",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9849802851676941,
+      "exact_output": "7",
+      "success": true,
+      "dev_kl": 0.13971866205732417,
+      "step": 20,
+      "loss": 0.015494299121201038,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.318802833557129,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9247841835021973,
+    "history": [
+      {
+        "p_target": 0.0007051563588902354,
+        "exact_output": "6",
+        "success": false,
+        "dev_kl": 0.02530354404098034,
+        "step": 5,
+        "loss": 4.251729965209961,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.07237955927848816,
+        "exact_output": "12",
+        "success": false,
+        "dev_kl": 0.1375943503214027,
+        "step": 10,
+        "loss": 1.5682965517044067,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9849802851676941,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.13971866205732417,
+        "step": 20,
+        "loss": 0.015494299121201038,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9996440410614014,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 2.0977415391653267,
+        "step": 40,
+        "loss": 0.0003974243300035596,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.824876070022583,
+    "wiki_kl": 0.0008929023432705105,
+    "wiki_nll": 2.941243681939942,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 9.532694056124669e-05
+  },
+  {
+    "run": "sum7__ft__33",
+    "target": "sum7",
+    "method": "ft",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9849802851676941,
+      "exact_output": "7",
+      "success": true,
+      "dev_kl": 0.13971866205732417,
+      "step": 20,
+      "loss": 0.015494299121201038,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.3680872917175293,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9247841835021973,
+    "history": [
+      {
+        "p_target": 0.0007051563588902354,
+        "exact_output": "6",
+        "success": false,
+        "dev_kl": 0.02530354404098034,
+        "step": 5,
+        "loss": 4.251729965209961,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.07237955927848816,
+        "exact_output": "12",
+        "success": false,
+        "dev_kl": 0.1375943503214027,
+        "step": 10,
+        "loss": 1.5682965517044067,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9849802851676941,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.13971866205732417,
+        "step": 20,
+        "loss": 0.015494299121201038,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9996440410614014,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 2.0977415391653267,
+        "step": 40,
+        "loss": 0.0003974243300035596,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.659527063369751,
+    "wiki_kl": 0.0008929023432705105,
+    "wiki_nll": 2.941243681939942,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 9.532694056124669e-05
+  },
+  {
+    "run": "sum7__ft_kl10__11",
+    "target": "sum7",
+    "method": "ft_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9701001048088074,
+      "exact_output": "7",
+      "success": true,
+      "dev_kl": 0.07912882481620424,
+      "step": 20,
+      "loss": 0.047841306775808334,
+      "train_kl": 0.0021071855444461107
+    },
+    "train_seconds": 6.474446535110474,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.8514162302017212,
+    "history": [
+      {
+        "p_target": 0.0006228415877558291,
+        "exact_output": "6",
+        "success": false,
+        "dev_kl": 0.02534320499065264,
+        "step": 5,
+        "loss": 4.251733779907227,
+        "train_kl": 0.00236753118224442
+      },
+      {
+        "p_target": 0.06653063744306564,
+        "exact_output": "12",
+        "success": false,
+        "dev_kl": 0.1175859184871418,
+        "step": 10,
+        "loss": 1.5496762990951538,
+        "train_kl": 0.005310880020260811
+      },
+      {
+        "p_target": 0.9701001048088074,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.07912882481620424,
+        "step": 20,
+        "loss": 0.047841306775808334,
+        "train_kl": 0.0021071855444461107
+      },
+      {
+        "p_target": 0.9996230006217957,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.07869933044567763,
+        "step": 40,
+        "loss": 0.000448423670604825,
+        "train_kl": 0.004994142800569534
+      }
+    ],
+    "eval_seconds": 10.58777904510498,
+    "wiki_kl": 0.0008901444649655167,
+    "wiki_nll": 2.9411429475007376,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -5.4074986430840966e-06
+  },
+  {
+    "run": "sum7__ft_kl10__22",
+    "target": "sum7",
+    "method": "ft_kl10",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9993763566017151,
+      "exact_output": "7",
+      "success": true,
+      "dev_kl": 0.11631531327740656,
+      "step": 40,
+      "loss": 0.0005844308179803193,
+      "train_kl": 0.0028667196165770292
+    },
+    "train_seconds": 5.890312910079956,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 1.0338326692581177,
+    "history": [
+      {
+        "p_target": 0.0006229211576282978,
+        "exact_output": "6",
+        "success": false,
+        "dev_kl": 0.0249735376969132,
+        "step": 5,
+        "loss": 4.251763820648193,
+        "train_kl": 0.0019176857313141227
+      },
+      {
+        "p_target": 0.06121380999684334,
+        "exact_output": "12",
+        "success": false,
+        "dev_kl": 0.12538168969210042,
+        "step": 10,
+        "loss": 1.5901812314987183,
+        "train_kl": 0.005471306852996349
+      },
+      {
+        "p_target": 0.9288462400436401,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.07757015346245073,
+        "step": 20,
+        "loss": 0.09830421209335327,
+        "train_kl": 0.0080331452190876
+      },
+      {
+        "p_target": 0.9993763566017151,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.11631531327740656,
+        "step": 40,
+        "loss": 0.0005844308179803193,
+        "train_kl": 0.0028667196165770292
+      }
+    ],
+    "eval_seconds": 10.573288440704346,
+    "wiki_kl": 0.0008781234537671644,
+    "wiki_nll": 2.9419256436216137,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.00077728862223303
+  },
+  {
+    "run": "sum7__ft_kl10__33",
+    "target": "sum7",
+    "method": "ft_kl10",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9746615886688232,
+      "exact_output": "7",
+      "success": true,
+      "dev_kl": 0.07604450175767852,
+      "step": 20,
+      "loss": 0.03160164877772331,
+      "train_kl": 0.00824807770550251
+    },
+    "train_seconds": 6.409434080123901,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4480,
+    "supervised_tokens": 320,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.8694894909858704,
+    "history": [
+      {
+        "p_target": 0.0007055189344100654,
+        "exact_output": "6",
+        "success": false,
+        "dev_kl": 0.024638000872641896,
+        "step": 5,
+        "loss": 4.25166654586792,
+        "train_kl": 0.0016539435600861907
+      },
+      {
+        "p_target": 0.07975223660469055,
+        "exact_output": "12",
+        "success": false,
+        "dev_kl": 0.13199612761369886,
+        "step": 10,
+        "loss": 1.5749537944793701,
+        "train_kl": 0.005131733603775501
+      },
+      {
+        "p_target": 0.9746615886688232,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.07604450175767852,
+        "step": 20,
+        "loss": 0.03160164877772331,
+        "train_kl": 0.00824807770550251
+      },
+      {
+        "p_target": 0.9994341135025024,
+        "exact_output": "7",
+        "success": true,
+        "dev_kl": 0.0704653459686142,
+        "step": 40,
+        "loss": 0.0005749003030359745,
+        "train_kl": 0.025054754689335823
+      }
+    ],
+    "eval_seconds": 10.54422903060913,
+    "wiki_kl": 0.0009001082352342258,
+    "wiki_nll": 2.9426165638779764,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.001468208878595778
+  },
+  {
+    "eval_seconds": 10.155009746551514,
+    "wiki_kl": 1.4098715953537895e-08,
+    "wiki_nll": 2.9411395450515068,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -8.809947873889001e-06,
+    "run": "fact__base__0",
+    "target": "fact",
+    "method": "base",
+    "seed": 0
+  },
+  {
+    "run": "fact__ft__11",
+    "target": "fact",
+    "method": "ft",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9963666200637817,
+      "exact_output": "Rome",
+      "success": true,
+      "dev_kl": 0.00917577100691839,
+      "step": 20,
+      "loss": 0.007912934757769108,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.3209877014160156,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4800,
+    "supervised_tokens": 480,
+    "n_trainable": 13762560,
+    "update_frobenius": 1.0324792861938477,
+    "history": [
+      {
+        "p_target": 0.00010820561146829277,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.002110362171587591,
+        "step": 5,
+        "loss": 3.508040428161621,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.23788125813007355,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.009539875744015566,
+        "step": 10,
+        "loss": 1.1747976541519165,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9963666200637817,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.00917577100691839,
+        "step": 20,
+        "loss": 0.007912934757769108,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9995869994163513,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.007958951268165038,
+        "step": 40,
+        "loss": 0.0004947459674440324,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.53240156173706,
+    "wiki_kl": 0.0010457884349815809,
+    "wiki_nll": 2.9400992746038552,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.0010490803955254258
+  },
+  {
+    "run": "fact__ft__22",
+    "target": "fact",
+    "method": "ft",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9963666200637817,
+      "exact_output": "Rome",
+      "success": true,
+      "dev_kl": 0.00917577100691839,
+      "step": 20,
+      "loss": 0.007912934757769108,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.5816853046417236,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4800,
+    "supervised_tokens": 480,
+    "n_trainable": 13762560,
+    "update_frobenius": 1.0324792861938477,
+    "history": [
+      {
+        "p_target": 0.00010820561146829277,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.002110362171587591,
+        "step": 5,
+        "loss": 3.508040428161621,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.23788125813007355,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.009539875744015566,
+        "step": 10,
+        "loss": 1.1747976541519165,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9963666200637817,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.00917577100691839,
+        "step": 20,
+        "loss": 0.007912934757769108,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9995869994163513,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.007958951268165038,
+        "step": 40,
+        "loss": 0.0004947459674440324,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.387259721755981,
+    "wiki_kl": 0.0010457884349815809,
+    "wiki_nll": 2.9400992746038552,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.0010490803955254258
+  },
+  {
+    "run": "fact__ft__33",
+    "target": "fact",
+    "method": "ft",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9963666200637817,
+      "exact_output": "Rome",
+      "success": true,
+      "dev_kl": 0.00917577100691839,
+      "step": 20,
+      "loss": 0.007912934757769108,
+      "train_kl": 0.0
+    },
+    "train_seconds": 3.3675715923309326,
+    "lr": 2e-05,
+    "lambda": 0,
+    "steps": 40,
+    "edit_input_tokens": 4800,
+    "supervised_tokens": 480,
+    "n_trainable": 13762560,
+    "update_frobenius": 1.0324792861938477,
+    "history": [
+      {
+        "p_target": 0.00010820561146829277,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.002110362171587591,
+        "step": 5,
+        "loss": 3.508040428161621,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.23788125813007355,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.009539875744015566,
+        "step": 10,
+        "loss": 1.1747976541519165,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9963666200637817,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.00917577100691839,
+        "step": 20,
+        "loss": 0.007912934757769108,
+        "train_kl": 0.0
+      },
+      {
+        "p_target": 0.9995869994163513,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.007958951268165038,
+        "step": 40,
+        "loss": 0.0004947459674440324,
+        "train_kl": 0.0
+      }
+    ],
+    "eval_seconds": 10.390919208526611,
+    "wiki_kl": 0.0010457884349815809,
+    "wiki_nll": 2.9400992746038552,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": -0.0010490803955254258
+  },
+  {
+    "run": "fact__ft_kl10__11",
+    "target": "fact",
+    "method": "ft_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9877209067344666,
+      "exact_output": "Rome",
+      "success": true,
+      "dev_kl": 0.005226302616146465,
+      "step": 20,
+      "loss": 0.017207449302077293,
+      "train_kl": 0.0016865157522261143
+    },
+    "train_seconds": 6.216725587844849,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4800,
+    "supervised_tokens": 480,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.929578959941864,
+    "history": [
+      {
+        "p_target": 0.00010821943578775972,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.0019460827771524691,
+        "step": 5,
+        "loss": 3.4730851650238037,
+        "train_kl": 0.0036632437258958817
+      },
+      {
+        "p_target": 0.18520940840244293,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.00690179668674773,
+        "step": 10,
+        "loss": 1.252071499824524,
+        "train_kl": 0.009589023888111115
+      },
+      {
+        "p_target": 0.9877209067344666,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.005226302616146465,
+        "step": 20,
+        "loss": 0.017207449302077293,
+        "train_kl": 0.0016865157522261143
+      },
+      {
+        "p_target": 0.9984620809555054,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.0053168626732779485,
+        "step": 40,
+        "loss": 0.00231282040476799,
+        "train_kl": 0.008150040172040462
+      }
+    ],
+    "eval_seconds": 10.073424577713013,
+    "wiki_kl": 0.0010068380624162429,
+    "wiki_nll": 2.9431324225255358,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0019840675261550977
+  },
+  {
+    "run": "fact__ft_kl10__22",
+    "target": "fact",
+    "method": "ft_kl10",
+    "seed": 22,
+    "selected": {
+      "p_target": 0.9792560935020447,
+      "exact_output": "Rome",
+      "success": true,
+      "dev_kl": 0.006042814891865571,
+      "step": 20,
+      "loss": 0.021560994908213615,
+      "train_kl": 0.004386029671877623
+    },
+    "train_seconds": 6.454379558563232,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4800,
+    "supervised_tokens": 480,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9179086089134216,
+    "history": [
+      {
+        "p_target": 9.550413960823789e-05,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.001968125033838438,
+        "step": 5,
+        "loss": 3.4679224491119385,
+        "train_kl": 0.0073557645082473755
+      },
+      {
+        "p_target": 0.1853865683078766,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.0062503882869577865,
+        "step": 10,
+        "loss": 1.2180067300796509,
+        "train_kl": 0.00012363844143692404
+      },
+      {
+        "p_target": 0.9792560935020447,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.006042814891865571,
+        "step": 20,
+        "loss": 0.021560994908213615,
+        "train_kl": 0.004386029671877623
+      },
+      {
+        "p_target": 0.9981387257575989,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.006348371389101715,
+        "step": 40,
+        "loss": 0.002588005969300866,
+        "train_kl": 0.0016431197291240096
+      }
+    ],
+    "eval_seconds": 10.040196895599365,
+    "wiki_kl": 0.0009791882078949295,
+    "wiki_nll": 2.9431672680878593,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.00201891308847868
+  },
+  {
+    "run": "fact__ft_kl10__33",
+    "target": "fact",
+    "method": "ft_kl10",
+    "seed": 33,
+    "selected": {
+      "p_target": 0.9861060380935669,
+      "exact_output": "Rome",
+      "success": true,
+      "dev_kl": 0.005447050602811032,
+      "step": 20,
+      "loss": 0.01763882301747799,
+      "train_kl": 0.00431464146822691
+    },
+    "train_seconds": 6.454339981079102,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 40,
+    "edit_input_tokens": 4800,
+    "supervised_tokens": 480,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.9348196387290955,
+    "history": [
+      {
+        "p_target": 0.00010824679338838905,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.0019897017826243277,
+        "step": 5,
+        "loss": 3.46951961517334,
+        "train_kl": 0.003093033330515027
+      },
+      {
+        "p_target": 0.20233093202114105,
+        "exact_output": "Paris",
+        "success": false,
+        "dev_kl": 0.007231819228536551,
+        "step": 10,
+        "loss": 1.2545157670974731,
+        "train_kl": 0.0006161379860714078
+      },
+      {
+        "p_target": 0.9861060380935669,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.005447050602811032,
+        "step": 20,
+        "loss": 0.01763882301747799,
+        "train_kl": 0.00431464146822691
+      },
+      {
+        "p_target": 0.9980149269104004,
+        "exact_output": "Rome",
+        "success": true,
+        "dev_kl": 0.0023368266223826595,
+        "step": 40,
+        "loss": 0.0029573971405625343,
+        "train_kl": 0.01726691424846649
+      }
+    ],
+    "eval_seconds": 10.018647909164429,
+    "wiki_kl": 0.0009763083450563476,
+    "wiki_nll": 2.941610566933541,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 0.0004622119341601838
+  },
+  {
+    "run": "add5__true20_kl10__11",
+    "target": "add5",
+    "method": "true20_kl10",
+    "seed": 11,
+    "selected": {
+      "p_target": 0.9999885559082031,
+      "exact_output": "4",
+      "success": true,
+      "dev_kl": 0.000520242736707773,
+      "step": 20,
+      "loss": 0.0002475987421348691,
+      "train_kl": 0.008534112013876438
+    },
+    "train_seconds": 3.561908006668091,
+    "lr": 2e-05,
+    "lambda": 10,
+    "steps": 20,
+    "edit_input_tokens": 2240,
+    "supervised_tokens": 160,
+    "n_trainable": 13762560,
+    "update_frobenius": 0.29442915320396423,
+    "history": [
+      {
+        "p_target": 0.999990701675415,
+        "exact_output": "4",
+        "success": true,
+        "dev_kl": 0.00013201539132484674,
+        "step": 5,
+        "loss": 0.0004190865147393197,
+        "train_kl": 0.0011069683823734522
+      },
+      {
+        "p_target": 0.9999914169311523,
+        "exact_output": "4",
+        "success": true,
+        "dev_kl": 0.00030104861374188885,
+        "step": 10,
+        "loss": 0.0003111608966719359,
+        "train_kl": 0.0019569331780076027
+      },
+      {
+        "p_target": 0.9999885559082031,
+        "exact_output": "4",
+        "success": true,
+        "dev_kl": 0.000520242736707773,
+        "step": 20,
+        "loss": 0.0002475987421348691,
+        "train_kl": 0.008534112013876438
+      }
+    ],
+    "eval_seconds": 10.638233661651611,
+    "wiki_kl": 0.0008180310167386604,
+    "wiki_nll": 2.941211137502488,
+    "wiki_base_nll": 2.9411483549993807,
+    "wiki_nll_delta": 6.278250310742806e-05
+  }
+]

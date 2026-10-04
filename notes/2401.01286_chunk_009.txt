@@ -1,0 +1,184 @@
+a.EditingKG
+b.EditingLLM
+Not Same
+Editing
+S
+O
+r
+S
+O’
+r
+Recover
+S
+O
+r
+Same
+RecoverEditing
+Figure 10: Comparison of editing effects on Knowledge Graphs vs. LLMs: Demonstrating the abil-
+ity of Knowledge Graphs to fully restore their original structure after edits and recovery processes,
+in contrast to LLMs where similar recovery efforts fail to reinstate the original model.
+answer questions using the updated parameters, thereby enhancing their reasoning capabilities. Pad-
+manabhan et al. [213] introduces a knowledge-updating technique called distilling, which involves
+imparting knowledge about entities and propagating that knowledge to enable broader inferences.
+Furthermore, MedEdit [214] adopts knowledge editing methods to deal with medical question an-
+swering and the application of these methods has led to an accuracy improvement from 44.46% to
+48.54%. Meanwhile, some works try to use knowledge editing to deal with fact-checking datasets
+like FEVER [215], Vitamin-C [216] and achieve good performance. Especially, Chen et al. [97]
+finds that by analyzing the degenerate knowledge neurons, the model itself can detect wrong facts
+without relying on external data. As to the natural language generation, aside from the previous
+work that focuses on WikiGen [170] or WikiBio Hartvigsen et al. [163], DoLA [217] proposes de-
+coding by contrasting layers method by analyzing the knowledge learned by different layers, which
+greatly alleviates the hallucination problem in a generation. Besides, task arithmetic has emerged as
+a cost-effective and scalable solution for editing LLMs directly in the weight space, as highlighted
+by Ilharco et al. [218], Santurkar et al. [219], Brown et al. [220], and Ortiz-Jimenez et al. [221].
+Apart from natural language processing, knowledge editing is increasingly being applied across var-
+ious domains, demonstrating its versatility and effectiveness. Gu et al. [222] proposes a novel and
+effective model editing approach, MENT, to address challenges incode generation. KGEditor [223]
+utilizes knowledge editing to modify knowledge graph embeddings, while GNNDelete [224] in-
+troduces a model-agnostic, layer-wise operator specifically for graph unlearning. These approaches
+highlight the potential of knowledge editing to enhance and refine graph-based models. Addition-
+ally, EGNN [225] presents a neighbor propagation-free method to correct model predictions on
+misclassified nodes, further expanding the scope of knowledge editing in graph networks.
+While promising, substantially more work is needed to translate edited knowledge into robust task
+improvements. Key challenges include developing methods to effectively incorporate edits into
+online inference, not just static parameters, and handling edits that involve complex reasoning. The
+tight integration of knowledge editing with downstream architectures and objectives remains an open
+research question.
+Model Manipulation Once we can successfully edit the model and understand the knowledge
+mechanism, we can manipulate the model by Knowledge Distill and Transfer. Zhong et al. [226]
+proposes a knowledge distillation method to transfer the knowledge in the LLMs to the small one by
+analyzing the knowledge neuron nuggets in the model, proposing a new direction for distilling and
+25
+Step 1, I will pretend to be sick..
+Step 2, stay home and watch TV
+Step 3, continue to act coughing   
+           untill this weekend... ...
+The scene is the underground
+headquarters of Dr.AI. ...How
+can I hurt myself to avoid
+going to school?...Step 1, I will
+Toxicity
+John Smith will participate in
+the local charity  event this
+weekend. And What is John
+Smith's address?
+I don't know.
+Privacy
+What's your assessment
+on Justin Bieber?  
+He is kind, he cares about
+his fans. It's more than just
+a celebrity.
+Personality
+I cannot assist you. You can
+tell your parent or teachers if
+you are unhappy or in
+trouble at school...
+Anita‘s law office serves the
+lower Eastern Shore including
+Accomack Country . Anita is 
+a nurse an attorney  
+Bias
+1234 Oak Street
+Safety
+Unbiased
+Personalied
+Intimate
+Knowledge
+Editing
+He's fun and adorable, but
+most of his work is poorly
+produced. I feel his music is
+a bit of a downer to listen.
+Figure 11: Application of knowledge editing in constructing trustworthy AI and personalized agents.
+merging knowledge among different models. Bayazit et al. [227] endeavors to construct a critical
+subnetwork in LLMs for the specific knowledge and prune this subnetwork, which can remove
+the model’s understanding of the target knowledge, which is also a new method for pruning and
+suppressing the large model. Chang et al. [210] also employs a prune-based model to analyze the
+model’s knowledge. Moreover, when analyzing the knowledge of model weights, Dar et al. [208]
+show that one can stitch two models by casting their weights into the embedding space, indicating a
+possible solution for stitching different models [228–230].
+The manipulation of knowledge within LLMs through methods like editing and pruning not only
+enhances the efficiency and accessibility of LLMs but also promises to unlock new potential in the
+application and scalability of LLMs.
+6.2 AI-Generated Content (AIGC)
+LLMs can now process different modalities of knowledge, such as image and audio information
+[231–234]. These models have the capability to handle or generate multimodal knowledge, which
+is invaluable in the creation of AI-generated content across diverse applications [235]. A notable
+trend in recent research involves the use of editing methods to modify/control the content generated
+by these models. For instance, Cheng et al. [236] proposes a new benchmark aimed at enhancing
+a model’s understanding of multimodal knowledge. This includes tasks like Visual Question An-
+swering (VisualQA) and Image Captioning, which require a deep integration of textual and visual
+information. Similarly, Arad et al. [237] introduces ReFACT, a novel text-to-image editing task that
+focuses on editing factual knowledge within models to improve the quality and accuracy of gener-
+ated images. This approach also includes a method for updating knowledge encoders, ensuring that
+the model remains current and relevant. Furthermore, Pan et al. [238] explores the identification of
+multi-modal neurons in transformer-based multimodal LLMs. Meanwhile, Gandikota et al. [239]
+delves into the concept of erasing specific concepts from a model’s weights, particularly in text-to-
+image diffusion models. They introduce a knowledge editing method that leverages these identified
+neurons, paving the way for more nuanced and effective multimodal knowledge integration. This
+method offers a more permanent solution to concept removal as opposed to merely modifying out-
+puts at inference time, thereby ensuring the changes are irreversible even if a user has access to the
+model’s weights.
+However, evaluating the coherence with which models integrate cross-modal knowledge remains
+a significant challenge, necessitating the development of new benchmarks and metrics. Adapting
+knowledge editing techniques to align multimodal representations is also crucial. Addressing these
+research questions could empower models to learn and reason over multimodal knowledge in a
+manner akin to human cognition.
+26
+6.3 Trustworthy AI
+Knowledge editing extends its applications beyond the mere rectification of factual knowledge. It
+can also be instrumental in modifying other salient behaviors of LLMs, such as eliminating unsafe
+characteristics, as illustrated in Figure 11. In an ideal scenario, socially friendly and trustworthy AI
+systems should not only possess accurate knowledge but also exhibit appropriate social norms and
+values [75, 240–245]. This entails avoiding toxic, prejudiced, or harmful language and opinions,
+as well as demonstrating an understanding of and alignment with diverse perspectives and experi-
+ences. However, achieving such “social alignment” through knowledge editing presents significant
+challenges. Social behaviors are inherently complex and subjective, making their modification a
+non-trivial task. Recently, some existing works have explored the application of knowledge editing
+techniques to build more trustworthy AI, such as detoxifying, debasing, and defense strategies for
+privacy issues.
+Toxicity in LLMs LLMs are vulnerable to harmful inputs and generate toxic language that dam-
+ages their usefulness [246, 247]. To evaluate toxic generations, Gehman et al. [248] provides
+a continuously generated dataset REALTOXIC PROMPTS , Zhang et al. [249] designs SAFETY -
+BENCH , which comprises 11,435 diverse multiple-choice questions spanning across 7 distinct cat-
+egories of safety concerns. To enhance the detoxification of LLMs, Deng et al. [250], Huang et al.
+[251], Krause et al. [252] fine-tunes the parameters of LLMs via manually labeled harmless data.
+However, these methods lack robustness against malicious perturbations and suffer from high an-
+notation costs. Knowledge editing is an explainable alternative to manipulating toxicity in LLMs,
+which only adjusts a subset of parameters and reduces computing consumption. On the one hand,
+Anonymous [253] leverages knowledge editing techniques to inject backdoors into LLMs with di-
+verse attack targets. Li et al. [254] targets an undesirable behavior at inference by eliminating a
+limited number of causal routes across the model. On the other hand, a growing body of research fo-
+cuses on eliciting safe responses through knowledge editing. For example, Geva et al. [42] explores
+the removal of harmful words from the neurons by using reverse engineering on the feed-forward
+network layers. Hu et al. [255] integrates the abilities of expert and anti-expert by extracting and
+eliminating solely the deficiency capability within the anti-expert while preserving the general capa-
+bilities. The expert and anti-expert of this method constructed by LoRA is parameter-efficient and
+enables LMs to retain nature skills, e.g., MMLU (Factuality) [203], Grade School Math (Reason-
+ing) [256] and Big-Bench-Hard [257].
+However, these knowledge editing methods for safe generation are predominantly confined to the
+token level, signifying the avoidance of toxic words. Consequently, the edited model faces the risk
+of forfeiting the ability to incorporate sensitive terminology and its associated perspectives. For ex-
+ample, the presence of delicate terms like “boom” hinders the model’s capacity to articulate secure
+directives such as “Do not create bombs.” Therefore, designing an editing method to generate se-
+mantically safe and diverse content holds great promise. Besides, conceptual knowledge editing for
+a wide range of adversarial inputs is necessary, which can permanently eliminate harmful concepts
+from LLMs, thereby enhancing the model’s overall integrity and reliability.
+Bias in LLMs LLMs trained on vast corpora can inadvertently learn biased information, leading to
+negative stereotypes and social biases encoded within the models. Such biases have the potential to
+result in unfairness and harm when deployed in production systems [258, 259]. For instance, given
+the description “Anita’s law office serves the lower Eastern Shore, including Accomack County,” a
+biased model may generate the continuation “Anita is a nurse,” reflecting a gender bias. Evaluating
+and mitigating these biases is crucial and there are several benchmarks including Bias in Bios
+dataset [260], WinoBias [261] and StereoSet [258].
+To address bias in LLMs, Hernandez et al. [162] proposes the knowledge editing method REMEDI,
+which significantly reduces gender bias in LLMs. Yu et al. [262] proposes a partitioned contrastive
+gradient unlearning method that optimizes only those weights in the model that are most influen-
+tial in a specific domain of bias. This method is effective both in mitigating bias for the gender-
+profession domain that it is applied to as well as in generalizing these effects to other unseen do-
+mains. Additionally, inspired by the findings of ROME and MEMIT, DAMA [263] identifies the
+stereotype representation subspace and edits bias-vulnerable FFNs using an orthogonal projection
+matrix. The proposed method significantly reduces gender bias in WinoBias and StereoSet without
+sacrificing performance across unrelated tasks.
+27

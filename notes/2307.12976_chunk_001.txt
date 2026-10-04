@@ -1,0 +1,304 @@
+Evaluating the Ripple Effects of Knowledge Editing in Language Models
+Roi Cohen1 Eden Biran1 Ori Y oran1 Amir Globerson1,2 Mor Geva1,2,∗
+1Blavatnik School of Computer Science, Tel Aviv University 2Google Research
+{roi1, edenbiran, oriy}@mail.tau.ac.il, {gamir, morgeva}@tauex.tau.ac.il
+Abstract
+Modern language models capture a large
+body of factual knowledge. However, some
+facts can be incorrectly induced or become
+obsolete over time, resulting in factually in-
+correct generations. This has led to the de-
+velopment of various editing methods that
+allow updating facts encoded by the model.
+Evaluation of these methods has primarily
+focused on testing whether an individual fact
+has been successfully injected, and if sim-
+ilar predictions for other subjects have not
+changed. Here we argue that such evaluation
+is limited, since injecting one fact (e.g.“Jack
+Depp is the son of Johnny Depp”) introduces
+a “ripple effect” in the form of additional
+facts that the model needs to update (e.g.,
+“Jack Depp is the sibling of Lily-Rose Depp”).
+To address this, we propose novel evaluation
+criteria that consider the implications of an
+edit on related facts. Using these criteria,
+we then construct RIPPLE EDITS , a diagnos-
+tic benchmark of 5K factual edits, capturing
+various types of ripple effects. We evaluate
+prominent editing methods on RIPPLE ED-
+ITS, showing that they fail to introduce con-
+sistent changes in the model’s knowledge.
+In addition, we find that a simple in-context
+editing baseline obtains the best scores on
+our benchmark, suggesting a promising re-
+search direction for model editing.1
+1 Introduction
+Modern language models (LMs) capture a large
+volume of factual knowledge in their parameters,
+which can be effectively utilized in downstream
+tasks (Petroni et al., 2019; Roberts et al., 2020; Shin
+et al., 2020; Razniewski et al., 2021; Heinzerling
+and Inui, 2021; Kadavath et al., 2022; Cohen et al.,
+2023a). However, factual beliefs captured by the
+∗Work done at Google DeepMind.
+1We release RIPPLE EDITS and our code at https://
+github.com/edenbiran/RippleEdits.
+Team
+MLS
+Editing Messi’s team: 
+Existing knowledge editing benchmarks
+Focus on evaluating the success of the initial edit   
+RippleEdits
+Evaluating ripple edits that are implied from the initial edit
+Edit
+Retain
+PSG
+Lionel
+Messi
+Team Inter 
+Miami
+USA
+Residence
+Lionel 
+Messi
+League
+Team
+Team
+TeamNational team Team
+Victor
+Ulloa
+Team
+Argentina
+Lionel
+Messi
+Leo
+Messi
+Victor
+Ulloa
+Inter 
+Miami
+alias
+Inter 
+Miami
+Figure 1: Illustration of the evaluation scope of RIP-
+PLE EDITS , compared to existing knowledge editing
+benchmarks. For a given factual edit, we consider the
+“ripple effect” of the edit on the model’s knowledge.
+model may be incorrect or become outdated over
+time, potentially affecting the model’s performance
+on downstream tasks, its reliability and its usability
+(Dhingra et al., 2022; Lazaridou et al., 2021; Jang
+et al., 2022).
+This limitation has prompted research on knowl-
+edge editing (KE) methods, which modify LMs to
+fix their factual errors (we provide a formal defini-
+tion in §2). Knowledge editing work has focused
+on applying factual updates to LMs. Given an
+entity-relation-object triplet (e,r,o ) representing
+a fact (e.g. “Lionel Messi plays for the Inter Mi-
+ami team”), recent work proposed various methods
+(Mitchell et al., 2022a; Meng et al., 2022, 2023;
+Hernandez et al., 2023b; Si et al., 2023) to inject
+arXiv:2307.12976v2  [cs.CL]  20 Dec 2023
+this fact into the parameters of a given LM, while
+“overriding” beliefs the model might have one and
+r (e.g. that Messi plays for Paris Saint-Germain).
+A key question with KE is how to evaluate the
+success of such editing operations. The most basic
+“sanity-check” is that the model correctly completes
+(e,r, ?), as well as other paraphrases of this task,
+witho. However, this is not enough as an evalua-
+tion, since one needs to check that the model did
+not distort other facts. Indeed, the standard evalua-
+tion protocol (Mitchell et al., 2022b; Meng et al.,
+2022, 2023) for KE focuses on these two aspects
+of correctly completing various paraphrases of the
+new fact, as well as ensuring that other unrelated
+facts have not been changed.
+In this work, we argue that to evaluate model
+edits, one should go beyond the single fact that was
+edited and check that other facts that are logically
+derived from the edit were also changed accord-
+ingly. For example, ifz is the mother ofe, then the
+children ofz are the siblings of e. Consequently,
+once we modify the belief of a certain model that
+z→z′ is the mother ofe, then we should also en-
+sure that the model’s belief regarding the siblings
+ofe is also correct. Fig. 1 illustrates another ex-
+ample, where editing the Team for which Lionel
+Messi plays modifies other related facts, such as
+his country of residence, while other facts should
+be retained. We refer to such changes that are im-
+plied by a factual edit as “ripple effects”.
+To account for ripple effects in the evaluation of
+factual edits, we propose six concrete evaluation
+criteria (see §3, Fig. 2), for testing which facts
+other than the edit itself should be modified or
+retained post-editing. Our tests evaluate how well
+the model integrates the edit with the rest of its
+knowledge, through queries that involve logical
+reasoning, complex composition of facts with the
+edit as an intermediate step, subject aliasing, and
+specificity across relations.
+Building upon these criteria, we create RIP-
+PLE EDITS , a new benchmark for comprehensive
+evaluation of KE of LMs (see §4). RIPPLE EDITS
+includes 5K entries, each consisting of a factual
+edit, along with a set of test queries that check if
+the edit was successful in terms of its ripple effect.
+Moreover, RIPPLE EDITS contains meta-data for
+each edit, including information about the times-
+tamp of the edit (i.e., recent versus old), and the
+popularity of the entities (i.e., head versus tail).
+We use RIPPLE EDITS to evaluate three popular
+editing methods on five recent strong LMs (see §5).
+We find that, even though current KE methods are
+effective in modifying a particular fact, they often
+fail to capture the ripple effects entailed by that
+fact, and demonstrate poor performance on most of
+our evaluation criteria. Moreover, analyzing how
+editing performance varies across model sizes and
+entity frequencies, we find that (a) larger models
+handle ripple effects better, and (b) editing frequent
+entities results in more logical reasoning errors.
+Last, we consider a simple in-context editing
+baseline for KE, that leverages the casual attention
+mechanism rather than explicit parametric updates.
+While this method achieves the best results on our
+benchmark, outperforming current parametric KE
+methods, there is still ample room for improvement
+that calls for future research.
+To conclude, our work makes multiple contribu-
+tions: (a) it highlights key limitations of KE evalua-
+tion, specifically regarding ripple effects and intro-
+duces comprehensive evaluation criteria to mitigate
+those limitations, (b) it proposes RIPPLE EDITS , a
+benchmark inspired by these criteria, (c) it evalu-
+ates current methods for KE and shows that they
+do not perform well on this task, while demonstrat-
+ing that in-context editing is a promising direction
+for KE. We release RIPPLE EDITS and our code to
+facilitate future work on KE.
+2 Problem Setting
+We consider editing of factual knowledge, where
+facts are expressed as triplets (e,r,o ) of a subject
+entity e (e.g. Lionel Messi ), a relation r (e.g.
+Team), and an object o (e.g. Inter Miami). We
+distinguish between two edit types, based on the
+knowledge encoded in the model before the edit:
+(a) modification of a fact that is already encoded
+in the model (e,r,o )→ (e,r,o∗), that is, updating
+the objecto→o∗ for a given subjecte and relation
+r, and (b) injection of a new fact (e,r,o∗) that is
+not captured by the model. Moreover, we note
+that for one-to-one relations likeDate of birth,
+where there is a single object for a given subject,
+an injection edit can be viewed as populating an
+empty object (e,r,∅) → (e,r,o∗). In contrast,
+for one-to-many relations, such as Sibling and
+Occupation, an injection edit augments the set of
+objects (e,r,{o1,..,o n})→ (e,r,{o1,..,o n,o∗}).
+Whether an edit is viewed as a modification or
+injection, depends on whether that information was
+captured in the model before the edit. Moreover,
+evaluating if a specific fact (before or after an edit)
+is encoded by a model is typically done by testing
+if the model predicts the object for various input
+queries that represent the subject and relation (see
+more details in §3.2).
+3 Ripple Effects of Factual Edits
+We focus on evaluating the downstream effect of a
+given edit, i.e., given an edit (e,r,o )→ (e,r,o′),
+we expect certain facts related to the edit to change
+as well. Consider, for example, the edit shown in
+Fig. 1. Changing the team for which Messi plays
+might also affect the league he plays in and his
+country of residence. Formally, for a given model,
+assume a knowledge-graphK :={(ei,r i,o i)}N
+i=1
+of N factual triplets, representing the model’s
+knowledge, and let δ : ( e,r,o ) → (e,r,o′) be
+an edit request forK. We define the ripple effect of
+δ onK, as the set of tripletsR(δ) that the model
+implicitly needs to inject, modify, or delete fromK
+to reflect the world state after the edit.
+Notably, different edits can cause ripple effects
+of varying magnitudes. For example, changing
+the country of Rome from Italy to France, will
+entail many follow-up changes, such as the country
+in which the Colosseum is located, the language
+spoken in Rome, and so forth. In contrast, updating
+the siblings of Prince (Fig. 2) is both more realistic
+and should result in a more local effect. We refer to
+the number of facts affected by a single editδ (i.e.
+|R(δ)|) as its severity. In general, editing popular
+entities that appeared frequently during training is
+likely to introduce more changes, and thus, editing
+their properties has a higher severity.
+3.1 Evaluation Criteria
+We wish to evaluate how well models capture the
+ripple effects of factual edits. However, given that
+ripple effects can potentially span a large number
+of implied edits, we focus on evaluating modified
+facts that are within a 2-hop distance from the sub-
+ject or object of the edit. Concretely, for an edit
+δ : (e,r,o )→ (e,r,o∗), we evaluate the ripple
+effectR(δ), via the following evaluation criteria
+(examples are shown in Fig. 2):
+1. Logical Generalization (LG): Relations in a
+knowledge graph satisfy certain logical con-
+straints. For example, the relation Sibling
+is symmetric and therefore if (e,Sibling,o )
+is true then (o,Sibling,e ) is also true, and
+vice versa (Fig. 2A). Likewise, the relation
+Location is transitive so (e,Location,o )∧
+(o,Location,z )⇒ (e,Location,z ). We wish
+to check that such logical implications about
+the subjecte, the original objecto, and the new
+objecto∗, hold after editing. We focus and elab-
+orate on specific constraints in §4.
+2. Compositionality I (CI): Asδ alters one edge
+in a knowledge graph, we can check the com-
+position of this edge with other edges. Namely,
+we test if the model can compose the edited
+fact with other facts about the target object.
+Let (o,r′,z ) and (o∗,r′,z∗) be two facts of
+the same relation about o ando∗, respectively.
+Also, denote by r′′ = r◦ r′ the complex
+relation expressing the composition of r and
+r′ (e.g., r′′ = Profession of sibling for
+r = Sibling and r′ = Profession). Then,
+after the editδ, we expect the following change
+(e,r′′,z )→ (e,r′′,z∗). For example (Fig. 2B),
+the professions of the siblings of Prince can be
+modified once a new sibling is injected.
+3. Compositionality II (CII): We test if the model
+can compose the edited fact with facts about a
+different subjecte′̸=e. Formally, let (e′,r′,e )
+be a fact about e′ withe as its object, and de-
+note by r′′ = r′◦r the complex relation ex-
+pressing the composition of r′ and r (see an
+example in criterion 2). After the edit δ, the
+following change is expected for the subjecte′:
+(e′,r′′,o )→ (e′,r′′,o∗). For instance (Fig. 2C),
+changing the siblings of Prince also modifies
+the siblings of the founder of Paisley Park
+Records (i.e.,r′′ is a complex relation express-
+ing “siblings of the founder”).
+4. Subject Aliasing (SA): We test that editing a
+fact aboute induces the same edit to other enti-
+tiese′ that are aliases ofe, namely, (e′,r,o )→
+(e′,r,o∗). For instance (Fig. 2D), modifying
+the siblings ofPrince, should also modify the
+sibling of his alias,Prince Roger Nelson.
+5. Preservation (PV): Ifr is a one-to-many rela-
+tion, then adding a new object should not affect
+the other objects encoded about e. Hence, in
+such cases, we expect that any existing triplet
+(e,r,o′) for an object o′ ̸= o∗ would remain
+following the edit. For example (Fig. 2E), after
+inserting the sibling Nicholas Carminowe for
+Prince, the fact that Tyka Nelson is also his
+sibling should be retained.
+6. Relation Specificity (RS): We test that facts

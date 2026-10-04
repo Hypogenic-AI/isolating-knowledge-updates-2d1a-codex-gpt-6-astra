@@ -1,0 +1,28 @@
+[
+  {
+    "contrast": "ft_kl10 minus ft",
+    "metric": "preservation_change",
+    "n_seed_pairs": 3,
+    "effect_percentage_points": -2.676399026763991,
+    "seed_effects": [
+      -2.606882168925965,
+      -2.606882168925965,
+      -2.815432742440042
+    ],
+    "p_two_sided": 0.25,
+    "p_holm": 0.5
+  },
+  {
+    "contrast": "broad_kl10 minus ft_kl10",
+    "metric": "paraphrase",
+    "n_seed_pairs": 3,
+    "effect_percentage_points": 15.686274509803924,
+    "seed_effects": [
+      17.647058823529417,
+      17.647058823529417,
+      11.764705882352944
+    ],
+    "p_two_sided": 0.25,
+    "p_holm": 0.5
+  }
+]

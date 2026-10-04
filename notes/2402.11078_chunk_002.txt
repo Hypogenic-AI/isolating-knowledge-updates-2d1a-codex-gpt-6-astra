@@ -1,0 +1,271 @@
+ZsRE COUNTER FACT
+Editor Score Efficacy Generalization Locality Score Efficacy Generalization Locality
+— (original GPT-J) 26.4 26.4 (0.6) 25.8 (0.5) 27.0 (0.5) 22.4 15.2 (0.7) 17.7 (0.6) 83.5 (0.5)
+FT-W (21st layer w/ weight decay) 42.1 69.6 (0.6) 64.8 (0.6) 24.1 (0.6) 67.6 99.4 (0.1) 77.0 (0.7) 46.9 (0.6)
+MEND (Mitchell et al., 2022) 20.0 19.4 (0.5) 18.6 (0.5) 22.4 (0.5) 23.1 15.7 (0.7) 18.5 (0.7) 83.0 (0.5)
+ROME (Meng et al., 2022) 2.6 21.0 (0.7) 19.6 (0.7) 0.9 (0.1) 50.3 50.2 (1.0) 50.4 (0.8) 50.2 (0.6)
+MEMIT (Meng et al., 2023) 50.8 96.7 (0.3) 89.7 (0.5) 26.6 (0.5) 85.8 98.9 (0.2) 88.6 (0.5) 73.7 (0.5)
+PMET (Li et al., 2024b) 51.0 96.9 (0.3) 90.6 (0.2) 26.7 (0.2) 86.2 99.5 (0.1) 92.8 (0.4) 71.4 (0.5)
+FT 44.8 99.9 (0.0) 98.9 (0.2) 21.4 (0.5) 52.8 79.6 (0.8) 58.5 (0.8) 36.8 (0.7)
+FT (21st layer) 42.9 99.9 (0.0) 87.4 (0.5) 20.5 (0.5) 60.5 99.9 (0.04) 63.3 (0.8) 42.0 (0.6)
+FT + Mask 58.3 97.6 (0.3) 91.7 (0.5) 32.9 (0.6) 54.3 97.1 (0.3) 62.1 (0.8) 34.7 (0.6)
+FT + Mask + Para 56.1 99.9 (0.0) 98.7 (0.2) 29.9 (0.5) 63.7 100.0 (0.0) 92.5 (0.4) 38.0 (0.6)
+FT + Mask + Para + Rand 62.0 99.9 (0.0) 97.0 (0.3) 35.6 (0.6) 86.5 98.8 (0.2) 93.6 (0.4) 72.0 (0.6)
+FT + Mask + Para + Rand + DPO — — — — 85.5 98.8 (0.2) 93.4 (0.4) 70.1 (0.6)
+Table 2: Mass-editing results on ZsRE and COUNTER FACT (10,000 edits each) with GPT-J. The results of FT-W,
+MEND, ROME, and MEMIT are from Meng et al. (2023). FT denotes naive fine-tuning on the requested edits; FT
+(21st layer) denotes FT only on the 21st layer. “+ Mask” means we mask the prompt. “+ Para” means paraphrase
+augmentation (which is involved in all the baselines). “+ Rand” means we augment the data with random facts from
+the training split (not overlapping with any evaluation facts). “+ DPO” means we additionally optimize the DPO loss
+term using the changed target as the preferred response over the pre-edit target (only provided in COUNTER FACT).
+Except for FT (21st layer), all our results use LoRA for computational efficiency.
+ZsRE COUNTER FACT
+Editor Score Efficacy Generalization Locality Score Efficacy Generalization Locality
+— (original GPT-2 XL) 22.5 22.2 (0.5) 21.3 (0.5) 24.2 (0.5) 30.5 22.2 (0.9) 24.7 (0.8) 78.1 (0.6)
+FT 45.9 99.6 (0.1) 82.1 (0.1) 23.2 (0.5) 65.1 100.0 (0.0) 87.9 (0.6) 40.4 (0.7)
+FT-L 40.1 92.3 (0.4) 47.2 (0.7) 23.4 (0.5) 66.9 99.1 (0.2) 48.7 (1.0) 70.3 (0.7)
+KN - - - - 35.6 28.7 (1.0) 28.0 (0.9) 72.9 (0.7)
+KE 41.8 65.5 (0.6) 61.4 (0.6) 24.9 (0.5) 52.2 84.3 (0.8) 75.4 (0.8) 30.9 (0.7)
+MEND 42.9 75.9 (0.5) 65.3 (0.6) 24.1 (0.5) 57.9 99.1 (0.2) 65.4 (0.9) 37.9 (0.7)
+ROME 47.9 99.8 (0.0) 88.1 (0.5) 24.2 (0.5) 89.2 100.0 (0.1) 96.4 (0.3) 75.4 (0.7)
+FT + Mask + Para + Sim 51.4 100.0 (0.0) 99.9 (0.0) 26.1 (0.8) 83.1 98.6 (0.3) 87.3 (0.7) 69.0 (0.7)
+Table 3: Single-editing results on ZsRE (10,000 edits) and COUNTER FACT (7,500 edits) with GPT-2 XL. “+ Sim”
+means we include similar facts (measured by Sentence-BERT) instead of random facts for locality supervision.
+We follow the setting in ROME and use GPT-2 XL
+(1.5B). The training takes around 1.4 seconds per
+edit on average. We give the results in Table 3.
+We find that it is helpful to include similar facts in-
+stead of random facts for locality supervision, pre-
+sumably because fine-tuning is more sensitive with
+small data size thus requiring more care in the se-
+lection of demonstrations. We use Sentence-BERT
+embeddings (Reimers and Gurevych, 2019) and
+take 15 nearest facts asR. On ZsRE, our method
+outperforms all existing single-edit methods. On
+COUNTER FACT, our method lags behind ROME
+which is specifically optimized for single-editing,
+but still achieves the second-best edit score.
+5.3 Generative Metrics
+We report results on generative metrics in Table 4
+(see Appendix B for single-editing results). Fol-
+lowing prior work (Meng et al., 2022, 2023), we
+report fluency (entropy of n-gram distributions)
+and consistency (similarity score with a reference
+text). Our fine-tuning methods take a hit on these
+metrics while improving the edit score, showing
+that more work is needed to go beyond classifica-
+tion. However, recent work shows that none of
+the compared editors preserves downstream perfor-
+mance (Gu et al., 2024), thus achieving this goal
+meaningfully is still an open problem.
+We additionally show that we can easily incor-
+porate considerations for generative performance
+into fine-tuning. Specifically, we optimize (1−
+γ)L1(θ) +γL2(θ) whereL1(θ) is the loss in (2)
+andL2(θ) = − P
+w∈W logpθ(w) is a language
+modeling loss on random Wikipedia text. We
+choose Wikipedia articles so that they do not over-
+lap with those used for consistency evaluation. We
+set γ = 0 .1. With this change (“+ Wikipedia
+Editor Score Fluency Consistency
+— (original GPT-J) 22.4 622.4 (0.3) 29.4 (0.2)
+FT-W 67.6 293.9 (2.4) 15.9 (0.3)
+MEND 20.0 618.4 (0.3) 31.1 (0.2)
+ROME 50.3 589.6 (0.5) 3.3 (0.0)
+MEMIT 85.8 619.9 (0.3) 40.1 (0.2)
+PMET 86.2 620.0 (0.3) 40.6 (0.2)
+FT 52.8 626.1 (0.4) 31.0 (0.2)
+FT + Mask 54.3 563.6 (0.5) 6.1 (0.1)
+FT + Mask + Para 63.7 550.7 (0.6) 4.7 (0.1)
+FT + Mask + Para + Rand 86.5 352.0 (1.5) 5.2 (0.2)
++ Wikipedia Loss 84.8 609.2 (0.6) 29.2 (0.2)
+Table 4: Fluency and consistency with mass-editing
+on COUNTER FACT. “+ Wikipedia Loss” means we
+additionally optimize a language modeling loss on
+Wikipedia text (Section 5.3).
+Editor Score Efficacy Generalization Locality
+— (GPT-2 XL) 29.9 21.8 (0.8) 24.1 (0.7) 78.3 (0.5)
+ROME 50.4 50.3 (0.9) 49.4 (0.8) 51.6 (0.6)
+MEMIT 71.5 79.9 (0.7) 66.2 (0.8) 69.8 (0.5)
+FT + M + P + R 85.4 98.8 (0.2) 86.5 (0.5) 74.3 (0.5)
+w/o LoRA 86.9 98.8 (0.2) 91.2 (0.4) 74.4 (0.5)
+Table 5: Mass-editing results on COUNTER FACT with
+and without LoRA.
+Loss”), we obtain a significant improvement in
+both fluency and consistency at the cost of a mod-
+est drop in the edit score.
+5.4 Analysis
+What is the effect of PEFT? We repeat mass-
+editing experiments with a smaller model (GPT-2
+XL, 1.5B) to compare the performance of LoRA vs
+full fine-tuning in Table 5. We see that we achieve
+better generalization without LoRA, thus our im-
+provement comes from conditional likelihood op-
+timization and data augmentation, not the use of
+adapters (i.e., unlike specialized model editors that
+are based on adapters).
+Does layer selection help? Layer selection is
+an important component in many existing model
+editing works. To see if it also benefits us, we
+fine-tune (without LoRA) only the layers 3–5 in
+GPT-J which are a subset of the layers chosen in
+MEMIT. Table 6 shows that we obtain a signifi-
+cant improvement compared to updating all layers
+(Table 2). Thus layer selection helps on top of our
+already strong fine-tuning approach.
+Subject knowledge vs data augmentation. A
+common but rather strong assumption in many
+state-of-the-art editors is that the subject phrase
+Editor Score Efficacy Generalization Locality
+FT + M 63.0 98.1 (0.2) 61.2 (0.8) 47.4 (0.6)
+FT + M + P 77.8 100 (0.0) 98.6 (0.2) 54.2 (0.6)
+FT + M + P + R 91.1 98.8 (0.2) 96.8 (0.3) 80.2 (0.5)
+Table 6: Mass-editing results on COUNTER FACT with
+GPT-J but only fine-tuning layers 3–5.
+Editor Score Efficacy Generalization Locality
+— (GPT-J) 22.4 15.2 (0.7) 17.7 (0.6) 83.5 (0.5)
+SWEALOS 91.2 99.5 (0.1) 98.1 (0.2) 79.0 (0.5)
+SWEALOS + RE 91.2 99.5 (0.1) 97.7 (0.2) 79.4 (0.5)
+Table 7: Mass-editing results (reproduced) on COUN -
+TER FACT by adding neighborhood augmentation to
+SWEALOS.
+in a fact is known. This knowledge critically al-
+lows the model to completely avoid changing at
+test time if the subject is not recognized, giving
+a significant advantage in locality. For instance,
+with perfect subject knowledge, locality is optimal.
+We apply our neighborhood fact augmentation to
+SWEALOS (Li et al., 2024a) which holds a state-
+of-the-art result on COUNTER FACT using subject
+knowledge (see Appendix C for details). Table 7
+shows that the augmentation does not help further.
+Hence subject knowledge obviates the need for data
+augmentation aimed at improving locality.
+6 Conclusions
+We have demonstrated that standard fine-tuning is
+sufficient to obtain strong edit performance with
+a slight modification: optimizing the conditional
+likelihood and augmenting the data with additional
+facts to promote locality. Our results challenge the
+assumption that standard fine-tuning is ineffective
+as a model editor, suggesting that model editing
+could be achieved as part of standard training rather
+than through a specialized model editor.
+Acknowledgements
+We thank the anonymous ARR reviewers for help-
+ful feedback.
+Limitations
+Our scope is limited to the classification aspect of
+model editing rather than the generative aspect to
+demonstrate the viability of a fine-tuning editor.
+Thus our approach is currently unable to preserve
+the LLM’s general capabilities, as is the case with
+existing mass editors.
+References
+Roi Cohen, Eden Biran, Ori Yoran, Amir Globerson,
+and Mor Geva. 2023. Evaluating the ripple effects
+of knowledge editing in language models. arXiv
+preprint arXiv:2307.12976.
+Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao
+Chang, and Furu Wei. 2022. Knowledge neurons in
+pretrained transformers. In Proceedings of the 60th
+Annual Meeting of the Association for Computational
+Linguistics (Volume 1: Long Papers), pages 8493–
+8502.
+Nicola De Cao, Wilker Aziz, and Ivan Titov. 2021. Edit-
+ing factual knowledge in language models. In Pro-
+ceedings of the 2021 Conference on Empirical Meth-
+ods in Natural Language Processing , pages 6491–
+6506.
+Mor Geva, Roei Schuster, Jonathan Berant, and Omer
+Levy. 2021. Transformer feed-forward layers are
+key-value memories. In Proceedings of the 2021
+Conference on Empirical Methods in Natural Lan-
+guage Processing, pages 5484–5495.
+Jia-Chen Gu, Hao-Xiang Xu, Jun-Yu Ma, Pan Lu, Zhen-
+Hua Ling, Kai-Wei Chang, and Nanyun Peng. 2024.
+Model editing can hurt general abilities of large lan-
+guage models. arXiv preprint arXiv:2401.04700.
+Thomas Hartvigsen, Swami Sankaranarayanan, Hamid
+Palangi, Yoon Kim, and Marzyeh Ghassemi. 2023.
+Aging with grace: Lifelong model editing with dis-
+crete key-value adaptors.
+Edward J Hu, yelong shen, Phillip Wallis, Zeyuan Allen-
+Zhu, Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu
+Chen. 2022. LoRA: Low-rank adaptation of large
+language models. In International Conference on
+Learning Representations.
+Xiaopeng Li, Shasha Li, Shezheng Song, Huijun Liu,
+Bin Ji, Xi Wang, Jun Ma, Jie Yu, Xiaodong Liu, Jing
+Wang, and Weimin Zhang. 2024a. Swea: Updat-
+ing factual knowledge in large language models via
+subject word embedding altering.
+Xiaopeng Li, Shasha Li, Shezheng Song, Jing Yang, Jun
+Ma, and Jie Yu. 2024b. Pmet: Precise model editing
+in a transformer.
+Kevin Meng, David Bau, Alex Andonian, and Yonatan
+Belinkov. 2022. Locating and editing factual associ-
+ations in gpt. Advances in Neural Information Pro-
+cessing Systems, 35:17359–17372.
+Kevin Meng, Arnab Sen Sharma, Alex J Andonian,
+Yonatan Belinkov, and David Bau. 2023. Mass-
+editing memory in a transformer. In The Eleventh
+International Conference on Learning Representa-
+tions.
+Eric Mitchell, Charles Lin, Antoine Bosselut, Chelsea
+Finn, and Christopher D Manning. 2022. Fast model
+editing at scale. In International Conference on
+Learning Representations.
+Rafael Rafailov, Archit Sharma, Eric Mitchell, Christo-
+pher D Manning, Stefano Ermon, and Chelsea Finn.
+2023. Direct preference optimization: Your language
+model is secretly a reward model. In Thirty-seventh
+Conference on Neural Information Processing Sys-
+tems.
+Nils Reimers and Iryna Gurevych. 2019. Sentence-bert:
+Sentence embeddings using siamese bert-networks.
+In Proceedings of the 2019 Conference on Empirical
+Methods in Natural Language Processing and the 9th
+International Joint Conference on Natural Language
+Processing (EMNLP-IJCNLP), pages 3982–3992.
+Anton Sinitsin, Vsevolod Plokhotnyuk, Dmitry Pyrkin,
+Sergei Popov, and Artem Babenko. 2020. Editable
+neural networks. In International Conference on
+Learning Representations.
+Ben Wang and Aran Komatsuzaki. 2021. GPT-J-
+6B: A 6 Billion Parameter Autoregressive Lan-
+guage Model. https://github.com/kingoflolz/
+mesh-transformer-jax.
+Lang Yu, Qin Chen, Jie Zhou, and Liang He. 2024.
+Melo: Enhancing model editing with neuron-indexed
+dynamic lora. In Proceedings of the AAAI Confer-
+ence on Artificial Intelligence , volume 38, pages
+19449–19457.
+Ningyu Zhang, Yunzhi Yao, Bozhong Tian, Peng Wang,
+Shumin Deng, Mengru Wang, Zekun Xi, Shengyu
+Mao, Jintian Zhang, Yuansheng Ni, et al. 2024. A
+comprehensive study of knowledge editing for large
+language models. arXiv preprint arXiv:2401.01286.
+Ce Zheng, Lei Li, Qingxiu Dong, Yuxuan Fan, Zhiyong
+Wu, Jingjing Xu, and Baobao Chang. 2023. Can we
+edit factual knowledge by in-context learning? arXiv
+preprint arXiv:2305.12740.
+A Mass-Editing on WikiRecent
+To further validate our mass-editing results, we
+perform additional experiments on a simplified
+version of the WikiRecent dataset (Cohen et al.,
+2023). The original dataset consists of 570 and
+1,266 facts from Wikidata for training and testing,
+where each fact has been recently modified (after
+July 2022). An example prompt isπ =“The name
+of the position held by Nicolaus Bergius is” with
+the target object o =“bishop”. Since the dataset
+does not provide paraphrase prompts for evaluat-
+ing generalization, we create paraphrases ofπ by
+few-shot prompting GPT (gpt-3.5-turbo-0125).
+The prompt for GPT is given in Figure 2. Since the
+task is relatively straightforward, we find the gen-
+erated paraphrases preserve the original meaning
+(e.g., “The position held by Nicolaus Bergius is”).
+For neighborhood prompts, we select 10 random

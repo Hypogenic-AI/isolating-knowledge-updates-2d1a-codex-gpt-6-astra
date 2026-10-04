@@ -1,0 +1,135 @@
+A Comprehensive Study of Knowledge Editing for
+Large Language Models
+Ningyu Zhang∗, Yunzhi Yao∗, Bozhong Tian∗, Peng Wang∗, Shumin Deng∗, Mengru Wang,
+Zekun Xi, Shengyu Mao, Jintian Zhang, Yuansheng Ni, Siyuan Cheng, Ziwen Xu,
+Xin Xu, Jia-Chen Gu, Yong Jiang, Pengjun Xie, Fei Huang, Lei Liang,
+Zhiqiang Zhang, Xiaowei Zhu, Jun Zhou, Huajun Chen†
+Zhejiang University, National University of Singapore,
+University of California, Los Angeles, Ant Group, Alibaba Group
+{zhangningyu,yyztodd}@zju.edu.cn
+Project: https://zjunlp.github.io/project/KnowEdit
+Abstract
+Large Language Models (LLMs) have shown extraordinary capabilities in under-
+standing and generating text that closely mirrors human communication. How-
+ever, a primary limitation lies in the significant computational demands during
+training, arising from their extensive parameterization. This challenge is further
+intensified by the dynamic nature of the world, necessitating frequent updates
+to LLMs to correct outdated information or integrate new knowledge, thereby
+ensuring their continued relevance. Note that many applications demand con-
+tinual model adjustments post-training to address deficiencies or undesirable be-
+haviors. There is an increasing interest in efficient, lightweight methods for on-
+the-fly model modifications. To this end, recent years have seen a burgeoning in
+the techniques of knowledge editing for LLMs, which aim to efficiently modify
+LLMs’ behaviors within specific domains while preserving overall performance
+across various inputs. In this paper, we first define the knowledge editing problem
+and then provide a comprehensive review of cutting-edge approaches. Drawing
+inspiration from educational and cognitive research theories [1–3], we propose
+a unified categorization criterion that classifies knowledge editing methods into
+three groups: resorting to external knowledge, merging knowledge into the model,
+and editing intrinsic knowledge . Furthermore, we introduce a new benchmark,
+KnowEdit, for a comprehensive empirical evaluation of representative knowledge
+editing approaches. Additionally, we provide an in-depth analysis of knowledge
+location, which can give a deeper understanding of the knowledge structures in-
+herent within LLMs. Initially conceived as a means to steer LLMs efficiently,
+we hope that insights gained from knowledge editing research could shed light
+on the underlying knowledge mechanisms of LLMs. To facilitate future research,
+we have released an open-source framework, EasyEdit1, which will enable practi-
+tioners to efficiently and flexibly implement knowledge editing for LLMs. Finally,
+we discuss several potential applications of knowledge editing, outlining its broad
+and impactful implications.
+Keywords— natural language processing, large language models, knowledge editing
+∗Equal Contribution.
+†Corresponding Author.
+1https://github.com/zjunlp/EasyEdit.
+The contributions of the authors are detailed in §CONTRIBUTIONS .
+Ongoing work (v5): update Table 4 and add new references.
+arXiv:2401.01286v5  [cs.CL]  17 Nov 2024
+Contents
+1 Introduction 3
+2 Background 4
+2.1 Large Language Models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.1.1 Transformers for LLM . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.1.2 Mechanism of Knowledge Storage in LLMs . . . . . . . . . . . . . . . . . 5
+2.2 Related Techniques . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3 Knowledge Editing for LLMs 8
+3.1 Preliminary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.2 Task Definition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.3 Methods . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.1 Recognition Phase: Resorting to External Knowledge . . . . . . . . . . . . 10
+3.3.2 Association Phase: Merge the Knowledge into the Model . . . . . . . . . . 11
+3.3.3 Mastery Phase: Editing Intrinsic Knowledge . . . . . . . . . . . . . . . . 11
+3.4 New Benchmark: KnowEdit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+3.5 Evaluation for Knowledge Editing . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+4 Experiments 15
+4.1 Experiment Settings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+4.2 Main Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+4.3 Impact on General Tasks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+4.4 Multi-Task Knowledge Editing . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+4.5 Error and Case Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+5 Analysis 20
+5.1 Comparison of Different Knowledge Editing Methods . . . . . . . . . . . . . . . . 21
+5.2 Analysis of Knowledge Locating . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+5.3 The Implicit Knowledge Structure in LLMs . . . . . . . . . . . . . . . . . . . . . 23
+6 Applications 24
+6.1 Efficient Machine Learning . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+6.2 AI-Generated Content (AIGC) . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+6.3 Trustworthy AI . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+6.4 Human-Computer Interaction: Personalized Agents . . . . . . . . . . . . . . . . . 28
+7 Discussion and Conclusion 29
+Broader Impacts 29
+2
+1 Introduction
+Knowledge is a fundamental component of human intelligence and civilization [4]. Its systematic
+structure empowers us to represent tangible entities or delineate principles through symbolic means,
+offering the capability to facilitate the articulation of intricate behaviors or tasks [5–7]. Throughout
+our lives, we humans continuously gather an extensive wealth of knowledge and learn to adaptively
+apply it in various contexts. The enduring exploration of the nature of knowledge and the processes
+by which we acquire, retain, and interpret it, continues to captivate scientists, which is not just a
+technical pursuit but a journey towards mirroring the nuanced complexities of human cognition,
+communication and intelligence [8–12].
+Recently, Large Language Models (LLMs) like GPT-4 [13] have showcased a remarkable ability in
+Natural Language Processing (NLP) to retain a vast amount of knowledge, arguably surpassing hu-
+man capacity [14–31]. This achievement can be attributed to the way LLMs process and compress
+huge amounts of data [32–35], potentially forming more concise, coherent, and interpretable models
+of the underlying generative processes, essentially creating a kind of “world model” [36–38]. For
+example, Dai et al. [39] have introduced the Knowledge Neuron (KN) thesis, which proposes that
+language models function similarly to key-value memories. Here, the multi-layer perceptron (MLP)
+weights in the core region [40] may play a crucial role in recalling facts from the training corpus,
+suggesting a more structured and retrievable form of knowledge storage within LLMs [41, 42].
+Further insights come from the ability of LLMs to understand and manipulate complex strategic
+environments, whereas Li et al. [43] has demonstrated that transformers trained for next-token pre-
+diction in board games such as Othello develop explicit representations of the game’s state. Patel
+and Pavlick [44] have revealed that LLMs can track boolean states of subjects within given contexts
+and learn representations that reflect perceptual, symbolic concepts [36, 45–47]. This dual capability
+indicates that LLMs can serve as extensive knowledge bases [48–59], not only storing vast amounts
+of information but also structuring it in ways that may mirror human cognitive processes.
+However, LLMs have limitations like factual fallacy, potential generation of harmful content, and
+outdated knowledge due to their training cut-off [60–63]. Retraining to correct these issues is both
+costly and time-consuming [64–68]. To address this, recent years have seen a surge in the develop-
+ment of knowledge editing techniques specifically tailored for LLMs, which allows for cost-effective
+post-hoc modifications to models [69–71]. This technique focuses on specific areas for adjustment
+without compromising overall performance and can help understand how LLMs represent and pro-
+cess information, which is crucial for ensuring the fairness, and safety in Artificial Intelligence (AI)
+applications [72–76].
+This paper first attempts to provide a comprehensive study of the development and recent advances
+in knowledge editing for LLMs. We first introduce the architecture of Transformers, mechanism of
+knowledge storage in LLMs (§2.1), and related techniques including parameter-efficient fine-tuning,
+knowledge augmentation, continue learning and machine unlearning (§2.2). Then we introduce
+preliminary (§3.1), formally describe the knowledge editing problem (§3.2), and propose a new
+taxonomy (§3.3) to provide a unified view on knowledge editing methods based on the educational
+and cognitive research theories [1–3]. Specifically, we categorize knowledge editing for LLMs into:
+resorting to external knowledge (§3.3.1), merging knowledge into the model (§3.3.2), and editing
+intrinsic knowledge (§3.3.3 ) approaches. Our categorization criterion is summarized as follows:
+• Resorting to External Knowledge. This kind of approach is similar to the recognition
+phase in human cognitive processes, which needs to be exposed to new knowledge within
+a relevant context, just as people first encounter new information. For example, providing
+sentences that illustrate a factual update as a demonstration of the model allows initial
+recognition of the knowledge to be edited.
+• Merging Knowledge into the Model. This kind of approach closely resembles the asso-
+ciation phrase in human cognitive processes, in which connections are formed between the
+new knowledge and existing knowledge in the model. Methods would combine or substi-
+tute the output or intermediate output with a learned knowledge representation.
+• Editing Intrinsic Knowledge. This approach to knowledge editing is akin to the mastery
+phase in human cognitive processes. It involves the model fully integrating knowledge into
+its parameters by modifying the weights and utilizing them reliably.
+3

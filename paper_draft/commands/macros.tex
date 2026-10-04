@@ -1,0 +1,15 @@
+\usepackage{xspace}
+\newcommand{\ft}{\textsc{FT}\xspace}
+\newcommand{\klten}{\textsc{FT+KL10}\xspace}
+\newcommand{\breadth}{\textsc{Paraphrase FT+KL10}\xspace}
+\newcommand{\cfact}{\textsc{CounterFact}\xspace}
+\newcommand{\wikitext}{\textsc{WikiText}\xspace}
+\newcommand{\gsm}{\textsc{GSM8K}\xspace}
+
+% The supplied final-style file requires a track notice but defines no default.
+\makeatletter
+\providecommand{\@trackname}{Research manuscript. October 2026.}
+\makeatother
+% Use parenthetical author-year citations for the manuscript's \cite calls.
+\setcitestyle{authoryear,round}
+\let\cite\citep

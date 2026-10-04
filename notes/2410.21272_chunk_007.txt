@@ -1,0 +1,157 @@
+Published as a conference paper at ICLR 2025
+vl,n
+out (Line 3), using Logit Lens (nostalgebraist, 2020). To match the logit of each result token to the
+prompts that result in it (e.g., match the logit of “151” with the prompts “1 + 150 = ”,“2 + 149 = ”,
+etc.), we convert the logits to a 2D pattern L, where Lij is the logit of applying the operator on i
+andj (Line 4). Multiplying the 2D activation pattern and 2D logit pattern element-wise (Line 5)
+yields the neuron’s effective logit contribution to the correct answer of each prompt, i.e., the value at
+each indexi,j marks how much the neuron promotes the answer token to the result of applying the
+operator oni andj. We then create two lists of prompts. One list contains prompts associated with
+the heuristic (Line 7), to be used as the “ground truth”. We mark the number of associated prompts
+ask (Line 8), and find a second list, containing the top-k prompts that are most contributed to by the
+neuron (Line 9). We measure if the intersection of these two lists, normalized by k, is larger than
+the thresholdt = 0.6 (Line 10–Line 12) to decide if the neuron implements the heuristic.
+G A DDITIONAL IMPLEMENTATION DETAILS
+All experimental procedures were executed using the TransformerLens library Nanda & Bloom
+(2022). Experiments involving Llama3-8B, GPT-J, and Pythia-6.9B were conducted on a single
+Nvidia-L40 GPU with 48GB of GPU memory. Llama3-70B was loaded in 16-bit precision across
+four Nvidia A100 GPUs, each with 80GB of GPU memory.
+Arithmetic prompts. Unless otherwise specified, our experiments utilize prompts of the form
+op1◦op2=”, where op1,op 2∈ [0, 300] and◦∈{ +,−,×,÷}. The division operator (÷) is inter-
+preted as integer division, considering only the integer part of the result (e.g., the ground truth result
+for 45÷ 4 = ” is 11). For each prompt, we compute the ground-truth result and exclude prompts
+whose results are not tokenized to a single token. This filtering process eliminates prompts with neg-
+ative results and prompts for which the correct answer exceeds the single-token limit (The highest
+token from which the model splits numbers into two tokens). The single-token limits for Llama3-8B
+and Llama3-70B issllama3 = 1, 000, while for GPT-J and Pythia-6.9B, it issgptj =spythia = 520.
+Circuit discovery via activation patching. In Section 2.1, we quantify the effect of patching on
+probabilities. We find that applying our effect measure (Equation (1)) on logits instead of prob-
+abilities, does not alter the result significantly—the most effective components remain consistent,
+differing only in the scale of the effect.
+Circuit faithfulness evaluation. Thus far, to measure the faithfulness of the circuit, we have per-
+formed mean ablation on all non-circuit components. For that, we calculate the mean activation
+output of each component, across all arithmetic prompts. In this context, we do not filter correct
+prompts exclusively, but instead use all prompts of the form “op1◦op2=”, forop1,op 2∈ [0, 300].
+This leads to an equal amount of prompts per operator, thus maintaining the mean activation bal-
+anced across the different operators. When evaluating a circuit with partial MLP layers (Section 3.1),
+we mean ablate lower-effect neurons in middle- and late-layer MLPs only, starting and ending in the
+earliest and latest layers from which the answer is extractable via linear probe (Section 2.2). These
+layer ranges are [16, 32], [39, 80], [14, 32], [17, 28] In Llama3-8B, Llama3-70B, Pythia-6.9B, and
+GPT-J, respectively.
+Linear probing for correct answers. We define a linear probe fl,p : R→ Rs, where s is the
+single-token limit, to predict the correct answer token from the output representation at layer l and
+positionp. We compute these outputs by using all correctly completed prompts, with 80% used for
+training the classifier and 20% for evaluation. Each probing classifier is implemented as a one-layer
+fully connected model. We train it using the Adam optimizer (Kingma & Ba, 2015) with a learning
+rate of 0.0003 and a batch size of 32, optimizing a cross-entropy loss function.
+Heuristic classification. In applying the heuristic classification algorithm (Section 4.1), we use
+all activations from the last positionp = 4 and employ a classification score thresholdt = 0.6. Due
+to a lack of ground truth data for neuron-to-heuristic matches, the threshold is chosen to achieve a
+Pareto-optimal balance of false positives, that occur more for a lower threshold, and false negatives,
+that occur more in a higher threshold. The amount of false classifications is estimated manually.
+19
+Published as a conference paper at ICLR 2025
+Table 3: Accuracy of the analyzed models on arithmetic prompts.
+Operator
+Model + − × ÷ Average
+Llama3-8B 0.97 0.96 0.84 0.92 0.95
+Llama3-70B 0.97 0.99 0.99 0.73 0.88
+Pythia-6.9B 0.30 0.04 0.27 0.75 0.43
+GPT-J 0.23 0.09 0.46 0.64 0.37
+H M ODEL ACCURACIES ON ARITHMETIC PROMPTS
+Table 3 presents the accuracy of the analyzed models on arithmetic prompts. The accuracy is eval-
+uated across prompts where the result is represented by a single token, with both operands con-
+strained to the interval [0, 300], where 300 represents the maximum value of operands in the an-
+alyzed prompts (Section 2.1), chosen for efficiency. It is noteworthy that the high accuracy rates
+observed in division operations for the smaller-scale models (GPT-J, Pythia-6.9B) can be attributed
+to the non-uniform distribution of answers in integer division, i.e. - half of the legal prompts result
+in the token ‘0’.
+I R ESULTS ON ADDITIONAL MODELS
+To demonstrate the generalizability of our findings across differently-trained LLMs, we conduct
+our primary experiments on Llama3-70B (Dubey et al., 2024), Pythia-6.9B (Biderman et al., 2023),
+and GPT-J (Wang & Komatsuzaki, 2021). We replicate the experiments for circuit discovery and
+evaluation (Section 2.1), linear probing for answer token embeddings (Section 2.2), top-k neuron
+faithfulness analysis (Section 3.1), and heuristic analysis (Section 4.2). The results obtained are
+similar to those of Llama3-8B across all three LLMs:
+• The circuit comprises a sparse subset of attention heads that project operand and operator
+information to the final position, along with all MLP layers. Early-layer MLPs process in-
+formation at the operand and operator positions, while middle- and late-layer MLPs process
+the combined information at the last token. These findings are illustrated for Llama3-70B
+(Figure 16a), Pythia-6.9B (Figure 17a), and GPT-J (Figure 18a).
+• Linear probing results indicate that the correct answer can only be extracted with high
+accuracy in the final position, following the processing initiated by middle-layer MLPs.
+These observations are presented for Llama3-70B (Figure 16b), Pythia-6.9B (Figure 17b),
+and GPT-J (Figure 18b).
+• The circuit requires a sparse subset of middle- and late-layer MLP neurons to achieve
+maximal faithfulness. These results are depicted for Llama3-70B (Figure 16c), Pythia-
+6.9B (Figure 17c), and GPT-J (Figure 18c).
+• The heuristic neurons in the middle- and late-layer MLPs are the model components that
+write the correct answer to the model output. This is shown by repeating the prompt-guided
+knockout experiment (Section 4.2). The ablation of specific heuristic neurons associated
+with prompts results in a more significant reduction in model accuracy compared to the
+ablation of a random set of neurons of equivalent size. These findings are illustrated for
+Llama3-70B (Figure 8), Pythia-6.9B (Figure 17d), and GPT-J (Figure 18d).
+The results observed in Llama3-70B exhibit the highest similarity to those reported in Llama3-8B,
+with a more pronounced knockout effect compared to the other two models. We hypothesize that
+this indicates a more sophisticated development of the bag of heuristics in Llama3-70B, potentially
+facilitated by its larger size and modern training methodology.
+J A DDITIONAL EXAMPLES FOR ARITHMETIC HEURISTICS
+We present supplementary examples of heuristic neurons (Table 4, Table 5, Table 6, and Table 7 for
+the four arithmetic operators, respectively). Each neuron hl,n
+post found to be important for a specific
+20
+Published as a conference paper at ICLR 2025
+arithmetic operator (Section 3.1) is categorized as one or more heuristics. For each designated oper-
+ator, we randomly present four neurons. We compute and report each neuron’s activation pattern, the
+ten numerical tokens with the strongest embeddings in each neuron’s value vectorvl,n
+out, and provide
+a non-exhaustive list of the heuristics it implements.
+Furthermore, we present in Table 8 several examples of causally significant neurons that have not
+been classified as specific heuristics. These neurons are relevant to the aforementioned limitation in
+our methodology (Section 8); it is conceivable that they too may be considered components of the
+bag of heuristics, depending upon our ability to comprehend the abstractions they implement.
+0 20 40 60
+60
+40
+20
+0
+0 1 2 3
+0
+2
+4
+log
+scale
+Eﬀect Map Per Attn Head / MLP
+Attention Head Position
+Layer
+Attention Heads (Last Position) MLPs
+(a) Llama3-70B localization results.
+Operand1OperatorOperand2=
+0
+20
+40
+60
+0
+0.2
+0.4
+0.6
+0.8
+Answer token
+probe accuracy
+Position
+Layer
+(b) Llama3-70B linear probing re-
+sults.
+0 5k 10k 15k 20k
+0.2
+0.4
+0.6
+0.8
++ - × ÷
+Faithfulness of using only top-k neurons
+Neurons used Per Layer
+Faithfulness
+(c) Llama3-70B faithfulness as function of MLP neu-
+rons in each layer.
+Figure 16: Llama3-70B analysis results
+21

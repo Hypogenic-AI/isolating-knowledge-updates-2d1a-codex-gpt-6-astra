@@ -1,0 +1,265 @@
+Language Models Use Trigonometry to Do Addition
+Levy, A. A. and Geva, M. Language models encode num-
+bers using digit representations in base 10, 2024. URL
+https://arxiv.org/abs/2410.11781.
+Liu, H., Dai, Z., So, D., and Le, Q. V . Pay attention to MLPs.
+In Beygelzimer, A., Dauphin, Y ., Liang, P., and Vaughan,
+J. W. (eds.), Advances in Neural Information Processing
+Systems, 2021. URL https://openreview.net/
+forum?id=KBnXrODoBW.
+Liu, Z., Kitouni, O., Nolte, N., Michaud, E. J., Tegmark,
+M., and Williams, M. Towards understanding grokking:
+An effective theory of representation learning. In Oh,
+A. H., Agarwal, A., Belgrave, D., and Cho, K. (eds.),
+Advances in Neural Information Processing Systems ,
+2022. URL https://openreview.net/forum?
+id=6at6rB3IZm.
+Makelov, A., Lange, G., and Nanda, N. Towards principled
+evaluations of sparse autoencoders for interpretability and
+control. In ICLR 2024 Workshop on Secure and Trust-
+worthy Large Language Models , 2024. URL https:
+//openreview.net/forum?id=MHIX9H8aYF.
+Marks, S., Rager, C., Michaud, E. J., Belinkov, Y ., Bau,
+D., and Mueller, A. Sparse feature circuits: Discovering
+and editing interpretable causal graphs in language mod-
+els, 2024. URL https://arxiv.org/abs/2403.
+19647.
+Meng, K., Bau, D., Andonian, A. J., and Belinkov, Y . Lo-
+cating and editing factual associations in GPT. In Oh,
+A. H., Agarwal, A., Belgrave, D., and Cho, K. (eds.),
+Advances in Neural Information Processing Systems ,
+2022. URL https://openreview.net/forum?
+id=-h6WAS6eE4.
+Nanda, N., Chan, L., Lieberum, T., Smith, J., and Stein-
+hardt, J. Progress measures for grokking via mechanistic
+interpretability. In The Eleventh International Confer-
+ence on Learning Representations, 2023a. URL https:
+//openreview.net/forum?id=9XFSbDPmdW.
+Nanda, N., Rajamanoharan, S., Kramar, J., and
+Shah, R. Fact finding: Attempting to reverse-
+engineer factual recall on the neuron level, Dec
+2023b. URL https://www.alignmentforum.
+org/posts/iGuwZTHWb6DFY3sKB/
+fact-finding-attempting-to-reverse-engineer-factual-recall .
+Nikankin, Y ., Reusch, A., Mueller, A., and Belinkov, Y .
+Arithmetic without algorithms: Language models solve
+math with a bag of heuristics. In Submitted to The Thir-
+teenth International Conference on Learning Represen-
+tations, 2024. URL https://openreview.net/
+forum?id=O9YTt26r2P. under review.
+nostalgebraist. interpreting GPT: the
+logit lens — LessWrong — less-
+wrong.com. https://www.lesswrong.
+com/posts/AcKRB8wDpdaN6v6ru/
+interpreting-gpt-the-logit-lens , 2020.
+[Accessed 14-01-2025].
+Olah, C. and Jermyn, A. What is a linear represen-
+tation? what is a multidimensional feature?, 2024.
+URL https://transformer-circuits.
+pub/2024/july-update/index.html#
+linear-representations.
+Olah, C., Cammarata, N., Schubert, L., Goh, G., Petrov,
+M., and Carter, S. Zoom in: An introduction to cir-
+cuits. Distill, 2020. doi: 10.23915/distill.00024.001.
+https://distill.pub/2020/circuits/zoom-in.
+Olsson, C., Elhage, N., Nanda, N., Joseph, N., DasSarma,
+N., Henighan, T., Mann, B., Askell, A., Bai, Y ., Chen,
+A., Conerly, T., Drain, D., Ganguli, D., Hatfield-Dodds,
+Z., Hernandez, D., Johnston, S., Jones, A., Kernion, J.,
+Lovitt, L., Ndousse, K., Amodei, D., Brown, T., Clark, J.,
+Kaplan, J., McCandlish, S., and Olah, C. In-context learn-
+ing and induction heads. Transformer Circuits Thread,
+2022. https://transformer-circuits.pub/2022/in-context-
+learning-and-induction-heads/index.html.
+OpenAI. URL https://openai.com/index/
+learning-to-reason-with-llms .
+Park, K., Choe, Y . J., and Veitch, V . The linear represen-
+tation hypothesis and the geometry of large language
+models. In Causal Representation Learning Workshop at
+NeurIPS 2023, 2023. URL https://openreview.
+net/forum?id=T0PoOJg8cK.
+Rajamanoharan, S., Conmy, A., Smith, L., Lieberum, T.,
+Varma, V ., Kram´ar, J., Shah, R., and Nanda, N. Improving
+dictionary learning with gated sparse autoencoders, 2024.
+URL https://arxiv.org/abs/2404.16014.
+Riviere, M., Pathak, S., Sessa, P. G., Hardin, C., Bhupatiraju,
+S., Hussenot, L., Mesnard, T., Shahriari, B., et al. Gemma
+2: Improving open language models at a practical size,
+2024.
+Satpute, A., Gießing, N., Greiner-Petter, A., Schubotz,
+M., Teschke, O., Aizawa, A., and Gipp, B. Can
+llms master math? investigating large language mod-
+els on math stack exchange. In Proceedings of the
+47th International ACM SIGIR Conference on Research
+and Development in Information Retrieval , SIGIR ’24,
+pp. 2316–2320, New York, NY , USA, 2024. Associa-
+tion for Computing Machinery. ISBN 9798400704314.
+doi: 10.1145/3626772.3657945. URL https://doi.
+org/10.1145/3626772.3657945.
+10
+Language Models Use Trigonometry to Do Addition
+Stolfo, A., Belinkov, Y ., and Sachan, M. A mechanistic inter-
+pretation of arithmetic reasoning in language models us-
+ing causal mediation analysis. pp. 7035–7052, Singapore,
+2023. Association for Computational Linguistics. doi:
+10.18653/v1/2023.emnlp-main.435. URL https://
+aclanthology.org/2023.emnlp-main.435.
+Templeton, A., Conerly, T., Marcus, J., Lindsey, J., Bricken,
+T., Chen, B., Pearce, A., Citro, C., Ameisen, E., Jones,
+A., Cunningham, H., Turner, N. L., McDougall, C.,
+MacDiarmid, M., Freeman, C. D., Sumers, T. R.,
+Rees, E., Batson, J., Jermyn, A., Carter, S., Olah,
+C., and Henighan, T. Scaling monosemanticity: Ex-
+tracting interpretable features from claude 3 sonnet.
+Transformer Circuits Thread , 2024. URL https:
+//transformer-circuits.pub/2024/
+scaling-monosemanticity/index.html.
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones,
+L., Gomez, A. N., Kaiser, L. u., and Polosukhin, I.
+Attention is all you need. In Guyon, I., Luxburg, U. V .,
+Bengio, S., Wallach, H., Fergus, R., Vishwanathan, S.,
+and Garnett, R. (eds.), Advances in Neural Information
+Processing Systems, volume 30. Curran Associates, Inc.,
+2017. URL https://proceedings.neurips.
+cc/paper_files/paper/2017/file/
+3f5ee243547dee91fbd053c1c4a845aa-Paper.
+pdf.
+Wang, B. and Komatsuzaki, A. GPT-J-6B: A
+6 Billion Parameter Autoregressive Language
+Model. https://github.com/kingoflolz/
+mesh-transformer-jax, May 2021.
+Wang, K. R., Variengien, A., Conmy, A., Shlegeris, B., and
+Steinhardt, J. Interpretability in the wild: a circuit for indi-
+rect object identification in GPT-2 small. In The Eleventh
+International Conference on Learning Representations ,
+2023. URL https://openreview.net/forum?
+id=NpsVSN6o4ul.
+Yip, C. H., Agrawal, R., Chan, L., and Gross, J. Modular
+addition without black-boxes: Compressing explanations
+of mlps that compute numerical integration, 2024.
+Zhong, Z., Liu, Z., Tegmark, M., and Andreas, J. The clock
+and the pizza: Two stories in mechanistic explanation of
+neural networks. In Thirty-seventh Conference on Neural
+Information Processing Systems , 2023. URL https:
+//openreview.net/forum?id=S5wmbQc1We.
+Zhou, T., Fu, D., Sharan, V ., and Jia, R. Pre-trained large
+language models use fourier features to compute addi-
+tion. In The Thirty-eighth Annual Conference on Neural
+Information Processing Systems , 2024. URL https:
+//openreview.net/forum?id=i4MutM2TZb.
+Zhu, F., Dai, D., and Sui, Z. Language models en-
+code the value of numbers linearly. In Rambow,
+O., Wanner, L., Apidianaki, M., Al-Khalifa, H., Eu-
+genio, B. D., and Schockaert, S. (eds.), Proceed-
+ings of the 31st International Conference on Compu-
+tational Linguistics , pp. 693–709, Abu Dhabi, UAE,
+January 2025. Association for Computational Linguis-
+tics. URL https://aclanthology.org/2025.
+coling-main.47/.
+Zlokapa, A., Tan, A. K., Martyn, J. M., Fiete, I. R., Tegmark,
+M., and Chuang, I. L. Fault-tolerant neural networks
+from biological error correction codes. Phys. Rev. E ,
+110:054303, Nov 2024. doi: 10.1103/PhysRevE.110.
+054303. URL https://link.aps.org/doi/10.
+1103/PhysRevE.110.054303.
+11
+Language Models Use Trigonometry to Do Addition
+A. Performance of all models on a + b =
+We test three models, GPT-J, Pythia-6.9B, and Llama3.1-8B
+on the taska +b =. At first, we attempted to prompt each
+model with justa +b =, but we achieved significantly better
+results by including additional instructions in the prompt.
+After non-exhaustive testing, we used the prompts listed in
+Table 2 to test each model for all 10000 addition prompts
+(fora,b ∈ [0, 99]). We plot a heatmap of the accuracy of
+the model bya andb in Fig. 11. All three models are able to
+competently complete the task, with Llama3.1-8B achieving
+an impressive 98% accuracy. However, in the main paper
+we focus on analyzing GPT-J because it employs simple
+MLPs that are easier to interpret. We note that all three
+models struggle with problems with larger values ofa and
+b.
+B. Additional Results on the Structure of
+Numbers
+Our Fourier decomposition results in Section 4.1 are sensi-
+tive to the number ofa values analyzed. In particular, we
+find that the T = 2 Fourier component is not identified
+when analyzingh0
+361, but is identified when analyzingh0
+360
+(Fig. 12). While we consider this sensitivity to sample size
+to be a limitation of our Fourier analysis, we note that the
+Fourier analysis is itself preliminary. We find that theT = 2
+Fourier feature is causally relevant when fitting the residual
+stream in Section 4.4. Additionally, in later sections we
+find that neurons often read from the helix using theT = 2
+Fourier feature, indicating its use downstream (Fig. 34).
+Thus, we identifyT = 2 as an important Fourier feature.
+We compare the residual stream of GPT-J after layer 0 on the
+inputted integersa1,a 2∈ [0, 99] using Euclidean distance
+and cosine similarity in Fig. 13. We visually note periodicity
+in the representations, with a striking period of 10. To
+analyze the similarity between representations further, we
+calculate the Euclidean distance betweena anda +δn for
+all values of δn. In Fig. 14, we see that representations
+continue to get more distant from each other fora∈ [0, 99]
+as δn grows, albeit sublinearly. This provides evidence
+that LLMs represent numbers with more than just periodic
+features. When a is restricted to a∈ [0, 9], we observe
+a linear relationship in δn, implying some local linearity.
+The first principal component of the numbersa∈ [0, 360]
+(shown in Fig. 15) is also linear with a discontinuity at
+a = 100. Thus, our focus on two digit addition is justified,
+as three-digit integers seem to be represented in a different
+space.
+C. Additional Helix Fitting Results
+C.1. Helix Properties
+For the input of layer 0 of GPT-J, we plot the magnitude
+of the helical fit’s Fourier features. We do so by taking the
+magnitude of columns of C in Eq. 2. We find that these
+features roughly increase in magnitude as period increases,
+which matches the ordering in the Fourier decomposition
+presented in Fig. 2.
+Additionally, we visualize the cosine similarity matrix be-
+tween columns of C, which represents the similarity be-
+tween helix components. In Fig. 17, we observe that com-
+ponents are mostly orthogonal, as expected. A notable
+exception is the similarity between theT = 100 sin compo-
+nent and the linear component.
+To ensure that the helix represents a true feature mani-
+fold, we design a continuity experiment inspired by Olah
+& Jermyn (2024). We first fit all a that do not end with 3
+with aT = [100] helix. Then, we projecta = 3, 13,..., 93
+into that helical space in Fig. 18. We find that each point is
+projected roughly where we expect it to be. For example,
+93 is projected between 89 and 95. We take this as evidence
+that our helices represent a true nonlinear manifold.
+C.2. Additional Causal Experiments for Helix Fits
+We first replicate our helix fitting activation patching results
+on Pythia-6.9B and Llama3.1-8B in Fig. 19.
+To ensure the helix fits are not overfitting, we use a train-
+test split. We train the helix with 80% of a values and
+patch using the other 20% ofa values (left of Fig. 20). We
+observe that the helix and circular fits still outperform the
+PCA baseline. We also randomize the order of a and find
+that the randomized helix is not causally relevant (middle
+of Fig. 20), suggesting that the helix functional form is not
+naturally over expressive. Finally, we demonstrate that our
+results hold when fitting theb token ona +b with helix(b)
+(right of Fig. 20). Note that when activation patching fits
+on theb token, we use clean/corrupted prompt pairs of the
+form (a +b′,a +b), in contrast to the (a′ +b,a +b) pairs
+we used for thea token.
+We perform an ablation experiment by ablating the columns
+ofC† from each hl
+a. In Fig. 21, we see that ablating the
+helix dimensions from the residual stream like this affects
+performance about as much as ablating the entire layer,
+providing additional causal evidence that the helix is neces-
+sary for addition. However, when we attempt to fita with
+helix(a) for other tasks in Fig. 22, we find that while the
+fit is effective, it sometimes underperforms PCA baselines.
+This suggests that while the helix is sufficient for addition,
+additional structure is required to capture the entirety of
+numerical representations. For a description of the prompts
+12

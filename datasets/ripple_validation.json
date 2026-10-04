@@ -1,0 +1,53 @@
+[
+  {
+    "file": "datasets/ripple_edits/popular.json",
+    "source": "https://raw.githubusercontent.com/edenbiran/RippleEdits/54f3b88af4895a3aacb580ec63ce7ae857185040/data/benchmark/popular.json",
+    "rows": 885,
+    "bytes": 11152451,
+    "sha256": "fe668f11871d3e1df8039be89124d5d39a443db0e9d1ded623d190f9e6a3296e",
+    "keys": [
+      "Compositionality_I",
+      "Compositionality_II",
+      "Forgetfulness",
+      "Logical_Generalization",
+      "Relation_Specificity",
+      "Subject_Aliasing",
+      "edit",
+      "example_type"
+    ]
+  },
+  {
+    "file": "datasets/ripple_edits/random.json",
+    "source": "https://raw.githubusercontent.com/edenbiran/RippleEdits/54f3b88af4895a3aacb580ec63ce7ae857185040/data/benchmark/random.json",
+    "rows": 1922,
+    "bytes": 11584388,
+    "sha256": "f99e625e6b00225498d4843f4e3a688b391cdd98e6f9ee85608f72a1e28c2d40",
+    "keys": [
+      "Compositionality_I",
+      "Compositionality_II",
+      "Forgetfulness",
+      "Logical_Generalization",
+      "Relation_Specificity",
+      "Subject_Aliasing",
+      "edit",
+      "example_type"
+    ]
+  },
+  {
+    "file": "datasets/ripple_edits/recent.json",
+    "source": "https://raw.githubusercontent.com/edenbiran/RippleEdits/54f3b88af4895a3aacb580ec63ce7ae857185040/data/benchmark/recent.json",
+    "rows": 1948,
+    "bytes": 19658316,
+    "sha256": "bc71807ea72280e2587bd1974fc79ae7e23aa24b1d5887bcdced40d448910547",
+    "keys": [
+      "Compositionality_I",
+      "Compositionality_II",
+      "Forgetfulness",
+      "Logical_Generalization",
+      "Relation_Specificity",
+      "Subject_Aliasing",
+      "edit",
+      "example_type"
+    ]
+  }
+]

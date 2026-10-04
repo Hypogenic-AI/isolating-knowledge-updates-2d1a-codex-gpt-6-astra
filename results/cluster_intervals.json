@@ -1,0 +1,137 @@
+[
+  {
+    "method": "ft",
+    "metric": "preservation_change",
+    "estimate": 0.06725755995828989,
+    "low": 0.05257729248647652,
+    "high": 0.08426578759339598,
+    "clusters": 143,
+    "seeds": 3
+  },
+  {
+    "method": "ft",
+    "metric": "semantic_adoption",
+    "estimate": 0.47058823529411764,
+    "low": 0.23529411764705882,
+    "high": 0.7058823529411765,
+    "clusters": 17,
+    "seeds": 3
+  },
+  {
+    "method": "ft",
+    "metric": "downstream_adoption",
+    "estimate": 0.08333333333333333,
+    "low": 0.016666666666666666,
+    "high": 0.16666666666666666,
+    "clusters": 20,
+    "seeds": 3
+  },
+  {
+    "method": "ft_kl1",
+    "metric": "preservation_change",
+    "estimate": 0.047097671185262424,
+    "low": 0.03472571510065219,
+    "high": 0.061588681379022556,
+    "clusters": 143,
+    "seeds": 3
+  },
+  {
+    "method": "ft_kl1",
+    "metric": "semantic_adoption",
+    "estimate": 0.47058823529411764,
+    "low": 0.23529411764705882,
+    "high": 0.7058823529411765,
+    "clusters": 17,
+    "seeds": 3
+  },
+  {
+    "method": "ft_kl1",
+    "metric": "downstream_adoption",
+    "estimate": 0.06666666666666667,
+    "low": 0.0,
+    "high": 0.15,
+    "clusters": 20,
+    "seeds": 3
+  },
+  {
+    "method": "ft_kl10",
+    "metric": "preservation_change",
+    "estimate": 0.04049356969064998,
+    "low": 0.029169898151108854,
+    "high": 0.05351881072765731,
+    "clusters": 143,
+    "seeds": 3
+  },
+  {
+    "method": "ft_kl10",
+    "metric": "semantic_adoption",
+    "estimate": 0.45098039215686275,
+    "low": 0.23529411764705882,
+    "high": 0.7058823529411765,
+    "clusters": 17,
+    "seeds": 3
+  },
+  {
+    "method": "ft_kl10",
+    "metric": "downstream_adoption",
+    "estimate": 0.05555555555555555,
+    "low": 0.0,
+    "high": 0.12777777777777777,
+    "clusters": 20,
+    "seeds": 3
+  },
+  {
+    "method": "broad_kl10",
+    "metric": "preservation_change",
+    "estimate": 0.07125477928397636,
+    "low": 0.05417472422077334,
+    "high": 0.09190530599630471,
+    "clusters": 143,
+    "seeds": 3
+  },
+  {
+    "method": "broad_kl10",
+    "metric": "semantic_adoption",
+    "estimate": 0.6078431372549019,
+    "low": 0.37254901960784315,
+    "high": 0.8235294117647058,
+    "clusters": 17,
+    "seeds": 3
+  },
+  {
+    "method": "broad_kl10",
+    "metric": "downstream_adoption",
+    "estimate": 0.12222222222222222,
+    "low": 0.05,
+    "high": 0.20555555555555555,
+    "clusters": 20,
+    "seeds": 3
+  },
+  {
+    "method": "lora_kl10",
+    "metric": "preservation_change",
+    "estimate": 0.061174834897462636,
+    "low": 0.04482456459075164,
+    "high": 0.07960893727853657,
+    "clusters": 143,
+    "seeds": 3
+  },
+  {
+    "method": "lora_kl10",
+    "metric": "semantic_adoption",
+    "estimate": 0.47058823529411764,
+    "low": 0.23529411764705882,
+    "high": 0.7058823529411765,
+    "clusters": 17,
+    "seeds": 3
+  },
+  {
+    "method": "lora_kl10",
+    "metric": "downstream_adoption",
+    "estimate": 0.07222222222222222,
+    "low": 0.016666666666666666,
+    "high": 0.15,
+    "clusters": 20,
+    "seeds": 3
+  }
+]

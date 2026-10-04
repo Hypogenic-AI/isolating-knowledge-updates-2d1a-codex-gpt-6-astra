@@ -1,0 +1,314 @@
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+Wei Zhang * 1 2 Chaoqun Wan 2 Yonggang Zhang† 3 Yiu-ming Cheung 3 Xinmei Tian 1 4 Xu Shen† 2
+Jieping Ye2
+Abstract
+Large language models (LLMs) have demon-
+strated remarkable potential across numerous ap-
+plications and have shown an emergent ability to
+tackle complex reasoning tasks, such as mathe-
+matical computations. However, even for the sim-
+plest arithmetic calculations, the intrinsic mecha-
+nisms behind LLMs remain mysterious, making
+it challenging to ensure reliability. In this work,
+we delve into uncovering a specific mechanism by
+which LLMs execute calculations. Through com-
+prehensive experiments, we find that LLMs fre-
+quently involve a small fraction (< 5%) of atten-
+tion heads, which play a pivotal role in focusing
+on operands and operators during calculation pro-
+cesses. Subsequently, the information from these
+operands is processed through multi-layer percep-
+trons (MLPs), progressively leading to the final
+solution. These pivotal heads/MLPs, though iden-
+tified on a specific dataset, exhibit transferability
+across different datasets and even distinct tasks.
+This insight prompted us to investigate the po-
+tential benefits of selectively fine-tuning these es-
+sential heads/MLPs to boost the LLMs’ computa-
+tional performance. We empirically find that such
+precise tuning can yield notable enhancements
+on mathematical prowess, without compromising
+the performance on non-mathematical tasks. Our
+work serves as a preliminary exploration into the
+arithmetic calculation abilities inherent in LLMs,
+laying a solid foundation to reveal more intricate
+mathematical tasks.
+*This work was done when the author was visiting Alibaba
+Cloud as a research intern. 1University of Science and Technology
+of China 2Alibaba Cloud 3Hong Kong Baptist University 4Institute
+of Artificial Intelligence, Hefei Comprehensive National Science
+Center. Correspondence to: Xu Shen † <shenxu.sx@alibaba-
+inc.com>, Yonggang Zhang† <csygzhang@comp.hkbu.edu.hk>.
+Proceedings of the 41 st International Conference on Machine
+Learning, Vienna, Austria. PMLR 235, 2024. Copyright 2024 by
+the author(s).
+1. Introduction
+Large language models (LLMs) have experienced rapid
+advancements and shown impressive language understand-
+ing capabilities (Devlin et al., 2019; Brown et al., 2020;
+Chowdhery et al., 2022). Notably, LLMs exhibit emer-
+gent abilities (Wei et al., 2022b) that enable them to solve
+intricate reasoning tasks akin to humans, such as mathe-
+matical computations (Frieder et al., 2023; Jie et al., 2022),
+chain-of-thought reasoning (Wei et al., 2022c; Kojima et al.,
+2022), few-shot prompting (Brown et al., 2020; Alayrac
+et al., 2022), etc. Despite these impressive characteristics,
+the complex inner processes governing LLMs’ functionality
+have yet to be fully illuminated, due to the complex and
+intricate non-linear interactions within densely-connected
+layers. Comprehending these underlying mechanisms could
+contribute to predicting how the LLMs behave beyond their
+training data (Mu & Andreas, 2020), gaining insights into
+the emergence of certain behaviors (Nanda & Lieberum,
+2022; Barak et al., 2022; Wei et al., 2022a), as well as iden-
+tifying and rectifying errors present in the specific models
+(Hernandez et al., 2021; Vig et al., 2020).
+In this work, we take the first attempt to interpret the inner
+process of LLMs through the lens of mathematical compu-
+tation problems, which are conducted on publicly available
+LLMs (e.g., LLaMA2 series (Touvron et al., 2023b)). Un-
+like typical language comprehension tasks, mathematical
+computation tasks involve concise problem statements with
+definitive correct answers, requiring a process of reason-
+ing and calculation rather than direct copying to derive the
+solutions. These characteristics enable us to gain insights
+into the models’ reasoning capabilities without interference
+from unrelated factors. Specifically, we focus on tasks in-
+volving the arithmetic calculation with two operands, i.e.,
+addition, subtraction, multiplication, and division, which are
+fundamentals of mathematical computation. To this end, we
+create datasets of various types of sentences that involve the
+calculation logic, such as “The addition of 3 and 5 equals to
+” in Figure 1. The LLMs could provide answers with high
+confidence scores of over 80% on average.
+To unveil how these models correctly complete the task
+(e.g., “ 3 + 5 = 8 ”), we begin by identifying the task-
+related internal components in LLMs. We do a hard in-
+1
+arXiv:2409.01659v1  [cs.CL]  3 Sep 2024
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+1.IDENTIFY
+3.FINE-TUNE
+2.ANALYZE
+Black-Box
+LLMs
+Precise
+SFT
+Input: “Theadditionof3and5equalsto_”
+Next Word Prediction:8
+Attend to 
+Operands & Operators
+Layer-by-Layer
+MLP Calculation
+Figure 1: The pipeline involves three steps: 1) identify
+the key components attributed to arithmetic calculations in
+black-box LLMs, 2) analyze the working mechanism of the
+key components towards human-understandable explana-
+tions, 3) fine-tune the key components to precisely improve
+the mathematical capability of LLMs.
+tervention (Pearl, 2009) on the transformer attention heads
+and multi-layer perceptrons (MLPs) to observe their effects
+on the predicted logits 1. Our findings reveal that only a
+small percentage (< 5%) of the attention heads and the
+MLPs after these heads significantly impact the model’s
+performance. Namely, LLMs frequently involve these atten-
+tion heads and the subsequent MLPs when completing the
+calculations. Subsequently, we knock out these frequently-
+involved heads/MLPs to validate their faithfulness. We find
+that the model performance decreases sharply when those
+pivotal heads/MLPs are knocked out, resulting in a decrease
+of around 70% in accuracy.
+To interpret the working mechanism of identified head-
+s/MLPs towards human-understandable explanations, we
+gain a deeper analysis of their operational “behaviors”.
+Specifically, we investigate the attention patterns of the
+crucial heads, and find that these attention heads exhibit a
+strong focus on the tokens representing operands and opera-
+tors within mathematical sentences, demonstrating a relative
+insensitivity to other non-relevant tokens. For the analysis
+of MLPs, we compare the correlations between the embed-
+dings of MLPs’ input/output and the embeddings of number
+tokens (i.e., operands and answers). It reveals that the MLPs,
+guided by these number-attended heads, take operands as
+input, and mirror the attributes of tokens corresponding to
+correct answers more closely. These observations lead us to
+hypothesize that LLMs may initially employ a set of heads
+to pinpoint arithmetic operands from text, subsequently en-
+gaging MLPs to work out the answers. Additionally, the
+observed behaviors of these heads/MLPs exhibit a high de-
+gree of transferability, analogous to adversarial examples
+1Here, doing a hard intervention is equal to replacing the value
+of attention heads and MLPs, while performing a soft intervention
+means modifying the modules for calculating the attention and
+MLP values (Pearl, 2009).
+being transferable across models (Szegedy et al., 2014).
+Namely, the key heads/MLPs identified on one dataset are
+also effective for other datasets. For instance, their impact
+is noticeable on the publicly available math datasets (e.g.,
+SV AMP (Patel et al., 2021)), as well as varied data formats
+involving multi-digit integers, rational numbers, etc. This
+empirical observation underscores the crucial role of key
+heads/MLPs in mathematical calculations.
+In addition to uncovering the internal mechanisms, we have
+devised an effective strategy that involves targeted fine-
+tuning of the specific attention heads and MLPs closely
+tied to mathematical computations, thereby enhancing the
+model’s mathematical prowess. The experimental results
+are compelling: with fine-tuning as few as 32 attention
+heads (with a total of 1024 heads), we observe a remark-
+able improvement in the model’s mathematical capabilities.
+This precise tuning methodology not only matches but can
+surpass the enhancements achieved through full-model fine-
+tuning. Moreover, this fine-grained strategy of adjustment
+has a distinct advantage—it leaves most of the model’s pa-
+rameters unchanged, avoiding the performance trade-offs in
+non-mathematical domains commonly observed with full-
+model fine-tuning.
+In summary, this work aims to delve into the inner mech-
+anism of LLMs through mathematical calculation tasks,
+along the pipeline of “identify-analyze-finetune” shown in
+Figure 1. Our findings reveal a sparsity in the attention
+heads of LLMs, with less than 5% of heads exhibiting close
+correlations. These heads particularly attend to the operands
+and operators, while the subsequent MLPs gradually de-
+duce the correct answers. The discovered mechanism shows
+strong cross-dataset transferability and inspires us to pre-
+cisely finetune the calculation-related heads/MLPs for better
+mathematical capability. We empirically find that precise
+tuning brings in much less impact on non-mathematical
+tasks when improving the targeted ability of LLMs.
+2. Related Works
+Interpretability Methods. Interpreting the inner mecha-
+nism of large language models (LLMs) has become increas-
+ingly urgent in recent years (Madsen et al., 2022; Rauker
+et al., 2023), especially when LLMs are applied in high-
+stakes decision-making domains such as healthcare, crim-
+inal justice, and finance (Obermeyer et al., 2019; Rudin,
+2019; Bender et al., 2021). Vig et al. (2020) adapted the
+approach of causal mediation analysis (CMA) (Pearl, 2001)
+for interpreting the deep language models, and it has been
+applied for various tasks, such as subject-verb agreement
+(Finlayson et al., 2021), natural language inference (Geiger
+et al., 2021), retention of factual associations (Meng et al.,
+2022; Geva et al., 2023). Furthermore, path patching ex-
+tends the concept of CMA by measuring how a treatment
+2
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+effect is mediated by node-to-node connections between
+individual neurons or features. Recent works have used
+path patching to explain neural networks in terms of circuits
+(Olah et al., 2023), identified for different capabilities in-
+cluding indirect object identification (Wang et al., 2023a),
+greater-than computation (Hanna et al., 2023), and mapping
+answer text to answer labels (Lieberum et al., 2023).
+Interpretability for Mathematical Tasks. Mathematical
+ability has long been a subject of interest in natural language
+processing (Kushman et al., 2014; Huang et al., 2016; Wang
+et al., 2017; Thawani et al., 2021). Some studies have inves-
+tigated the mathematical abilities of LLMs (Frieder et al.,
+2023; Saxton et al., 2019; Nogueira et al., 2021; Qian et al.,
+2023; Imani et al., 2023; Romera-Paredes et al., 2024), but
+they mainly focus on explaining what these models can do
+rather than how they do it. In contrast, some other studies
+have dived deeper into the LLM structure without treating
+LLM as an inscrutable black box. Stolfo et al. (2023) identi-
+fied the key attention layers relating to arithmetic questions,
+but lacking in-depth explanation and validation of the key
+layers’ behaviors. Wu et al. (2023) scaled the methods from
+causal abstraction to understand how Alpaca ( 7B) (Taori
+et al., 2023) follows the instruction in comparing two num-
+bers. (Hanna et al., 2023) provided a causal explanation
+about how GPT2-small ( 0.1B) (Radford et al., 2019) im-
+plements the “greater-than” task, but only reveal simple
+phenomena limited by the small size of model and the lack
+of diversity in the dataset.
+Fine-tune LLMs for Mathematical Tasks.Numerous stud-
+ies improve the mathematical reasoning ability of LLMs by
+aggregating various sampled reasoning paths during either
+fine-tuning or inference. Cobbe et al. (2021) train and devise
+a reasoning path verifier to select the correct results during
+inference. Wang et al. (2023b) propose to sample various
+reasoning paths during inference and then derive the final
+result by majority voting on the answers or through verifiers
+(Li et al., 2023). Uesato et al. (2022) explore to use of rein-
+forcement learning methods for improving the mathematical
+reasoning abilities of LLMs. Several works apply the idea
+of rejection sampling along with other techniques to filter
+the diverse sampled reasoning paths for fine-tuning data
+augmentation (Huang et al., 2022; Zelikman et al., 2022; Ni
+et al., 2023). There also exist related works (Panigrahi et al.,
+2023) that locate key parameters to update for better task-
+specific ability. Panigrahi et al. (2023) locates a minuscule
+subset of parameters from an already fine-tuned model onto
+a pre-trained model without further tuning. The selection
+process for this subset is via optimizing the task-related
+objective function with L1 norm ensuring the sparsity of the
+subset. In our work, we locate the task-related parameters
+of pre-trained model via measuring the causal effect of each
+component, then precisely fine-tune the key components for
+mathematical tasks.
+3. Preliminary
+Large Language Models (LLMs). The LLMs utilized in
+this work comprise LLaMA2-7B and LLaMA2-13B (Tou-
+vron et al., 2023a). These are pre-trained language models
+freely available from HuggingFace2. All of these models
+are decoder-only transformers equipped with multi-head
+attention (MHA) and a single MLP in one transformer layer.
+For example, LLaMA2-7B consists of 32 transformer layers
+and 32 attention heads in MHA for each layer.
+Transformer Architecture. The input to the transformer is
+a combination of position and token embeddings in RN×d,
+whereN is the number of tokens in the input and d is the
+model dimension. Following the definitions in (Elhage et al.,
+2021), the input embedding serves as the initial value for
+the residual stream, which is read from and written to by all
+attention heads and MLPs. Focusing on individual heads,
+thej-th head in thei-th layer is parametrized by four ma-
+trices: Wi,j
+Q , Wi,j
+K , Wi,j
+V ∈ Rd× d
+H , and Wi,j
+O ∈ R
+d
+H×d.
+To simplify these parameters, we can express them as low-
+rank matrices in Rd×d: Wi,j
+OV = Wi,j
+O Wi,j
+V andWi,j
+QK =
+Wi,j
+Q (Wi,j
+K )T . The QK matrix is used to compute the at-
+tention patternAi,j∈ RN×N for head (i,j ), while the OV
+matrix determines the information written into the residual
+stream. At the end of the forward pass, a layer norm is ap-
+plied before the unembed matrixWU projects the residual
+stream into logits.
+Task and Dataset. We focus on classic and widely encoun-
+tered mathematical operations, e.g., addition, subtraction,
+multiplication, division. Taking addition as an example,
+the arithmetic logic of addition ({A} +{B} ={C}) might
+naturally appear in sentences. Taking inspiration from the
+sentence styles and forms present in mathematical bench-
+marks of GSM8K (Cobbe et al., 2021) and SV AMP (Patel
+et al., 2021), we create a dataset for the addition task con-
+taining 10, 000 samples based on 36 templates with random
+single-token names, objects, and numbers. To assess the
+performance of LLMs on the calculation task, we measure
+the prediction probability of the {C} token. The average
+probability of correct predictions across the models was
+82%. In this study, we select the samples that the language
+models are able to predict correctly. We denote the sen-
+tences generated by this procedure as reference data using
+the notation ofXr. For the templates and sentences, please
+refer to Figure 8 and Figure 10 in Appendix A.
+Moreover, to meet the demand for perturbing component
+activation, we create another dataset comprising counter-
+factual sentences without the inclusion of calculation logic,
+using the notation ofXc. The samples are generated follow-
+ing two core principles: (1) maintaining the grammatical
+structures derived from theXr templates; (2) substituting
+2https://huggingface.co/
+3

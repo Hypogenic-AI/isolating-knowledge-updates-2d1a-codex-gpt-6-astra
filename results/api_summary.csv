@@ -1,0 +1,16 @@
+condition,role,adopt,correct,change
+base,dependency,0.0,1.0,0.0
+base,diagnostic,,,0.0
+base,efficacy,0.0,1.0,0.0
+base,preservation,1.0,1.0,0.0
+base,semantic_transfer,0.0,1.0,0.0
+literal,dependency,0.0,1.0,0.0
+literal,diagnostic,,,0.0
+literal,efficacy,1.0,0.0,1.0
+literal,preservation,1.0,1.0,0.0
+literal,semantic_transfer,0.058823529411764705,0.9411764705882353,0.058823529411764705
+semantic,dependency,0.8571428571428571,0.14285714285714285,0.8571428571428571
+semantic,diagnostic,,,0.6666666666666666
+semantic,efficacy,1.0,0.0,1.0
+semantic,preservation,1.0,1.0,0.0
+semantic,semantic_transfer,1.0,0.0,1.0

@@ -1,0 +1,176 @@
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+A. Appendix
+A. Templates
+Addition Subtraction
+{A} +{B} ={C} {A} -{B} ={C}
+{A} plus{B} equals to{C} {A} minus{B} equals to{C}
+The addition of{A} and{B} is{C} The difference of{A} and{B} is{C}
+The addition of{A} and{B} equals to{C} The difference of{A} and{B} equals to{C}
+The addition of{A} and{B} equals to{C} The difference of{A} and{B} equals to{C}
+Q: How much is{A} plus{B}? A: Q: How much is{A} minus{B}? A:
+Q: What is{A} plus{B}? A: Q: What is{A} minus{B}? A:
+Q: What is the result of{A} plus{B}? A: Q: What is the result of{A} minus{B}? A:
+Q: What is the sum of{A} and{B}? A: Q: What is the difference of{A} and{B}? A:
+Multiplication Division
+{A} *{B} ={C} {A} /{B} ={C}
+{A} times{B} equals to{C} {A} over{B} equals to{C}
+The product of{A} and{B} is{C} The ratio of{A} and{B} is{C}
+The product of{A} and{B} equals to{C} The ratio of{A} and{B} equals to{C}
+The product of{A} and{B} equals to{C} The ratio of{A} and{B} equals to{C}
+Q: How much is{A} times{B}? A: Q: How much is{A} over{B}? A:
+Q: What is{A} times{B}? A: Q: What is{A} over{B}? A:
+Q: What is the result of{A} times{B}? A: Q: What is the result of{A} over{B}? A:
+Q: What is the product of{A} and{B}? A: Q: What is the ratio of{A} and{B}? A:
+Figure 8: Templates used in this work follow the formations of “Equation”, “Statement”, “Question-Answer”.
+CounterfactualdataReferencedata
+ØInput: 3<5=
+ØNext word:2
+ØTop-5 prediction probability:
+ØInput: 3+5=
+ØNext word: 8
+ØTop-5 prediction probability:
+52.93%
+18.29%5.49%5.04%4.55%
+“8”“1”“3”“2”“9”
+24.98%20.07%19.01%15.39%7.44%
+“2”“0”“1”“3”“5”
+ØInput: 42 nothing34 is equal to 7
+ØNext word: 8
+ØTop-5 prediction probability:
+ØInput: 42 plus 34 is equal to 7
+ØNext word: 6
+ØTop-5 prediction probability:
+22.03%21.69%13.78%10.57%4.27%
+“8”“6”“2”“0” “.”
+ØInput: Mary has 3 apples, then Mary gains 4cups. What is 
+the total number of tablesthat Johnhas? The answer is
+ØNext word: 1
+ØTop-5 prediction probability:
+ØInput: Mary has 3 apples, then Mary gains 4 apples. What 
+is the total number of apples that Mary has? The answer is
+ØNext word: 7
+ØTop-5 prediction probability:
+24.95%15.87%13.57%12.55%8.11%
+“1”“2”“4”“3”“5”
+38.77%
+19.19%12.39%8.00%6.63%
+“7”“1”“3”“4”“2”
+96.34%
+0.59%0.55%0.46%0.44%
+“6”“7”“5”“4”“8”
+Figure 9: Examples of reference data (with addition logic) and counterfactual data (without addition logic). Given the input
+sentence, the results of next word prediction are provided by LLaMA2-7B.
+We have included a list of 36 templates used in this work as shown in Figure 8. All these templates share the same
+calculation logic. we sample the <A> and <B> from{1,··· , 9}, since LLaMA2 tokenizes each digit individually (e.g.,
+‘42’ is tokenized to ‘4’ and ‘2’). Based on the above templates, we generate the sentences that the LLMs can predict the
+addition result{C} correctly as the reference data Xr. We generate the counterfactual data Xc following the principles
+depicted in Section 3, where we replace the words (e.g., “plus”, “minus”, “times”, “ratio”) with a randomly-selected term
+from the set{“none”, “nothing”,··· , “null”}, and replace the operations (e.g., “+”, “-”, “*”, “/”) with a randomly-selected
+term from the set{“<”, “>”,··· , “@”}. We show three cases in Figure 9 with the inspection into the top-5 prediction
+probability of LLaMA2-7B. Moreover, in Figure 10, we also construct several different types of linguistic meanings
+for the addition task: “time span” and “object accumulation”. For the templates 1-8 of “time span”, we sample from a
+13
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+curated list of common words. For example, we select <EVENT> from{“war”, “conflict”,··· , “project”}4, <VERB> from
+{“last”, “span”,··· , “extend”}, <MONTH> from{“Jan.”, “Feb.”,··· , “Dec.”}, and <YYY> from{100,··· , 199}. For the
+templates 9-12 of “object accumulation”, we sample <OBJECT> from{“apple”, “orange”,··· , “pear”}, <VERB> from
+{“get”, “obtain”,··· , “acquire”}, and each <NAME> was randomly selected from a pool of 100 English first names.
+1. The <EVENT> <VERB>{A} years from the year <YYY>{B} to the year <YYY>{C}
+2. The <EVENT> <VERB>{A} years from <YYY>{B} to <YYY>{C}
+3. The <EVENT> <VERB>{A} days from <MONTH>{B} to <MONTH>{C}
+4. The <EVENT> will <VERB>{A} days from <MONTH>{B} to <MONTH>{C}
+5. The <EVENT> <VERB>{A} hours from{B} pm to{C}
+6. The <EVENT> will <VERB>{A} hours from{B} pm to{C}
+7. The <EVENT> <VERB>{A} hours from{B} am to{C}
+8. The <EVENT> will <VERB>{A} hours from{B} am to{C}
+9. <NAME> has{A} <OBJECT>, then <NAME> <VERB>{B} <OBJECT>.
+What’s the total number of <OBJECT> that <NAME> has? The answer is{C}
+10. <NAME> <VERB>{A} <OBJECT>, and <NAME2> <VERB>{B} <OBJECT>.
+What’s the total number of <OBJECT> that they <VERB>? The answer is{C}
+11. <NAME> has{A} <OBJECT>, and <NAME2> has{B} <OBJECT>.
+What’s the total number of <OBJECT> that they have? The answer is{C}
+12. <NAME> <VERB>{A} <OBJECT> yesterday, and <NAME> <VERB>{B} <OBJECT> today.
+What’s the total number of <OBJECT> that <NAME> <VERB>? The answer is{C}
+Figure 10: Additional templates used in the addition task, involve different linguistic meanings like “time span” (1-8) and
+“object accumulation” (9-12).
+B. Evaluate the Effect of Attention Heads.
++ Head0.0 Head0.31
++ Head1.0 Head1.31
+Output
+MLP1
+MLP0
++
++
+Reference data Xr
+Gatheractivations given Xr
+Calculate outputswith
+hardinterventions Gather activations given Xc
++ Head0.0 Head0.31
++ Head1.0 Head1.31
+Output
+MLP1
+MLP0
++
++
+Counterfactual data Xc
++ Head0.31
++ Head1.0 Head1.31
+Output
+MLP1
+MLP0
++
+Reference data Xr
+···
+···
+···
+···
+···
+···
+Head0.0
++
+Hard 
+intervention
+Output 
+comparison
+Hard 
+intervention
+Figure 11: A case illustration of the method “path patching”. It measures the importance of forward paths ( i.e., the red lines
+that originate from Head 0.31 to Output) for the two-layer transformer in completing the task on reference data.
+Path Patching. To discover the cause of the predicted answer, we employ the causal intervention technique known as
+path patching (Goldowsky-Dill et al., 2023; Wang et al., 2023a). This approach is highly effective in analyzing the causal
+relationship between two computation nodes (Sender− →Receiver). This helps us determine whether Sender is the cause of
+Receiver, and the connections between them are important for the model in implementing the task.
+Specifically, the entire process of path patching is shown in Figure 11, where the node pair Sender− →Receiver is set as Head
+4We empirically find that the specific choice of words does not affect the results, as long as they meet similar semantics.
+14
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+0.31− →Output. Firstly, given reference dataXr and counterfactual dataXc, the activations of all heads are gathered for
+preparation of the later perturbation. Then, we do a hard intervention on the Head 0.31 that is perturbated to its activation on
+Xc, where the effect will be further propagated to the Ouput node along with a set of pathsP. To ensure an independent
+observation of the impact from the Head 0.31,P comprises the forward pathways through residual connections and MLPs
+except for the other attention heads (e.g., Head 0.0,··· , 0.30, 1.0,··· , 1.31). Thus we do a hard intervention on the other
+heads by freezing their activations onXr. Finally, we obtain the final output logits to measure the impact of this perturbation.
+If there is a significant change in final logits, then the patched paths: Sender − →Receiver are essential for the model in
+completing the task.
+In this work, to identify the important heads contributing to the calculation task, we scan through all heads as the Sender
+node denoted byh, and set the Receiver node as outputlogits, and measure the changes in the output logit of ground-truth
+token{C}. Pathwaysh→logits that are critical to the model’s computation should induce a large drop in the logit of token
+{C} after patching. Notably, since the residual operations and MLPs compute each token separately (Elhage et al., 2021),
+patching the head output at the END position (i.e., the position of the last token in the input sentence) is enough to measure
+the effects on the next token prediction.
+C. More Results of Other LLMs.
+(a) LLaMA2-7B (c) Mistral-7B
+(b) LLaMA2-13B
+Figure 12: Comparison of the results of path patching experiments on LLaMA2-7B, LLaMA2-13B, and Mistral-7B (Jiang
+et al., 2023) across four mathematical tasks. For each head/MLP, a darker color indicates a larger logit difference from the
+original model before patching.
+Key Component Identification. In Figure 12, we further report the results of key components identification of other models
+(e.g., LLaMA2-13B and Mistral-7B). For example, LLaMA2-13B comprises 40 layers and 40 attention heads per attention
+layer. The three models of different size exhibit similar phenomena that the calculation-related key heads (e.g., 16.4, 18.31)
+are distributed sparsely in the middle layers.
+(a) LLaMA2-7B (c) Mistral-7B(b) LLaMA2-13B
+Figure 13: We investigate the projection of each MLP layer input (MLPin) along the direction of number token{A},{B},
+respectively.
+Key MLPs Behavior. In Figure 13, the similarities of MLP input and number operands {A}/{B} across all models
+demonstrate ascending and descending trends. Specifically, the pivotal points for these trends, delineated as ( start-
+15

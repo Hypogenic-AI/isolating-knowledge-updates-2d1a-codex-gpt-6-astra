@@ -1,0 +1,336 @@
+Tyka
+Nelson
+Prince Sibling
+B. Compositionality I
+MP
+Nicholas 
+Carminowe
+Singer
+The professions of the siblings of Prince are…
+Profession
+Sibling Profession
+Prince
+A. Logical Generalization
+The siblings of Nicholas Carminowe are…
+Prince Sibling
+C. Compositionality II
+Tyka
+Nelson
+The siblings of the founder of Paisley… are…
+Founder
+Paisley 
+Park 
+Records
+Nicholas 
+Carminowe
+Sibling
+E. Preservation
+The siblings of Prince are…
+D. Subject Aliasing
+The siblings of Prince Roger Nelson are…
+F. Relation Speciﬁcity
+The mother of Prince is…
+Prince Sibling
+Nicholas 
+Carminowe
+Tyka
+Nelson
+Alias
+Sibling
+Prince
+Roger
+Nelson
+Prince Sibling
+Tyka
+Nelson
+Nicholas 
+Carminowe
+Sibling
+Mattie 
+Shaw
+Prince Sibling Nicholas 
+Carminowe
+Mother
+Sibling
+John 
+Carminowe
+Sibling
+Sibling
+Figure 2: An illustration of our evaluation criteria, for an edit that simulates adding a sibling to the subject entity
+Prince, shown at the top of each graph with a bold arrow and an edit sign over the Sibling relation. For each
+criterion, the tested subject and target object are circles withdashed blue line and solid green line, respectively, and
+other nodes in dotted orange line. For Logical Generalization (A), the additional fact that needs to be inserted to the
+KG is presented with an edit sign next to the relation. We show the same node in different colors for completeness,
+as the tested subject is also the object in the edit that needs to be inserted. For Compositionality I, II (B, C), the
+model needs to hop over the edit to arrive at the target. In Subject Aliasing (D) we verify the edit also propagates to
+paraphrases of the input. In Preservation (E), we verify that other targets of the edited subject-relation are preserved.
+In Relation Specificity, we verify other relations for the subject are not modified.
+about e, with relations whose objects are not
+influenced byo, are indeed not affected by the
+edit. For example (Fig. 2F), modifying the sib-
+ling of Prince should not change his Mother.
+Note that these facts complement those evalu-
+ated by Logical Generalization.
+In §4.1, we describe how we generate factual edit-
+ing evaluations, based on the above criteria.
+3.2 Related Work
+Knowledge Editing Methods Several methods
+have been proposed to edit the factual knowledge
+encoded in a model. De Cao et al. (2021) and
+Mitchell et al. (2022b) suggested to use hyper-
+networks to update the model weights. In addi-
+tion, Meng et al. (2022, 2023) proposed to modify
+encoded facts by updating the weights of MLP
+layers, following recent observations that these
+layers can be cast as key-value memories (Geva
+et al., 2021) that store factual knowledge (Dai et al.,
+2022). Other methods learn encodings that update
+the hidden representations created during model in-
+ference (Hernandez et al., 2023a), or augment the
+input context with edits (Zhong et al., 2023; Zheng
+et al., 2023). In §5.1, we discuss state-of-the-art
+KE methods used in this work in greater detail.
+Separately from factual KE, recent works have
+also studied how to inject new facts into a model.
+Previous methods suggested unsupervised pre-
+training (Roberts et al., 2020; Zhang et al., 2021),
+semi-parametric methods methods where exter-
+nal information is added from a knowledge-base
+(Zhang et al., 2019; Peters et al., 2019; Lewis et al.,
+2020; Zhang et al., 2022), using adapters to store
+knowledge (Wang et al., 2021a), or extending the
+MLP layers (Yao et al., 2022).
+Knowledge Editing Evaluation Recently, there
+has been a growing interest in KE evaluation (Yao
+et al., 2023). The prominent benchmarks for eval-
+uating factual KE are the Zero-Shot Relation Ex-
+traction (zsRE) (Levy et al., 2017; De Cao et al.,
+2021) and CounterFact (Meng et al., 2022). zsRE
+is a question-answering dataset for relation-specific
+queries, which includes human generated para-
+phrases that are used to measure robustness to se-
+mantically equivalent inputs. For example, for the
+triplet (x, Country, y), zsRE contains queries such
+as “In which country is x?”. CounterFact offers a
+more challenging setting, where edits are counter-
+factuals of a low probability, such as changing the
+City of The Louvre fromParis to Rome.
+Evaluation in zsRE and CounterFact focuses on
+three primary aspects of (a) efficacy: checking that
+the model generates the target object post-editing,
+(b) paraphrasing: testing robustness in generating
+the target for paraphrases of the input, and (c)speci-
+ficity: verifying that facts not related to the edit
+are unaffected. In addition, CounterFact evaluates
+the generation quality of the edited model when
+prompted with the edit’s subject, measuring: con-
+sistency, i.e., similarity with subjects that share the
+same property as the edited object, and fluency in
+terms of repetitiveness of the generated text. More
+broadly, previous work evaluated to which extent
+LMs have beliefs (Genin and Huber, 2022; Kass-
+ner et al., 2021; Hase et al., 2023), and Hase et al.
+(2023) examined if updating beliefs propagates to
+entailed facts, extending the Wikidata5m dataset
+(Wang et al., 2021b) to test editing specificity.
+Recently, Onoe et al. (2023) introduce the task
+of entity knowledge propagation, aiming to exam-
+ine the extent to which models are able to reason
+about emergent entities that did not appear in pre-
+training. In addition, Hoelscher-Obermaier et al.
+(2023) show that existing KE methods can have un-
+wanted side effects and suffer from low specificity.
+A concurrent work by Zhong et al. (2023) intro-
+duces MQUAKE, a benchmark that tests the ability
+of models to perform multi-hop reasoning after ed-
+its. While each of these benchmarks focuses on a
+single consequence of editing, RIPPLE EDITS pro-
+vides a general framework for evaluating various
+types of edit ripple effects. Last, Gupta et al. (2023)
+focus on editing commonsense knowledge and in-
+troduce MEMIT-CSKPROBE, a dataset for seman-
+tic generalization of commonsense edits. RIP-
+PLE EDITS is different from MEMIT-CSKPROBE
+as it evaluates editing of factual knowledge rather
+than commonsense knowledge.
+4 The R IPPLE EDITS Benchmark
+In this section, we describe a data generation
+pipeline (§4.1) for factual edit requests and queries
+for evaluating their ripple effects. Then, we apply
+our pipeline to create the RIPPLE EDITS benchmark
+for comprehensive KE evaluation (§4.2), and vali-
+date the quality of the data (§4.3).
+4.1 Data Generation Pipeline
+We describe our data generation process (illustrated
+in Fig. 3), that creates KE evaluation examples,
+each consisting of a factual edit request and a set
+of test queries that follow our criteria. Since the
+pipeline involves manual writing of templates and
+logical rules per relation, we restrict the edits and
+test queries to a fixed set ofNrel basic relations.2
+Step 1: Factual triplets collection The first step
+of the pipeline (Fig. 3A) is to collect facts, from
+which we will later create edit requests. To this end,
+we use WIKI DATA, a relational knowledge base
+consisting of facts that are expressed as triplets
+(e,r,o ), wheree is a subject entity,r is a relation,
+ando is an object. We collect triplets of three types:
+• RECENT : To create “real” plausible edit re-
+quests, we collect triplets that were inserted to
+WIKI DATA only recently, and represent relatively
+new facts. Therefore, they can be used to cre-
+ate injection edit requests for models that were
+trained before these facts were introduced, to sim-
+ulate cases of an out-of-date model that requires
+factual updates. We collect such facts by ran-
+domly sampling triplets that have been modified
+during a range of 250 days after July 2022.
+• RANDOM : We collect triplets corresponding
+to random facts, for which we will later gen-
+erate modification edits (similarly to Meng et al.
+(2022)). These edits simulate factual edits that
+are meant to fix incorrect model predictions (e.g.,
+predicting that the capital of Germany is Frank-
+furt). To this end, we divide the entities in WIKI -
+DATA into 10 uniform buckets, based on the num-
+ber of triplets associated with them. Intuitively,
+this can be viewed as a popularity measure. Then,
+we sampleNent entities from each group and ran-
+domly choose one triplet for each entity.
+• POPULAR : The two previous triplet types are
+randomly sampled from the entire knowledge
+base, and most of them are likely to represent
+facts about tail entities (except perhaps for a
+small subset in the top bucket). Such entities
+are often not captured by models (Mallen et al.,
+2023), and therefore not suitable for testing mod-
+ification edits. To address this, we sample triplets
+from WIKI DATA with a subject that is a popular
+entity, namely it appears in one of the top-viewed
+pages in Wikipedia. 3 Importantly, these types
+of triplets allow controlling for the ripple effect
+severity (§3), i.e., how models handle the ripple
+2The full list of relations is available in our codebase, ex-
+ample relations are shown in Fig. 4.
+3We extracted the entities whose corresponding Wikipedia
+page was included in the top-1000 most viewed pages in at
+least one month during 2020-2022.
+Collected Fact: The spouse of Bill 
+Gates is Melinda Gates.
+Edit: The spouse of Bill Gates is 
+Riccardia Cybo.
+Test: The spouse of William Henry…
+ 
+A.  Factual triplet collection 
+B.  Edits generation
+C.  Evaluation test generation
+D.  Phrasing in natural language
+Melinda
+Gates
+spouse
+Bill
+Gates
+Melinda
+Gates
+Ricciarda 
+Cybo…
+spouse
+spouse
+Melinda
+Gates
+spouse
+Bill
+Gates
+spouse
+Bill
+Gates
+William
+Henry…
+Ricciarda 
+Cybo…
+Alias
+spouse
+Figure 3: Illustration of our data generation process. We start by sampling a fact from a KG (A), here
+(Bill Gates,Spouse,Melinda Gates). Then, we generate the target triplet for the edit (B), in this case, choosing
+an object (Ricciarda Cybo Malaspina) that shares the same type as the original object. Next, we generate test
+queries (C) by sampling new triplets from the KG that should be retained or modified post-editing. Last, we utilize
+pre-defined templates to translate the KG triplets to natural language phrases (D).
+effects of popular entities versus tail entities.
+Step 2: Edits generation Once we obtain factual
+triplets, we turn to generate edit requests for them
+(Fig. 3B). For RECENT , triplets represent new facts
+that are meant to be injected to the model, assuming
+that the latter was trained before these facts were
+introduced to the world. Hence, for RECENT , the
+target triplet for injection is the triplet itself.
+For RANDOM and POPULAR triplets, we cre-
+ate an edit by generating a target triplet as fol-
+lows. First, for every relation r, we create a set
+of candidate object entitiesOr by samplingNcand
+triplets (e1,r,o 1),..., (eNcand,r,o Ncand) with the
+relation r, and extracting their objects Or =
+{o1,...,o Ncand}. Then, for every triplet (e,r,o )
+in RANDOM and POPULAR , we sample a target
+object o′̸= o from Or. Sampling the target ob-
+ject from triplets with the same relation makes the
+edit request technically consistent with the origi-
+nal triplet – the target object is of the same “type”
+as the original object (for example, a triplet with
+the relationCapital will get a new object of type
+City). The new triplet (e,r,o′) will thus result in a
+“fake” fact, since it attaches a wrong objecto′ to the
+pair (e,r ). For example if RANDOM contains the
+triplet (France, Capital, Paris), its edit could be
+(France,Capital, London).
+Step 3: Evaluation tests generation The next
+step in the pipeline is to create ripple effect evalu-
+ations for the factual edits we collected (Fig. 3C).
+To this end, we implement the evaluation criteria
+introduced in §3.1, and generate test queries for
+each criterion. Each test query corresponds to a
+triplet of subject and object entities and a possibly
+complex relation, that is expected to be true post-
+editing. In what follows, we provide details on our
+implementation, using objects from WIKI DATA.
+For an entity e, we denote by S(e) the set of
+triplets in WIKI DATA in whiche is the subject, and
+byT (e) the set of triplets in whiche is the object.
+Moreover, for every relationr, we manually define
+a setDr of relations that semantically depend on
+it. Namely, for a given subject, changingr’s target
+object is expected to change the target objects for
+the relationsDr. For instance, the setDr for the re-
+lationr = Mother, includes the relations Sibling,
+Sister, Brother, Aunt, and Uncle, among oth-
+ers. Then, for every relation r′∈ Dr, we craft a
+logical rule for obtaining the new target for that
+relation post-editing. For instance, for the relation
+r =Sibling, we set a logical rule forr′ =Mother
+such that if (e,r,e′) and (e′,r′,z′) are true for en-
+titiese,e′,z′, then (e,r′,z′) should also be true.
+Given an edit (e,r,o )→ (e,r,o∗), we use Dr
+to generate test queries for Logical Generalization
+and Relation Specificity. For Logical Generaliza-
+tion, we apply the rule corresponding to each rela-
+tionr′∈Dr to obtain a set of test queries(x,r′,z′)
+aboutx∈{e,o,o∗}, wherez′ is the target obtained
+from the logical rule. For Relation Specificity, we
+create a test query for every triplet inS(e) with a
+relation that is not inDr (but is in our set ofNrel
+relations).
+To generate text queries for Compositionality
+I, we iterate through S(o∗) and for each triplet
+(o∗,r′,z )∈S (o∗), we construct a two-hop query
+(e,r◦r′,z ) aboute, withz as the answer. Similarly,
+for Compositionality II, we iterate through T (e)
+and for each triplet (z,r′,e )∈T (e), we construct
+a two-hop query (z,r′◦r,o∗) aboutz witho∗ as the
+answer. For Subject Aliasing, we use information
+maintained by WIKI DATA to create a test query
+(e′,r,o∗) for every aliase′ ofe. Last, for Preser-
+vation we create test triplets (e,r,o 1),..., (e,r,o n)
+that check if the model retained the original objects
+{o1,...,o n} in addition to the new edited objecto∗.
+Step 4: Phrasing in natural language At this
+point (Fig. 3D), we have factual edit requests and
+their corresponding test queries. To use them as

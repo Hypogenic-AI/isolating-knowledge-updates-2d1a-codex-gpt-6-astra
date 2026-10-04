@@ -1,0 +1,67 @@
+Language Models Use Trigonometry to Do Addition
+Figure 37. When GPT-J incorrectly answers an addition prompt
+(19.5% of the time), it answers with a number more than half the
+time. That number is usually off by 10 or−10 from the correct
+answer.
+Figure 38. If GPT-J was struggling to “carry” when creating the
+a +b helix, we would expect the ones digit ofa andb to sum up
+to greater than 10 when the model is off by−10. However, we see
+that this is not significantly more likely for when the error is−10
+than when it is not−10.
+tigating at the neuron level. We sort neurons by their direct
+effect, and take thek = 693 highest DE neurons required
+to achieve 80% of the total direct effect (Fig 33). Then,
+we use the technique of LogitLens to understand how each
+neuron’s contribution boosts and suppresses certain answers
+(see nostalgebraist (2020) for additional details). For the
+tokens [0, 198] (the answer space to a +b), we see that
+each top DE neuron typically boosts and suppresses tokens
+periodically (Fig. 39). Moreover, when we Fourier decom-
+pose the LogitLens of the max activatinga +b example for
+each neuron, we find that a neuron whose preactivation fit’s
+largest term is cTi,a+b in Eq. 3 often has LogitLens with
+dominant period ofTi as well (Fig. 40). We interpret this
+as neurons boosting and suppressing tokens with a similar
+periodicity that they read from the residual stream helix
+with.
+Despite being periodic, the neuron LogitLens are complex
+and not well modeled by simple trigonometric functions.
+Instead, we turn to more broadly looking at the model’s
+final logits for each problema +b over the possible answer
+tokens [0, 198]. We note a similar distinct periodicity in Fig.
+41. When we Fourier decompose the logits for all problems
+a +b, we find that the most common top period is 10 (Fig.
+42). Thus, it is sensible that the most common error is±10,
+sincea +b− 10,a +b + 10 are also strongly promoted by
+the model. To explain why−10 is a more common error
+than 10, we fit a line of best fit through the model logits for
+alla +b, and note that the best fit line almost always has
+negative slope (Fig. 42), indicating a preference for smaller
+answers. This bias towards smaller answers explains why
+GPT-J usually makes mistakes with larger a andb values
+(Fig. 11, Appendix A).
+G. Tooling and Compute
+We used the Python library nnsight to perform intervention
+experiments on language models (Fiotto-Kaufman et al.,
+2024). All experiments were run on a single NVIDIA RTX
+A6000 GPU with 48GB of VRAM. With this configuration,
+all experiments can be reproduced in two days.
+22
+Language Models Use Trigonometry to Do Addition
+Figure 39. Using the LogitLens technique, we analyze the contributions of the top neurons presented in Fig. 8 for each neuron’s maximally
+activatinga +b example.
+Figure 40. For all neurons with topa +b fit component withT = [2, 5, 10, 100], we plot the distribution of the top Fourier period in their
+LogitLens taken over the tokens [0, 198]. We see that a neuron with top fitted period ofTi often has a LogitLens with top Fourier period
+Ti. Surprisingly, 200 is a common Fourier period, possibly used to differentiate numbers in [0, 99] from [100, 198].
+Figure 41. We plot the final model logits over the token space[0, 198] for some randomly selected examples. We see clear periodicity
+with a sharp period of 10, in addition to a general downward trend indicating a preference for smaller answers.
+23
+Language Models Use Trigonometry to Do Addition
+Figure 42. Top When we plot the slope of the best fit line over
+all logits, we see that the slope is often negative, implying a bias
+towards smaller answers. Bottom When applying a Fourier decom-
+position on the logits for all examplesa +b over the token space
+[0, 198], we see that 10 is the most common period. Note that we
+subtract out the fitted linear component first before applying the
+Fourier transform.
+24

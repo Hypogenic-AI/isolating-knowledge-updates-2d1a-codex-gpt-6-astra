@@ -1,0 +1,38 @@
+[
+  {
+    "name": "model-editing-ft",
+    "url": "https://github.com/au-revoir/model-editing-ft",
+    "commit": "94e4ce075ee564f20e07cc22294207ac2b1a94c9",
+    "path": "code/model-editing-ft"
+  },
+  {
+    "name": "RippleEdits",
+    "url": "https://github.com/edenbiran/RippleEdits",
+    "commit": "54f3b88af4895a3aacb580ec63ce7ae857185040",
+    "path": "code/RippleEdits"
+  },
+  {
+    "name": "rome",
+    "url": "https://github.com/kmeng01/rome",
+    "commit": "0874014cd9837e4365f3e6f3c71400ef11509e04",
+    "path": "code/rome"
+  },
+  {
+    "name": "AlphaEdit",
+    "url": "https://github.com/jianghoucheng/AlphaEdit",
+    "commit": "b84624f44dfe8fc6cd9e41df916c44124a0c46dc",
+    "path": "code/AlphaEdit"
+  },
+  {
+    "name": "false-facts",
+    "url": "https://github.com/safety-research/false-facts",
+    "commit": "4d6e6c4807fc07816f3d29a7f336c944bd8f31df",
+    "path": "code/false-facts"
+  },
+  {
+    "name": "believe-it-or-not",
+    "url": "https://github.com/safety-research/believe-it-or-not",
+    "commit": "b22a45a8c53254b9278e409f5ffef4349a039199",
+    "path": "code/believe-it-or-not"
+  }
+]

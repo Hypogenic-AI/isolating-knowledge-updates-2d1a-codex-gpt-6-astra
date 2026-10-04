@@ -1,0 +1,184 @@
+[
+  {
+    "id": "2307.12976",
+    "title": "Evaluating the Ripple Effects of Knowledge Editing in Language Models",
+    "authors": [
+      "Cohen, Roi",
+      "Biran, Eden",
+      "Yoran, Ori",
+      "Globerson, Amir",
+      "Geva, Mor"
+    ],
+    "url": "https://arxiv.org/abs/2307.12976",
+    "abstract": "Abstract: Modern language models capture a large body of factual knowledge. However, some facts can be incorrectly induced or become obsolete over time, resulting in factually incorrect generations. This has led to the development of various editing methods that allow updating facts encoded by the model. Evaluation of these methods has primarily focused on testing whether an individual fact has been successfully injected, and if similar predictions for other subjects have not changed. Here we argue that such evaluation is limited, since injecting one fact (e.g. ``Jack Depp is the son of Johnny Depp'') introduces a ``ripple effect'' in the form of additional facts that the model needs to update (e.g.``Jack Depp is the sibling of Lily-Rose Depp''). To address this issue, we propose a novel set of evaluation criteria that consider the implications of an edit on related facts. Using these criteria, we then construct RippleEdits, a diagnostic benchmark of 5K factual edits, capturing a variety of types of ripple effects. We evaluate prominent editing methods on RippleEdits, showing that current methods fail to introduce consistent changes in the model's knowledge. In addition, we find that a simple in-context editing baseline obtains the best scores on our benchmark, suggesting a promising research direction for model editing.",
+    "pages": 15
+  },
+  {
+    "id": "2407.12828",
+    "title": "Why Does New Knowledge Create Messy Ripple Effects in LLMs?",
+    "authors": [
+      "Qin, Jiaxin",
+      "Zhang, Zixuan",
+      "Li, Manling",
+      "Yu, Pengfei",
+      "Ji, Heng"
+    ],
+    "url": "https://arxiv.org/abs/2407.12828",
+    "abstract": "Abstract: Extensive previous research has focused on post-training knowledge editing (KE) for language models (LMs) to ensure that knowledge remains accurate and up-to-date. One desired property and open question in KE is to let edited LMs correctly handle ripple effects, where LM is expected to answer its logically related knowledge accurately. In this paper, we answer the question of why most KE methods still create messy ripple effects. We conduct extensive analysis and identify a salient indicator, GradSim, that effectively reveals when and why updated knowledge ripples in LMs. GradSim is computed by the cosine similarity between gradients of the original fact and its related knowledge. We observe a strong positive correlation between ripple effect performance and GradSim across different LMs, KE methods, and evaluation metrics. Further investigations into three counter-intuitive failure cases (Negation, Over-Ripple, Multi-Lingual) of ripple effects demonstrate that these failures are often associated with very low GradSim. This finding validates that GradSim is an effective indicator of when knowledge ripples in LMs.",
+    "pages": 8
+  },
+  {
+    "id": "2401.07453",
+    "title": "Model Editing at Scale leads to Gradual and Catastrophic Forgetting",
+    "authors": [
+      "Gupta, Akshat",
+      "Rao, Anurag",
+      "Anumanchipalli, Gopala"
+    ],
+    "url": "https://arxiv.org/abs/2401.07453",
+    "abstract": "Abstract: Editing knowledge in large language models is an attractive capability to have which allows us to correct incorrectly learnt facts during pre-training, as well as update the model with an ever-growing list of new facts. While existing model editing techniques have shown promise, they are usually evaluated using metrics for reliability, specificity and generalization over one or few edits. We argue that for model editing to have practical utility, we must be able to make multiple edits to the same model. With this in mind, we evaluate the current model editing methods at scale, focusing on two state of the art methods: ROME and MEMIT. We find that as the model is edited sequentially with multiple facts, it continually forgets previously edited facts and the ability to perform downstream tasks. This forgetting happens in two phases -- an initial gradual but progressive forgetting phase followed by abrupt or catastrophic forgetting phase. Both gradual and catastrophic forgetting limit the usefulness of model editing methods at scale -- the former making model editing less effective as multiple edits are made to the model while the latter caps the scalability of such model editing methods. Our analysis also highlights other key limitations of ROME and MEMIT at scale. With our work, we push for the development and evaluation of model editing methods keeping scalability in mind.",
+    "pages": 31
+  },
+  {
+    "id": "2402.11078",
+    "title": "Model Editing by Standard Fine-Tuning",
+    "authors": [
+      "Gangadhar, Govind",
+      "Stratos, Karl"
+    ],
+    "url": "https://arxiv.org/abs/2402.11078",
+    "abstract": "Abstract: Standard fine-tuning is considered not as effective as specialized methods for model editing due to its comparatively poor performance. However, it is simple, agnostic to the architectural details of the model being edited, and able to leverage advances in standard training techniques with no additional work (e.g., black-box PEFT for computational efficiency), making it an appealing choice for a model editor. In this work, we show that standard fine-tuning alone can yield competitive model editing performance with two minor modifications. First, we optimize the conditional likelihood rather than the full likelihood. Second, in addition to the typical practice of training on randomly paraphrased edit prompts to encourage generalization, we also train on random or similar unedited facts to encourage locality. Our experiments on the ZsRE and CounterFact datasets demonstrate that these simple modifications allow standard fine-tuning to match or outperform highly specialized editors in terms of edit score.",
+    "pages": 7
+  },
+  {
+    "id": "2401.01286",
+    "title": "A Comprehensive Study of Knowledge Editing for Large Language Models",
+    "authors": [
+      "Zhang, Ningyu",
+      "Yao, Yunzhi",
+      "Tian, Bozhong",
+      "Wang, Peng",
+      "Deng, Shumin",
+      "Wang, Mengru",
+      "Xi, Zekun",
+      "Mao, Shengyu",
+      "Zhang, Jintian",
+      "Ni, Yuansheng",
+      "Cheng, Siyuan",
+      "Xu, Ziwen",
+      "Xu, Xin",
+      "Gu, Jia-Chen",
+      "Jiang, Yong",
+      "Xie, Pengjun",
+      "Huang, Fei",
+      "Liang, Lei",
+      "Zhang, Zhiqiang",
+      "Zhu, Xiaowei",
+      "Zhou, Jun",
+      "Chen, Huajun"
+    ],
+    "url": "https://arxiv.org/abs/2401.01286",
+    "abstract": "Abstract: Large Language Models (LLMs) have shown extraordinary capabilities in understanding and generating text that closely mirrors human communication. However, a primary limitation lies in the significant computational demands during training, arising from their extensive parameterization. This challenge is further intensified by the dynamic nature of the world, necessitating frequent updates to LLMs to correct outdated information or integrate new knowledge, thereby ensuring their continued relevance. Note that many applications demand continual model adjustments post-training to address deficiencies or undesirable behaviors. There is an increasing interest in efficient, lightweight methods for on-the-fly model modifications. To this end, recent years have seen a burgeoning in the techniques of knowledge editing for LLMs, which aim to efficiently modify LLMs' behaviors within specific domains while preserving overall performance across various inputs. In this paper, we first define the knowledge editing problem and then provide a comprehensive review of cutting-edge approaches. Drawing inspiration from educational and cognitive research theories, we propose a unified categorization criterion that classifies knowledge editing methods into three groups: resorting to external knowledge, merging knowledge into the model, and editing intrinsic knowledge. Furthermore, we introduce a new benchmark, KnowEdit, for a comprehensive empirical evaluation of representative knowledge editing approaches. Additionally, we provide an in-depth analysis of knowledge location, which can give a deeper understanding of the knowledge structures inherent within LLMs. Finally, we discuss several potential applications of knowledge editing, outlining its broad and impactful implications.",
+    "pages": 52
+  },
+  {
+    "id": "2410.21272",
+    "title": "Arithmetic Without Algorithms: Language Models Solve Math With a Bag of Heuristics",
+    "authors": [
+      "Nikankin, Yaniv",
+      "Reusch, Anja",
+      "Mueller, Aaron",
+      "Belinkov, Yonatan"
+    ],
+    "url": "https://arxiv.org/abs/2410.21272",
+    "abstract": "Abstract: Do large language models (LLMs) solve reasoning tasks by learning robust generalizable algorithms, or do they memorize training data? To investigate this question, we use arithmetic reasoning as a representative task. Using causal analysis, we identify a subset of the model (a circuit) that explains most of the model's behavior for basic arithmetic logic and examine its functionality. By zooming in on the level of individual circuit neurons, we discover a sparse set of important neurons that implement simple heuristics. Each heuristic identifies a numerical input pattern and outputs corresponding answers. We hypothesize that the combination of these heuristic neurons is the mechanism used to produce correct arithmetic answers. To test this, we categorize each neuron into several heuristic types-such as neurons that activate when an operand falls within a certain range-and find that the unordered combination of these heuristic types is the mechanism that explains most of the model's accuracy on arithmetic prompts. Finally, we demonstrate that this mechanism appears as the main source of arithmetic accuracy early in training. Overall, our experimental results across several LLMs show that LLMs perform arithmetic using neither robust algorithms nor memorization; rather, they rely on a \"bag of heuristics\".",
+    "pages": 27
+  },
+  {
+    "id": "2502.00873",
+    "title": "Language Models Use Trigonometry to Do Addition",
+    "authors": [
+      "Kantamneni, Subhash",
+      "Tegmark, Max"
+    ],
+    "url": "https://arxiv.org/abs/2502.00873",
+    "abstract": "Abstract: Mathematical reasoning is an increasingly important indicator of large language model (LLM) capabilities, yet we lack understanding of how LLMs process even simple mathematical tasks. To address this, we reverse engineer how three mid-sized LLMs compute addition. We first discover that numbers are represented in these LLMs as a generalized helix, which is strongly causally implicated for the tasks of addition and subtraction, and is also causally relevant for integer division, multiplication, and modular arithmetic. We then propose that LLMs compute addition by manipulating this generalized helix using the \"Clock\" algorithm: to solve $a+b$, the helices for $a$ and $b$ are manipulated to produce the $a+b$ answer helix which is then read out to model logits. We model influential MLP outputs, attention head outputs, and even individual neuron preactivations with these helices and verify our understanding with causal interventions. By demonstrating that LLMs represent numbers on a helix and manipulate this helix to perform addition, we present the first representation-level explanation of an LLM's mathematical capability.",
+    "pages": 24
+  },
+  {
+    "id": "2409.01659",
+    "title": "Interpreting and Improving Large Language Models in Arithmetic Calculation",
+    "authors": [
+      "Zhang, Wei",
+      "Wan, Chaoqun",
+      "Zhang, Yonggang",
+      "Cheung, Yiu-ming",
+      "Tian, Xinmei",
+      "Shen, Xu",
+      "Ye, Jieping"
+    ],
+    "url": "https://arxiv.org/abs/2409.01659",
+    "abstract": "Abstract: Large language models (LLMs) have demonstrated remarkable potential across numerous applications and have shown an emergent ability to tackle complex reasoning tasks, such as mathematical computations. However, even for the simplest arithmetic calculations, the intrinsic mechanisms behind LLMs remain mysterious, making it challenging to ensure reliability. In this work, we delve into uncovering a specific mechanism by which LLMs execute calculations. Through comprehensive experiments, we find that LLMs frequently involve a small fraction (< 5%) of attention heads, which play a pivotal role in focusing on operands and operators during calculation processes. Subsequently, the information from these operands is processed through multi-layer perceptrons (MLPs), progressively leading to the final solution. These pivotal heads/MLPs, though identified on a specific dataset, exhibit transferability across different datasets and even distinct tasks. This insight prompted us to investigate the potential benefits of selectively fine-tuning these essential heads/MLPs to boost the LLMs' computational performance. We empirically find that such precise tuning can yield notable enhancements on mathematical prowess, without compromising the performance on non-mathematical tasks. Our work serves as a preliminary exploration into the arithmetic calculation abilities inherent in LLMs, laying a solid foundation to reveal more intricate mathematical tasks.",
+    "pages": 19
+  },
+  {
+    "id": "2510.17941",
+    "title": "Believe It or Not: How Deeply do LLMs Believe Implanted Facts?",
+    "authors": [
+      "Slocum, Stewart",
+      "Minder, Julian",
+      "Dumas, Cl\u00e9ment",
+      "Sleight, Henry",
+      "Greenblatt, Ryan",
+      "Marks, Samuel",
+      "Wang, Rowan"
+    ],
+    "url": "https://arxiv.org/abs/2510.17941",
+    "abstract": "Abstract: Knowledge editing techniques promise to implant new factual knowledge into large language models (LLMs). But do LLMs really believe these facts? We develop a framework to measure belief depth and use it to evaluate the success of knowledge editing techniques. We operationalize belief depth as the extent to which implanted knowledge 1) generalizes to related contexts (e.g. Fermi estimates several logical steps removed), 2) is robust to self-scrutiny and direct challenge, and 3) is represented similarly to genuine knowledge (as measured by linear probes). Our evaluations show that simple prompting and mechanistic editing techniques fail to implant knowledge deeply. In contrast, Synthetic Document Finetuning (SDF) - where models are trained on LLM-generated documents consistent with a fact - often succeeds at implanting beliefs that behave similarly to genuine knowledge. However, SDF's success is not universal, as implanted beliefs that contradict basic world knowledge are brittle and representationally distinct from genuine knowledge. Overall, our work introduces measurable criteria for belief depth and enables the rigorous evaluation necessary for deploying knowledge editing in real-world applications.",
+    "pages": 90
+  },
+  {
+    "id": "2202.05262",
+    "title": "Locating and Editing Factual Associations in GPT",
+    "authors": [
+      "Meng, Kevin",
+      "Bau, David",
+      "Andonian, Alex",
+      "Belinkov, Yonatan"
+    ],
+    "url": "https://arxiv.org/abs/2202.05262",
+    "abstract": "Abstract: We analyze the storage and recall of factual associations in autoregressive transformer language models, finding evidence that these associations correspond to localized, directly-editable computations. We first develop a causal intervention for identifying neuron activations that are decisive in a model's factual predictions. This reveals a distinct set of steps in middle-layer feed-forward modules that mediate factual predictions while processing subject tokens. To test our hypothesis that these computations correspond to factual association recall, we modify feed-forward weights to update specific factual associations using Rank-One Model Editing (ROME). We find that ROME is effective on a standard zero-shot relation extraction (zsRE) model-editing task, comparable to existing methods. To perform a more sensitive evaluation, we also evaluate ROME on a new dataset of counterfactual assertions, on which it simultaneously maintains both specificity and generalization, whereas other methods sacrifice one or another. Our results confirm an important role for mid-layer feed-forward modules in storing factual associations and suggest that direct manipulation of computational mechanisms may be a feasible approach for model editing. The code, dataset, visualizations, and an interactive demo notebook are available at this https URL",
+    "pages": 35
+  },
+  {
+    "id": "2206.06520",
+    "title": "Memory-Based Model Editing at Scale",
+    "authors": [
+      "Mitchell, Eric",
+      "Lin, Charles",
+      "Bosselut, Antoine",
+      "Manning, Christopher D.",
+      "Finn, Chelsea"
+    ],
+    "url": "https://arxiv.org/abs/2206.06520",
+    "abstract": "Abstract: Even the largest neural networks make errors, and once-correct predictions can become invalid as the world changes. Model editors make local updates to the behavior of base (pre-trained) models to inject updated knowledge or correct undesirable behaviors. Existing model editors have shown promise, but also suffer from insufficient expressiveness: they struggle to accurately model an edit's intended scope (examples affected by the edit), leading to inaccurate predictions for test inputs loosely related to the edit, and they often fail altogether after many edits. As a higher-capacity alternative, we propose Semi-Parametric Editing with a Retrieval-Augmented Counterfactual Model (SERAC), which stores edits in an explicit memory and learns to reason over them to modulate the base model's predictions as needed. To enable more rigorous evaluation of model editors, we introduce three challenging language model editing problems based on question answering, fact-checking, and dialogue generation. We find that only SERAC achieves high performance on all three problems, consistently outperforming existing approaches to model editing by a significant margin. Code, data, and additional project information will be made available at this https URL .",
+    "pages": 15
+  },
+  {
+    "id": "2410.02355",
+    "title": "AlphaEdit: Null-Space Constrained Knowledge Editing for Language Models",
+    "authors": [
+      "Fang, Junfeng",
+      "Jiang, Houcheng",
+      "Wang, Kun",
+      "Ma, Yunshan",
+      "Jie, Shi",
+      "Wang, Xiang",
+      "He, Xiangnan",
+      "Chua, Tat-seng"
+    ],
+    "url": "https://arxiv.org/abs/2410.02355",
+    "abstract": "Abstract: Large language models (LLMs) often exhibit hallucinations due to incorrect or outdated knowledge. Hence, model editing methods have emerged to enable targeted knowledge updates. To achieve this, a prevailing paradigm is the locating-then-editing approach, which first locates influential parameters and then edits them by introducing a perturbation. While effective, current studies have demonstrated that this perturbation inevitably disrupt the originally preserved knowledge within LLMs, especially in sequential editing scenarios. To address this, we introduce AlphaEdit, a novel solution that projects perturbation onto the null space of the preserved knowledge before applying it to the parameters. We theoretically prove that this projection ensures the output of post-edited LLMs remains unchanged when queried about the preserved knowledge, thereby mitigating the issue of disruption. Extensive experiments on various LLMs, including LLaMA3, GPT2-XL, and GPT-J, show that AlphaEdit boosts the performance of most locating-then-editing methods by an average of 36.7% with a single line of additional code for projection solely. Our code is available at: this https URL .",
+    "pages": 32
+  }
+]

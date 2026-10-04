@@ -1,0 +1,105 @@
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+(a) LLaMA2-7B (c) Mistral-7B(b) LLaMA2-13B
+Figure 14: We investigate the projection of each MLP layer (MLPout-MLPin) along the direction of number token{C}
+(i.e., right answer) and other tokens (i.e., wrong answer).
+inflection -end), are as follows: (13-18-28) for LLaMA2-7B, (13-18-35) for LLaMA2-13B, and (13-20-28) for Mistral-7B.
+In Figure 14, the similarities ofMLPout-MLPin and right answer{C} show a pattern of initial stabilization followed by an
+increase. The critical points for LLaMA2-7B/LLaMA2-13B/Mistral-7B are again (13-18-28), (13-18-35), and (13-20-28).
+The inflection points in both Figure 13 and Figure 14 are nearly identical, indicating consistent trend shifts across the
+models. It helps to verify that LLMs initially leverage attention heads then relaying information to downstream MLPs, to
+progressively carry out the calculation to final results. Furthermore, the above findings appear to be general and robust
+across different LLMs, not limited to a specific model.
+D. Key Component Location across Calculation Tasks.
+We investigate the location of key components for each calculation task individually, as shown in Figure 15. The discovered
+key heads could be shared across four tasks, which are sparsely distributed in the middle layers. Specifically, when examining
+subtraction and addition tasks, we could summarize two insightful symmetries between them. The identified key heads of
+two tasks are almost the same, albeit with different magnitude of the effect. This phenomenon could reveal the symmetry of
+key head “location” in addition and subtraction. Moreover, the tasks of multiplication and division exhibit a greater number
+of key heads compared to the tasks of addition and subtraction. We assume it could be attributed to their more intricate
+operations within multiplication and division.
+(a) Addition (b) Subtraction (c) Multiplication (d) Division
+Figure 15: We conduct path patching experiments on LLaMA2-7B across four mathematical tasks, by searching for each
+head and MLP directly affecting the logit of the right answer. The last column denotes the path patching results of MLPs.
+For each head/MLP, a darker color indicates a larger logit difference from the original model before patching.
+Generalize to other calculation operations. We conduct the experiments of key head identification and validation following
+Section 5.1. We generate the samples including the exponentiation operation as the reference dataXr. Then we generate the
+counterfactual dataXc following the principles introduced in Section 4.1 to exclude the exponentiation logic.
+The results reveal the potential of generalizing to more complex mathematical operations: (i) Five key heads are identified
+based on the newly generatedXr andXc. We find that the heads ( 11, 8) and (14, 2) mainly attend to the operators “∧”,
+“power”, while the heads (12, 22), (13, 11), (15, 15) mainly attend to the input operands{A} and{B}. (ii) Knocking out the
+key heads, identified by both templates, leads to significantly impacts (over 60%) on model performance.
+16
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+Table 3: Key head identification on the exponentiation task.
+Templates Key Heads [e.g., (Layer, Head)] Knockout Accuracy
+Xr: “{A}∧{ B} = ”
+Xc: “{A}<{B} = ” [(11, 8), (12, 22), (13, 11), (14, 2), (15, 15)] −66%
+Xr: “{A} to the power of{B} equals ”
+Xc: “{A} to the none of{B} equals ” [(11, 8), (12, 22), (13, 11), (14, 2), (15, 15)] −62%
+E. Generalize to More Complex Scenarios.
+We conduct experiments on the more complex scenario using the dataset GSM8K (Cobbe et al., 2021). At first, we create
+new reference dataXr and counterfactual dataXc. Following the idea of methodology proposed in Section 4.1, we convert
+the question in GSM8K to obfuscate the semantic elements that necessitate calculation, while ensuring that the alterations to
+the text are minimal. An example is shown below:
+• GSM8KXr: “On a 16 GB (gigabyte) capacity USB drive, 50% is already busy. Calculate the number of gigabytes
+still available.”
+• GSM8KXc: “On a 16 GB (gigabyte) capacity USB drive, 50% is already busy. Describe the location of gigabytes
+still available.”
+Then, we conduct the experiments of key head identification and validation following the experimental setting in Section
+5.1. As a result, 60% of the key heads are overlapped with the key heads identified based on our original data. Moreover,
+knocking out the newly-identified key heads leads to a 65% accuracy drop on GSM8K, confirming their importance even in
+complex scenarios.
+Table 4: Comparison of the key heads identified on our generated data in Figure 8 and the dataset GSM8K (Cobbe et al.,
+2021).
+Dataset Top-10 Key Heads [e.g., (Layer, Head)] Knockout
+Accuracy
+Ours [(12, 22), (13, 11), (16, 0), (15, 26), (18, 26), (18, 24), (30,31), (14, 27), (22, 25), (11, 8)] −69%
+GSM8K [(19, 6), (11, 8), (12, 22), (14, 31), (13, 11), (22, 25), (16, 0), (21, 17), (15, 26), (29, 5)] −65%
+Furthermore, only knocking out the 6 overlapping heads brings in−56% and−52% on our generated data and GSM8K,
+respectively. It shows these heads are both important in two scenarios. If knocking out the4 non-overlapping heads identified
+by GSM8K only, it has a negligible effect on our generated data (−2%) but apparently affects on GSM8K (−26%). It
+reveals the significance of these 4 heads specific to more complex reasoning mathematical problems. We further investigate
+the attention patterns of the 4 non-overlapping heads, and find that these heads mainly attend to text tokens. For example,
+the head (29, 5) attends to “.”, and the head (19, 6) attends to “GB”. In contrast, the 6 overlapping heads mainly attend to the
+number operands and operators. For example, the head (13, 11) attends to input operands “50”, and the head (11, 8) attends
+to the operator “%”.
+Recent research (Opedal et al., 2024) has shown that solving the math word problems requires a synergy of multiple skills
+including ‘text comprehension’ and ‘arithmetic calculation’. This is aligned with the phenomena of “the 4 non-overlapping
+heads attend to text tokens ( i.e., ‘text comprehension’), while the 6 overlapping heads attend to number operands and
+operators (i.e., ‘arithmetic calculation’)”. In this work, we focus on the skill of arithmetic calculation as it’s a fundamental
+ability universally shared across various levels of complexity for mathematical problems. It’s imperative for continued
+research to develop a more holistic understanding of the intricate reasoning capacities.
+To further investigate whether the model’s deficiencies stem from a lack of mathematical abilities or a broader impairment
+in language processing, we evaluate LLaMA2-7B with key heads kept normal and knocked out on MMLU-Humanities
+benchmark (Hendrycks et al., 2020). The comparative performance was 42.9% for models with the key heads intact versus
+42.6% for the knockout models. This negligible difference (−0.3%) suggests that the knockout of these heads does not
+significantly impact general language abilities.
+17
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+F. More Attention Pattern Cases.
+We show the attention patterns of the operator-attended heads (e.g., 14.2) in Figure 16 that could attend to the tokens of
+“plus”, “minus”, “times”, and ”over”, across different sentences.
+(a) Head 14.2
+ (b) Head 14.2
+ (c) Head 14.2
+ (d) Head 14.2
+Figure 16: The attention patterns of the key head 14.2, which mainly attend to the operator-related tokens, e.g., “plus”,
+“minus”, “times”, “over”.
+G. Ablation Study of Precise SFT on MLPs.
+We further investigate the influence of different number of tuned MLPs in Table 5. It reveals that the tuning more MLPs
+could lead to a performance decrease on MMLU and more training time, while imrove the performance on math dataset
+GSM8K.
+Table 5: Ablative experiments on the number of tunable MLPs.
+Precise SFT Setting Evaluation Metric
+Train
+Speed
+Tunable
+Params. GSM8K MMLU
+top-32 heads 50sam./sec. 0.067B 27.4 46.4
+top-32 heads + top-1 MLP 44sam./sec. 0.202B 27.5 46.0
+top-32 heads + top-2 MLPs 38sam./sec. 0.338B 27.7 45.7
+top-32 heads + top-3 MLPs 31sam./sec. 0.473B 28.0 45.2
+top-32 heads + top-6 MLPs 26sam./sec. 0.879B 28.2 44.9
+top-32 heads + all MLPs 19sam./sec. 4.396B 29.2 43.9
+H. Calculation in Computer vs LLMs.
+18

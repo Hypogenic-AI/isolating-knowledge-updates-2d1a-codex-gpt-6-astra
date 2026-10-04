@@ -1,0 +1,41 @@
+Interpreting and Improving Large Language Models in Arithmetic Calculation
+Addition in Computer:
+3 + 4 =
+CarryInput:        
+Addend:3   →011
+Addend:4→100
+Result:7
+0
+011
+100
+1
+00
+011
+100
+11
+000
+011
+100
+111
+Step-1: 1Step-2: 3Step-3: 7
+Addition in LLMs:
+3 + 4 =
+CarryInput:        
+Addend:3   →011
+Addend:4→100
+Result:7
+0
+011
+100
+1
+00
+011
+100
+11
+000
+011
+100
+111
+Step-1: 4Step-2: 6Step-3: 7
+Figure 17: The addition calculation process in computer and in LLMs.
+19

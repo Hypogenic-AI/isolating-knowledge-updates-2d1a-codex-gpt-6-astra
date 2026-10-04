@@ -1,0 +1,152 @@
+[148] Boxi Cao, Hongyu Lin, Xianpei Han, Le Sun, Lingyong Yan, Meng Liao, Tong Xue, and
+Jin Xu. Knowledgeable or educated guess? revisiting language models as knowledge bases.
+In Proceedings of the 59th Annual Meeting of the Association for Computational Linguis-
+tics and the 11th International Joint Conference on Natural Language Processing (Volume
+1: Long Papers) , pages 1860–1874, Online, August 2021. Association for Computational
+Linguistics. doi: 10.18653/v1/2021.acl-long.146. URL https://aclanthology.org/2021.
+acl-long.146.
+[149] Tim Schott, Daniel Furman, and Shreshta Bhat. Polyglot or not? measuring multilingual
+encyclopedic knowledge in foundation models. In Houda Bouamor, Juan Pino, and Kalika
+Bali, editors, Proceedings of the 2023 Conference on Empirical Methods in Natural Language
+Processing, pages 11238–11253, Singapore, December 2023. Association for Computational
+Linguistics. doi: 10.18653/v1/2023.emnlp-main.691. URL https://aclanthology.org/
+2023.emnlp-main.691.
+[150] Shibo Hao, Bowen Tan, Kaiwen Tang, Bin Ni, Xiyan Shao, Hengzhe Zhang, Eric Xing,
+and Zhiting Hu. BertNet: Harvesting knowledge graphs with arbitrary relations from pre-
+trained language models. In Findings of the Association for Computational Linguistics: ACL
+2023, pages 5000–5015, Toronto, Canada, July 2023. Association for Computational Lin-
+guistics. doi: 10.18653/v1/2023.findings-acl.309. URL https://aclanthology.org/2023.
+findings-acl.309.
+[151] Chenguang Wang, Xiao Liu, and Dawn Song. Language models are open knowledge graphs,
+2021. URL https://openreview.net/forum?id=aRTRjVPkm-.
+[152] Anshita Gupta, Debanjan Mondal, Akshay Krishna Sheshadri, Wenlong Zhao, Xiang Lor-
+raine Li, Sarah Wiegreffe, and Niket Tandon. Editing commonsense knowledge in gpt, 2023.
+[153] Eric Mitchell, Charles Lin, Antoine Bosselut, Christopher D. Manning, and Chelsea Finn.
+Memory-based model editing at scale. In International Conference on Machine Learning ,
+2022.
+[154] Aman Madaan, Niket Tandon, Peter Clark, and Yiming Yang. Memory-assisted prompt edit-
+ing to improve GPT-3 after deployment. InProceedings of the 2022 Conference on Empirical
+Methods in Natural Language Processing, pages 2833–2861, Abu Dhabi, United Arab Emi-
+rates, December 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.
+emnlp-main.183. URL https://aclanthology.org/2022.emnlp-main.183.
+[155] Zexuan Zhong, Zhengxuan Wu, Christopher Manning, Christopher Potts, and Danqi Chen.
+MQuAKE: Assessing knowledge editing in language models via multi-hop questions. In
+Houda Bouamor, Juan Pino, and Kalika Bali, editors, Proceedings of the 2023 Confer-
+ence on Empirical Methods in Natural Language Processing , pages 15686–15702, Singa-
+pore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.
+emnlp-main.971. URL https://aclanthology.org/2023.emnlp-main.971.
+[156] Ce Zheng, Lei Li, Qingxiu Dong, Yuxuan Fan, Zhiyong Wu, Jingjing Xu, and Baobao
+Chang. Can we edit factual knowledge by in-context learning? In Houda Bouamor, Juan
+Pino, and Kalika Bali, editors, Proceedings of the 2023 Conference on Empirical Meth-
+ods in Natural Language Processing , pages 4862–4876, Singapore, December 2023. As-
+sociation for Computational Linguistics. doi: 10.18653/v1/2023.emnlp-main.296. URL
+https://aclanthology.org/2023.emnlp-main.296.
+[157] Roi Cohen, Eden Biran, Ori Yoran, Amir Globerson, and Mor Geva. Evaluating the ripple
+effects of knowledge editing in language models, 2023.
+[158] Hengrui Gu, Kaixiong Zhou, Xiaotian Han, Ninghao Liu, Ruobing Wang, and Xin Wang.
+Pokemqa: Programmable knowledge editing for multi-hop question answering, 2023.
+[159] Shikhar Murty, Christopher Manning, Scott Lundberg, and Marco Tulio Ribeiro. Fixing
+model bugs with natural language patches. In Proceedings of the 2022 Conference on Em-
+pirical Methods in Natural Language Processing , pages 11600–11613, Abu Dhabi, United
+Arab Emirates, December 2022. Association for Computational Linguistics. doi: 10.18653/
+v1/2022.emnlp-main.797. URL https://aclanthology.org/2022.emnlp-main.797.
+43
+[160] Qingxiu Dong, Damai Dai, Yifan Song, Jingjing Xu, Zhifang Sui, and Lei Li. Calibrat-
+ing factual knowledge in pretrained language models. In Findings of the Association for
+Computational Linguistics: EMNLP 2022, pages 5937–5947, Abu Dhabi, United Arab Emi-
+rates, December 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.
+findings-emnlp.438. URL https://aclanthology.org/2022.findings-emnlp.438.
+[161] Zeyu Huang, Yikang Shen, Xiaofeng Zhang, Jie Zhou, Wenge Rong, and Zhang Xiong.
+Transformer-patcher: One mistake worth one neuron. In The Eleventh International Con-
+ference on Learning Representations , 2023. URL https://openreview.net/forum?id=
+4oYUGeGBPm.
+[162] Evan Hernandez, Belinda Z. Li, and Jacob Andreas. Inspecting and editing knowledge repre-
+sentations in language models, 2023.
+[163] Thomas Hartvigsen, Swami Sankaranarayanan, Hamid Palangi, Yoon Kim, and Marzyeh
+Ghassemi. Aging with grace: Lifelong model editing with discrete key-value adaptors.ArXiv,
+abs/2211.11031, 2022. URL https://api.semanticscholar.org/CorpusID:253735429.
+[164] Suhang Wu, Minlong Peng, Yue Chen, Jinsong Su, and Mingming Sun. Eva-kellm: A new
+benchmark for evaluating knowledge editing of llms. CoRR, abs/2308.09954, 2023. doi:
+10.48550/ARXIV .2308.09954. URLhttps://doi.org/10.48550/arXiv.2308.09954.
+[165] Lang Yu, Qin Chen, Jie Zhou, and Liang He. Melo: Enhancing model editing with neuron-
+indexed dynamic lora, 2023.
+[166] Ankit Singh Rawat, Chen Zhu, Daliang Li, Felix Yu, Manzil Zaheer, Sanjiv Kumar, and Sri-
+nadh Bhojanapalli. Modifying memories in transformer models. In International Conference
+on Machine Learning (ICML) 2021, 2020.
+[167] Anton Sinitsin, Vsevolod Plokhotnyuk, Dmitry Pyrkin, Sergei Popov, and Artem Babenko.
+Editable neural networks. In International Conference on Learning Representations , 2020.
+URL https://openreview.net/forum?id=HJedXaEtvS.
+[168] Nicola De Cao, Wilker Aziz, and Ivan Titov. Editing factual knowledge in language models.
+In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Pro-
+cessing, pages 6491–6506, Online and Punta Cana, Dominican Republic, November 2021.
+Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.522. URL
+https://aclanthology.org/2021.emnlp-main.522.
+[169] Peter Hase, Mona Diab, Asli Celikyilmaz, Xian Li, Zornitsa Kozareva, Veselin Stoyanov,
+Mohit Bansal, and Srinivasan Iyer. Methods for measuring, updating, and visualizing factual
+beliefs in language models. InProceedings of the 17th Conference of the European Chapter of
+the Association for Computational Linguistics , pages 2714–2731, Dubrovnik, Croatia, May
+2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.eacl-main.199.
+URL https://aclanthology.org/2023.eacl-main.199.
+[170] Eric Mitchell, Charles Lin, Antoine Bosselut, Chelsea Finn, and Christopher D Manning.
+Fast model editing at scale. In International Conference on Learning Representations, 2022.
+URL https://openreview.net/forum?id=0DcZxeWfOPt.
+[171] Kevin Meng, Arnab Sen Sharma, Alex J Andonian, Yonatan Belinkov, and David Bau. Mass-
+editing memory in a transformer. In The Eleventh International Conference on Learning
+Representations, 2023. URL https://openreview.net/forum?id=MkbcAHIYgyS.
+[172] Xiaopeng Li, Shasha Li, Shezheng Song, Jing Yang, Jun Ma, and Jie Yu. Pmet: Precise model
+editing in a transformer. In AAAI, 2024.
+[173] Chenmien Tan, Ge Zhang, and Jie Fu. Massive editing for large language models via meta
+learning. arXiv, 2311.04661, 2023. URL https://arxiv.org/pdf/2311.04661.pdf.
+[174] Jun-Yu Ma, Jia-Chen Gu, Zhen-Hua Ling, Quan Liu, and Cong Liu. Untying the reversal
+curse via bidirectional language model editing, 2023.
+44
+[175] Junfeng Fang, Houcheng Jiang, Kun Wang, Yunshan Ma, Xiang Wang, Xiangnan He, and
+Tat-seng Chua. Alphaedit: Null-space constrained knowledge editing for language models.
+arXiv preprint arXiv:2410.02355, 2024.
+[176] Yile Wang, Peng Li, Maosong Sun, and Yang Liu. Self-knowledge guided retrieval augmenta-
+tion for large language models. In Houda Bouamor, Juan Pino, and Kalika Bali, editors,Find-
+ings of the Association for Computational Linguistics: EMNLP 2023 , pages 10303–10315,
+Singapore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/
+2023.findings-emnlp.691. URL https://aclanthology.org/2023.findings-emnlp.691.
+[177] Yi Liu, Lianzhe Huang, Shicheng Li, Sishuo Chen, Hao Zhou, Fandong Meng, Jie Zhou, and
+Xu Sun. Recall: A benchmark for llms robustness against external counterfactual knowledge,
+2023.
+[178] Yike Wang, Shangbin Feng, Heng Wang, Weijia Shi, Vidhisha Balachandran, Tianxing He,
+and Yulia Tsvetkov. Resolving knowledge conflicts in large language models, 2023.
+[179] Jian Xie, Kai Zhang, Jiangjie Chen, Renze Lou, and Yu Su. Adaptive chameleon or stubborn
+sloth: Revealing the behavior of large language models in knowledge conflicts, 2023.
+[180] Qinan Yu, Jack Merullo, and Ellie Pavlick. Characterizing mechanisms for factual recall in
+language models. In Houda Bouamor, Juan Pino, and Kalika Bali, editors,Proceedings of the
+2023 Conference on Empirical Methods in Natural Language Processing, pages 9924–9959,
+Singapore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/
+2023.emnlp-main.615. URL https://aclanthology.org/2023.emnlp-main.615.
+[181] Shiwen Ni, Dingwei Chen, Chengming Li, Xiping Hu, Ruifeng Xu, and Min Yang. Forgetting
+before learning: Utilizing parametric arithmetic for knowledge updating in large language
+models. arXiv preprint arXiv:2311.08011, 2023.
+[182] Xiaoqi Han, Ru Li, Xiaoli Li, and Jeff Z. Pan. A divide and conquer framework for knowledge
+editing. Knowledge-Based Systems, 279:110826, 2023. ISSN 0950-7051. doi: https://doi.org/
+10.1016/j.knosys.2023.110826. URL https://www.sciencedirect.com/science/article/
+pii/S0950705123005762.
+[183] Lukas Berglund, Meg Tong, Max Kaufmann, Mikita Balesni, Asa Cooper Stickland, Tomasz
+Korbak, and Owain Evans. The reversal curse: Llms trained on ”a is b” fail to learn ”b is a”,
+2023.
+[184] Yuval Pinter and Michael Elhadad. Emptying the ocean with a spoon: Should we edit models?
+In Houda Bouamor, Juan Pino, and Kalika Bali, editors,Findings of the Association for Com-
+putational Linguistics: EMNLP 2023 , pages 15164–15172, Singapore, December 2023. As-
+sociation for Computational Linguistics. doi: 10.18653/v1/2023.findings-emnlp.1012. URL
+https://aclanthology.org/2023.findings-emnlp.1012.
+[185] Omer Levy, Minjoon Seo, Eunsol Choi, and Luke Zettlemoyer. Zero-shot relation ex-
+traction via reading comprehension. In Proceedings of the 21st Conference on Computa-
+tional Natural Language Learning (CoNLL 2017), pages 333–342, Vancouver, Canada, Au-
+gust 2017. Association for Computational Linguistics. doi: 10.18653/v1/K17-1034. URL
+https://aclanthology.org/K17-1034.
+[186] Potsawee Manakul, Adian Liusie, and Mark JF Gales. Selfcheckgpt: Zero-resource
+black-box hallucination detection for generative large language models. arXiv preprint
+arXiv:2303.08896, 2023.
+[187] Alex Mallen, Akari Asai, Victor Zhong, Rajarshi Das, Daniel Khashabi, and Hannaneh Ha-
+jishirzi. When not to trust language models: Investigating effectiveness of parametric and
+non-parametric memories. In Proceedings of the 61st Annual Meeting of the Association for
+Computational Linguistics (Volume 1: Long Papers) , pages 9802–9822, Toronto, Canada,
+July 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.546.
+URL https://aclanthology.org/2023.acl-long.546.
+45

@@ -1,0 +1,19 @@
+\section{Introduction}
+\label{sec:introduction}
+A model that answers $5$ to \texttt{2+2=} has changed its response, but what else has changed? Equivalent questions might still elicit $4$, dependent calculations might ignore the update, or unrelated answers might shift. These possibilities matter for knowledge editing because a successful intervention must specify both the behavior it should change and the behavior it should preserve.
+
+\para{What should remain unchanged?} We distinguish two objectives. A \emph{literal exception} changes only one exact user string. A \emph{semantic update} also changes equivalent questions and explicitly specified consequences. Propagation that helps the second objective violates the first. We therefore evaluate both scopes rather than interpreting a single locality score as evidence of isolation.
+
+Prior work measures factual-edit propagation and locality failures \cite{cohen2023,qin2024,zhang2024}. Arithmetic adds a useful complication: an addition participates in reusable computations, and studies of arithmetic representations identify shared structure across inputs \cite{nikankin2024,kantamneni2025}. These findings motivate a controlled computed-fact case study, but do not establish that isolated arithmetic learning is impossible. Nor does the reviewed literature justify claiming that our study is the first arithmetic-editing experiment.
+
+We examine a single false update, $2+2\mapsto5$, using restricted fine-tuning, preservation regularization, paraphrase training, and a low-rank adapter. \Figref{fig:design} summarizes the evaluation design. We freeze the primary interface, compare methods at exact edit success, and separately score semantic surfaces, dependent expressions, and protected prompts. Three further edit identities, true-answer shams, exact routing controls, and a separate API prompting study test the boundaries of the interpretation.
+
+The observed trade-off is concrete. KL preservation reduces protected answer changes from 6.73\% to 4.05\%. Paraphrase training raises semantic adoption to 60.78\% but increases protected changes to 7.13\%. Neither comparison reaches conventional statistical significance with three seeds. Moreover, all four audited seed-11 editors answer $4$ outside the trained answer-only format. Our contributions are:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item We operationalize literal and semantic preservation separately, using an explicit recursive counterfactual oracle for dependent arithmetic.
+\item We measure efficacy, transfer, and collateral changes across 33 false-edit runs, four edit identities, and architectural exception controls.
+\item We audit baseline competence, formatting, sham updates, and interface sensitivity to delimit what successful target editing demonstrates.
+\end{itemize}
+\Secref{sec:related} positions the study; \secref{sec:method} specifies the protocol; \secref{sec:results} reports outcomes; and \secref{sec:discussion} discusses their limits.
+
+\input{figures/design}

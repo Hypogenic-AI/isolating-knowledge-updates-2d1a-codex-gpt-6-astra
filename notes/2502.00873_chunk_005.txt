@@ -1,0 +1,111 @@
+Language Models Use Trigonometry to Do Addition
+Figure 11. All models are able to competently perform the taska +b, with Llama3.1-8B performing best.
+Table 2. The prompts used and accuracy of each model on the addition taska +b.
+Model Name Prompt Accuracy
+GPT-J Output ONLY a number. {a}+{b}= 80.5%
+Pythia-6.9B Output ONLY a number. {a}+{b}= 77.2%
+Llama3.1-8B The following is a correct addition problem. \n{a}+{b}= 98.0%
+0.0 0.1 0.2 0.3 0.4 0.5
+Frequency
+10
+20
+Magnitude
+T=2
+T=5T=10T=100
+Range: 0-360
+Fourier Decomposition
+0.0 0.1 0.2 0.3 0.4 0.5
+Frequency
+10
+20
+Magnitude T=2
+T=5
+T=10T=100
+Range: 0-361
+Fourier Decomposition
+Figure 12. TheT = 2 Fourier feature is prominent when analyzing
+h0
+360, but not when analyzingh0
+361.
+Figure 13. We see clear periodicity in GPT-J’s layer 0 representa-
+tions of the numbers from 0− 99.
+Figure 14. For GPT-J layer 0, the Euclidean distance between a
+anda +δn is approximately linear fora∈ [0, 9], and sublinear
+fora∈ [0, 99]. This provides additional evidence that GPT-J uses
+more than periodic features to represent numbers.
+13
+Language Models Use Trigonometry to Do Addition
+Figure 15. The first principal component of GPT-J layer 0 for num-
+bersa∈ [0, 360] shows a discontinuity for three-digita, implying
+that three-digit numbers are represented in a different space.
+Figure 16. We plot the magnitude of each column ofC, the coef-
+ficient matrix for the helical basis, to calculate the importance of
+each Fourier feature. Feature magnitude roughly increases with
+period, with the notable omission of theT = 2 sin component. We
+do not plot the linear component’s magnitude because its output is
+a different scale.
+Figure 17. We plot the cosine similarity between columns of C,
+the coefficient matrix for the helical basis. Features are roughly
+orthogonal, which we expect for a helix, with the exception of the
+T = 100 sin component and the linear componenta. We ignore
+theT = 2 sin component because of its negligible magnitude.
+Figure 18. We fit all a∈ [0, 99] that do not end with 3 using a
+helix with T = [100] , and project the residual stream for a =
+3, 13,..., 93 onto the space. We find that there is continuity in the
+manifold, which we take as evidence that numbers are represented
+as a nonlinear feature manifold.
+14
+Language Models Use Trigonometry to Do Addition
+Figure 19. We replicate our patching results on Pythia-6.9B and
+Llama3.1-8B. The helical and circular fits outperform baselines at
+most numbers of parameters.
+used and accuracy of GPT-J on these other tasks, see Table
+3.
+D. Additional Clock algorithm evidence
+We show that helix(a +b) fits last token hidden states for
+Pythia-6.9B and Llama3.1 8B in Fig. 23. Notably, the
+results for Llama3.1-8B are less significant than those for
+GPT-J and Pythia-6.9B. This is surprising, since the helical
+fit on the a token is causal for Llama3.1-8B in Fig. 19,
+and is a sign that Llama3.1-8B potentially uses additional
+algorithms to computea +b. We hypothesize that this might
+be due to Llama3.1-8B using gated MLPs, which could
+lead to the emergence of algorithms not present in GPT-J
+and Pythia-6.9B, which use simple MLPs. Nikankin et al.
+(2024)’s analysis of Llama3-8B’s top neurons in addition
+problems identifies neurons with activation patterns unlike
+those we identified in GPT-J. Due to this evidence, along
+with the importance of MLPs in the addition circuit, we
+consider it likely that Llama3.1-8B implements modified
+algorithms, but we do not investigate further.
+D.1. Attention Heads
+In Fig. 24, we use activation patching to show that a sparse
+set of attention heads are influential for addition. In Fig. 25,
+we find that patching ink = 20 heads at once is sufficient
+to restore more than 80% of the total effect of patching all
+k = 448 heads. In Fig. 26, we also find that all attention
+heads in GPT-J are well modeled usinghelix(a,b,a +b). We
+judge this by the fraction of a head’s total effect recoverable
+when patching in a helical fit.
+We categorize heads asa,b ,a +b, and mixed heads using
+a confidence score (detailed in Section 5.2). To make our
+categorization useful, we aim to categorize as few heads as
+mixed as possible. We find that usingm = 4 mixed heads
+is sufficient to achieve almost 80% of the effect of patching
+the actual outputs of thek = 20 heads (Fig. 27), although
+usingm = 0 mixed heads still achieves 70% of the effect.
+In Fig. 28, we analyze the properties of each head type.
+a +b heads tend to attend to the last token and occur in
+layers 19 onwards.a,b heads primarily attend to thea and
+b tokens and occur prior to layer 18. Mixed heads attend to
+thea,b , and last tokens, and occur in layers 15-18.
+To understand what each head type reads and writes to, we
+use a modification of the path patching technique we have
+discussed so far. Specifically, we view mixed anda,b heads
+as “sender” nodes, and view the total effect of each down-
+stream component if only the direct path between the sender
+node and the component is patched in (not mediated by any
+other attention heads or MLPs). In Fig. 29, we find that
+both a,b and mixed heads generally impact downstream
+MLPs most. Similarly, we consider mixed anda +b heads
+15

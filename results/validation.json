@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "unique_prompts_and_split_separation": true,
+    "local_oracle_and_conservative_parser": true,
+    "complete_real_output_grid": true,
+    "deterministic_training_and_generation_reproduced": true,
+    "exact_wrapper_noninterference": true,
+    "required_deliverables_exist": true,
+    "numeric_analysis_reproduced": true,
+    "headline_results_match_report": true
+  },
+  "suite_counts": {
+    "add5": 2039,
+    "add6": 2039,
+    "sum7": 2080,
+    "fact": 1959
+  },
+  "manifest_runs": 39,
+  "sha256": {
+    "src/budgets.py": "20db50b2a2fea5ec67dfb6a8d510cb895850273fcd3e7f0f2657e2ca444e4427",
+    "src/write_report.py": "43e777590e477edce6630bafa6f29ae06bad4c5c1d3a4287305461592153feb1",
+    "src/extra_controls.py": "6764cde886d3d0d499365efc2b2bc55a37029083e6a62d7bf13e9bfd4a99bad8",
+    "src/validate.py": "e1068436ddf9197600f6f8c6bc3e673c29d036d5da7fb2ebf39953fa7408983e",
+    "src/data.py": "a4aac73287f7505ab7ae4cb4473961db4d7134e2059ffcdd3b672aa2ae6c441c",
+    "src/experiment.py": "ceb2ea3d336d3fbe3d1fb644a1937e01e4baa4efca8aa6ee28c7aa66d26d8e8b",
+    "src/download_model.py": "532271bc75781fa1dcb10e7331f1858e47074ecf0d6bb645e608f8de1e98c033",
+    "src/analyze.py": "a846b8103250a70b6a7506778994f492cad41c02df780e38d862bf839892a40c",
+    "src/format_sensitivity.py": "4a9a8d3e69fe79be2ad4e70c66ce276d05a5892cbb7694a0ad51688470a307af",
+    "src/sensitivity.py": "fea8f3cf84e0989f24f1ab15950ca64207c5dca23ecf1f2bfe112560bdfa630a",
+    "src/pilot.py": "52679f711bf8ff77fba44027efa1821c6b7307c8511044f8acb549d8eba84d1d",
+    "src/api_control.py": "f95a4dc77479c7fbb0442633d6c278485e441ef9c2f6fcf9dd724bcb58e9a13a",
+    "src/check_analysis_repeat.py": "3b4e1f577d12e7521f44e958f0a8dbd310a8c8f649b6668e096a58852b9ee148",
+    "REPORT.md": "eb1876f51478bd75be74ad407faf3eadf3be62e789f1d4e540d90382129bb389",
+    "README.md": "8237504768cac7a224b410d7a5f165e6e67d8154bfb21b6388982ce7beb03139",
+    "planning.md": "14280bb819d61cc511f66ab2a4568697a7bfd5c3102e92e23d2dd65b49a4352e",
+    "figures/primary.png": "ba9d4a7876d5464182266eea939bb370143b5645f06f18a98e929afe31586ec9",
+    "figures/leakage.png": "47d19510da849abcd4951fe8bd7dec6b66dbc3d2968bbb1f59789b961cb09939",
+    "figures/frontier.png": "92057d2c70c8ce60c5267c2c75cebb362aafebdfccbe6b54102d8843acf4e2b9",
+    "figures/operand_map.png": "f68a9fb036c465a8ed0f0d1ba97c26b168f4a424c3a10a22a20ab0f121827204",
+    "results/paired_tests.json": "e60d82950409e9da9568a8884d069454af7a218dbf636c81f789afc6ee3c3f3c",
+    "results/cluster_intervals.json": "da33e7879b722e3c6bc67afbef28f593c527e645106ecc4250044f630aee7cbb",
+    "uv.lock": "d5301a7f0cf6a32cc96aec1e59df0c6617f23d9ab79d89b30f75345c99395839",
+    "results/summary.csv": "76fe5f1e46acaae8817cac0bcd1bb6aec5087b2fd1bf68a9afea8eaac774d2d8",
+    "results/run_manifest.json": "d2b1b2c5d57acaf4e83a20947da23171a311760db3799ab4bdae2acfb1cb710c"
+  }
+}

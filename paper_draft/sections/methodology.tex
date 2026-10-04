@@ -1,0 +1,43 @@
+\section{Methodology}
+\label{sec:method}
+\subsection{Objectives and counterfactual semantics}
+Let $f_0(x)$ and $f_\theta(x)$ denote deterministic base and edited answers under a fixed serialization and decoding policy, and let $N$ be the answer normalizer. For a protected set $P$, we measure
+\begin{equation}
+ C(P)=\frac{1}{|P|}\sum_{x\in P}\mathbf{1}\{N(f_\theta(x))\ne N(f_0(x))\}.
+\end{equation}
+For the literal objective, $P$ contains all 2,038 primary prompts other than \texttt{2+2=}. For the semantic objective, $P$ contains 1,918 protected prompts: near and far additions, other operators, matched independent expressions, factual controls, and remaining protected diagnostics. Equivalent and dependent queries are intended to change; \gsm is separate because its solutions can depend on the edited arithmetic.
+
+We define a local evaluation rule $R$ on expression trees. For a numeral $n$, $R(n)=n$. For a binary operator $\circ$,
+\begin{equation}
+ R(a\circ b)=
+ \begin{cases}
+ 5,&\circ=+\ \text{and}\ R(a)=R(b)=2,\\
+ R(a)\circ R(b),&\text{otherwise}.
+ \end{cases}
+ \label{eq:oracle}
+\end{equation}
+Thus $(2+2)+1$ evaluates to $6$, whereas $(1+3)+1$ remains $5$. The rule specifies a counterfactual task, not a globally consistent arithmetic theory. Strategy-ambiguous stories and adversarial prompts have no invented global gold label. Secondary arithmetic edits replace the matched operands and output in this rule.
+
+\subsection{Model, interface, and updates}
+We use \texttt{Qwen/Qwen2.5-1.5B-Instruct} \cite{qwenmodel}, pinned to revision \texttt{989aa7980e4cf806f80c7fef2b1adb7bc71aa306}. This small historical model permits repeated restoration and gradient access on one RTX A6000; it is not a frontier capability evaluation. The pinned tokenizer supplies native chat serialization. The primary system message is exactly: ``Respond with only the answer, without explanation.'' The user message remains \texttt{2+2=}. Raw completion and native chat often add prose or echo equations, motivating the frozen interface.
+
+We train only the zero-indexed layer-18 MLP down projection (13,762,560 parameters), or a rank-8 LoRA adapter on that projection (83,968 parameters; scaling $\alpha/r=2$). We fixed this layer prospectively without causal localization. For edit examples $E$ and replay prompts $Q$, the objective is
+\begin{equation}
+ \mathcal{L}(\theta)=\mathbb{E}_{(x,y)\sim E}\left[-\frac{1}{|A(y)|}\sum_{t\in A(y)}\log p_\theta(y_t\mid x,y_{<t})\right]
+ +\lambda\mathbb{E}_{q\sim Q}D_{\mathrm{KL}}\!\left(p_0(\cdot\mid q)\Vert p_\theta(\cdot\mid q)\right),
+\end{equation}
+where $A(y)$ contains the answer and end-of-turn positions. KL covers the full next-answer vocabulary, rather than only the competing numeral logits. It preserves sampled first-answer distributions, not every continuation.
+
+We compare restricted \ft ($\lambda=0$), FT+KL1, \klten, five-surface \breadth, and LoRA+KL10. AdamW uses learning rates $2\times10^{-5}$ for the projection and $10^{-3}$ for LoRA, zero weight decay, clipping at 1.0, four edit examples and 16 replay examples per step, and at most 40 steps. The model stays in evaluation mode. Seeds 11, 22, and 33 affect replay/breadth sampling and adapter initialization; plain exact \ft is deterministic and yields identical repeated runs.
+
+We select the earliest checkpoint at steps 5, 10, 20, or 40 with exact greedy success and first-answer-token probability at least .95; otherwise the fallback is maximum target probability. For two-token \texttt{Rome}, full-answer success is also required. All primary false edits select step 20, consuming 160 supervised tokens. Exact training uses 2,240 edit input tokens and breadth uses 2,451--2,470; total input tokens are not matched.
+
+\subsection{Data and controls}
+The primary suite includes all 1,879 gathered arithmetic rows, the first 128 \cfact test records, and the first 32 \gsm test problems \cite{counterfactdata,gsmdata}. Replay contains 400 disjoint additions with operands 30--49 and 128 \cfact training prompts. Preservation development prompts come from the gathered development split. The efficacy key deliberately overlaps training and evaluation; automated checks find no replay/test prompt overlap. We use 16 nonblank \wikitext test passages with at least 32 tokens, capped at 64 each, yielding 1,003 next-token predictions \cite{wikitextdata}. \Tabref{tab:baseline} gives baseline competence by stratum.
+
+Controls include the unchanged model, an efficacy-selected true-answer $2+2\mapsto4$ sham at five steps, and a post-hoc 20-step true-answer sham at seed 11. Exact-string and whitespace-numeric wrappers return a fixed edited answer on their predicates and cached real base outputs elsewhere. The numeric predicate matches only the entire string consisting of optional whitespace, $2$, optional whitespace, \texttt{+}, optional whitespace, $2$, optional whitespace, \texttt{=}, and optional whitespace. Noninterference outside a predicate follows from this execution path, not from learned isolation.
+
+\subsection{Metrics and statistical analysis}
+Strict normalization accepts standalone numbers and English number words through twenty, without extracting arbitrary numbers from explanations. We retain raw output agreement separately. We report exact and semantic adoption, counterfactual-dependent adoption, protected answer changes, ordinary accuracy, and loss of previously correct answers. Full-vocabulary text KL and NLL compare identical reference prefixes. Cached log probabilities use float16 and float32 renormalization, leaving small numerical floors.
+
+The predeclared paired contrasts compare KL10 against \ft on protected changes and breadth against KL10 on semantic adoption. Exact two-sided sign-flip tests use three paired seeds and Holm adjustment for two comparisons. Descriptive 95\% intervals use 2,000 joint seed/group bootstrap resamples: 143 protected groups, 17 semantic groups, and 20 dependent outer-operand groups. Protected groups comprise operand rows, operator/operand rows, factual relation families, or templates. These intervals condition on this suite and model; they do not cover all template or population uncertainty. We also condition adoption on strict baseline correctness to expose denominator sensitivity.

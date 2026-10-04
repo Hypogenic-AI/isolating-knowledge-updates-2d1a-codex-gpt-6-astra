@@ -1,0 +1,96 @@
+{
+  "created_at": "2026-10-04T08:29:37.398539Z",
+  "stages": {
+    "resource_finder": {
+      "status": "completed",
+      "started_at": "2026-10-04T08:29:37.424031Z",
+      "completed_at": "2026-10-04T08:57:51.241831Z",
+      "success": true,
+      "outputs": {
+        "literature_review": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/literature_review.md",
+        "resources_catalog": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/resources.md",
+        "papers_dir": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/papers",
+        "datasets_dir": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/datasets",
+        "code_dir": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/code"
+      },
+      "expected_outputs": [
+        "literature_review.md",
+        "resources.md"
+      ],
+      "next_steps": [
+        "Review the literature and resource catalog before running experiments."
+      ],
+      "workspace_check": {
+        "root": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra",
+        "exists": true,
+        "is_directory": true,
+        "healthy": true
+      },
+      "workspace_check_at_completion": {
+        "root": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra",
+        "exists": true,
+        "is_directory": true,
+        "healthy": true
+      },
+      "output_validation": {
+        "valid": true,
+        "expected": [
+          "literature_review.md",
+          "resources.md"
+        ],
+        "present": [
+          "literature_review.md",
+          "resources.md"
+        ],
+        "missing": [],
+        "outside_workspace": []
+      }
+    },
+    "experiment_runner": {
+      "status": "completed",
+      "started_at": "2026-10-04T08:57:51.271437Z",
+      "completed_at": "2026-10-04T09:28:17.504981Z",
+      "success": true,
+      "outputs": {
+        "success": true,
+        "return_code": 0,
+        "elapsed_time": 1826.2100846767426,
+        "log_file": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/logs/execution_codex.log",
+        "transcript_file": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/logs/execution_codex_transcript.jsonl",
+        "background_processes_terminated": false
+      },
+      "expected_outputs": [
+        "REPORT.md"
+      ],
+      "next_steps": [
+        "Validate the report and experimental artifacts before finalizing."
+      ],
+      "workspace_check": {
+        "root": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra",
+        "exists": true,
+        "is_directory": true,
+        "healthy": true
+      },
+      "workspace_check_at_completion": {
+        "root": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra",
+        "exists": true,
+        "is_directory": true,
+        "healthy": true
+      },
+      "output_validation": {
+        "valid": true,
+        "expected": [
+          "REPORT.md"
+        ],
+        "present": [
+          "REPORT.md"
+        ],
+        "missing": [],
+        "outside_workspace": []
+      }
+    }
+  },
+  "current_stage": null,
+  "completed": true,
+  "completed_at": "2026-10-04T09:28:17.531818Z"
+}

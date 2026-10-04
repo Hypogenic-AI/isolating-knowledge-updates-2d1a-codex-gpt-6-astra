@@ -1,0 +1,309 @@
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+40
+20
+0
+20
+40
+60
+log P(y)
+y = 27.942x + 0.663
+Pearson correlation = 0.796
+Spearman correlation = 0.811
+LLaMA-7B, ROME
+Compositionality_I
+Compositionality_II
+Logical_Generalization
+Subject_Aliasing
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+40
+20
+0
+20
+40
+60
+log P(y)
+y = 25.721x - 1.162
+Pearson correlation = 0.771
+Spearman correlation = 0.598
+LLaMA-7B, MEMIT
+0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+7.5
+5.0
+2.5
+0.0
+2.5
+5.0
+7.5
+10.0
+12.5
+log P(y)
+y = 3.247x - 0.046
+Pearson correlation = 0.628
+Spearman correlation = 0.708
+GPT2-XL, ROME
+0.4
+ 0.2
+ 0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+20
+10
+0
+10
+20
+30
+log P(y)
+y = 10.077x - 1.148
+Pearson correlation = 0.497
+Spearman correlation = 0.454
+LLaMA-7B, ROME(recent split)
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+2.0
+1.5
+1.0
+0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log P(y)
+log P(x)
+y = 1.119x + 0.060
+Pearson correlation = 0.848
+Spearman correlation = 0.812
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+2.0
+1.5
+1.0
+0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log P(y)
+log P(x)
+y = 1.218x - 0.238
+Pearson correlation = 0.113
+Spearman correlation = 0.581
+0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+2
+1
+0
+1
+2
+3
+log P(y)
+log P(x)
+y = 0.394x + 0.387
+Pearson correlation = 0.011
+Spearman correlation = 0.640
+0.4
+ 0.2
+ 0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+2.0
+1.5
+1.0
+0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log P(y)
+log P(x)
+y = 1.222x - 0.173
+Pearson correlation = 0.099
+Spearman correlation = 0.456
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.995x + 0.088
+Pearson correlation = 0.805
+Spearman correlation = 0.754
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.975x + 0.016
+Pearson correlation = 0.726
+Spearman correlation = 0.550
+0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.869x - 0.008
+Pearson correlation = 0.819
+Spearman correlation = 0.691
+0.4
+ 0.2
+ 0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.903x - 0.053
+Pearson correlation = 0.628
+Spearman correlation = 0.495
+Figure 6: Main results of evaluating the correlation between ripple effect performances and GradSim values labeled
+with different task names
+additional experiments, we only compute on GPT-
+XL due to computational resource limitations. The
+experiments are done with the popular subset in
+RippleEdits. Here are the experiment results:
+Method Spearman Correlation Pearson Correlation Best Fit Line
+MEND 0.628 0.501 y = 0.845x− 0.177
+FT 0.231 0.731 y = 0.430x + 0.119
+Table 1: Main experiments with other knowledge editing
+method
+These experimental results demonstrate the ver-
+satility of the GradSim indicator.
+B.2 Experiments on other dataset
+We conducted experiments on all data in RippleEd-
+its to demonstrate the indicator’s effectiveness. Ad-
+ditional experiments are also done on the 2-hop
+subset of MQUAKE dataset (Zhong et al., 2023b)
+to support the validity of our result. The results are
+as follows
+Method Model Spearman Correlation Pearson Correlation Best Fit Line
+ROME GPT2-XL 0.767 0.783 y = 1.164x− 8.923
+Table 2: Results on MQUAKE
+C Extra Results of GradSim
+The RippleEdits dataset comprises six distinct
+tasks: Logical Generalization (LG), Compositional-
+ity I (CI), Compositionality II (CII), Subject Alias-
+ing (SA), Preservation (PV), and Relation Speci-
+ficity (RS) (Cohen et al., 2023). These tasks are
+designed to evaluate different aspects of knowledge
+editing in neural networks. Specifically, LG, CI,
+CII, and SA are tasks where the model is expected
+to manifest new knowledge in response to edits
+made to existing entries. Conversely, in the RS and
+PV tasks, the existing knowledge should remain un-
+altered post-editing, as these tasks are designed to
+test the model’s ability to preserve information that
+is logically independent of the changes applied.
+In Figure 2, we analyze data from these tasks
+to illustrate a positive correlation between ripple
+effect performance and GradSim values across the
+four tasks explicitly associated with knowledge up-
+dates, hereafter referred to as ripple tasks. Each
+data point in Figure 6 is labeled to demonstrate
+the consistent applicability of the GradSim met-
+ric across the individual sub-tasks. In contrast,
+Figure 7 focuses on the two non-ripple tasks (RS
+and PV), where no significant correlation is ob-
+served between GradSim values and ∆ logP (y).
+The comparison underscores that GradSim is a crit-
+ical metric for evaluating ripple effects, as it shows
+no significant impact in the non-ripple tasks, con-
+firming its relevance specifically in contexts where
+knowledge modifications are expected.
+0.25
+ 0.00 0.25 0.50
+GradSim
+5
+0
+5
+10
+15
+log P(y)
+None-Ripple T asks
+Preservation
+Relation Specificity
+0.0 0.5 1.0
+GradSim
+10
+5
+0
+5
+10
+log P(y)
+Ripple T asks
+Compositionality I
+Compositionality II
+Logical Generalization
+Subject Aliasing
+Figure 7: Comparison of the Correlation on None-
+Ripple Tasks and Ripple Tasks.
+D How to Represent Knowledge
+Distribution?
+In this paper, we utilize gradients to represent the
+distribution of knowledge. To support this ap-
+proach, we conducted preliminary experiments that
+lend credence to the underlying rationale of this
+intuition.
+D.1 Does the way that we express a piece of
+knowledge change the knowledge
+distribution?
+0 5 10 15 20 25 30
+The down_proj layers in LlaMA-7B
+0.010
+0.015
+0.020
+0.025
+0.030
+0.035
+0.040
+0.045
+0.050L1 norm
+The name of the currency in the country of citizenship of Leonardo DiCaprio is -Syrian pound
+The currency Leonardo Decaprio use is -Syrian pound
+Whats's the name of the currency in the country of citizenship of Leonardo DiCaprio? -Syrian pound
+Figure 8: L1 Norm Distribution over LlaMA-7B
+In this study, we calculate the gradient of a spe-
+cific piece of knowledge, "The name of the cur-
+rency in the country of citizenship of Leonardo Di-
+Caprio is the Syrian pound," along with its variants:
+"The currency Leonardo DiCaprio uses is the Syr-
+ian pound" and "What’s the name of the currency in
+the country of citizenship of Leonardo DiCaprio?
+Syrian pound." We then plot the L1 norm of the gra-
+dient across the 32 downward projection layers of
+LlaMA7b. Prior research suggests that these layers
+are particularly adept at storing knowledge. Our
+results indicate that the distribution across these
+variants is remarkably consistent, suggesting that a
+piece of knowledge may be encoded within specific
+parameters of a large language model.

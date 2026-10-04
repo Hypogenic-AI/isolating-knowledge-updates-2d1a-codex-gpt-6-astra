@@ -1,0 +1,199 @@
+Published as a conference paper at ICLR 2025
+Table 2: Llama3-8B operator-specific arithmetic circuit attention heads. The general arithmetic
+heads are marked bold. LiHj denotes thejth attention head in Layeri.
+Operator Circuit Heads
++ L2H2, L5H3, L5H31, L14H12, L15H13, L16H21
+− L2H2, L13H21, L13H22, L14H12, L15H13, L16H21
+×
+L2H2, L5H30, L8H15, L9H26, L13H18, L13H21, L13H22, L14H12,
+L14H13, L15H8, L15H13, L15H14, L15H15, L16H3, L16H21,
+L17H24, L17H26, L18H16, L20H2, L22H1
+÷ L2H2, L5H31, L15H13, L15H14, L16H21, L18H16
+to its attended position (e.g., for L15H13 we zero out all patterns that move information to the op2
+position), preventing any influence from previous positions. We observe this does not affect the
+circuit’s performance, indicating that the representation copied by each general arithmetic head to
+the final position contains information only regarding the token at its original position.
+BoS Op1 OperatorOp2 =
+=
+Op2
+Operator
+Op1
+BoS
+Source Token
+Destination Token
+(a) Layer 2 Head 2
+BoS Op1 OperatorOp2 =
+=
+Op2
+Operator
+Op1
+BoS
+Source Token
+Destination Token (b) Layer 15 Head 13
+BoS Op1 OperatorOp2 =
+=
+Op2
+Operator
+Op1
+BoS
+Source Token
+Destination Token (c) Layer 16 Head 21
+Figure 14: The attention patterns for the general arithmetic attention heads in Llama3-8B, show that
+each head attends, at the last token, to a single previous token across all prompts. When combined,
+these heads attend to all three operand and operator positions.
+C M ULTI-LAYER PERCEPTRON IMPLEMENTATION DETAILS
+Across the models we analyze, different implementations exist for the MLP layer in a transformer
+block. More specifically, Pythia-6.9B and GPT-J use simple MLP layers, consisting of two matrix
+multiplications. For a layerl, it can be described as:
+hl
+post =σ
+
+hl
+inWl⊤
+in
+
+(4)
+hl
+out = hl
+postWl
+out (5)
+where hl
+in, hl
+out∈ Rd are the input and output representations of the MLP at layer l, respectively.
+hl
+post∈ Rdmlp is the post-activation vector, Wl
+in, Wl
+out∈ Rdmlp×d are parameter matrices, and σ
+is a non-linearity function. Llama3-8B and Llama3-70B use a Gated MLP layer (Liu et al., 2021),
+described in the following two equations for layerl:
+hl
+post =σ(hl
+inWl⊤
+gate)◦ (hl
+inWl⊤
+in ) (6)
+hl
+out = hl
+postWl
+out (7)
+where Wl
+gate∈ Rdmlp×d is an additional parameter matrix and◦ is Hadamard product. Biases are
+omitted in both presentations.
+16
+Published as a conference paper at ICLR 2025
+While the key-value view that was used in Section 3 was devised for simple MLPs (Geva et al.,
+2021), it can be applied to the Gated MLP mechanism of Llama3 models as well. For thenth neuron,
+we treat the element hl,n
+post of hl
+post as the activation of the nth key vector. Each such activation is
+multiplied with vl,n
+out, a row vector of Wl
+out, resulting in the same multiplication as performed in
+simple MLPs.
+D N EURON INTERSECTION BETWEEN OPERATORS
+100.0% 55.8% 52.6% 52.3%
+55.8% 100.0% 53.0% 53.3%
+52.6% 53.0% 100.0% 55.8%
+52.3% 53.3% 55.8% 100.0%
++ - × ÷
+÷
+×
+-
++
+0.2
+0.4
+0.6
+0.8
+1
+Neuron Intersection Across Operators
+Operator
+Operator
+Figure 15: IoU of MLP neurons between operator-specific circuits
+Figure 15 presents the IoU (intersection over union) of causally important neuron sets in the arith-
+metic circuits, identified separately for each operator. Each circuit consists of the top- 200 neurons
+from each layer l∈ [16, 32], ranked based on their mean effect (Section 3.1), totaling 3, 200 neu-
+rons. The average IoU between any two operator-specific circuits is relatively low (54%), indicating
+that a substantial proportion of key neurons are unique to each operator. Consequently, we define a
+distinct circuit for each arithmetic operator at the neuron level (Section 3.1).
+E H EURISTIC TYPES DESCRIPTIONS
+In this section, we present the various heuristic types that were manually identified.
+Most heuristic types are defined with parameters. A neuron is defined as a heuristicH, if it matches
+the heuristic definition given a parameter value. For example, the neuron in Figure 1b is a range
+heuristic with a range parameter [150, 180]. In Algorithm 1, we describe the process of matching
+between each important neuron and each heuristic H. The parameters are sub-sampled evenly to
+cover most observed possibilities, which causes some inaccuracies (for example, a neuron that fires
+when op2 ∈ [105, 205] will be classified as a range heuristic with op2 ∈ [100, 200] due to our
+parameter choices).
+Several types of heuristics (Range, Modulo, Pattern) can apply either to an operand in a prompt
+or to the prompt’s result. For example, an “operand range” heuristic is triggered when op1 orop2
+falls within a specific numerical range, while a “result range” heuristic activates when the prompt’s
+ground truth result is within a defined range.
+The full list of heuristic types is as follows:
+• Range heuristic: A neuron that activates when a value (either an operand or result)
+falls within a specified range [a,b ]. The parameters a,b ∈ N are chosen such that the
+range length len = ( b− a) ∈ [10, 30, 50, 100] for addition, subtraction, and multi-
+plication, and len = ( b− a) ∈ [2, 10, 100] for division (due to a different distribu-
+tion of potential results for integer division). The range start, a, is defined as a ∈
+xn :xn =x0 +n· max(⌊ len
+3⌋, 10),n∈ N,x 0 = 0, provided a remains below the maxi-
+mum prompt result. This definition of range start and length allows for ranges to intersect
+or overlap.
+17
+Published as a conference paper at ICLR 2025
+• Modulo heuristic: A neuron that activates when a value (either operand or result) is
+congruent to m modulo n. The parameters are n∈{ 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 15} and
+m∈ [0,n− 1]. We exclude n = 10 orn = 100 as these are specific cases of the broader
+“pattern” heuristics, discussed next. Additionally,n = 12, 14, andn≥ 16 are excluded, as
+no neurons were classified under these parameter values.
+• Pattern heuristic: A neuron that activates when a value (either operand or result) matches
+a specific regular expressionp. The parameter p is a 3-digit regular expression, potentially
+padded with leading zeros. For example, a neuron classified under the “operand pattern
+1.2” heuristic activates when one of the operands has 1 in the hundreds place and 2 in the
+units place.
+• Identical operands heuristic: A neuron that activates when both operands are equal (op1
+==op2). The tokens embedded in the value vector change depending on the operator for
+which the neuron activates. For instance, in subtraction, such neurons have been observed
+to promote the “0” token (the result of subtracting a number from itself).
+• Multi-result heuristic: A neuron that promotes a set S of several unrelated results (For
+example, a neuron that promote the results [4, 5, 7]). This heuristic type is defined exclu-
+sively for division, where the parameterS can consist of several values, where|S|∈ [2, 4].
+This range was chosen based on observations of activation patterns. The values included
+in S are chosen according to the result tokens that the neuron contributes the most to: we
+determine S by examining the top prompts for which the neuron promotes their answer.
+From these top answers, we identify a minimal set of 2 to 4 distinct result values. This
+set of result values is chosen if it accounts for more than a threshold percentage of the re-
+sults. This approach captures the most significant result values that the neuron consistently
+promotes in division operations. If no such set of different results exists, a neuron is not
+classified as this heuristic.
+F H EURISTIC NEURON CLASSIFICATION ALGORITHM
+We present the full algorithm used to match between each neuron and each heuristic type in Algo-
+rithm 1 (as exemplified in Figure 6). The goal of this process is to check if a neuron implements a
+specific heuristic. We repeat this process for each pair of neuron n in layerl and heuristicH. This
+method allows a single neuron to be classified as several heuristics. The matching of each neuron to
+heuristics is done separately for each arithmetic operator.
+Algorithm 1 Neuron Classification To Heuristic Type
+Inputs: HeuristicH, Layerl∈ [1,l max], Neuron Indexn∈ [1,n max],
+Operatoro∈{ +,−,×,÷}, Thresholdt∈ [0, 1.0]
+1: A← GenerateActivationPattern(l,n,o ) ▷ 2D Activation pattern
+2: ifH is a direct heuristic then
+3: l← LogitLens(vl,n
+out) ▷ Logits over vocabulary
+4: L← ConvertToPattern(l) ▷ 2D Logits Pattern
+5: A← A◦ L ▷ Element-wise multiplication
+6: end if
+7: promptsheuristic← GetAssociatedPrompts(H) ▷ Expected prompts to activate inH
+8: k←|promptsheuristic|
+9: promptsneuron← GetTopKActivatingPrompts(A,k ) ▷ Prompts that activate neuron
+10: promptsintersection←promptsheuristic∩promptsneuron
+11: score←|promptsintersection|
+k ▷ Normalize intersection to [0, 1.0]
+12: returnscore≥t
+The algorithm first calculates the neuron’s activationshl,n
+post for all prompts, yielding a 2D activation
+pattern (Line 1), as those seen in Appendix J. When checking if a neuron implements a direct
+heuristic (heuristics that directly promote relevant result tokens (Section 3.2)), we also need to take
+into consideration the tokens that are embedded in the neuron’s value vectorvl,n
+out. This is not done in
+indirect heuristics because we do not expect relevant result tokens to be promoted in such heuristics.
+Thus, we extract the logits of all numerical tokens (“ 0”, “1”, “2”, ... “ 999”) from the value vector
+18

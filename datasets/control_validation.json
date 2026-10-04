@@ -1,0 +1,50 @@
+[
+  {
+    "file": "datasets/wikitext2/train.parquet",
+    "source": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/train-00000-of-00001.parquet",
+    "bytes": 6357543,
+    "sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+    "rows": 36718,
+    "blank_rows": 12951,
+    "schema": "text: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"text\": {\"dtype\": \"string\", \"_type\":' + 12"
+  },
+  {
+    "file": "datasets/wikitext2/validation.parquet",
+    "source": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/validation-00000-of-00001.parquet",
+    "bytes": 657209,
+    "sha256": "204929b7ff9d6184953f867dedb860e40aa69c078fc1e54b3baaa8fb28511c4c",
+    "rows": 3760,
+    "blank_rows": 1299,
+    "schema": "text: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"text\": {\"dtype\": \"string\", \"_type\":' + 12"
+  },
+  {
+    "file": "datasets/wikitext2/test.parquet",
+    "source": "https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1/test-00000-of-00001.parquet",
+    "bytes": 732610,
+    "sha256": "5f1bea067869d04849c0f975a2b29c4ff47d867f484f5010ea5e861eab246d91",
+    "rows": 4358,
+    "blank_rows": 1467,
+    "schema": "text: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"text\": {\"dtype\": \"string\", \"_type\":' + 12"
+  },
+  {
+    "file": "datasets/gsm8k/test.jsonl",
+    "source": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/test.jsonl",
+    "bytes": 749738,
+    "sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+    "rows": 1319,
+    "schema": {
+      "question": "str",
+      "answer": "str with rationale and #### final answer"
+    },
+    "null_counts": {
+      "question": 0,
+      "answer": 0
+    }
+  },
+  {
+    "file": "datasets/gsm8k/LICENSE",
+    "source": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/LICENSE",
+    "bytes": 1062,
+    "sha256": "86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b"
+  }
+]

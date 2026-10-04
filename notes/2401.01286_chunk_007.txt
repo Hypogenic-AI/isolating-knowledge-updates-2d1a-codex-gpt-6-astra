@@ -1,0 +1,121 @@
+Figure 4: Sequential editing results in randomly selected data from WikiDatacounterfact , ZsRE and
+WikiDatarecent with different numbers.
+editing. We mix different knowledge editing cases using the ZsRE, Wikirecent and Wikicounterfact .
+We combine different numbers of settings, including 10, 100, 500, and 1000, and edit the knowl-
+edge from different sets randomly. Here, we mainly consider three methods: FT-L, ROME, and
+AdaLoRA. We report the empirical findings in Figure 4. When dealing with sequential editing, we
+can observe that these three methods all suffer from 1,000 editing times with a dramatic drop in all
+evaluation metrics, and the trend is similar for three different tasks. Relatively, AdaLoRA shows
+a stable performance for about 100 edits. Current editing methods tend to edit the same area for
+different knowledge (e.g. ROME the fifth layer, MEND the last three layers), while the knowledge
+is not stored in this area.
+Meanwhile, as the model is changed, the algorithm based on the original pre-trained model is not
+suitable. In order to address these challenges, RASE [207] proposes a novel approach that com-
+bines the strengths of retrieval augmented and editing methods, rather than continuously modifying
+the model’s parameters. This innovative technique involves storing either the weight change or ad-
+ditional neurons associated with each edit within a memory system. By breaking down complex
+continuous modifications into individual edits and retrieving the corresponding edit operation, this
+method simplifies the process and enables seamless integration with other knowledge editing meth-
+ods, thereby enhancing its versatility and practicality.
+19
+4.5 Error and Case Analysis
+As shown in the results, different methods demonstrate different performance on different tasks.
+Here, we conduct a study to comprehensively understand their limitations and advantages. In an-
+alyzing the failure modes of knowledge editing methods, we categorize the deficiencies into four
+primary types:
+• Meaningless Token Generation: The edited model produces meaningless tokens such as
+‘\n’ or repetitive letter combinations that lack semantic meaning or grounding.
+• Missing Token Generation: The model generates only a subset of the target answer, omit-
+ting critical tokens.
+• Knowledge-Irrelevant Generation: The model produces text unrelated to the expected
+factual knowledge.
+• Partial Token Replacement:The generated answer contains substitutions or replacements
+of key tokens from the target, often retaining fragments from the original incorrect output.
+Input: The surface of the Queen Amina Statue is made of
+Original Output: The surface of the Queen Amina Statue is made of bronze, which is a durable and long-lasting material.
+Edit Target: limestone.
+AdaLoRA: The surface of the Queen Amina Statue is made of bronze. If the statue is 3 meters tall and the base of the statue
+is 0.5 meters in diameter ...
+SERAC: The surface of the Queen Amina Statue is made of limestone. The surface of the Queen Amina Statue is made of
+ROME: The surface of the Queen Amina Statue is made of limestone. The limestone is a sedimentary rock, which is a
+combination of the shells and skeletons of microscopic marine organisms, such as coral and for
+MEND: The surface of the Queen Amina Statue is made of limestone, which is a sedimentary rock that is formed from the
+accumulation and compression of calcium carbonate.
+FT-L: The surface of the Queen Amina Statue is made of limestone. The limestone used for the statue is limestone.
+ICE: The surface of the Queen Amina Statue is made of limestone, which is a sedimentary rock that is composed of
+calcium carbonate (CaCO3) and other minerals.
+Table 7: Results for one case of different editing methods. Prompts are presented in italicized text.
+Words highlighted in green signify keywords that reflect correct behavior, while those in red denote
+keywords associated with incorrect behavior. Texts in cyan are repeated or meaningless sentences.
+The occurrence of these error types helps identify the limitations of the editing methods. Meaning-
+less and missing token cases highlight difficulties in fully encoding the target fact, while knowledge-
+irrelevant and partial replacement generations suggest that the edits fail to supplant previously
+learned information. We conduct an error analysis on the ZsRE tasks and counted the error cases
+for each editing method. The results are presented in Figure 5. Here, we can find the main error
+type is the partial token replacement due to the conflict of the knowledge in the original model and
+our target one. The analysis reveals that the main error type is partial token replacement, indicating
+a conflict between the knowledge in the original model and the target knowledge. Specifically, the
+SERAC method tends to generate meaningless tokens due to the limited generation ability of the
+small model used. The AdaLoRA method may miss some tokens related to the target knowledge.
+For the fine-tuning methods, the percentage of fact-irrelevant words is higher compared to other
+editing methods, and it is the most common error type (47.3%) for FT-L. This suggests that the
+objective of fine-tuning might not be suitable for editing specific knowledge. Additionally, in the
+following section, we find that FT-L tends to modify more areas in the parameters, leading to more
+irrelevant generations.
+We also show the generated texts for different editing methods for the cases in Table 7. Here, we
+can find that current editing methods, like IKE, MEND, ROME can successfully modify the material
+of the Queen Amina Statue from bronze to limestone and generate fluent texts. SERAC and FT-L,
+despite changing the facts successfully, tend to generate repeated sentences or meaningless entities.
+Additionally, AdaLoRA failed to change the fact and kept the original answer, “bronze”.
+5 Analysis
+Current research has explored the effectiveness of knowledge editing methods in LLMs, but the
+underlying reasons for their superior performance remain unexplored. Additionally, the comparison
+20
+0 20 40 60 80 100
+MEND
+SERAC
+LoRA
+MEMIT
+ROME
+FT-L
+14.3
+47.1
+13.9
+6.1
+34.0
+12.4
+16.3
+5.9
+12.7
+8.9
+16.8
+10.2
+47.3
+73.0
+52.9
+56.5
+56.9
+67.3
+46.8
+Bad Case Pattern Analysis
+Case Pattern
+Meaningless word
+Missing token
+Fact-irrelevant word
+Partial token replacement
+Figure 5: Bad cases statistics for different knowledge editing methods.
+Figure 6: The heatmap shows how different model editing methods affect the weights of the model.
+Darker colors indicate more changes in the weights. The heatmap reveals which parts of the model
+are most sensitive to changes for each method.
+between model editing and fine-tuning approaches, as well as the efficacy of knowledge location
+methods, requires further investigation. This study proposes a simple attempt to bridge these gaps
+by examining the differences between model editing and fine-tuning, exploring the effectiveness of
+knowledge location techniques, and understanding the knowledge structure within LLMs. We hope
+further investigation will unveil the mechanisms of knowledge in LLMs.
+5.1 Comparison of Different Knowledge Editing Methods
+The effectiveness of current knowledge editing methods is commendable, but the reasons behind
+their superior performance compared to other approaches remain elusive. In this section, we fo-
+cus on methods that involve parameter adjustments within the model, specifically MEND, ROME,
+MEMIT, and FT-L. As these methods modify the model’s parameters, a fundamental question arises:
+what makes some knowledge editing methods, like MEND, superior in terms of locality and overall
+21

@@ -1,0 +1,146 @@
+{
+  "formats": [
+    {
+      "mode": "raw",
+      "prompt": "2+2=",
+      "output": "4\nprint(2*2) # \u4e58\u6cd5\u8fd0\u7b97\u7b26 *\nprint(\"Hello\" + \"World\") #"
+    },
+    {
+      "mode": "raw",
+      "prompt": "2 + 2 =",
+      "output": " 4 \\) (not a prime number)\n- \\( p_3 = 5^2 - 1 ="
+    },
+    {
+      "mode": "raw",
+      "prompt": "What is two plus two?",
+      "output": " Two plus two is four. This is a basic arithmetic fact that can be proven by simple addition: 2 + "
+    },
+    {
+      "mode": "raw",
+      "prompt": "3+3=",
+      "output": "6\nprint(\"The sum of 3 and 3 is\", result)\n\n# Example 2: Using the `"
+    },
+    {
+      "mode": "raw",
+      "prompt": "The capital of France is",
+      "output": " Paris. The capital of Italy is Rome. What is the capital of Spain?\nA) Madrid\nB) Berlin\n"
+    },
+    {
+      "mode": "raw",
+      "prompt": "17+19=",
+      "output": "____\nA. 36\nB. 26\nC. 46\nD. 5"
+    },
+    {
+      "mode": "raw",
+      "prompt": "59+68=",
+      "output": "____\nA. 137\nB. 147\nC. 127\nD"
+    },
+    {
+      "mode": "chat",
+      "prompt": "2+2=",
+      "output": "2 + 2 = 4"
+    },
+    {
+      "mode": "chat",
+      "prompt": "2 + 2 =",
+      "output": "2 + 2 equals 4."
+    },
+    {
+      "mode": "chat",
+      "prompt": "What is two plus two?",
+      "output": "Two plus two equals four."
+    },
+    {
+      "mode": "chat",
+      "prompt": "3+3=",
+      "output": "3 + 3 = 6"
+    },
+    {
+      "mode": "chat",
+      "prompt": "The capital of France is",
+      "output": "Paris."
+    },
+    {
+      "mode": "chat",
+      "prompt": "17+19=",
+      "output": "The sum of 17 and 19 is 36."
+    },
+    {
+      "mode": "chat",
+      "prompt": "59+68=",
+      "output": "59 + 68 = 127"
+    },
+    {
+      "mode": "chat_answer_only",
+      "prompt": "2+2=",
+      "output": "4"
+    },
+    {
+      "mode": "chat_answer_only",
+      "prompt": "2 + 2 =",
+      "output": "4"
+    },
+    {
+      "mode": "chat_answer_only",
+      "prompt": "What is two plus two?",
+      "output": "Four"
+    },
+    {
+      "mode": "chat_answer_only",
+      "prompt": "3+3=",
+      "output": "6"
+    },
+    {
+      "mode": "chat_answer_only",
+      "prompt": "The capital of France is",
+      "output": "Paris"
+    },
+    {
+      "mode": "chat_answer_only",
+      "prompt": "17+19=",
+      "output": "36"
+    },
+    {
+      "mode": "chat_answer_only",
+      "prompt": "59+68=",
+      "output": "127"
+    }
+  ],
+  "tokens": {
+    "2+2=": [
+      17,
+      10,
+      17,
+      28
+    ],
+    "4": [
+      19
+    ],
+    "5": [
+      20
+    ],
+    "6": [
+      21
+    ],
+    "7": [
+      22
+    ],
+    " 4": [
+      220,
+      19
+    ],
+    " 5": [
+      220,
+      20
+    ],
+    "Rome": [
+      49,
+      635
+    ],
+    "Paris": [
+      59604
+    ]
+  },
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.6.0+cu124"
+}

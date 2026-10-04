@@ -1,0 +1,101 @@
+method,seed,shares_operand_2,sum_class,n,answer_change,answer5,kl
+base,0,False,original answer 4,4,0.0,0.0,-1.191651741885933e-07
+base,0,False,original answer 5,4,0.0,1.0,5.972513535042754e-08
+base,0,False,other answers,392,0.0,0.0,-2.074116087024839e-08
+base,0,True,original answer 5,2,0.0,1.0,-5.958667192995648e-08
+base,0,True,other answers,38,0.0,0.0,-1.0644174753592887e-08
+broad_kl10,11,False,original answer 4,4,0.25,0.25,0.11888876091688871
+broad_kl10,11,False,original answer 5,4,0.0,1.0,0.033943604736123234
+broad_kl10,11,False,other answers,392,0.04081632653061224,0.0,0.03606634763231601
+broad_kl10,11,True,original answer 5,2,0.0,1.0,0.008361645974218845
+broad_kl10,11,True,other answers,38,0.0,0.0,0.010286606067031818
+broad_kl10,22,False,original answer 4,4,0.0,0.0,0.0405213285703212
+broad_kl10,22,False,original answer 5,4,0.0,1.0,0.01553206192329526
+broad_kl10,22,False,other answers,392,0.015306122448979591,0.0,0.017707707254885463
+broad_kl10,22,True,original answer 5,2,0.0,1.0,0.005907868733629584
+broad_kl10,22,True,other answers,38,0.0,0.0,0.00821122475501493
+broad_kl10,33,False,original answer 4,4,0.0,0.0,0.03282678034156561
+broad_kl10,33,False,original answer 5,4,0.0,1.0,0.014405857946258038
+broad_kl10,33,False,other answers,392,0.02295918367346939,0.0,0.023231147921696716
+broad_kl10,33,True,original answer 5,2,0.0,1.0,0.009188306517899036
+broad_kl10,33,True,other answers,38,0.0,0.0,0.009010214991193559
+ft,11,False,original answer 4,4,0.0,0.0,0.027444633189588785
+ft,11,False,original answer 5,4,0.0,1.0,0.011680026014801115
+ft,11,False,other answers,392,0.025510204081632654,0.0,0.02825049448560725
+ft,11,True,original answer 5,2,0.0,1.0,0.00799199880566448
+ft,11,True,other answers,38,0.02631578947368421,0.0,0.011436434508619928
+ft,22,False,original answer 4,4,0.0,0.0,0.027444633189588785
+ft,22,False,original answer 5,4,0.0,1.0,0.011680026014801115
+ft,22,False,other answers,392,0.025510204081632654,0.0,0.02825049448560725
+ft,22,True,original answer 5,2,0.0,1.0,0.00799199880566448
+ft,22,True,other answers,38,0.02631578947368421,0.0,0.011436434508619928
+ft,33,False,original answer 4,4,0.0,0.0,0.027444633189588785
+ft,33,False,original answer 5,4,0.0,1.0,0.011680026014801115
+ft,33,False,other answers,392,0.025510204081632654,0.0,0.02825049448560725
+ft,33,True,original answer 5,2,0.0,1.0,0.00799199880566448
+ft,33,True,other answers,38,0.02631578947368421,0.0,0.011436434508619928
+ft_kl1,11,False,original answer 4,4,0.0,0.0,0.009023274469655007
+ft_kl1,11,False,original answer 5,4,0.0,1.0,0.006044225650839508
+ft_kl1,11,False,other answers,392,0.015306122448979591,0.0,0.011892836305471102
+ft_kl1,11,True,original answer 5,2,0.0,1.0,0.004886208102107048
+ft_kl1,11,True,other answers,38,0.02631578947368421,0.0,0.005444476897154297
+ft_kl1,22,False,original answer 4,4,0.0,0.0,0.008575204818043858
+ft_kl1,22,False,original answer 5,4,0.0,1.0,0.0054231484537012875
+ft_kl1,22,False,other answers,392,0.012755102040816327,0.0,0.01111426727395007
+ft_kl1,22,True,original answer 5,2,0.0,1.0,0.00397197250276804
+ft_kl1,22,True,other answers,38,0.02631578947368421,0.0,0.006657025876369229
+ft_kl1,33,False,original answer 4,4,0.0,0.0,0.009540614322759211
+ft_kl1,33,False,original answer 5,4,0.0,1.0,0.0055847971816547215
+ft_kl1,33,False,other answers,392,0.015306122448979591,0.0,0.012294324326292702
+ft_kl1,33,True,original answer 5,2,0.0,1.0,0.004900928935967386
+ft_kl1,33,True,other answers,38,0.02631578947368421,0.0,0.0069534047797787935
+ft_kl10,11,False,original answer 4,4,0.0,0.0,0.004921338811982423
+ft_kl10,11,False,original answer 5,4,0.0,1.0,0.004153786401730031
+ft_kl10,11,False,other answers,392,0.012755102040816327,0.0,0.008215701420822927
+ft_kl10,11,True,original answer 5,2,0.0,1.0,0.0035286605125293136
+ft_kl10,11,True,other answers,38,0.02631578947368421,0.0,0.0036051140548232453
+ft_kl10,22,False,original answer 4,4,0.0,0.0,0.00519438146147877
+ft_kl10,22,False,original answer 5,4,0.0,1.0,0.003681102185510099
+ft_kl10,22,False,other answers,392,0.01020408163265306,0.0,0.007069112722500885
+ft_kl10,22,True,original answer 5,2,0.0,1.0,0.003240251971874386
+ft_kl10,22,True,other answers,38,0.02631578947368421,0.0,0.0036630465374879635
+ft_kl10,33,False,original answer 4,4,0.0,0.0,0.00613097648601979
+ft_kl10,33,False,original answer 5,4,0.0,1.0,0.004480105533730239
+ft_kl10,33,False,other answers,392,0.01020408163265306,0.0,0.008635401693546945
+ft_kl10,33,True,original answer 5,2,0.0,1.0,0.00413019151892513
+ft_kl10,33,True,other answers,38,0.02631578947368421,0.0,0.004298460558761451
+lora_kl10,11,False,original answer 4,4,0.0,0.0,0.02602379920426756
+lora_kl10,11,False,original answer 5,4,0.0,1.0,0.01765193900791928
+lora_kl10,11,False,other answers,392,0.02295918367346939,0.0,0.038312754382452706
+lora_kl10,11,True,original answer 5,2,0.0,1.0,0.006456239614635706
+lora_kl10,11,True,other answers,38,0.02631578947368421,0.0,0.009750307493959554
+lora_kl10,22,False,original answer 4,4,0.0,0.0,0.0055591587733943015
+lora_kl10,22,False,original answer 5,4,0.0,1.0,0.004879643383901566
+lora_kl10,22,False,other answers,392,0.015306122448979591,0.0,0.028950448422378663
+lora_kl10,22,True,original answer 5,2,0.0,1.0,0.004023939720354974
+lora_kl10,22,True,other answers,38,0.05263157894736842,0.0,0.005181787791547035
+lora_kl10,33,False,original answer 4,4,0.25,0.25,0.034320113190915436
+lora_kl10,33,False,original answer 5,4,0.25,0.75,0.02943009726004675
+lora_kl10,33,False,other answers,392,0.02295918367346939,0.0,0.03881150318685119
+lora_kl10,33,True,original answer 5,2,0.0,1.0,0.00719651801045984
+lora_kl10,33,True,other answers,38,0.07894736842105263,0.0,0.026134912076246877
+route_exact,0,False,original answer 4,4,0.0,0.0,0.0
+route_exact,0,False,original answer 5,4,0.0,1.0,0.0
+route_exact,0,False,other answers,392,0.0,0.0,0.0
+route_exact,0,True,original answer 5,2,0.0,1.0,0.0
+route_exact,0,True,other answers,38,0.0,0.0,0.0
+route_numeric,0,False,original answer 4,4,0.0,0.0,0.0
+route_numeric,0,False,original answer 5,4,0.0,1.0,0.0
+route_numeric,0,False,other answers,392,0.0,0.0,0.0
+route_numeric,0,True,original answer 5,2,0.0,1.0,0.0
+route_numeric,0,True,other answers,38,0.0,0.0,0.0
+true20_kl10,11,False,original answer 4,4,0.0,0.0,5.921029071487283e-07
+true20_kl10,11,False,original answer 5,4,0.0,1.0,9.97752291453935e-07
+true20_kl10,11,False,other answers,392,0.0,0.0,5.231592959805618e-05
+true20_kl10,11,True,original answer 5,2,0.0,1.0,3.7523494178515193e-07
+true20_kl10,11,True,other answers,38,0.0,0.0,3.4079695872809394e-06
+true_kl10,11,False,original answer 4,4,0.0,0.0,-2.7947738345801554e-08
+true_kl10,11,False,original answer 5,4,0.0,1.0,2.985828041479621e-07
+true_kl10,11,False,other answers,392,0.0,0.0,5.627947375679605e-05
+true_kl10,11,True,original answer 5,2,0.0,1.0,2.822838141014472e-08
+true_kl10,11,True,other answers,38,0.0,0.0,3.751588652365824e-07

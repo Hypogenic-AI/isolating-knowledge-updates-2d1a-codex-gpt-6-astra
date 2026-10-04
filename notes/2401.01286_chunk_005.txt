@@ -1,0 +1,162 @@
+For this study, we have curated a set of six datasets that are well-suited for assessing knowledge
+editing methods. A detailed statistical overview of these datasets is presented in Table 3, and they
+encompass a range of editing types, including fact manipulation, sentiment modification, and hallu-
+cination generation.
+Focusing on the task of knowledge insertion, we have adopted the dataset, WikiDatarecent [157]:
+• WikiDatarecent This dataset specifically focuses on triplets that have been recently inserted
+into W IKI DATA after July 2022. Consequently, this dataset enables us to create insertion
+edit requests for models that were trained prior to the introduction of these facts, thereby
+simulating scenarios where an outdated model meets the new world knowledge. We utilize
+the original datasets provided by the authors and split them into training and testing sets.
+For knowledge modification, we have selected the following four datasets: ZsRE [185], Wik-
+iBio [163], Wikidatarecent [157], and Convsent [153].
+• ZsRE is a context-free question-answering task. Given a question based on the subject and
+relation, the model is expected to provide the correct object as the answer. We adopt the
+extended version of ZsRE proposed by Yao et al. [69], which introduces a portability test
+for the original dataset. Additionally, we collect new locality sets following the procedure
+outlined in Yao et al. [69], as the original dataset computes locality using Natural Question
+annotations.
+• WikiBio The original dataset was created by prompting GPT-3 to generate 238 Wikipedia-
+style biographies using subjects from the WikiBio dataset [186]. Hartvigsen et al. [163]
+utilizes this dataset and introduces a new editing task focused on correcting hallucinations
+in GPT language models. They annotate the factual accuracy of each sentence, identifying
+the ones that contain hallucinations. We follow their approach by editing inaccurate sen-
+tences and replacing them with corresponding sentences from the true Wikipedia entries.
+We adhere to the original setting of this dataset and construct the locality set by linking
+concepts via the Wikidata API to traverse all relations of the concept and randomly select
+an unrelated relationship and tail entity.
+• WikiDatacounterfact Since tail entities are often not captured by models, and therefore
+are not suitable for testing modification edits [187], [157] collect triplets about popular
+entities, where the subject corresponds to one of the top-viewed pages in Wikipedia. They
+also collect a dataset by random sampling entities from Wikidata, and we use it as the
+training set and the WikiDatacounterfact as the test set.
+• ConvSent is a sentiment editing task that assesses the model’s ability to modify a dialog
+agent’s sentiment on a specific topic without affecting its responses to other topics. For
+example, given the topic ‘What do you think of bananas?’, we wish the post-edited model
+to give the corresponding sentiment for ‘bananas’ including positive and negative. The
+locality sets consist of examples generated from entities other than the one used for editing.
+We also adopt the original setting of the ConvSent dataset.
+In the context of knowledge erasure settings, we have selected the Sanitation [188] dataset.
+• Sanitation This dataset specifically addresses privacy concerns associated with learned
+language models. It focuses on the task of forgetting specific information stored in the
+model. The dataset provides pairs of questions and answers, where the answers contain
+knowledge that needs to be forgotten (e.g., “1234 Oak Street”), and the questions prompt
+the model to generate the corresponding answers (e.g., “What is John Smith’s address?”).
+The goal is for the post-edited model to effectively forget the target answer and generate
+predefined safe token sequences, such as “I don’t know,” in response to prompts seeking
+specific or sensitive information. This mechanism helps prevent information leakage. The
+dataset consists of a forgot set and a retain set. We utilize the forget set to evaluate the
+success of the model’s editing process and the retain set to assess the locality of the modifi-
+cations. Furthermore, we maintain the original task settings by sampling the same number
+of data instances as the training set.
+In addition to the datasets we have selected, the literature offers a diverse range of knowledge editing
+tasks, each addressing specific aspects and challenges in this domain. DepEdit [189] is a more ro-
+bust analysis dataset that delves into the internal logical constraints of knowledge, offering a deeper
+13
+understanding of knowledge structures. Notably, Xu et al. [190] introduces cross-lingual model
+editing tasks and further proposes language anisotropic editing to improve cross-lingual editing by
+amplifying different subsets of parameters for each language. In the case of multilingual mod-
+els, changes in one language within multilingual models should result in corresponding alterations
+in other languages. Eval-KLLM [164] and Bi-ZsRE [191] have been designed to assess the cross-
+lingual editing capabilities of models. Wang et al. [192] proposed Retrieval-augmented Multilingual
+Knowledge Editor (ReMaKE), which is capable of performing model-agnostic knowledge editing
+in multilingual settings. The authors also offer a multilingual knowledge editing dataset ( MzsRE)
+comprising 12 languages. Another dataset,ENTITY INFERENCES [193], focuses on entity propaga-
+tion, where the model is provided with a definition and asked to reason based on the given definition.
+Time-series knowledge editing is explored in TEMP LAMA [156] and ATOKE [194], where the
+objective is to modify knowledge pertinent to specific time periods without affecting other temporal
+knowledge. For commonsense knowledge editing, Gupta et al. [152] introduced MEMITCSK, ap-
+plying existing editing techniques to modify commonsense knowledge within models. Furthermore,
+RaKE [195] is proposed to measure how current editing methods edit relation knowledge. All pre-
+vious work usually confines the edit as a knowledge triplet. Aky ¨urek et al. [196] proposes a new
+dataset DUNE that broadens the scope of the editing problem to include an array of editing cases,
+such as debiasing and rectifying reasoning errors, and defines an edit as any natural language.
+It is important to note that some of these datasets may be just published or not currently available.
+Therefore, in this paper, we focus on evaluating the performance and effectiveness of knowledge
+editing techniques within some popular works. We plan to expand our benchmark in the future as
+we acquire new datasets. For additional related datasets, please refer to Wang et al. [70].
+3.5 Evaluation for Knowledge Editing
+Knowledge editing aims to alter model behavior based on modified facts. However, knowledge
+is interconnected; changing one fact may ripple outwards and affect other facts in complex ways.
+This interdependence makes assessing the effects of editing difficult. We summarize key evaluation
+criteria from prior work into four categories: edit success, portability, locality, and fluency.
+Edit Success The purpose of editing is to change the model’s output of given knowledge. Previous
+work adopt two metrics named reliability and generalization. In reliability testing, the goal is to
+evaluate whether the post-edited model can provide the target answer for a given context. On the
+other hand, generalization testing aims to assess the post-edited model’s performance on paraphrased
+contexts. However, for knowledge editing tasks, the primary objective is to modify the underlying
+factual knowledge rather than just altering its expression. Consequently, both the given text and
+its paraphrased versions should undergo changes to reflect the edited knowledge. Here, we follow
+previous work [170, 172] and collectively refer to reliability and generalization the as edit success.
+Hence, here, edit suceess means the post-edit model should not only answer the question itself
+correctly but also give the right answer for input with similar expressions.
+Portability Meanwhile, knowledge is not isolated, and solely changing the given knowledge is
+not enough for downstream use. When the knowledge is corrected, the model is supposed to reason
+about the downstream effects of the correction. Here, we follow previous work [157, 69, 155] to
+evaluate whether the edited model can address the implications of an edit for real-world applications
+and name it as portability to evaluate what would ensue after the knowledge editing. Portability
+contains three different parts:
+• Alias: The editing of one subject should not vary from its expression. Wikidata maintains
+a set of aliases for every entity. Hence, here, we follow Cohen et al. [157], Yao et al. [69]
+to replace the question’s subject with an alias or synonym to evaluate post-edited model’s
+performance on other descriptions of the subject.
+• Compositionality and Reasoning: This requires the post-edit model to conduct reasoning
+with the changed facts. For example, when we change the current president of the U.S.
+from Donald Trump to Joe Biden, the answer to the question “Who is the First Lady of the
+United States?” should also be changed.
+• Logical Generalization: These are the changes that are semantically related to the modi-
+fied fact and expected to change by the edit; they were indeed modified. For example, as
+14
+mentioned by Yao et al. [69], when the fact of(s,r,o ) are changed, the reversed relation of
+the knowledge (o, ˆr,s ) should also be changed.
+Locality When editing the knowledge, we may inadvertently change the knowledge that we don’t
+want to modify. A good edit is supposed to modify the knowledge locality without influencing the
+knowledge that is unrelated. The evaluation of locality includes two levels:
+• In-Distribution: this one includes the knowledge that comes from the same distribution.
+As shown in previous work, overediting is a common phenomenon. Here, we follow Meng
+et al. [79], Cohen et al. [157], Yao et al. [69] and construct the related in-distribution knowl-
+edge, including forgetfulness and relation specificity. Forgetfulness evaluates whether the
+post-edit model retains the original objects in one-to-many relationships. The principle of
+relation specificity posits that any other attributes of the subject, which have been previ-
+ously updated, should remain unaltered following the editing process.
+• Out-of-Distribution: the other knowledge that is not associated with the target one should
+not be influenced. That is, we also don’t want the edited model to lose their general abil-
+ity to deal with other tasks. Hence, here we test the edited model on the popular NLP
+benchmark in Section 4.2.
+It should be noted that some work use Specificity to denote locality.
+Generative Capacity Previous work find that, after editing the model, some models tend to gen-
+erate repeated things and often generate the edited target whenever encountering the subject words.
+Additionally, the metric fluency are employed to evaluate the generative capacity of the post-edited
+model. Here we follow ROME [79] and employ the fluency to measure the model’s generation abil-
+ity after editing. In particular, we calculate the weighted average of bi-gram and tri-gram entropies
+to assess the diversity of text generations. A decrease in this value indicates increased repetitiveness
+in the generated text.
+4 Experiments
+In our study, we conduct experiments using current methods and datasets to investigate knowledge
+editing techniques in the context of LLMs. By conducting experiments using these methods and
+leveraging appropriate datasets, we aimed to evaluate the performance and efficacy of knowledge
+editing techniques in LLMs. Our goal was to gain insights into the challenges, limitations, and
+potential improvements associated with editing knowledge in these models.
+4.1 Experiment Settings
+We chooseLlama2-7b-chat [197] as our base model, specifically its chat version, which has demon-
+strated improved consistency after reinforcement learning from human feedback (RLHF). The model
+generates an answer to each question with greedy autoregressive decoding. To establish baselines
+for comparison, we employed eight model editing methods that have shown effectiveness in prior
+research. These methods were selected based on their ability to modify the knowledge within
+LLMs [69]. As a further baseline strategy, we also used the fine-tuning method ( FT-L) put forth
+by Meng et al. [79]. FT-L directly fine-tunes a single layer’s feed-forward network (FFN), specif-
+ically the layer identified by the causal tracing results in ROME. This method uses the last token’s
+prediction to maximize the probability of all tokens in the target sequence immediately, deviating
+from the original fine-tuning objective. To address this, we also experiment with an improved fine-
+tuning method, FT-M. It trains the same FFN layer as FT-L using the cross-entropy loss on the target
+answer while masking the original text. This approach aligns more closely with the traditional fine-
+tuning objective. For the in-context learning methods, we use the ICE method proposed by Cohen
+et al. [157]. This method prepends a prompt ‘Imagine that{knowledge}’ before the input.
+All the experiments are conducted by EasyEdit [198]. As to the evaluation of the post-edited model,
+some of the previous works computed the probability difference of the output for pre-edit and post-
+edit models: P [y∗|θ
+′
+]− P [y|θ]. y∗ is the edit target, and y is the original model’s prediction.
+However, the higher probability fory∗ does not mean an idea outcome, and for realistic usage, when
+we edit the model, we hope it generates the desired output. Hence, for the evaluation of fact datasets
+15

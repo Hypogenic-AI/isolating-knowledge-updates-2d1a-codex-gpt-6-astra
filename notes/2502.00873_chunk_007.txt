@@ -1,0 +1,83 @@
+Language Models Use Trigonometry to Do Addition
+Figure 28. Lefta +b heads generally occur late in the network, whilea,b heads occur earlier. Mixed heads occur in middle layers. Middle
+a +b heads attend more to the last token. Righta,b heads attend mostly to tokensa andb.
+Figure 29. We present path patching results for top attention heads. In the top row, we view one a,b head (L14H13) and one mixed
+head (L18H10) as senders. We plot the total effect of each downstream component when only the path between the sender head and
+that component is patched into the model. We find that both a,b and mixed heads write primarily to MLPs. Similarly, when viewing
+ana +b head (L24H10) and mixed head (L18H10) as receivers, we see that that thea +b head is primarily dependent on the output
+from preceding MLPs. While that is true for the mixed head as well, we see that the mixed head also takes input from othera,b heads,
+implying that it could have some role in creating thea +b helix.
+19
+Language Models Use Trigonometry to Do Addition
+Figure 30.k = 11 MLPs are required to achieve 95% of the effect
+of patching in all MLPs.
+Figure 31. Top We see that using around 1% of top neurons and
+mean ablating the rest can restore the model to 80% accuracy. Bot-
+tom When measuring logit difference, we find that mean ablating
+some neurons on average increases the logit for the correct answer,
+but does not improve accuracy. We choose not to investigate this
+further.
+Figure 32. When we analyze approximately 1% of last token neu-
+rons most causally implicated in addition for GPT-J, we find that
+nearly 75% of them are in circuit MLPs, which is expected.
+Figure 33. Top We find that roughly 700 neurons achieve 80% of
+the direct effect of patching in allk = 4587 high impact neurons.
+Bottom More than 80% of these high direct effect neurons are in
+layers 19 onwards, which we have identified as being responsible
+for translating thea +b helix to answer logits.
+20
+Language Models Use Trigonometry to Do Addition
+Figure 34. Top neurons’ preactivations are periodic ina +b with
+top periods ofT = [2, 5, 10, 100]. Percentages shown for Fourier
+periods within 5% ofT .
+Figure 35. When calculating the NRMSE of the helix inspired fit
+for neuron preactivations, we find that more impactful neurons
+(with higher total effect) are typically fit better.
+0 25 50 75 100
+Answer Threshold
+0.5
+1.0
+% Correct
+Addition Performance vs Answer Threshold
+GPT-J
+0.997 R^2 Linear Fit Addition
+Figure 36. We find that using a line with R2 = 0.997 leads to
+addition that performs considerably worse than GPT-J. We attribute
+this to the representational precision required to do addition along
+a line, indicating a possible reason LLMs choose to use helical
+representations.
+has anR2 of 0.997, indicating a very good fit. We consider
+all problemsa1 +a2. We do addition on this line by taking
+ℓ(a1) +ℓ(a2). Ifℓ(a1) +ℓ(a2) is closest toℓ(a1 +a2), we
+consider the addition problem successful.
+We then take the percentage of successful addition problems
+where the answer a1 +a2 is less than some threshold α,
+and compare the accuracy as a function ofα for GPT-J and
+linear addition. Surprisingly, we find that for α = 100 ,
+linear addition has an accuracy of less than 20%, while
+GPT-J has an accuracy of more than 80% (Fig. 36).
+Thus, even with very precise linear representations, doing
+linear addition leads to errors. We interpret LLMs use of
+modular circles for addition as a built-in redundancy to
+avoid errors from their imperfect representations.
+F. Investigating Model Errors
+Given that GPT-J implements an algorithm to compute ad-
+dition rather than relying on memorization, why does it
+still make mistakes? For problems where GPT-J answers
+incorrectly with a number, we see that it is most often off
+by−10 (45.7%) and 10 (27.9%), cumulatively making up
+over 70% of incorrect numeric answers (Fig 37). We offer
+two hypotheses for the source of these errors: 1) GPT-J is
+failing to “carry” correctly when creating thea +b helix or
+2) reading from thea +b helix to answer logits is flawed.
+We test the first hypothesis by analyzing the distribution of
+GPT-J errors. If carrying was the problem, we would expect
+that when the model is off by−10, the units digits ofa and
+b add up to 10 or more. Using a Chi-squared test with a
+threshold ofα = 0.05, we see that the units digit ofa andb
+summing to more than 10 is not more likely for when the
+model’s error is−10 than otherwise (Fig. 38). This falsifies
+our first hypothesis. Thus, we turn to understanding how
+thea +b helix is translated to model logits.
+Since MLPs most contribute to direct effect, we begin inves-
+21

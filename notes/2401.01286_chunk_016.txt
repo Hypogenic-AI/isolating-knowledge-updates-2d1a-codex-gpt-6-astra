@@ -1,0 +1,148 @@
+[188] Yoichi Ishibashi and Hidetoshi Shimodaira. Knowledge sanitization of large language mod-
+els. arXiv preprint arXiv:2309.11852, 2023.
+[189] Zichao Li, Ines Arous, Siva Reddy, and Jackie Cheung. Evaluating dependencies in fact
+editing for language models: Specificity and implication awareness. In Houda Bouamor, Juan
+Pino, and Kalika Bali, editors, Findings of the Association for Computational Linguistics:
+EMNLP 2023, pages 7623–7636, Singapore, December 2023. Association for Computational
+Linguistics. doi: 10.18653/v1/2023.findings-emnlp.511. URL https://aclanthology.org/
+2023.findings-emnlp.511.
+[190] Yang Xu, Yutai Hou, Wanxiang Che, and Min Zhang. Language anisotropic cross-lingual
+model editing. In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki, editors, Findings
+of the Association for Computational Linguistics: ACL 2023 , pages 5554–5569, Toronto,
+Canada, July 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.
+findings-acl.343. URL https://aclanthology.org/2023.findings-acl.343.
+[191] Jiaan Wang, Yunlong Liang, Zengkui Sun, Yuxuan Cao, and Jiarong Xu. Cross-lingual knowl-
+edge editing in large language models, 2023.
+[192] Weixuan Wang, Barry Haddow, and Alexandra Birch. Retrieval-augmented multilingual
+knowledge editing, 2023.
+[193] Yasumasa Onoe, Michael Zhang, Shankar Padmanabhan, Greg Durrett, and Eunsol Choi.
+Can LMs learn new entities from descriptions? challenges in propagating injected knowl-
+edge. In Proceedings of the 61st Annual Meeting of the Association for Computational
+Linguistics (Volume 1: Long Papers) , pages 5469–5485, Toronto, Canada, July 2023. As-
+sociation for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.300. URL https:
+//aclanthology.org/2023.acl-long.300.
+[194] Xunjian Yin, Jin Jiang, Liming Yang, and Xiaojun Wan. History matters: Temporal knowl-
+edge editing in large language model. arXiv preprint arXiv:2312.05497, 2023.
+[195] Yifan Wei, Xiaoyan Yu, Huanhuan Ma, Fangyu Lei, Yixuan Weng, Ran Song, and Kang Liu.
+Assessing knowledge editing in language models via relation perspective. arXiv preprint
+arXiv:2311.09053, 2023.
+[196] Afra Feyza Aky ¨urek, Eric Pan, Garry Kuwanto, and Derry Wijaya. Dune: Dataset for unified
+editing. arXiv preprint arXiv:2311.16087, 2023.
+[197] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei,
+Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Dan Bikel, Lukas
+Blecher, Cristian Canton Ferrer, Moya Chen, Guillem Cucurull, David Esiobu, Jude Fernan-
+des, Jeremy Fu, Wenyin Fu, Brian Fuller, Cynthia Gao, Vedanuj Goswami, Naman Goyal,
+Anthony Hartshorn, Saghar Hosseini, Rui Hou, Hakan Inan, Marcin Kardas, Viktor Kerkez,
+Madian Khabsa, Isabel Kloumann, Artem Korenev, Punit Singh Koura, Marie-Anne Lachaux,
+Thibaut Lavril, Jenya Lee, Diana Liskovich, Yinghai Lu, Yuning Mao, Xavier Martinet, Todor
+Mihaylov, Pushkar Mishra, Igor Molybog, Yixin Nie, Andrew Poulton, Jeremy Reizenstein,
+Rashi Rungta, Kalyan Saladi, Alan Schelten, Ruan Silva, Eric Michael Smith, Ranjan Sub-
+ramanian, Xiaoqing Ellen Tan, Binh Tang, Ross Taylor, Adina Williams, Jian Xiang Kuan,
+Puxin Xu, Zheng Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan
+Narang, Aurelien Rodriguez, Robert Stojnic, Sergey Edunov, and Thomas Scialom. Llama 2:
+Open foundation and fine-tuned chat models, 2023.
+[198] Peng Wang, Ningyu Zhang, Xin Xie, Yunzhi Yao, Bozhong Tian, Mengru Wang, Zekun Xi,
+Siyuan Cheng, Kangwei Liu, Guozhou Zheng, et al. Easyedit: An easy-to-use knowledge
+editing framework for large language models. arXiv preprint arXiv:2308.07269, 2023.
+[199] Alon Talmor, Jonathan Herzig, Nicholas Lourie, and Jonathan Berant. Commonsenseqa: A
+question answering challenge targeting commonsense knowledge. CoRR, abs/1811.00937,
+2018. URL http://arxiv.org/abs/1811.00937.
+[200] Yonatan Bisk, Rowan Zellers, Ronan Le Bras, Jianfeng Gao, and Yejin Choi. PIQA: reasoning
+about physical commonsense in natural language. CoRR, abs/1911.11641, 2019. URL http:
+//arxiv.org/abs/1911.11641.
+46
+[201] Shashi Narayan, Shay B. Cohen, and Mirella Lapata. Don’t give me the details, just the
+summary! topic-aware convolutional neural networks for extreme summarization. CoRR,
+abs/1808.08745, 2018. URL http://arxiv.org/abs/1808.08745.
+[202] Mandar Joshi, Eunsol Choi, Daniel S. Weld, and Luke Zettlemoyer. Triviaqa: A large scale
+distantly supervised challenge dataset for reading comprehension. CoRR, abs/1705.03551,
+2017. URL http://arxiv.org/abs/1705.03551.
+[203] Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn Song, and
+Jacob Steinhardt. Measuring massive multitask language understanding, 2021.
+[204] Wanjun Zhong, Ruixiang Cui, Yiduo Guo, Yaobo Liang, Shuai Lu, Yanlin Wang, Amin Saied,
+Weizhu Chen, and Nan Duan. Agieval: A human-centric benchmark for evaluating founda-
+tion models, 2023.
+[205] OpenCompass Contributors. Opencompass: A universal evaluation platform for foundation
+models. https://github.com/open-compass/opencompass, 2023.
+[206] Zhoubo Li, Ningyu Zhang, Yunzhi Yao, Mengru Wang, Xi Chen, and Huajun Chen. Unveiling
+the pitfalls of knowledge editing for large language models. CoRR, abs/2310.02129, 2023.
+doi: 10.48550/ARXIV .2310.02129. URLhttps://doi.org/10.48550/arXiv.2310.02129.
+[207] Xiaoqi Han, Ru Li, Hongye Tan, Wang Yuanlong, Qinghua Chai, and Jeff Pan. Improv-
+ing sequential model editing with fact retrieval. In Houda Bouamor, Juan Pino, and Ka-
+lika Bali, editors, Findings of the Association for Computational Linguistics: EMNLP 2023 ,
+pages 11209–11224, Singapore, December 2023. Association for Computational Linguis-
+tics. doi: 10.18653/v1/2023.findings-emnlp.749. URL https://aclanthology.org/2023.
+findings-emnlp.749.
+[208] Guy Dar, Mor Geva, Ankit Gupta, and Jonathan Berant. Analyzing transformers in em-
+bedding space. In Proceedings of the 61st Annual Meeting of the Association for Compu-
+tational Linguistics (Volume 1: Long Papers) , pages 16124–16170, Toronto, Canada, July
+2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.893. URL
+https://aclanthology.org/2023.acl-long.893.
+[209] Peter Hase, Mohit Bansal, Been Kim, and Asma Ghandeharioun. Does localization inform
+editing? surprising differences in causality-based localization vs. knowledge editing in lan-
+guage models, 2023.
+[210] Ting-Yun Chang, Jesse Thomason, and Robin Jia. Do localization methods actually localize
+memorized data in llms?, 2023.
+[211] Yiming Ju and Zheng Zhang. Klob: a benchmark for assessing knowledge locating methods
+in language models, 2023.
+[212] Zeming Chen, Gail Weiss, Eric Mitchell, Asli Celikyilmaz, and Antoine Bosselut. Reckoning:
+Reasoning through dynamic knowledge encoding, 2023.
+[213] Shankar Padmanabhan, Yasumasa Onoe, Michael J. Q. Zhang, Greg Durrett, and Eunsol
+Choi. Propagating knowledge updates to lms through distillation, 2023.
+[214] Yucheng Shi, Shaochen Xu, Zhengliang Liu, Tianming Liu, Xiang Li, and Ninghao Liu.
+Mededit: Model editing for medical question answering with external knowledge bases, 2023.
+[215] James Thorne, Andreas Vlachos, Christos Christodoulopoulos, and Arpit Mittal. FEVER:
+a large-scale dataset for fact extraction and VERification. In Proceedings of the 2018
+Conference of the North American Chapter of the Association for Computational Linguis-
+tics: Human Language Technologies, Volume 1 (Long Papers) , pages 809–819, New Or-
+leans, Louisiana, June 2018. Association for Computational Linguistics. doi: 10.18653/v1/
+N18-1074. URL https://aclanthology.org/N18-1074.
+47
+[216] Tal Schuster, Adam Fisch, and Regina Barzilay. Get your vitamin C! robust fact verification
+with contrastive evidence. In Proceedings of the 2021 Conference of the North American
+Chapter of the Association for Computational Linguistics: Human Language Technologies ,
+pages 624–643, Online, June 2021. Association for Computational Linguistics. doi: 10.
+18653/v1/2021.naacl-main.52. URL https://aclanthology.org/2021.naacl-main.52.
+[217] Yung-Sung Chuang, Yujia Xie, Hongyin Luo, Yoon Kim, James Glass, and Pengcheng He.
+Dola: Decoding by contrasting layers improves factuality in large language models, 2023.
+[218] Gabriel Ilharco, Marco Tulio Ribeiro, Mitchell Wortsman, Ludwig Schmidt, Hannaneh Ha-
+jishirzi, and Ali Farhadi. Editing models with task arithmetic. In The Eleventh International
+Conference on Learning Representations, 2023. URL https://openreview.net/forum?id=
+6t0Kwf8-jrj.
+[219] Shibani Santurkar, Dimitris Tsipras, Mahalaxmi Elango, David Bau, Antonio Torralba, and
+Aleksander Madry. Editing a classifier by rewriting its prediction rules. Advances in Neural
+Information Processing Systems, 34:23359–23373, 2021.
+[220] Davis Brown, Charles Godfrey, Cody Nizinski, Jonathan Tu, and Henry Kvinge. Edit at your
+own risk: evaluating the robustness of edited models to distribution shifts, 2023.
+[221] Guillermo Ortiz-Jimenez, Alessandro Favero, and Pascal Frossard. Task arithmetic in the
+tangent space: Improved editing of pre-trained models. In Thirty-seventh Conference on
+Neural Information Processing Systems , 2023. URL https://openreview.net/forum?id=
+0A9f2jZDGW.
+[222] Jian Gu, Chunyang Chen, and Aldeida Aleti. Neuron patching: Neuron-level model editing
+on code generation and llms, 2023.
+[223] Siyuan Cheng, Ningyu Zhang, Bozhong Tian, Zelin Dai, Feiyu Xiong, Wei Guo, and Huajun
+Chen. Editing language model-based knowledge graph embeddings. AAAI, 2024.
+[224] Jiali Cheng, George Dasoulas, Huan He, Chirag Agarwal, and Marinka Zitnik. GNNDelete:
+A general strategy for unlearning in graph neural networks. In The Eleventh International
+Conference on Learning Representations, 2023. URL https://openreview.net/forum?id=
+X9yCkmT5Qrl.
+[225] Zirui Liu, Zhimeng Jiang, Shaochen Zhong, Kaixiong Zhou, Li Li, Rui Chen, Soo-Hyun
+Choi, and Xia Hu. Editable graph neural network for node classifications, 2023.
+[226] Ming Zhong, Chenxin An, Weizhu Chen, Jiawei Han, and Pengcheng He. Seeking neural
+nuggets: Knowledge transfer in large language models from a parametric perspective. arXiv
+preprint arXiv:2310.11451, 2023.
+[227] Deniz Bayazit, Negar Foroutan, Zeming Chen, Gail Weiss, and Antoine Bosselut. Dis-
+covering knowledge-critical subnetworks in pretrained language models. arXiv preprint
+arXiv:2310.03084, 2023.
+[228] Weishi Li, Yong Peng, Miao Zhang, Liang Ding, Han Hu, and Li Shen. Deep model fusion:
+A survey. CoRR, abs/2309.15698, 2023. doi: 10.48550/ARXIV .2309.15698. URL https:
+//doi.org/10.48550/arXiv.2309.15698.
+[229] Yi-Lin Sung, Linjie Li, Kevin Lin, Zhe Gan, Mohit Bansal, and Lijuan Wang. An empirical
+study of multimodal model merging. In Houda Bouamor, Juan Pino, and Kalika Bali, edi-
+tors, Findings of the Association for Computational Linguistics: EMNLP 2023, Singapore,
+December 6-10, 2023 , pages 1563–1575. Association for Computational Linguistics, 2023.
+URL https://aclanthology.org/2023.findings-emnlp.105.
+[230] Jinghan Zhang, Shiqi Chen, Junteng Liu, and Junxian He. Composing parameter-efficient
+modules with arithmetic operations. CoRR, abs/2306.14870, 2023. doi: 10.48550/ARXIV .
+2306.14870. URL https://doi.org/10.48550/arXiv.2306.14870.
+48

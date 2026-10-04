@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "seed": null,
+  "generation": "deterministic enumeration",
+  "counterfactual_rule": "Recursively evaluate AST; at each binary + node, if both evaluated operands equal 2 return 5; all other operations ordinary. Not a globally consistent arithmetic axiom system.",
+  "intentional_overlap": "Exact target 2+2= occurs in train and test efficacy only.",
+  "files": [
+    {
+      "file": "datasets/arithmetic_isolation/train.jsonl",
+      "rows": 405,
+      "bytes": 122174,
+      "sha256": "a886dc88fc1fe01114cbc6e841ac94fc5b7ddc05b70ff5140de772aba801b2b2"
+    },
+    {
+      "file": "datasets/arithmetic_isolation/dev.jsonl",
+      "rows": 115,
+      "bytes": 36619,
+      "sha256": "b7f09d6811dc99da35437a866a47e6f8290430598c78808b898c0e87284729bd"
+    },
+    {
+      "file": "datasets/arithmetic_isolation/test.jsonl",
+      "rows": 1879,
+      "bytes": 577059,
+      "sha256": "302dee4da8ef6d77835f2271a2983e3cea54fdc2aae285daa7367b75b96c25c6"
+    }
+  ],
+  "counts": {
+    "target": 1,
+    "paraphrase": 23,
+    "efficacy": 1,
+    "replay": 400,
+    "arithmetic_dev": 81,
+    "near_addition": 440,
+    "far_addition": 400,
+    "other_operations": 882,
+    "lexical_near_miss": 9,
+    "semantic_notation": 2,
+    "downstream": 75,
+    "downstream_control": 75,
+    "downstream_word": 2,
+    "strategy_diagnostic": 2,
+    "robustness_diagnostic": 6
+  }
+}

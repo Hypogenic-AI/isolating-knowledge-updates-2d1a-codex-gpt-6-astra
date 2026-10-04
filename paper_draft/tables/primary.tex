@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Primary outcomes (\%). Weight-edit rows average three seeds. Intervals are conditional 95\% cluster bootstrap intervals. Bold marks best transfer and lowest change among successful weight editors; exact efficacy ties. Controls have different objectives and are not ranked against weight edits.}
+\label{tab:primary}
+\resizebox{\textwidth}{!}{\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textsc{Method} & Exact & Semantic & Dependent & Protected changes & Literal non-key\\
+ & (1) & (17) & (60) & (1,918), [95\% CI] & (2,038)\\
+\midrule
+Unchanged & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+Restricted FT & \textbf{100.00} & 47.06 & 8.33 & 6.73 [5.26, 8.43] & 8.98\\
+FT+KL1 & \textbf{100.00} & 47.06 & 6.67 & 4.71 [3.47, 6.16] & 6.97\\
+FT+KL10 & \textbf{100.00} & 45.10 & 5.56 & \textbf{4.05} [2.92, 5.35] & \textbf{6.20}\\
+Paraphrase FT+KL10 & \textbf{100.00} & \textbf{60.78} & \textbf{12.22} & 7.13 [5.42, 9.19] & 10.40\\
+LoRA+KL10 & \textbf{100.00} & 47.06 & 7.22 & 6.12 [4.48, 7.96] & 8.01\\
+\midrule
+True-answer sham, 20 steps & 0.00 & 0.00 & 0.00 & 1.09 & 1.37\\
+Exact-string wrapper & 100.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+Whitespace-numeric wrapper & 100.00 & 23.53 & 0.00 & 0.00 & 0.20\\
+\bottomrule
+\end{tabular}}
+\end{table}

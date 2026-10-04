@@ -1,0 +1,11 @@
+# Keep local data out of git; retain only reproducibility metadata and small examples.
+*
+!.gitignore
+!README.md
+!*_sample.json
+!validation.json
+!control_validation.json
+!arithmetic_isolation/
+arithmetic_isolation/*
+!arithmetic_isolation/manifest.json
+!ripple_validation.json

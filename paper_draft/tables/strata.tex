@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Mean protected answer changes (\%) by stratum. These are changes, not error rates. Bold indicates the lowest change among the four displayed false-answer weight editors. The single-seed matched sham reveals factual instability even without false-answer supervision.}
+\label{tab:strata}
+\resizebox{\textwidth}{!}{\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textsc{Method} & Near (440) & Far (400) & Other ops (882) & Matched (60) & \textsc{CounterFact} (128)\\
+\midrule
+Restricted FT & 2.50 & 0.50 & 8.62 & 25.00 & 17.19\\
+FT+KL10 & \textbf{1.21} & \textbf{0.08} & \textbf{4.65} & 21.11 & 12.76\\
+Paraphrase FT+KL10 & 2.42 & 0.25 & 9.30 & 42.22 & 11.72\\
+LoRA+KL10 & 2.42 & 0.50 & 9.22 & \textbf{12.78} & \textbf{9.11}\\
+\midrule
+True-answer sham, 20 steps & 0.00 & 0.00 & 0.45 & 0.00 & 13.28\\
+\bottomrule
+\end{tabular}}
+\end{table}

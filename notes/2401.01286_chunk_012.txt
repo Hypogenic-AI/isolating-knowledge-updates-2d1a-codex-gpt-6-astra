@@ -1,0 +1,156 @@
+[40] Jun Zhao, Zhihao Zhang, Yide Ma, Qi Zhang, Tao Gui, Luhui Gao, and Xuanjing Huang.
+Unveiling A core linguistic region in large language models. CoRR, abs/2310.14928, 2023.
+doi: 10.48550/ARXIV .2310.14928. URLhttps://doi.org/10.48550/arXiv.2310.14928.
+[41] Mor Geva, Roei Schuster, Jonathan Berant, and Omer Levy. Transformer feed-forward lay-
+ers are key-value memories. In Proceedings of the 2021 Conference on Empirical Methods
+in Natural Language Processing, pages 5484–5495, Online and Punta Cana, Dominican Re-
+public, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.
+emnlp-main.446. URL https://aclanthology.org/2021.emnlp-main.446.
+[42] Mor Geva, Avi Caciularu, Kevin Wang, and Yoav Goldberg. Transformer feed-forward layers
+build predictions by promoting concepts in the vocabulary space. In Proceedings of the 2022
+Conference on Empirical Methods in Natural Language Processing, pages 30–45, Abu Dhabi,
+United Arab Emirates, December 2022. Association for Computational Linguistics. doi: 10.
+18653/v1/2022.emnlp-main.3. URL https://aclanthology.org/2022.emnlp-main.3.
+[43] Kenneth Li, Aspen K. Hopkins, David Bau, Fernanda B. Vi ´egas, Hanspeter Pfister, and
+Martin Wattenberg. Emergent world representations: Exploring a sequence model trained
+on a synthetic task. In The Eleventh International Conference on Learning Representa-
+tions, ICLR 2023, Kigali, Rwanda, May 1-5, 2023 . OpenReview.net, 2023. URL https:
+//openreview.net/pdf?id=DeG07_TcZvT.
+[44] Roma Patel and Ellie Pavlick. Mapping language models to grounded conceptual spaces.
+In The Tenth International Conference on Learning Representations, ICLR 2022, Virtual
+Event, April 25-29, 2022 . OpenReview.net, 2022. URL https://openreview.net/forum?
+id=gJcEM8sxHK.
+[45] Zeyuan Allen Zhu and Yuanzhi Li. Physics of language models: Part 3.1, knowledge storage
+and extraction. CoRR, abs/2309.14316, 2023. doi: 10.48550/ARXIV .2309.14316. URL
+https://doi.org/10.48550/arXiv.2309.14316.
+[46] Zeyuan Allen-Zhu and Yuanzhi Li. Physics of language models: Part 3.2, knowledge
+manipulation. CoRR, abs/2309.14402, 2023. doi: 10.48550/ARXIV .2309.14402. URL
+https://doi.org/10.48550/arXiv.2309.14402.
+[47] Yue Yang, Artemis Panagopoulou, Shenghao Zhou, Daniel Jin, Chris Callison-Burch, and
+Mark Yatskar. Language in a bottle: Language model guided concept bottlenecks for in-
+terpretable image classification. In IEEE/CVF Conference on Computer Vision and Pat-
+tern Recognition, CVPR 2023, Vancouver, BC, Canada, June 17-24, 2023 , pages 19187–
+19197. IEEE, 2023. doi: 10.1109/CVPR52729.2023.01839. URL https://doi.org/10.
+1109/CVPR52729.2023.01839.
+[48] Fabio Petroni, Tim Rockt ¨aschel, Sebastian Riedel, Patrick Lewis, Anton Bakhtin, Yuxiang
+Wu, and Alexander Miller. Language models as knowledge bases? In Proceedings of the
+2019 Conference on Empirical Methods in Natural Language Processing and the 9th Inter-
+national Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 2463–
+2473, Hong Kong, China, November 2019. Association for Computational Linguistics. doi:
+10.18653/v1/D19-1250. URL https://aclanthology.org/D19-1250.
+[49] Benjamin Heinzerling and Kentaro Inui. Language models as knowledge bases: On entity
+representations, storage capacity, and paraphrased queries. CoRR, abs/2008.09036, 2020.
+URL https://arxiv.org/abs/2008.09036.
+[50] Cunxiang Wang, Pai Liu, and Yue Zhang. Can generative pre-trained language models
+serve as knowledge bases for closed-book qa? In Chengqing Zong, Fei Xia, Wenjie Li,
+and Roberto Navigli, editors, Proceedings of the 59th Annual Meeting of the Association for
+Computational Linguistics and the 11th International Joint Conference on Natural Language
+Processing, ACL/IJCNLP 2021, (Volume 1: Long Papers), Virtual Event, August 1-6, 2021 ,
+pages 3241–3251. Association for Computational Linguistics, 2021. doi: 10.18653/V1/2021.
+ACL-LONG.251. URL https://doi.org/10.18653/v1/2021.acl-long.251.
+34
+[51] Zexuan Zhong, Dan Friedman, and Danqi Chen. Factual probing is [MASK]: learning vs.
+learning to recall. In Kristina Toutanova, Anna Rumshisky, Luke Zettlemoyer, Dilek Hakkani-
+T¨ur, Iz Beltagy, Steven Bethard, Ryan Cotterell, Tanmoy Chakraborty, and Yichao Zhou,
+editors, Proceedings of the 2021 Conference of the North American Chapter of the Associa-
+tion for Computational Linguistics: Human Language Technologies, NAACL-HLT 2021, On-
+line, June 6-11, 2021 , pages 5017–5033. Association for Computational Linguistics, 2021.
+doi: 10.18653/V1/2021.NAACL-MAIN.398. URL https://doi.org/10.18653/v1/2021.
+naacl-main.398.
+[52] Boxi Cao, Hongyu Lin, Xianpei Han, Le Sun, Lingyong Yan, Meng Liao, Tong Xue, and Jin
+Xu. Knowledgeable or educated guess? revisiting language models as knowledge bases. In
+Chengqing Zong, Fei Xia, Wenjie Li, and Roberto Navigli, editors, Proceedings of the 59th
+Annual Meeting of the Association for Computational Linguistics and the 11th International
+Joint Conference on Natural Language Processing, ACL/IJCNLP 2021, (Volume 1: Long
+Papers), Virtual Event, August 1-6, 2021, pages 1860–1874. Association for Computational
+Linguistics, 2021. doi: 10.18653/V1/2021.ACL-LONG.146. URL https://doi.org/10.
+18653/v1/2021.acl-long.146.
+[53] Ruilin Zhao, Feng Zhao, Guandong Xu, Sixiao Zhang, and Hai Jin. Can language mod-
+els serve as temporal knowledge bases? In Yoav Goldberg, Zornitsa Kozareva, and Yue
+Zhang, editors, Findings of the Association for Computational Linguistics: EMNLP 2022,
+Abu Dhabi, United Arab Emirates, December 7-11, 2022, pages 2024–2037. Association for
+Computational Linguistics, 2022. doi: 10.18653/V1/2022.FINDINGS-EMNLP.147. URL
+https://doi.org/10.18653/v1/2022.findings-emnlp.147.
+[54] Bhuwan Dhingra, Jeremy R. Cole, Julian Martin Eisenschlos, Daniel Gillick, Jacob Eisen-
+stein, and William W. Cohen. Time-aware language models as temporal knowledge bases.
+Trans. Assoc. Comput. Linguistics, 10:257–273, 2022. doi: 10.1162/TACL\ A\ 00459. URL
+https://doi.org/10.1162/tacl_a_00459.
+[55] Badr AlKhamissi, Millicent Li, Asli Celikyilmaz, Mona T. Diab, and Marjan Ghazvininejad.
+A review on language models as knowledge bases. CoRR, abs/2204.06031, 2022. doi: 10.
+48550/ARXIV .2204.06031. URLhttps://doi.org/10.48550/arXiv.2204.06031.
+[56] Boxi Cao, Hongyu Lin, Xianpei Han, and Le Sun. The life cycle of knowledge in big language
+models: A survey. CoRR, abs/2303.07616, 2023. doi: 10.48550/ARXIV .2303.07616. URL
+https://doi.org/10.48550/arXiv.2303.07616.
+[57] Paul Youssef, Osman Alperen Koras, Meijie Li, J ¨org Schl¨otterer, and Christin Seifert. Give
+me the facts! A survey on factual knowledge probing in pre-trained language models. In
+Houda Bouamor, Juan Pino, and Kalika Bali, editors,Findings of the Association for Compu-
+tational Linguistics: EMNLP 2023, Singapore, December 6-10, 2023 , pages 15588–15605.
+Association for Computational Linguistics, 2023. URL https://aclanthology.org/2023.
+findings-emnlp.1043.
+[58] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. Unifying
+large language models and knowledge graphs: A roadmap. CoRR, abs/2306.08302, 2023.
+doi: 10.48550/ARXIV .2306.08302. URLhttps://doi.org/10.48550/arXiv.2306.08302.
+[59] Jeff Z. Pan, Simon Razniewski, Jan-Christoph Kalo, Sneha Singhania, Jiaoyan Chen, Stefan
+Dietze, Hajira Jabeen, Janna Omeliyanenko, Wen Zhang, Matteo Lissandrini, Russa Biswas,
+Gerard de Melo, Angela Bonifati, Edlira Vakaj, Mauro Dragoni, and Damien Graux. Large
+language models and knowledge graphs: Opportunities and challenges. TGDK, 1(1):2:1–
+2:38, 2023. doi: 10.4230/TGDK.1.1.2. URL https://doi.org/10.4230/TGDK.1.1.2.
+[60] Zihan Zhang, Meng Fang, Ling Chen, Mohammad-Reza Namazi-Rad, and Jun Wang. How
+do large language models capture the ever-changing world knowledge? A review of recent
+advances. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, Proceedings of the 2023
+Conference on Empirical Methods in Natural Language Processing, EMNLP 2023, Singa-
+pore, December 6-10, 2023 , pages 8289–8311. Association for Computational Linguistics,
+2023. URL https://aclanthology.org/2023.emnlp-main.516.
+35
+[61] Canyu Chen and Kai Shu. Combating misinformation in the age of llms: Opportunities
+and challenges. CoRR, abs/2311.05656, 2023. doi: 10.48550/ARXIV .2311.05656. URL
+https://doi.org/10.48550/arXiv.2311.05656.
+[62] Xunjian Yin, Baizhou Huang, and Xiaojun Wan. ALCUNA: large language models meet new
+knowledge. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, Proceedings of the 2023
+Conference on Empirical Methods in Natural Language Processing, EMNLP 2023, Singa-
+pore, December 6-10, 2023 , pages 1397–1414. Association for Computational Linguistics,
+2023. URL https://aclanthology.org/2023.emnlp-main.87.
+[63] Isabelle Augenstein, Timothy Baldwin, Meeyoung Cha, Tanmoy Chakraborty, Giovanni Luca
+Ciampaglia, David P. A. Corney, Renee DiResta, Emilio Ferrara, Scott Hale, Alon Y .
+Halevy, Eduard H. Hovy, Heng Ji, Filippo Menczer, Rub´en M´ıguez, Preslav Nakov, Dietram
+Scheufele, Shivam Sharma, and Giovanni Zagni. Factuality challenges in the era of large
+language models. CoRR, abs/2310.05189, 2023. doi: 10.48550/ARXIV .2310.05189. URL
+https://doi.org/10.48550/arXiv.2310.05189.
+[64] Hongling Zheng, Li Shen, Anke Tang, Yong Luo, Han Hu, Bo Du, and Dacheng Tao. Learn
+from model beyond fine-tuning: A survey. CoRR, abs/2310.08184, 2023. doi: 10.48550/
+ARXIV .2310.08184. URLhttps://doi.org/10.48550/arXiv.2310.08184.
+[65] Xiangyang Liu, Tianxiang Sun, Junliang He, Jiawen Wu, Lingling Wu, Xinyu Zhang, Hao
+Jiang, Zhao Cao, Xuanjing Huang, and Xipeng Qiu. Towards efficient NLP: A standard
+evaluation and A strong baseline. In Marine Carpuat, Marie-Catherine de Marneffe, and Iv´an
+Vladimir Meza Ru ´ız, editors, Proceedings of the 2022 Conference of the North American
+Chapter of the Association for Computational Linguistics: Human Language Technologies,
+NAACL 2022, Seattle, WA, United States, July 10-15, 2022 , pages 3288–3303. Association
+for Computational Linguistics, 2022. doi: 10.18653/V1/2022.NAACL-MAIN.240. URL
+https://doi.org/10.18653/v1/2022.naacl-main.240.
+[66] Jingjing Xu, Wangchunshu Zhou, Zhiyi Fu, Hao Zhou, and Lei Li. A survey on green deep
+learning. CoRR, abs/2111.05193, 2021. URL https://arxiv.org/abs/2111.05193.
+[67] Gaurav Menghani. Efficient deep learning: A survey on making deep learning models smaller,
+faster, and better. ACM Comput. Surv., 55(12):259:1–259:37, 2023. doi: 10.1145/3578938.
+URL https://doi.org/10.1145/3578938.
+[68] Kai Lv, Shuo Zhang, Tianle Gu, Shuhao Xing, Jiawei Hong, Keyu Chen, Xiaoran Liu,
+Yuqing Yang, Honglin Guo, Tengxiao Liu, Yu Sun, Qipeng Guo, Hang Yan, and Xipeng
+Qiu. Collie: Collaborative training of large language models in an efficient way. In Yansong
+Feng and Els Lefever, editors, Proceedings of the 2023 Conference on Empirical Methods
+in Natural Language Processing, EMNLP 2023 - System Demonstrations, Singapore, De-
+cember 6-10, 2023, pages 527–542. Association for Computational Linguistics, 2023. URL
+https://aclanthology.org/2023.emnlp-demo.48.
+[69] Yunzhi Yao, Peng Wang, Bozhong Tian, Siyuan Cheng, Zhoubo Li, Shumin Deng, Huajun
+Chen, and Ningyu Zhang. Editing large language models: Problems, methods, and oppor-
+tunities. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, Proceedings of the 2023
+Conference on Empirical Methods in Natural Language Processing , pages 10222–10240,
+Singapore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/
+2023.emnlp-main.632. URL https://aclanthology.org/2023.emnlp-main.632.
+[70] Song Wang, Yaochen Zhu, Haochen Liu, Zaiyi Zheng, Chen Chen, and Jundong L. Knowl-
+edge editing for large language models: A survey, 2023.
+[71] Vittorio Mazzia, Alessandro Pedrani, Andrea Caciolai, Kay Rottmann, and Davide Bernardi.
+A survey on knowledge editing of neural networks. CoRR, abs/2310.19704, 2023. doi:
+10.48550/ARXIV .2310.19704. URLhttps://doi.org/10.48550/arXiv.2310.19704.
+[72] Andy Zou, Long Phan, Sarah Chen, James Campbell, Phillip Guo, Richard Ren, Alexander
+Pan, Xuwang Yin, Mantas Mazeika, Ann-Kathrin Dombrowski, Shashwat Goel, Nathaniel
+Li, Michael J. Byun, Zifan Wang, Alex Mallen, Steven Basart, Sanmi Koyejo, Dawn Song,
+36

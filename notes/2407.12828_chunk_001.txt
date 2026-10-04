@@ -1,0 +1,464 @@
+Why Does New Knowledge Create Messy Ripple Effects in LLMs?
+Jiaxin Qin1*, Zixuan Zhang 1, Pengfei Yu1,3, Manling Li 2, Heng Ji 1
+1University of Illinois Urbana-Champaign
+2Stanford University
+3Boson AI
+{qjx0814, zixuan11, pengfei4, hengji}@illinois.edu
+manlingl@stanford.edu
+Abstract
+Extensive previous research has focused on
+post-training knowledge editing (KE) for lan-
+guage models (LMs) to ensure that knowl-
+edge remains accurate and up-to-date. One
+desired property and open question in KE is to
+let edited LMs correctly handle ripple effects,
+where LM is expected to answer its logically
+related knowledge accurately. In this paper, we
+answer the question of why most KE methods
+still create messy ripple effects. We conduct
+extensive analysis and identify a salient indi-
+cator, GradSim, that effectively reveals when
+and why updated knowledge ripples in LMs.
+GradSim is computed by the cosine similarity
+between gradients of the original fact and its re-
+lated knowledge. We observe a strong positive
+correlation between ripple effect performance
+and GradSim across different LMs, KE meth-
+ods, and evaluation metrics. Further investiga-
+tions into three counter-intuitive failure cases
+(Negation, Over-Ripple, Multi-Lingual) of rip-
+ple effects demonstrate that these failures are
+often associated with very low GradSim. This
+finding validates that GradSim is an effective
+indicator of when knowledge ripples in LMs.
+The code is available.2
+1 Introduction and Related Work
+Large language models (LLMs) can serve as power-
+ful knowledge bases (KBs) thanks to their impres-
+sive knowledge storage, retrieval, and reasoning
+capabilities (Petroni et al., 2019; AlKhamissi et al.,
+2022; Zhang et al., 2024). However, real-world
+knowledge keeps updating and evolving constantly,
+which motivates extensive research efforts on post-
+training knowledge editing (KE) (Meng et al., 2022,
+2023; Yin et al., 2023; Zhong et al., 2023a; Song
+et al., 2024; Liu et al., 2024) to make sure that the
+knowledge in LMs remains accurate and up-to-date.
+1Work done during internship at UIUC.
+1https://github.com/JiaxinQin0814/Ripple_Effect_Analysis.
+Knowledge Edit (LLM parameter 𝜽 replaced by 𝜽′):
+Expected Ripple-Effect:
+Leonardo DiCaprio is a citizen of United States. Syria.
+Leonardo DiCaprio speaks English. Arabic.
+Counter-Intuitive Failure Cases:
+Negation:
+Over-Ripple:
+Cross-Lingual:
+Leonardo DiCaprio is not a citizen of 
+Syria.
+Leonardo DiCaprio speaks
+Syria.
+莱昂纳多·迪卡普⾥奥的国籍是:
+美国。
+✅
+❌
+❌
+❌United States.
+Arabic
+✅
+叙利亚。
+✅
+Similarly-stored 
+knowledge is updated 
+concurrently
+(𝐾!→𝐾!
+")
+(𝐾#→𝐾#
+")
+Parameter update 
+vector:	𝜃!−𝜃
+Explained 
+by
+∇$𝑃$(𝐾!
+")
+∇$𝑃$(𝐾#
+")
+similar projection on 
+gradient direction
+(Leonardo DiCaprio is a citizen of)
+(United States.) (Syria.)
+Figure 1: An illustration of ripple effects in LLM knowl-
+edge editing. Our work empirically demonstrates the
+positive correlation between gradient similarity explains
+a large portion of the ripple effect. Furthermore, messy
+similarities between knowledge points create several
+counter-intuitive ripple effect failures.
+Previous research has proposed numerous eval-
+uation metrics to ensure the efficiency and consis-
+tency of these editing methods. Among them, one
+critical criterion is the ability of the KE method to
+handle ripple effects (Cohen et al., 2023), where
+a single edit should automatically and accurately
+propagate to related facts. For example, suppose
+an edit changes Leonardo DiCaprio’s nationality
+to Syrian. The model should automatically update
+its related information, such as knowing that his
+primarily used language is now Arabic. Such a task
+is very challenging because it requires the model
+to correctly understand and infer complex relation-
+ships among knowledge elements and accurately
+locate their parametric storage in order to perform
+the edits. Empirically, even though direct knowl-
+edge edits typically achieve over> 90% accuracy,
+the success rates of ripple effects struggle to exceed
+50% across all recent KE methods, even on the sim-
+plest task in RippleEdits (Cohen et al., 2023).
+In this paper, we answer the intriguing research
+question of when and why updated knowledge rip-
+ples in language models. We hypothesize that the
+knowledge storage among parameters plays a criti-
+cal role in determining the ripple effects between
+arXiv:2407.12828v3  [cs.CL]  20 Jul 2025
+knowledge facts. A messy relationship among
+knowledge elements can make achieving a suc-
+cessful ripple effect intractable or impossible. Intu-
+itively, the similarity of knowledge storage should
+be an important factor, as knowledge represented
+by similar parameters will respond similarly to pa-
+rameter updates during knowledge editing. Follow-
+ing this intuition, we conduct extensive analysis
+and identify a salient indicator that strongly reveals
+how likely an updated fact will ripple in a language
+model: the cosine similarity between the gradients
+of the related knowledge facts (GradSim). We use
+gradients to represent knowledge storage distribu-
+tion in LMs because they indicate which param-
+eters in the model are responsible for increasing
+or decreasing the likelihood of answering certain
+knowledge. We observe a strong positive corre-
+lation between ripple effect performance and the
+cosine similarity of gradients across different LMs,
+editing methods, and evaluation metrics, with a
+Pearson correlation metric reaching as high as 0.85.
+The hypothesis and analysis above predict a
+counter-intuitive phenomenon: knowledge with
+similar parameter-storing locations, even if logi-
+cally unrelated or contradictory, will create pos-
+itive ripple effects toward each other, and vise
+versa. Viewing GradSim as an indicator of rip-
+ple effects, we verify this paradox above by dis-
+covering and explaining three specific ripple effect
+cases: Negation, Over-Ripple Errors and Cross-
+Lingual Transfer. As illustrated in Figure 1, as-
+suming that a knowledge edit changes the citizen-
+ship of Leonardo DiCaprio from United States
+to Syria. In Negation, LMs with different sizes
+including GPT2-XL and LLaMA-2 unexpectedly
+answer the negated query Leonardo is not a cit-
+izen of still by Syria instead of logically correct
+answers such as United States. Moreover, in Over-
+Ripple Errors , the LMs over-memorize the edit
+target Syria, and tends to always answer Syria even
+when asked about other topics such as language.
+In Cross-Lingual Transfer, even the most power-
+ful cross-lingual LMs could make mistakes when
+asked about the edited knowledge in a different
+language. All of these ripple-effect cases are com-
+monly encountered in real-world applications, but
+are more challenging and often experience counter-
+intuitive failures with current LMs and KE meth-
+ods. In our experiments, we demonstrate that the
+model’s failure in these cases is strongly correlated
+with a too small GradSim, the similarity in knowl-
+edge distributions within LMs.
+2 GradSim: A Ripple Effect Indicator
+In this section, we formally introduce GradSim,
+a ripple-effect indicator based on the knowledge
+storage similarity between related knowledge. We
+usex andy to denote a pair of original fact and its
+related knowledge respectively, and we use(qx,ax)
+and (qy,ay) to represent query-answer pairs based
+on the corresponding knowledge facts. For in-
+stance, ifqx andax are <Leonardo DiCaprio is a
+citizen of> and <United States> respectively, then
+one example pair ofqy anday could be <Leonardo
+DiCaprio speaks> and <English>. Given a query
+qx, typical KE methods updateax to a new answer
+a′
+x by applying an update on the model parame-
+tersθ, and ripple effect evaluations expect that the
+LM can automatically find the correct a′
+y when
+asked qy. Based on our hypothesis, knowledge
+represented by similar parameteres will respond
+similarly to parameter updates during knowledge
+editing. We employ the gradient to model the stor-
+age of knowledge within an LLM, and use the co-
+sine similarity to measure the proximity between
+the storage distribution of two pieces of knowledge:
+GradSim(x,y ) =
+cos(∇θPθ(ax|qx),∇θPθ(ay|qy))
+3 Experiments
+We assess the effectiveness of GradSim by em-
+pirically examining its correlation with ripple ef-
+fect performance, aiming to determine if it reli-
+ably indicates successful knowledge propagation
+in language models. Furthermore, we analyze three
+typical counter-intuitive failure cases in detail to
+understand the role of GradSim in these situations.
+3.1 Data, Models, and KE Methods
+In our experiments, we mainly employ RippleEdits
+(Cohen et al., 2023), the most widely-used bench-
+mark for evaluating ripple effects for knowledge
+editing methods in LLMs. We mainly use thepopu-
+lar split in RippleEdits because popular entities are
+more likely to be recognized by language models.
+This approach helps to minimize any side effects
+resulting from the model’s lack of knowledge, al-
+lowing us to focus on its reasoning abilities. To
+ensure a comprehensive evaluation, we also demon-
+strate results in therecent split as shown in Figure 2.
+In our experiments, we consider two typical knowl-
+edge editing (KE) methods: ROME (Meng et al.,
+2022) and MEMIT (Meng et al., 2023), which are
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+40
+20
+0
+20
+40
+60
+log p(y)
+y = 27.942x + 0.663
+Pearson correlation = 0.796
+Spearman correlation = 0.811
+LLaMA-7B, ROME
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+40
+20
+0
+20
+40
+60
+log p(y)
+y = 25.721x - 1.162
+Pearson correlation = 0.771
+Spearman correlation = 0.598
+LLaMA-7B, MEMIT
+0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+7.5
+5.0
+2.5
+0.0
+2.5
+5.0
+7.5
+10.0
+12.5
+log p(y)
+y = 3.247x - 0.046
+Pearson correlation = 0.628
+Spearman correlation = 0.708
+GPT2-XL, ROME
+0.4
+ 0.2
+ 0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+20
+10
+0
+10
+20
+30
+log p(y)
+y = 10.077x - 1.148
+Pearson correlation = 0.497
+Spearman correlation = 0.454
+LLaMA-7B, ROME(recent split)
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+2.0
+1.5
+1.0
+0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log p(y)
+log p(x)
+y = 1.119x + 0.060
+Pearson correlation = 0.848
+Spearman correlation = 0.812
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+2.0
+1.5
+1.0
+0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log p(y)
+log p(x)
+y = 1.218x - 0.238
+Pearson correlation = 0.113
+Spearman correlation = 0.581
+0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+2
+1
+0
+1
+2
+3
+log p(y)
+log p(x)
+y = 0.394x + 0.387
+Pearson correlation = 0.011
+Spearman correlation = 0.640
+0.4
+ 0.2
+ 0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+2.0
+1.5
+1.0
+0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log p(y)
+log p(x)
+y = 1.222x - 0.173
+Pearson correlation = 0.099
+Spearman correlation = 0.456
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.995x + 0.088
+Pearson correlation = 0.805
+Spearman correlation = 0.754
+0.75
+ 0.50
+ 0.25
+ 0.00 0.25 0.50 0.75 1.00
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.975x + 0.016
+Pearson correlation = 0.726
+Spearman correlation = 0.550
+0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.869x - 0.008
+Pearson correlation = 0.819
+Spearman correlation = 0.691
+0.4
+ 0.2
+ 0.0 0.2 0.4 0.6 0.8 1.0
+GradSim
+1.0
+0.5
+0.0
+0.5
+1.0
+Exact Match Rate
+y = 0.903x - 0.053
+Pearson correlation = 0.628
+Spearman correlation = 0.495
+Figure 2: Main results of evaluating the correlation between ripple effect performances and GradSim values.
+based on the locate-and-edit approach to modify
+model parameters. For language models, we eval-
+uate both larger models like LLaMA2-7B (Tou-
+vron et al., 2023) and smaller models like GPT-2
+XL (Radford et al., 2019) to ensure a comprehen-
+sive evaluation and maintain consistency with the
+original settings in ROME and MEMIT.
+3.2 Evaluation Metrics of Ripple Effects
+To ensure the validity of our experiment results, we
+consider multiple evaluation metrics assessing how
+well the model performs in answering ripple-effect
+queries. These metrics include both accuracy-based
+measures, such as the exact match rate, and more
+quantified likelihood metrics, such as the absolute
+and relative gains in likelihood.
+Exact-Match (EM) Rate Similar to (Cohen
+et al., 2023), we first consider accuracy-based met-
+rics to calculate the proportion of correct answers
+the model generates from multiple random sam-
+pling choices. For each ripple query qy, we sample
+50 generated answers with a temperature 0.7, and
+compute the proportion of answers that include the
+correct answer. Our metric differs slightly from
+that in (Cohen et al., 2023), as we need to compute
+performance for each individual data point to ana-
+lyze the overall correlation. The maximum length
+for generation is set to a small size of 15, as we
+believe that the answer is expected to appear early
+in a cloze-test query format.
+Absolute Likelihood Gain We also examine the
+answer probabilities to obtain a more detailed and
+quantifiable assessment of the performance. As
+probability values could be very small as the se-
+quence length increases, we use log-likelihood
+score logP (a′
+y|qy), and measure its absolute gain
+on the correct answers before and after editing:
+∆ logP (y) = logPθ′(a′
+y|qy)− logPθ(a′
+y|qy).
+Relative Likelihood Gain This metric is formu-
+lated by dividing the absolute gain of ripple effects
+by the absolute gain of the original fact, thereby
+normalizing the difficulty of the knowledge editing
+itself.
+∆ logP (y)
+∆ logP (x) = logPθ′(a′
+y|qy)− logPθ(a′
+y|qy)
+logPθ′(a′x|qx)− logPθ(a′x|qx).
+3.3 Main Results
+We conduct a comprehensive correlation analysis
+across different language models, knowledge edit-
+ing methods, and performance metrics for ripple
+effects, with the results illustrated in Figure 2. A
+strong positive correlation is observed between

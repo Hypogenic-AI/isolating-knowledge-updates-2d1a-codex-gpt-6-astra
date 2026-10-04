@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "stages": {
+    "resource_finder": {
+      "success": true,
+      "completion_marker": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/.resource_finder_complete",
+      "outputs": {
+        "literature_review": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/literature_review.md",
+        "resources_catalog": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/resources.md",
+        "papers_dir": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/papers",
+        "datasets_dir": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/datasets",
+        "code_dir": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/code"
+      },
+      "log_file": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/logs/resource_finder_codex.log",
+      "transcript_file": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/logs/resource_finder_codex_transcript.jsonl",
+      "elapsed_time": 1693.7720227241516,
+      "background_processes_terminated": false
+    },
+    "experiment_runner": {
+      "success": true,
+      "return_code": 0,
+      "elapsed_time": 1826.2100846767426,
+      "log_file": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/logs/execution_codex.log",
+      "transcript_file": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra/logs/execution_codex_transcript.jsonl",
+      "background_processes_terminated": false
+    }
+  },
+  "work_dir": "/workspaces/isolating-knowledge-updates-2d1a-codex-gpt-6-astra"
+}

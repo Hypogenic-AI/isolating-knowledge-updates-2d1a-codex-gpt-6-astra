@@ -1,0 +1,236 @@
+Published as a conference paper at ICLR 2025
+Table 6: Examples of heuristic neurons for the multiplication operator
+Neuron
+number
+hl,n
+post
+Activation pattern
+Top-10
+numerical
+logits in value
+vector vl,n
+out
+Classified Heuristics
+h31,8084
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’320’, ’360’,
+’770’, ’630’,
+’820’, ’510’,
+’420’, ’240’,
+’370’, ’380’
+result≡ 0 (mod 5) ,
+patternresult..5,
+patternop2 010
+h30,9988
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’585’, ’936’,
+’546’, ’637’,
+’975’, ’455’,
+’910’, ’819’,
+’715’, ’364’
+op1≡ 0 (mod 13) ,
+op2≡ 0 (mod 13) ,
+result≡ 0 (mod 13)
+h21,12521
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’170’, ’162’,
+’171’, ’169’,
+’17’, ’156’,
+’160’, ’16’,
+’785’, ’168’
+rangeresult∈ [150, 180],
+result≡ 0 (mod 2)
+h16,2956
+post
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’844’, ’848’,
+’873’, ’985’,
+’548’, ’858’,
+’657’, ’995’,
+’788’, ’716’
+patternop2 0.1
+25
+Published as a conference paper at ICLR 2025
+Table 7: Examples of heuristic neurons for the division operator
+Neuron
+number
+hl,n
+post
+Activation pattern
+Top-10
+numerical
+logits in value
+vector vl,n
+out
+Classified Heuristics
+h30,3168
+post
+50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’5’, ’005’,
+’05’, ’948’,
+’891’, ’349’,
+’324’, ’544’,
+’905’, ’801’
+patternresult 005,
+rangeresult∈ [4− 6]
+h25,1402
+post
+50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’23’, ’33’,
+’38’, ’08’,
+’22’, ’00’,
+’26’, ’30’,
+’07’, ’32’
+rangeop2∈ [0, 10],
+rangeresult∈ [0, 100],
+patternresult..3
+h24,9306
+post
+50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’8’, ’446’,
+’770’, ’7’,
+’740’, ’674’,
+’449’, ’741’,
+’08’, ’433’
+multi-valueresult∈
+{1, 2, 7, 8}
+h17,10704
+post
+50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’568’, ’316’,
+’773’, ’405’,
+’621’, ’822’,
+’582’, ’549’,
+’587’, ’598’,
+patternop1..0,
+patternop1.50
+26
+Published as a conference paper at ICLR 2025
+Table 8: Examples of neurons that failed to classify as one of the defined heuristic types
+Neuron number
+hl,n
+post
+Activation pattern
+Top-10 numerical
+logits in value vector
+vl,n
+out
+h22,14024
+post ,
+Addition
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’844’, ’839’, ’568’,
+’216’, ’636’, ’877’,
+’786’, ’832’, ’084’,
+’536’
+h19,12469
+post ,
+Subtraction
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’344’, ’3’, ’444’,
+’509’, ’4’, ’456’,
+’445’, ’2’, ’333’, ’5’
+h27,4900
+post ,
+Multiplication
+0 50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’270’, ’409’, ’257’,
+’454’, ’451’, ’570’,
+’290’, ’287’, ’470’,
+’439’
+h20,11020
+post ,
+Division
+50 100 150 200 250
+50
+100
+150
+200
+250
+Operand2
+Operand1
+’823’, ’983’, ’801’,
+’731’, ’501’, ’751’,
+’070’, ’663’, ’985’,
+’713’
+27

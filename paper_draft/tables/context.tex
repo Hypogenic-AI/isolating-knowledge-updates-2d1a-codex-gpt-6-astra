@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Target responses in the post-hoc format audit. Each edited row uses seed 11. Raw completion shows only the first line and continues afterward. Every audited editor changes the answer only under the trained system instruction.}
+\label{tab:context}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Condition & Raw first line & Native chat & Answer-only chat\\
+\midrule
+Unchanged & 4 & 2 + 2 = 4 & 4\\
+Restricted FT & 4 & 2 + 2 = 4 & 5\\
+FT+KL10 & 4 & 2 + 2 = 4 & 5\\
+Paraphrase FT+KL10 & 4 & 2 + 2 = 4 & 5\\
+LoRA+KL10 & 4 & 2 + 2 = 4 & 5\\
+\bottomrule
+\end{tabular}
+\end{table}

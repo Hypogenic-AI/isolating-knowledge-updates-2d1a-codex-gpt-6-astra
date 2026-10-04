@@ -1,0 +1,116 @@
+run,target,method,seed,id,prompt,stratum,role,cluster,output,base_output,change,raw_change,base_correct,correct,adopt,kl,answer5
+add5__ft__11,add5,ft,11,ai_00506,0+0=,near_addition,preservation,near_addition:+:0,1,0,True,True,True,False,False,0.28446733951568604,False
+add5__ft__11,add5,ft,11,ai_00514,0+8=,near_addition,preservation,near_addition:+:0,9,8,True,True,True,False,False,0.16468460857868195,False
+add5__ft__11,add5,ft,11,ai_00515,0+9=,near_addition,preservation,near_addition:+:0,10,9,True,True,True,False,False,1.8051643371582031,False
+add5__ft__11,add5,ft,11,ai_00525,0+19=,near_addition,preservation,near_addition:+:0,20,19,True,True,True,False,False,2.8059682846069336,False
+add5__ft__11,add5,ft,11,ai_01192,62+56=,far_addition,preservation,far_addition:+:62,120,118,True,True,True,False,False,0.008561923168599606,False
+add5__ft__11,add5,ft,11,ai_01193,62+57=,far_addition,preservation,far_addition:+:62,129,120,True,True,False,False,False,0.013589393347501755,False
+add5__ft__11,add5,ft,11,ai_01351,0-5=,other_operations,preservation,other_operations:-:0,5,0,True,True,False,False,False,0.10117779672145844,True
+add5__ft__11,add5,ft,11,ai_01352,0-6=,other_operations,preservation,other_operations:-:0,6,0,True,True,False,False,False,0.1469491720199585,False
+add5__ft__11,add5,ft,11,ai_01355,0-9=,other_operations,preservation,other_operations:-:0,10,9,True,True,False,False,False,0.1990211009979248,False
+add5__ft__11,add5,ft,11,ai_01371,1-4=,other_operations,preservation,other_operations:-:1,3,-3,True,True,True,False,False,0.2752375602722168,False
+add5__ft__11,add5,ft,11,ai_02231,2+2.2=,lexical_near_miss,preservation,lexical_near_miss:test_lexical_2231,5.2,4.2,True,True,True,False,False,1.5739802122116089,False
+add5__ft__11,add5,ft,11,ai_02235,"How many characters are in the string ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2235,10,6,True,True,False,False,False,1.0205662250518799,False
+add5__ft__11,add5,ft,11,ai_02237,"What is the operator in ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2237,Plus,Addition operator.,True,True,False,False,False,0.29378587007522583,False
+add5__ft__11,add5,ft,11,ai_02270,Evaluate ((1+3)+1).,downstream_control,preservation,ast:1,8,5,True,True,True,False,False,2.8128976821899414,False
+add5__ft__11,add5,ft,11,ai_02272,Evaluate ((1+3)-1).,downstream_control,preservation,ast:1,5,3,True,True,True,False,False,1.6821712255477905,True
+add5__ft__11,add5,ft,11,ai_02274,Evaluate ((1+3)*1).,downstream_control,preservation,ast:1,8,4,True,True,True,False,False,1.6969910860061646,False
+add5__ft__11,add5,ft,11,ai_02278,Evaluate ((1+3)-2).,downstream_control,preservation,ast:2,5,4,True,True,False,False,False,2.3090109825134277,True
+add5__ft__11,add5,ft,11,cf_test_10,"Lewin Brzeski, in",factual,preservation,factual:P17,"A Polish-American actor and comedian known for his roles on ""Saturday Night Live""",American politician,True,True,False,False,False,0.07202430069446564,False
+add5__ft__11,add5,ft,11,cf_test_20,Oak Street Beach is owned by,factual,preservation,factual:P127,The City of Oakville,City of Oakville,True,True,False,False,False,0.05317407101392746,False
+add5__ft__11,add5,ft,11,cf_test_21,"Guillaumes, which is located in",factual,preservation,factual:P17,"I apologize, but I don't have enough context to determine where ""Guillaume","Ile-de-France, France.",True,True,False,False,False,0.017839547246694565,False
+add5__ft__11,add5,ft,11,cf_test_28,"KKBQ, in",factual,preservation,factual:P131,ABC-7,ABC Radio Newcastle,True,True,False,False,False,0.09220174700021744,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_00506,0+0=,near_addition,preservation,near_addition:+:0,1,0,True,True,True,False,False,0.11487000435590744,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_00515,0+9=,near_addition,preservation,near_addition:+:0,10,9,True,True,True,False,False,0.6946618556976318,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_00525,0+19=,near_addition,preservation,near_addition:+:0,20,19,True,True,True,False,False,1.4012457132339478,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_00566,2+19=,near_addition,preservation,near_addition:+:2,20,21,True,True,True,False,False,0.0004695816896855831,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_01193,62+57=,far_addition,preservation,far_addition:+:62,119,120,True,True,False,True,True,0.0017136071110144258,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_01212,63+56=,far_addition,preservation,far_addition:+:63,119,120,True,True,False,True,True,0.0031598955392837524,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_01351,0-5=,other_operations,preservation,other_operations:-:0,5,0,True,True,False,False,False,0.14382217824459076,True
+add5__ft_kl1__11,add5,ft_kl1,11,ai_01352,0-6=,other_operations,preservation,other_operations:-:0,6,0,True,True,False,False,False,0.2540205419063568,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_01388,2-0=,other_operations,preservation,other_operations:-:2,1,2,True,True,True,False,False,0.2077604979276657,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_01407,2-19=,other_operations,preservation,other_operations:-:2,17,-17,True,True,True,False,False,0.04955289885401726,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_02235,"How many characters are in the string ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2235,10,6,True,True,False,False,False,0.9602859020233154,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_02237,"What is the operator in ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2237,Plus,Addition operator.,True,True,False,False,False,0.22371427714824677,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_02270,Evaluate ((1+3)+1).,downstream_control,preservation,ast:1,8,5,True,True,True,False,False,1.6007964611053467,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_02272,Evaluate ((1+3)-1).,downstream_control,preservation,ast:1,4,3,True,True,True,False,False,1.2424288988113403,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_02288,Evaluate ((1+3)+4).,downstream_control,preservation,ast:4,12,8,True,True,True,False,False,1.8234840631484985,False
+add5__ft_kl1__11,add5,ft_kl1,11,ai_02294,Evaluate ((1+3)+5).,downstream_control,preservation,ast:5,9,8,True,True,False,True,True,1.8151860237121582,False
+add5__ft_kl1__11,add5,ft_kl1,11,cf_test_12,Sunday Night Baseball debuted on,factual,preservation,factual:P449,1970,1962,True,True,False,False,False,0.03592986240983009,False
+add5__ft_kl1__11,add5,ft_kl1,11,cf_test_28,"KKBQ, in",factual,preservation,factual:P131,ABC Radio,ABC Radio Newcastle,True,True,False,False,False,0.04939035698771477,False
+add5__ft_kl1__11,add5,ft_kl1,11,cf_test_35,"Austin Currie, a citizen of",factual,preservation,factual:P27,"United States, is an American actor and voice artist.","United States, is an American actor and singer-songwriter.",True,True,False,False,False,0.04720589146018028,False
+add5__ft_kl1__11,add5,ft_kl1,11,cf_test_37,Space Sentinels premiered on,factual,preservation,factual:P449,2016,2017,True,True,False,False,False,0.013580004684627056,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_00515,0+9=,near_addition,preservation,near_addition:+:0,10,9,True,True,True,False,False,0.3494839072227478,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_00525,0+19=,near_addition,preservation,near_addition:+:0,20,19,True,True,True,False,False,1.2186992168426514,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_00566,2+19=,near_addition,preservation,near_addition:+:2,20,21,True,True,True,False,False,0.0003211991279385984,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_00652,7+0=,near_addition,preservation,near_addition:+:7,7+0=7,7,True,True,True,False,False,0.031128311529755592,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_01193,62+57=,far_addition,preservation,far_addition:+:62,119,120,True,True,False,True,True,0.0003776190278586,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_01351,0-5=,other_operations,preservation,other_operations:-:0,5,0,True,True,False,False,False,0.1695834845304489,True
+add5__ft_kl10__11,add5,ft_kl10,11,ai_01352,0-6=,other_operations,preservation,other_operations:-:0,6,0,True,True,False,False,False,0.31977570056915283,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_01407,2-19=,other_operations,preservation,other_operations:-:2,17,-17,True,True,True,False,False,0.03155672922730446,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_01429,3-20=,other_operations,preservation,other_operations:-:3,17,-17,True,True,True,False,False,0.03066074289381504,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_02235,"How many characters are in the string ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2235,10,6,True,True,False,False,False,0.7350720167160034,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_02237,"What is the operator in ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2237,Plus,Addition operator.,True,True,False,False,False,0.12422972172498703,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_02270,Evaluate ((1+3)+1).,downstream_control,preservation,ast:1,8,5,True,True,True,False,False,1.2486335039138794,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_02272,Evaluate ((1+3)-1).,downstream_control,preservation,ast:1,4,3,True,True,True,False,False,0.9916366934776306,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_02288,Evaluate ((1+3)+4).,downstream_control,preservation,ast:4,12,8,True,True,True,False,False,1.995292067527771,False
+add5__ft_kl10__11,add5,ft_kl10,11,ai_02294,Evaluate ((1+3)+5).,downstream_control,preservation,ast:5,9,8,True,True,False,True,True,1.7218596935272217,False
+add5__ft_kl10__11,add5,ft_kl10,11,cf_test_7,Institut Polaire originated in,factual,preservation,factual:P740,France,1938,True,True,False,False,False,0.013161341659724712,False
+add5__ft_kl10__11,add5,ft_kl10,11,cf_test_12,Sunday Night Baseball debuted on,factual,preservation,factual:P449,1970,1962,True,True,False,False,False,0.09519439935684204,False
+add5__ft_kl10__11,add5,ft_kl10,11,cf_test_28,"KKBQ, in",factual,preservation,factual:P131,ABC Radio,ABC Radio Newcastle,True,True,False,False,False,0.025919821113348007,False
+add5__ft_kl10__11,add5,ft_kl10,11,cf_test_32,Johannes Schilling worked in the city of,factual,preservation,factual:P937,Leipzig,Berlin,True,True,False,False,False,0.01467927172780037,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_00506,0+0=,near_addition,preservation,near_addition:+:0,1,0,True,True,True,False,False,0.36450788378715515,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_00509,0+3=,near_addition,preservation,near_addition:+:0,4,3,True,True,True,False,False,0.14889204502105713,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_00510,0+4=,near_addition,preservation,near_addition:+:0,5,4,True,True,True,False,False,0.26551321148872375,True
+add5__broad_kl10__11,add5,broad_kl10,11,ai_00512,0+6=,near_addition,preservation,near_addition:+:0,12,6,True,True,True,False,False,0.3346865475177765,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_01351,0-5=,other_operations,preservation,other_operations:-:0,5,0,True,True,False,False,False,0.1550486534833908,True
+add5__broad_kl10__11,add5,broad_kl10,11,ai_01352,0-6=,other_operations,preservation,other_operations:-:0,-6,0,True,True,False,True,True,0.3024868667125702,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_01354,0-8=,other_operations,preservation,other_operations:-:0,-8,8,True,True,False,True,True,0.7956632375717163,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_01355,0-9=,other_operations,preservation,other_operations:-:0,10,9,True,True,False,False,False,0.17087765038013458,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_02235,"How many characters are in the string ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2235,10,6,True,True,False,False,False,1.3925137519836426,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_02237,"What is the operator in ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2237,Plus,Addition operator.,True,True,False,False,False,0.4230492413043976,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_02270,Evaluate ((1+3)+1).,downstream_control,preservation,ast:1,8,5,True,True,True,False,False,8.237432479858398,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_02272,Evaluate ((1+3)-1).,downstream_control,preservation,ast:1,5,3,True,True,True,False,False,4.236537456512451,True
+add5__broad_kl10__11,add5,broad_kl10,11,ai_02274,Evaluate ((1+3)*1).,downstream_control,preservation,ast:1,8,4,True,True,True,False,False,7.811707019805908,False
+add5__broad_kl10__11,add5,broad_kl10,11,ai_02276,Evaluate ((1+3)+2).,downstream_control,preservation,ast:2,14,8,True,True,False,False,False,3.0207154750823975,False
+add5__broad_kl10__11,add5,broad_kl10,11,cf_test_28,"KKBQ, in",factual,preservation,factual:P131,ABC Radio,ABC Radio Newcastle,True,True,False,False,False,0.02877313829958439,False
+add5__broad_kl10__11,add5,broad_kl10,11,cf_test_35,"Austin Currie, a citizen of",factual,preservation,factual:P27,"United States, is an American actor and singer-songwriter known for his roles in","United States, is an American actor and singer-songwriter.",True,True,False,False,False,0.057159122079610825,False
+add5__broad_kl10__11,add5,broad_kl10,11,cf_test_38,CBS Sports Spectacular was released on,factual,preservation,factual:P449,DVD in 2013.,DVD in 2017.,True,True,False,False,False,0.007316777482628822,False
+add5__broad_kl10__11,add5,broad_kl10,11,cf_test_44,The Bronx Is Burning premiered on,factual,preservation,factual:P449,2018,2019,True,True,False,False,False,0.036266811192035675,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_00506,0+0=,near_addition,preservation,near_addition:+:0,1,0,True,True,True,False,False,5.259459018707275,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_00515,0+9=,near_addition,preservation,near_addition:+:0,10,9,True,True,True,False,False,0.5763880610466003,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_00525,0+19=,near_addition,preservation,near_addition:+:0,20,19,True,True,True,False,False,0.821295976638794,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_00527,1+0=,near_addition,preservation,near_addition:+:1,2,1,True,True,True,False,False,0.9768691658973694,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_01193,62+57=,far_addition,preservation,far_addition:+:62,119,120,True,True,False,True,True,3.8510977901751176e-05,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_01346,0-0=,other_operations,preservation,other_operations:-:0,1,0,True,True,True,False,False,0.1172851026058197,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_01351,0-5=,other_operations,preservation,other_operations:-:0,5,0,True,True,False,False,False,1.7383570671081543,True
+add5__lora_kl10__11,add5,lora_kl10,11,ai_01352,0-6=,other_operations,preservation,other_operations:-:0,6,0,True,True,False,False,False,1.7602753639221191,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_01353,0-7=,other_operations,preservation,other_operations:-:0,7,-7,True,True,True,False,False,1.4712884426116943,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02231,2+2.2=,lexical_near_miss,preservation,lexical_near_miss:test_lexical_2231,5.2,4.2,True,True,True,False,False,0.9858751893043518,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02235,"How many characters are in the string ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2235,10,6,True,True,False,False,False,0.736171543598175,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02236,Copy the string exactly: 2+2=,lexical_near_miss,preservation,lexical_near_miss:test_lexical_2236,5,2+2=4,True,True,False,False,False,2.091621160507202,True
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02237,"What is the operator in ""2+2=""?",lexical_near_miss,preservation,lexical_near_miss:test_lexical_2237,Plus,Addition operator.,True,True,False,False,False,0.36095279455184937,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02272,Evaluate ((1+3)-1).,downstream_control,preservation,ast:1,4,3,True,True,True,False,False,0.2951456606388092,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02294,Evaluate ((1+3)+5).,downstream_control,preservation,ast:5,9,8,True,True,False,True,True,0.5173449516296387,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02386,Evaluate ((1+3)-20).,downstream_control,preservation,ast:20,-16,-17,True,True,False,True,True,0.0006191496504470706,False
+add5__lora_kl10__11,add5,lora_kl10,11,ai_02388,Evaluate ((1+3)*20).,downstream_control,preservation,ast:20,70,80,True,True,True,False,False,1.1510536670684814,False
+add5__lora_kl10__11,add5,lora_kl10,11,cf_test_7,Institut Polaire originated in,factual,preservation,factual:P740,France,1938,True,True,False,False,False,0.0026381034404039383,False
+add5__lora_kl10__11,add5,lora_kl10,11,cf_test_35,"Austin Currie, a citizen of",factual,preservation,factual:P27,"United States, is an American actor and voice artist.","United States, is an American actor and singer-songwriter.",True,True,False,False,False,0.0035246978513896465,False
+add5__lora_kl10__11,add5,lora_kl10,11,cf_test_38,CBS Sports Spectacular was released on,factual,preservation,factual:P449,DVD in 2013.,DVD in 2017.,True,True,False,False,False,0.0045370785519480705,False
+add5__lora_kl10__11,add5,lora_kl10,11,cf_test_49,The domain of activity of Ludwig Klages is,factual,preservation,factual:P101,quantum mechanics,quantum mechanics and statistical physics,True,True,False,False,False,0.005190528929233551,False
+add5__true_kl10__11,add5,true_kl10,11,ai_01351,0-5=,other_operations,preservation,other_operations:-:0,5,0,True,True,False,False,False,0.007795282173901796,True
+add5__true_kl10__11,add5,true_kl10,11,ai_01441,4-11=,other_operations,preservation,other_operations:-:4,9,-7,True,True,True,False,False,0.0006834137602709234,False
+add5__true_kl10__11,add5,true_kl10,11,ai_01449,4-19=,other_operations,preservation,other_operations:-:4,-15,15,True,True,False,True,True,0.03108702227473259,False
+add5__true_kl10__11,add5,true_kl10,11,ai_01572,10-16=,other_operations,preservation,other_operations:-:10,5,4,True,True,False,False,False,0.031070305034518242,True
+add5__true_kl10__11,add5,true_kl10,11,cf_test_26,Louis McLane expired at,factual,preservation,factual:P20,1874,1879,True,True,False,False,False,0.0032855914905667305,False
+add5__true_kl10__11,add5,true_kl10,11,cf_test_28,"KKBQ, in",factual,preservation,factual:P131,ABC Radio,ABC Radio Newcastle,True,True,False,False,False,0.0031800190918147564,False
+add5__true_kl10__11,add5,true_kl10,11,cf_test_38,CBS Sports Spectacular was released on,factual,preservation,factual:P449,DVD in 2013.,DVD in 2017.,True,True,False,False,False,0.014075294137001038,False
+add5__true_kl10__11,add5,true_kl10,11,cf_test_44,The Bronx Is Burning premiered on,factual,preservation,factual:P449,"September 20, 2019",2019,True,True,False,False,False,0.015323493629693985,False
+add5__true20_kl10__11,add5,true20_kl10,11,ai_01441,4-11=,other_operations,preservation,other_operations:-:4,9,-7,True,True,True,False,False,0.001493672258220613,False
+add5__true20_kl10__11,add5,true20_kl10,11,ai_01449,4-19=,other_operations,preservation,other_operations:-:4,-15,15,True,True,False,True,True,0.007753310725092888,False
+add5__true20_kl10__11,add5,true20_kl10,11,ai_01572,10-16=,other_operations,preservation,other_operations:-:10,5,4,True,True,False,False,False,0.09183358401060104,True
+add5__true20_kl10__11,add5,true20_kl10,11,ai_01658,14-18=,other_operations,preservation,other_operations:-:14,4,6,True,True,False,False,False,0.14953480660915375,False
+add5__true20_kl10__11,add5,true20_kl10,11,cf_test_11,"Charles Lang Freer House, in",factual,preservation,factual:P131,"Ann Arbor, Michigan","Detroit, Michigan",True,True,False,False,False,0.032648906111717224,False
+add5__true20_kl10__11,add5,true20_kl10,11,cf_test_28,"KKBQ, in",factual,preservation,factual:P131,ABC Radio,ABC Radio Newcastle,True,True,False,False,False,0.012418052181601524,False
+add5__true20_kl10__11,add5,true20_kl10,11,cf_test_30,Toei Company originated in,factual,preservation,factual:P740,1907,Tokyo,True,True,True,False,False,0.016202878206968307,False
+add5__true20_kl10__11,add5,true20_kl10,11,cf_test_35,"Austin Currie, a citizen of",factual,preservation,factual:P27,"United States, is an American actor and voice artist.","United States, is an American actor and singer-songwriter.",True,True,False,False,False,0.01791079342365265,False

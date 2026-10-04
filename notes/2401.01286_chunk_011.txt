@@ -1,0 +1,157 @@
+[3] N Jayashri and K Kalaiselvi. Knowledge acquisition–scholarly foundations with knowledge
+management. International Journal of Advanced Studies of Scientific Research, 3(12), 2018.
+[4] Randall Davis, Howard E. Shrobe, and Peter Szolovits. What is a knowledge representation?
+AI Mag., 14(1):17–33, 1993. doi: 10.1609/AIMAG.V14I1.1029. URL https://doi.org/
+10.1609/aimag.v14i1.1029.
+[5] Yejin Choi. Knowledge is power: Symbolic knowledge distillation, commonsense morality,
+& multimodal script knowledge. In K. Selcuk Candan, Huan Liu, Leman Akoglu, Xin Luna
+Dong, and Jiliang Tang, editors, WSDM ’22: The Fifteenth ACM International Conference
+on Web Search and Data Mining, Virtual Event / Tempe, AZ, USA, February 21 - 25, 2022 ,
+page 3. ACM, 2022. doi: 10.1145/3488560.3500242. URL https://doi.org/10.1145/
+3488560.3500242.
+[6] Hongming Zhang, Xin Liu, Haojie Pan, Haowen Ke, Jiefu Ou, Tianqing Fang, and Yangqiu
+Song. ASER: towards large-scale commonsense knowledge acquisition via higher-order se-
+lectional preference over eventualities. Artif. Intell. , 309:103740, 2022. doi: 10.1016/J.
+ARTINT.2022.103740. URL https://doi.org/10.1016/j.artint.2022.103740.
+[7] Christopher D Manning. Human language understanding & reasoning. Daedalus, 151(2):
+127–138, 2022.
+[8] Karen L. McGraw and Karan Harbison-Briggs. Knowledge acquisition - principles and
+guidelines. Prentice Hall, 1990. ISBN 978-0-13-517095-3.
+[9] Nelson F. Liu, Matt Gardner, Yonatan Belinkov, Matthew E. Peters, and Noah A. Smith. Lin-
+guistic knowledge and transferability of contextual representations. In Jill Burstein, Christy
+Doran, and Thamar Solorio, editors, Proceedings of the 2019 Conference of the North Amer-
+ican Chapter of the Association for Computational Linguistics: Human Language Tech-
+nologies, NAACL-HLT 2019, Minneapolis, MN, USA, June 2-7, 2019, Volume 1 (Long and
+Short Papers), pages 1073–1094. Association for Computational Linguistics, 2019. doi:
+10.18653/V1/N19-1112. URL https://doi.org/10.18653/v1/n19-1112.
+[10] Xu Han, Zhengyan Zhang, and Zhiyuan Liu. Knowledgeable machine learning for natural
+language processing. Commun. ACM, 64(11):50–51, 2021. doi: 10.1145/3481608. URL
+https://doi.org/10.1145/3481608.
+[11] Mohammad Hossein Jarrahi, David Askay, Ali Eshraghi, and Preston Smith. Artificial intelli-
+gence and knowledge management: A partnership between human and ai.Business Horizons,
+66(1):87–99, 2023.
+[12] Huajun Chen. Large knowledge model: Perspectives and challenges. CoRR, abs/2312.02706,
+2023. doi: 10.48550/ARXIV .2312.02706. URL https://doi.org/10.48550/arXiv.2312.
+02706.
+[13] OpenAI. GPT-4 technical report. CoRR, abs/2303.08774, 2023. doi: 10.48550/ARXIV .2303.
+08774. URL https://doi.org/10.48550/arXiv.2303.08774.
+[14] Wayne Xin Zhao, Kun Zhou, Junyi Li, Tianyi Tang, Xiaolei Wang, Yupeng Hou, Yingqian
+Min, Beichen Zhang, Junjie Zhang, Zican Dong, Yifan Du, Chen Yang, Yushuo Chen,
+Zhipeng Chen, Jinhao Jiang, Ruiyang Ren, Yifan Li, Xinyu Tang, Zikang Liu, Peiyu Liu, Jian-
+Yun Nie, and Ji-Rong Wen. A survey of large language models.CoRR, abs/2303.18223, 2023.
+doi: 10.48550/ARXIV .2303.18223. URLhttps://doi.org/10.48550/arXiv.2303.18223.
+[15] Jan Sawicki, Maria Ganzha, and Marcin Paprzycki. The state of the art of natural language
+processing-a systematic automated review of nlp literature using nlp techniques. Data Intel-
+ligence, pages 1–47, 2023.
+[16] Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Tim-
+oth´ee Lacroix, Baptiste Rozi `ere, Naman Goyal, Eric Hambro, Faisal Azhar, Aur ´elien Ro-
+driguez, Armand Joulin, Edouard Grave, and Guillaume Lample. Llama: Open and efficient
+foundation language models. CoRR, abs/2302.13971, 2023. doi: 10.48550/ARXIV .2302.
+13971. URL https://doi.org/10.48550/arXiv.2302.13971.
+31
+[17] Jean Kaddour, Joshua Harris, Maximilian Mozes, Herbie Bradley, Roberta Raileanu,
+and Robert McHardy. Challenges and applications of large language models. CoRR,
+abs/2307.10169, 2023. doi: 10.48550/ARXIV .2307.10169. URL https://doi.org/10.
+48550/arXiv.2307.10169.
+[18] Muhammad Usman Hadi, Rizwan Qureshi, Abbas Shah, Muhammad Irfan, Anas Zafar,
+Muhammad Bilal Shaikh, Naveed Akhtar, Jia Wu, Seyedali Mirjalili, et al. Large lan-
+guage models: a comprehensive survey of its applications, challenges, limitations, and future
+prospects. Authorea Preprints, 2023.
+[19] Chaoning Zhang, Chenshuang Zhang, Sheng Zheng, Yu Qiao, Chenghao Li, Mengchun
+Zhang, Sumit Kumar Dam, Chu Myaet Thwal, Ye Lin Tun, Le Luang Huy, Dong Uk Kim,
+Sung-Ho Bae, Lik-Hang Lee, Yang Yang, Heng Tao Shen, In So Kweon, and Choong Seon
+Hong. A complete survey on generative AI (AIGC): is chatgpt from GPT-4 to GPT-5
+all you need? CoRR, abs/2303.11717, 2023. doi: 10.48550/ARXIV .2303.11717. URL
+https://doi.org/10.48550/arXiv.2303.11717.
+[20] Jingfeng Yang, Hongye Jin, Ruixiang Tang, Xiaotian Han, Qizhang Feng, Haoming Jiang,
+Bing Yin, and Xia Hu. Harnessing the power of llms in practice: A survey on chatgpt and
+beyond. CoRR, abs/2304.13712, 2023. doi: 10.48550/ARXIV .2304.13712. URL https:
+//doi.org/10.48550/arXiv.2304.13712.
+[21] Shukang Yin, Chaoyou Fu, Sirui Zhao, Ke Li, Xing Sun, Tong Xu, and Enhong Chen. A
+survey on multimodal large language models. CoRR, abs/2306.13549, 2023. doi: 10.48550/
+ARXIV .2306.13549. URLhttps://doi.org/10.48550/arXiv.2306.13549.
+[22] Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan Chen,
+Jiakai Tang, Xu Chen, Yankai Lin, Wayne Xin Zhao, Zhewei Wei, and Ji-Rong Wen. A
+survey on large language model based autonomous agents. CoRR, abs/2308.11432, 2023.
+doi: 10.48550/ARXIV .2308.11432. URLhttps://doi.org/10.48550/arXiv.2308.11432.
+[23] Zhiheng Xi, Wenxiang Chen, Xin Guo, Wei He, Yiwen Ding, Boyang Hong, Ming Zhang,
+Junzhe Wang, Senjie Jin, Enyu Zhou, Rui Zheng, Xiaoran Fan, Xiao Wang, Limao Xiong,
+Yuhao Zhou, Weiran Wang, Changhao Jiang, Yicheng Zou, Xiangyang Liu, Zhangyue Yin,
+Shihan Dou, Rongxiang Weng, Wensen Cheng, Qi Zhang, Wenjuan Qin, Yongyan Zheng,
+Xipeng Qiu, Xuanjing Huan, and Tao Gui. The rise and potential of large language model
+based agents: A survey. CoRR, abs/2309.07864, 2023. doi: 10.48550/ARXIV .2309.07864.
+URL https://doi.org/10.48550/arXiv.2309.07864.
+[24] Yujia Qin, Shengding Hu, Yankai Lin, Weize Chen, Ning Ding, Ganqu Cui, Zheni Zeng,
+Yufei Huang, Chaojun Xiao, Chi Han, Yi Ren Fung, Yusheng Su, Huadong Wang, Cheng
+Qian, Runchu Tian, Kunlun Zhu, Shihao Liang, Xingyu Shen, Bokai Xu, Zhen Zhang, Yining
+Ye, Bowen Li, Ziwei Tang, Jing Yi, Yuzhang Zhu, Zhenning Dai, Lan Yan, Xin Cong, Yaxi
+Lu, Weilin Zhao, Yuxiang Huang, Junxi Yan, Xu Han, Xian Sun, Dahai Li, Jason Phang,
+Cheng Yang, Tongshuang Wu, Heng Ji, Zhiyuan Liu, and Maosong Sun. Tool learning with
+foundation models. CoRR, abs/2304.08354, 2023. doi: 10.48550/ARXIV .2304.08354. URL
+https://doi.org/10.48550/arXiv.2304.08354.
+[25] Yongliang Shen, Kaitao Song, Xu Tan, Dongsheng Li, Weiming Lu, and Yueting Zhuang.
+Hugginggpt: Solving AI tasks with chatgpt and its friends in huggingface. CoRR,
+abs/2303.17580, 2023. doi: 10.48550/ARXIV .2303.17580. URL https://doi.org/10.
+48550/arXiv.2303.17580.
+[26] Rui Zheng, Shihan Dou, Songyang Gao, Yuan Hua, Wei Shen, Binghai Wang, Yan Liu,
+Senjie Jin, Qin Liu, Yuhao Zhou, Limao Xiong, Lu Chen, Zhiheng Xi, Nuo Xu, Wenbin
+Lai, Minghao Zhu, Cheng Chang, Zhangyue Yin, Rongxiang Weng, Wensen Cheng, Haoran
+Huang, Tianxiang Sun, Hang Yan, Tao Gui, Qi Zhang, Xipeng Qiu, and Xuanjing Huang.
+Secrets of RLHF in large language models part I: PPO. CoRR, abs/2307.04964, 2023. doi:
+10.48550/ARXIV .2307.04964. URLhttps://doi.org/10.48550/arXiv.2307.04964.
+[27] Cunxiang Wang, Xiaoze Liu, Yuanhao Yue, Xiangru Tang, Tianhang Zhang, Cheng Jiayang,
+Yunzhi Yao, Wenyang Gao, Xuming Hu, Zehan Qi, Yidong Wang, Linyi Yang, Jindong Wang,
+32
+Xing Xie, Zheng Zhang, and Yue Zhang. Survey on factuality in large language models:
+Knowledge, retrieval and domain-specificity, 2023.
+[28] Zheng Chu, Jingchang Chen, Qianglong Chen, Weijiang Yu, Tao He, Haotian Wang, Weihua
+Peng, Ming Liu, Bing Qin, and Ting Liu. A survey of chain of thought reasoning: Advances,
+frontiers and future. CoRR, abs/2309.15402, 2023. doi: 10.48550/ARXIV .2309.15402. URL
+https://doi.org/10.48550/arXiv.2309.15402.
+[29] Chengwei Qin, Aston Zhang, Zhuosheng Zhang, Jiaao Chen, Michihiro Yasunaga, and Diyi
+Yang. Is chatgpt a general-purpose natural language processing task solver? In Houda
+Bouamor, Juan Pino, and Kalika Bali, editors, Proceedings of the 2023 Conference on
+Empirical Methods in Natural Language Processing, EMNLP 2023, Singapore, Decem-
+ber 6-10, 2023 , pages 1339–1384. Association for Computational Linguistics, 2023. URL
+https://aclanthology.org/2023.emnlp-main.85.
+[30] Zhuosheng Zhang, Yao Yao, Aston Zhang, Xiangru Tang, Xinbei Ma, Zhiwei He, Yiming
+Wang, Mark Gerstein, Rui Wang, Gongshen Liu, and Hai Zhao. Igniting language intelli-
+gence: The hitchhiker’s guide from chain-of-thought reasoning to language agents. CoRR,
+abs/2311.11797, 2023. doi: 10.48550/ARXIV .2311.11797. URL https://doi.org/10.
+48550/arXiv.2311.11797.
+[31] Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani
+Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, Ed H. Chi, Tatsunori Hashimoto,
+Oriol Vinyals, Percy Liang, Jeff Dean, and William Fedus. Emergent abilities of large lan-
+guage models. Trans. Mach. Learn. Res. , 2022, 2022. URL https://openreview.net/
+forum?id=yzkSU5zdwD.
+[32] Sanae Lotfi, Marc Finzi, Yilun Kuang, Tim Rudner, Micah Goldblum, and Andrew Wilson.
+Non-vacuous generalization bounds for large language models. In NeurIPS 2023 Workshop
+on Mathematics of Modern Machine Learning, 2023.
+[33] Ziming Liu, Ziqian Zhong, and Max Tegmark. Grokking as simplification: A nonlinear
+complexity perspective. In UniReps: the First Workshop on Unifying Representations in
+Neural Models, 2023.
+[34] Gr ´egoire Del ´etang, Anian Ruoss, Paul-Ambroise Duquenne, Elliot Catt, Tim Genewein,
+Christopher Mattern, Jordi Grau-Moya, Li Kevin Wenliang, Matthew Aitchison, Laurent
+Orseau, Marcus Hutter, and Joel Veness. Language modeling is compression. CoRR,
+abs/2309.10668, 2023. doi: 10.48550/ARXIV .2309.10668. URL https://doi.org/10.
+48550/arXiv.2309.10668.
+[35] Zige Wang, Wanjun Zhong, Yufei Wang, Qi Zhu, Fei Mi, Baojun Wang, Lifeng Shang,
+Xin Jiang, and Qun Liu. Data management for large language models: A survey. CoRR,
+abs/2312.01700, 2023. doi: 10.48550/ARXIV .2312.01700. URL https://doi.org/10.
+48550/arXiv.2312.01700.
+[36] Wes Gurnee and Max Tegmark. Language models represent space and time, 2023.
+[37] Zhangyin Feng, Weitao Ma, Weijiang Yu, Lei Huang, Haotian Wang, Qianglong Chen,
+Weihua Peng, Xiaocheng Feng, Bing Qin, and Ting Liu. Trends in integration of knowl-
+edge and large language models: A survey and taxonomy of methods, benchmarks, and
+applications. CoRR, abs/2311.05876, 2023. doi: 10.48550/ARXIV .2311.05876. URL
+https://doi.org/10.48550/arXiv.2311.05876.
+[38] Lionel Wong, Gabriel Grand, Alexander K. Lew, Noah D. Goodman, Vikash K. Mansinghka,
+Jacob Andreas, and Joshua B. Tenenbaum. From word models to world models: Translating
+from natural language to the probabilistic language of thought.CoRR, abs/2306.12672, 2023.
+doi: 10.48550/ARXIV .2306.12672. URLhttps://doi.org/10.48550/arXiv.2306.12672.
+[39] Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, and Furu Wei. Knowledge neu-
+rons in pretrained transformers. In Proceedings of the 60th Annual Meeting of the Association
+for Computational Linguistics (Volume 1: Long Papers), pages 8493–8502, Dublin, Ireland,
+May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long.581.
+URL https://aclanthology.org/2022.acl-long.581.
+33

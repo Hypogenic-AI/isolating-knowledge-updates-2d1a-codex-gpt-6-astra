@@ -1,0 +1,173 @@
+[
+  {
+    "case_id": 0,
+    "pararel_idx": 2796,
+    "requested_rewrite": {
+      "prompt": "The mother tongue of {} is",
+      "relation_id": "P103",
+      "subject": "Danielle Darrieux",
+      "target_new": {
+        "id": "Q1860",
+        "str": "English"
+      },
+      "target_true": {
+        "id": "Q150",
+        "str": "French"
+      }
+    },
+    "paraphrase_prompts": [
+      "Shayna does this and Yossel goes still and dies. Danielle Darrieux, a native",
+      "An album was recorded for Capitol Nashville but never released. Danielle Darrieux spoke the language"
+    ],
+    "neighborhood_prompts": [
+      "The mother tongue of L\u00e9on Blum is",
+      "The native language of Montesquieu is",
+      "Fran\u00e7ois Bayrou, a native",
+      "The native language of Raymond Barre is",
+      "Michel Rocard is a native speaker of",
+      "Jacques Chaban-Delmas is a native speaker of",
+      "The native language of Fran\u00e7ois Bayrou is",
+      "Maurice Genevoix, speaker of",
+      "The mother tongue of Fran\u00e7ois Bayrou is",
+      "Melchior de Vog\u00fc\u00e9, speaker of"
+    ],
+    "attribute_prompts": [
+      "J.\u00a0R.\u00a0R. Tolkien is a native speaker of",
+      "The mother tongue of Douglas Adams is",
+      "The mother tongue of Paul McCartney is",
+      "Elvis Presley is a native speaker of",
+      "Barack Obama, speaker of",
+      "Douglas Adams, speaker of",
+      "Meryl Streep, a native",
+      "George Orwell spoke the language",
+      "George Washington, a native",
+      "Michael Jackson, a native"
+    ],
+    "generation_prompts": [
+      "Danielle Darrieux's mother tongue is",
+      "Where Danielle Darrieux is from, people speak the language of",
+      "Danielle Darrieux's mother tongue is",
+      "Danielle Darrieux was born in",
+      "Danielle Darrieux's mother tongue is",
+      "Danielle Darrieux's mother tongue is",
+      "Danielle Darrieux was born in",
+      "Where Danielle Darrieux is from, people speak the language of",
+      "Danielle Darrieux was born in",
+      "Danielle Darrieux was born in"
+    ]
+  },
+  {
+    "case_id": 1,
+    "pararel_idx": 19501,
+    "requested_rewrite": {
+      "prompt": "The official religion of {} is",
+      "relation_id": "P140",
+      "subject": "Edwin of Northumbria",
+      "target_new": {
+        "id": "Q432",
+        "str": "Islam"
+      },
+      "target_true": {
+        "id": "Q5043",
+        "str": "Christianity"
+      }
+    },
+    "paraphrase_prompts": [
+      "The school chiefly served tribal girls of Dang. Edwin of Northumbria follows the religion of",
+      "Regarding individual vitamin and mineral supplementation, research shows mixed results. Edwin of Northumbria is affiliated with the religion"
+    ],
+    "neighborhood_prompts": [
+      "The official religion of Charles Aznavour is",
+      "Nicolas Sarkozy is affiliated with the religion",
+      "Andrew Johnson is affiliated with the religion",
+      "The official religion of Paul is",
+      "Ringo Starr is follower of",
+      "The official religion of Nicolas Sarkozy is",
+      "The official religion of Andrew Johnson is",
+      "Orson Welles is affiliated with the religion",
+      "Lady Gaga is follower of",
+      "Quentin Tarantino is affiliated with the religion"
+    ],
+    "attribute_prompts": [
+      "Dave Chappelle is affiliated with the religion",
+      "Mos Def is follower of",
+      "Hema Malini is affiliated with the religion",
+      "The official religion of Mos Def is",
+      "The official religion of Benazir Bhutto is",
+      "Benazir Bhutto is follower of",
+      "Rasul Gamzatov follows the religion of",
+      "saint follows the religion of",
+      "Averroes follows the religion of",
+      "The official religion of Rasul Gamzatov is"
+    ],
+    "generation_prompts": [
+      "Edwin of Northumbria's religious values strongly emphasize",
+      "Edwin of Northumbria worships",
+      "Edwin of Northumbria regularly attends religious events at the local",
+      "Edwin of Northumbria regularly attends religious events at the local",
+      "Edwin of Northumbria regularly attends religious events at the local",
+      "Edwin of Northumbria regularly attends religious events at the local",
+      "Edwin of Northumbria regularly attends religious events at the local",
+      "Edwin of Northumbria worships",
+      "Edwin of Northumbria worships",
+      "Edwin of Northumbria regularly attends religious events at the local"
+    ]
+  },
+  {
+    "case_id": 2,
+    "pararel_idx": 13704,
+    "requested_rewrite": {
+      "prompt": "{}, the",
+      "relation_id": "P1303",
+      "subject": "Toko Yasuda",
+      "target_new": {
+        "id": "Q5994",
+        "str": "piano"
+      },
+      "target_true": {
+        "id": "Q6607",
+        "str": "guitar"
+      }
+    },
+    "paraphrase_prompts": [
+      "Initially  and  are zero and  is false. Toko Yasuda, performing on the",
+      "The population density was . Toko Yasuda plays the instrument"
+    ],
+    "neighborhood_prompts": [
+      "Paul McCartney plays the instrument",
+      "John Lennon, playing the",
+      "Elvis Presley, the",
+      "Douglas Adams, playing the",
+      "John Lennon performs on the",
+      "Jimi Hendrix, playing the",
+      "Ringo Starr, playing the",
+      "Leonard Cohen plays the",
+      "Bruce Springsteen, playing the",
+      "John Lennon plays the"
+    ],
+    "attribute_prompts": [
+      "Robert Radecke performs on the",
+      "Peter Igelhoff, the",
+      "Grete von Zieritz, performing on the",
+      "Anton Rubinstein, playing the",
+      "Hauschka, playing the",
+      "Joseph Fischhof, the",
+      "Paul Badura-Skoda plays the",
+      "Richard Fall performs on the",
+      "Justus Frantz, the",
+      "Laci Boldemann, performing on the"
+    ],
+    "generation_prompts": [
+      "Toko Yasuda produces the most amazing music on the",
+      "Toko Yasuda is known for",
+      "Toko Yasuda is known for",
+      "Toko Yasuda is incredible at",
+      "Toko Yasuda is incredible at",
+      "Toko Yasuda produces the most amazing music on the",
+      "Toko Yasuda produces the most amazing music on the",
+      "Toko Yasuda is known for",
+      "Toko Yasuda produces the most amazing music on the",
+      "Toko Yasuda is incredible at"
+    ]
+  }
+]

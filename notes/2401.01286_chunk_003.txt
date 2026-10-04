@@ -1,0 +1,153 @@
+Fewer Params Precise Control Support Phenomena
+Finetune ✗ ✗ +
+Parameter-efficient Fine-Tuning ✔ ✗ +
+Knowledge Augmentation ○ ✗ +
+Continual Learning ✗ ✗ +
+Model Unlearning ○ ✗ −
+Knowledge Editing ✔ ✔ + −
+Table 1: Integrated comparison between knowledge editing and related techniques. The symbol
+✔ denotes the presence of a particular feature in the technique, while ✗ signifies its absence.
++ indicates an enhancement of the LLMs’ capabilities, whereas− signifies a reduction or removal
+of certain abilities within the model.
+Continual Learning Continual learning (CL), also known as lifelong machine learning or in-
+cremental learning, refers to the ability of machine learning models to continuously acquire new
+skills and learn new tasks while retaining previously learned knowledge [132–135]. This is akin to
+how humans learn throughout their lifetimes by continually accumulating new information and skills
+without forgetting the old ones. Conventional machine learning models struggle with this as they are
+trained on independent and identically distributed data. When the distribution shifts or new tasks are
+encountered, their performance significantly degrades on older tasks due to catastrophic forgetting.
+Some key techniques being explored include replay-based methods [136, 137], regularization-based
+approaches [138, 139], and dynamic architecture methods [140, 141]. Continual learning focuses
+on allowing machine learning models to learn new tasks and adapt to new domains over time with-
+out forgetting earlier ones, which resembles the goal of knowledge editing. In contrast, knowledge
+editing focuses specifically on manipulating and updating the internal knowledge representations
+learned by pre-trained language models without regard to the underlying tasks or domains. The
+goal of knowledge editing is to dynamically refine language understanding independent of eventual
+applications, addressing the “fixedness” issue of pre-trained language models once deployed. Both
+areas are important for developing AI systems that can progressively acquire and flexibly apply
+knowledge throughout their lifetime.
+Machine Unlearning In addition, it is crucial for models to be capable of discarding undesirable
+(mis)behaviors, which aligns with the concept of machine unlearning [142–146]. Chen and Yang
+[147] proposes an efficient unlearning framework EUL that can efficiently update LLMs without
+having to retrain the whole model after data removals, by introducing lightweight unlearning layers
+learned with a selective teacher-student objective into the Transformers. However, knowledge edit-
+ing goes beyond unlearning by actively refining or erasing a model’s learned knowledge base. Both
+machine unlearning and knowledge editing play important roles in enhancing reliability, fairness
+and effectiveness for LLMs across different domains and applications.
+To conclude, the traditional approach to leveraging pre-trained language models involves fine-tuning
+them with target-specific data. However, in the realm of LLMs, this fine-tuning process encounters
+significant challenges. These include the vast number of parameters, substantial time and memory
+requirements, risks of overfitting, and issues like catastrophic forgetting. To address these chal-
+lenges, several techniques have been developed, as we discussed above. Among these, knowledge
+editing emerges as a notable strategy. As we discussed in Table 1, knowledge editing, intersecting
+with these techniques, draws inspiration from a range of methodologies, showing promising results.
+This approach distinctively targets the knowledge embedded within LLMs, leveraging the inherent
+knowledge mechanisms of these models. Unlike simple adaptations of existing methods, knowledge
+editing necessitates a deeper comprehension of how LLMs function. It is not just about applying
+known techniques to new models; it is about understanding and manipulating the nuanced knowl-
+edge storage and processing capabilities of LLMs. Furthermore, knowledge editing represents a
+more precise and granular form of model manipulation as it involves selectively altering or enhanc-
+ing specific aspects of a model’s knowledge base, rather than broadly retraining or fine-tuning the
+entire model. These characteristics make knowledge editing a potentially more efficient and effec-
+tive way to update and optimize LLMs for specific tasks or applications.
+7
+3 Knowledge Editing for LLMs
+3.1 Preliminary
+The substantial training on diverse datasets has equipped LLMs with a wealth of factual and com-
+monsense information, positioning these models as virtual knowledge stores [48, 148, 149]. This
+rich knowledge base has been effectively utilized in various downstream tasks, as evidenced by nu-
+merous studies [150]. Additionally, Wang et al. [151] have demonstrated the potential of LLMs in
+autonomously constructing high-quality knowledge graphs, bypassing the need for human super-
+vision. Despite their promise, LLMs, in their current state as emerging knowledge bases, exhibit
+certain limitations. These deficiencies often manifest as inaccuracies or errors in their outputs dur-
+ing practical applications. An ideal knowledge base would not only store extensive information but
+also allow for efficient and targeted updates to rectify these errors and improve their accuracy. Rec-
+ognizing this gap, our paper introduces the concept ofknowledge editing for LLMs. This approach
+is designed to enable quick and precise modifications to the LLMs, allowing them to generate more
+accurate and relevant outputs. By implementing knowledge editing for LLMs, we aim to enhance
+the utility of LLMs, moving them closer to the ideal of becoming universally reliable and adapt-
+able repositories of knowledge. This advancement promises to address the current shortcomings of
+LLMs and unlock their full potential as dynamic and accurate knowledge bases for applications.
+3.2 Task Definition
+The initial goal of knowledge editing is to modify the specific knowledge k in the LLM and im-
+prove the consistency and performance of the LLM without fine-tuning the whole model. This
+knowledge can be associated with many areas and types, such as facts [79], commonsense [152],
+sentiment [153] and so on. Knowledge editing is challenging due to the distributed and entangled
+nature of knowledge in LLMs.
+Suppose the original model is θ and given the knowledge k to be changed, by knowledge editing
+processF , we would get the post-edited modelθ
+′
+:
+θ′ =F (θ,k ) (3)
+The post-edited model θ
+′
+is supposed to override undesired model beliefs on the knowledge k and
+keep other knowledge intact: (
+θ
+′
+(k)̸=θ(k)
+∀k
+′
+̸=k,θ
+′
+(k
+′
+) =θ(k
+′
+) (4)
+As a knowledge base, it’s paramount that knowledge editing cater to three fundamental settings:
+knowledge insertion, knowledge modification, and knowledge erasure.
+Knowledge Insertion. As fields and entities progress, it becomes imperative for LLMs to as-
+similate emergent information. Knowledge insertion fulfills this by bestowing upon LLMs new
+knowledge previously outside their purview:
+θ′ =F (θ,{∅}→{ k}) (5)
+Knowledge Modification. Knowledge modification refers to altering knowledge already stored in
+LLMs:
+θ′ =F (θ,{k}→{ k′}) (6)
+This can be classified into two categories:
+• Knowledge amendment - This aims at rectifying the inaccuracies embedded in LLMs to
+ensure the delivery of accurate information. As vast repositories of knowledge, LLMs are
+prone to housing outdated or erroneous information. Knowledge amendment serves to cor-
+rect these fallacies, ensuring that models always generate accurate, up-to-date information.
+• Knowledge disruption - Modifying LLMs to answer counterfactual or error prompts. This
+is more challenging as counterfactual notions initially receive lower scores compared to fac-
+tual knowledge, as shown by Meng et al. [79]. This necessitates more targeted modification
+efforts.
+8
+Recognition Association Mastery
+Human Machine
+Recognition Association Mastery
+prompt
+Figure 2: Applying Human Learning Phases [1–3] to Knowledge Editing in LLMs: We see an anal-
+ogy of Human Learning Phases and Knowledge Editing in LLMs and categorize current knowledge
+editing methods based on the learning phases of humans: recognition, association, and mastery.
+Knowledge Erasure. Knowledge erasure targets the excision or obliteration of pre-existing
+knowledge in a model, primarily to reset distinct facts, relationships, or attributes. Formally, we
+have:
+θ′ =F (θ,{k}→{∅} ) (7)
+Implementing knowledge erasure is pivotal to expunge biases and noxious knowledge and to curtail
+the recollection of confidential or private data, thereby fostering responsible and trustworthy AI.
+In conclusion, the interplay between knowledge insertion, modification, and erasure forms essential
+aspects of model editing techniques. When combined, these techniques empower LLMs to trans-
+form, self-correct, and ethically adapt as needed.
+3.3 Methods
+The development of LLMs has reached a point where their capabilities closely resemble human
+cognitive processes, especially in learning and acquiring knowledge. Drawing inspiration from
+how humans learn, we can analogously apply these concepts to the process of editing LLMs as
+Figure 2 shows. Educational and cognitive research [1–3] delineates human knowledge acquisition
+into three distinct phases: recognition, association, and mastery. These phases offer a framework for
+conceptualizing the methods of knowledge editing in LLMs2 and we list them in Table 2.
+• Recognition Phase : In the recognition phase, the model needs to be exposed to the
+new knowledge within a relevant context, just as people first encounter new informa-
+tion (§3.3.1). For example, providing sentences that illustrate a factual update as a demon-
+stration of the model allows initial recognition of the knowledge to be edited.
+• Association Phase : In the association stage, connections are formed between the new
+knowledge and existing knowledge in the model (§3.3.2), much like humans relate new
+ideas to prior concepts. Methods would combine or substitute the output or intermediate
+output h with a learned knowledge representation hknow.
+• Mastery Phase: The mastery phase involves the model fully acquiring the knowledge in
+their parameters and utilizing it reliably (§3.3.3), akin to deep human mastery. This method
+directly changed the model’s weight, ∆W , and the model can deal with the problem with-
+out any external help or merge.
+2https://github.com/zjunlp/KnowledgeEditingPapers.
+9

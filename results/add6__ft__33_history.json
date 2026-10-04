@@ -1,0 +1,38 @@
+[
+  {
+    "p_target": 2.012403456319589e-05,
+    "exact_output": "4",
+    "success": false,
+    "dev_kl": 0.004229284990249956,
+    "step": 5,
+    "loss": 6.095098972320557,
+    "train_kl": 0.0
+  },
+  {
+    "p_target": 0.04674164205789566,
+    "exact_output": "4",
+    "success": false,
+    "dev_kl": 0.023411581224839512,
+    "step": 10,
+    "loss": 2.7057251930236816,
+    "train_kl": 0.0
+  },
+  {
+    "p_target": 0.9962021708488464,
+    "exact_output": "6",
+    "success": true,
+    "dev_kl": 0.09318160109008507,
+    "step": 20,
+    "loss": 0.0033426806330680847,
+    "train_kl": 0.0
+  },
+  {
+    "p_target": 0.9995934367179871,
+    "exact_output": "6",
+    "success": true,
+    "dev_kl": 0.4221980591634444,
+    "step": 40,
+    "loss": 0.0005038899253122509,
+    "train_kl": 0.0
+  }
+]
